@@ -375,15 +375,90 @@ parent_topics:
     display_name: "Application Status and Management"
     description: >
       Post-submission questions about an existing birth registration
-      application, including status tracking, delays and obtaining a
+      application, including status checking, unusually delayed
+      applications, expected processing duration and obtaining a
       printable copy of a submitted application.
+
+    default_evidence_status: "official_service_supported"
+
     covers:
       - "Application Status"
-      - "Application Delay"
       - "Application Tracking"
+      - "Application Delay"
+      - "Application Processing Time"
       - "Submitted Application Print"
 
-    query_topics: {}
+    query_topics:
+
+      BR_APPLICATION_STATUS:
+        display_name: "Birth Registration Application Status"
+        description: >
+          Questions about checking or understanding the current state,
+          progress or approval status of an already submitted birth
+          registration application.
+        includes:
+          - "How can I check my birth registration application status?"
+          - "Is my birth registration application approved?"
+          - "Where can I track my application?"
+          - "What is the current status of my application?"
+          - "Can I check my birth registration status online?"
+          - "Is my application still pending?"
+        excludes:
+          - "Questions asking only about normal expected processing time"
+          - "Applications explicitly described as unusually delayed"
+          - "Printing the submitted application"
+          - "Checking whether an already completed birth record exists"
+
+      BR_APPLICATION_DELAY:
+        display_name: "Birth Registration Application Delay"
+        description: >
+          Questions where an already submitted birth registration
+          application appears to have remained pending, incomplete or
+          unresolved longer than the citizen expected.
+        evidence_status: "needs_query_pilot"
+        includes:
+          - "My birth registration application has been pending for a long time"
+          - "Why is my birth registration application delayed?"
+          - "I applied a long time ago but there is still no update"
+          - "My application is stuck in pending"
+          - "What should I do if my application is taking too long?"
+          - "Who should I contact about a delayed application?"
+        excludes:
+          - "Ordinary status checking without an expressed delay"
+          - "General questions about expected processing duration"
+          - "Delay in receiving a reprinted certificate"
+
+      BR_APPLICATION_PROCESSING_TIME:
+        display_name: "Birth Registration Application Processing Time"
+        description: >
+          Questions about the normal expected duration for processing
+          a new birth registration application.
+        evidence_status: "needs_source_review"
+        includes:
+          - "How long does birth registration normally take?"
+          - "How many days does a birth registration application take?"
+          - "What is the normal processing time?"
+          - "When should I normally expect the application to be completed?"
+        excludes:
+          - "An already submitted application that is unusually delayed"
+          - "Checking the current status of a particular application"
+          - "Time required for correction or certificate reprint"
+
+      BR_APPLICATION_PRINT:
+        display_name: "Submitted Birth Registration Application Print"
+        description: >
+          Questions about obtaining or printing a copy of an already
+          submitted birth registration application form.
+        includes:
+          - "How can I print my submitted birth registration application?"
+          - "Where is the application print option?"
+          - "I need another copy of my submitted application"
+          - "Can I print my birth registration application online?"
+          - "How do I retrieve my application for printing?"
+        excludes:
+          - "Reprinting an issued birth certificate"
+          - "Printing before the application has been submitted"
+          - "Checking application status"
 
 
   BR_CERTIFICATE_ACCESS:
