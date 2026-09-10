@@ -937,12 +937,110 @@ parent_topics:
   NID_STATUS_AND_ACCESS:
     display_name: "NID Status and Document Access"
     description: >
-      Queries about obtaining existing NID information or accessing
-      the user's NID record/document and checking relevant status.
+      Status tracking for NID-related applications and access to
+      an existing citizen's NID document or NID number.
+
     covers:
       - "NID Download"
       - "NID Number Retrieval"
       - "NID/Voter Registration Status"
+      - "NID Registration Application Delay"
+      - "NID Reissue / Replacement Status"
+
+    query_topics:
+
+      NID_STATUS_REGISTRATION_APPLICATION:
+        display_name: "New NID / Voter Registration Status"
+        description: >
+          Questions about checking, tracking or understanding the
+          current status of a submitted first-time NID or voter
+          registration application.
+        evidence_status: "supported_by_current_dataset"
+        includes:
+          - "How can I check my NID application status?"
+          - "Where can I track my voter registration?"
+          - "Has my NID application been approved?"
+          - "Is my application still pending?"
+          - "What stage is my registration currently in?"
+          - "Can I check registration status online?"
+        excludes:
+          - "Normal expected registration processing time"
+          - "A clearly long-delayed or stuck registration"
+          - "Replacement/reissue application status"
+          - "Smart NID status"
+
+      NID_STATUS_REGISTRATION_DELAY:
+        display_name: "New NID / Registration Delay"
+        description: >
+          Questions where a submitted first-time NID or voter
+          registration application has remained pending, processing
+          or incomplete longer than expected.
+        evidence_status: "supported_by_current_dataset"
+        includes:
+          - "My NID application has been pending for a long time"
+          - "Why is my registration delayed?"
+          - "I applied but still have not received any update"
+          - "My voter registration is still incomplete"
+          - "Who should I contact about an application delay?"
+          - "Why has processing taken so long?"
+        excludes:
+          - "General status checking without an expressed delay"
+          - "Questions asking normal processing duration"
+          - "Late first-time registration by someone who never applied"
+
+      NID_STATUS_REPLACEMENT_APPLICATION:
+        display_name: "NID Replacement / Reissue Status"
+        description: >
+          Questions about tracking or checking the status, progress,
+          approval or pending state of an already submitted NID
+          replacement or reissue application.
+        evidence_status: "supported_by_current_dataset"
+        includes:
+          - "How can I check my NID reissue status?"
+          - "Where can I track my replacement application?"
+          - "Is my reissue application still pending?"
+          - "What stage is my replacement application in?"
+          - "Can I check replacement status online?"
+          - "My replacement has not arrived; how do I check the status?"
+        excludes:
+          - "How to apply for replacement"
+          - "Normal replacement processing time"
+          - "Replacement fee or payment questions"
+          - "Smart NID issuance status"
+
+      NID_ACCESS_DOWNLOAD:
+        display_name: "NID Download / Online Copy"
+        description: >
+          Questions about obtaining or downloading an available
+          digital or printable copy of the citizen's NID.
+        evidence_status: "needs_pilot_expansion"
+        includes:
+          - "How can I download my NID?"
+          - "Where can I get an online NID copy?"
+          - "Can I download a PDF copy of my NID?"
+          - "How do I obtain a digital NID copy?"
+        excludes:
+          - "Creating an NID online account"
+          - "First-time NID application"
+          - "Physical card collection"
+          - "Smart NID collection"
+
+      NID_ACCESS_NUMBER_RETRIEVAL:
+        display_name: "NID Number Retrieval"
+        description: >
+          Questions about finding or recovering the citizen's
+          existing NID number when the number is unknown, forgotten
+          or unavailable.
+        evidence_status: "needs_pilot_expansion"
+        includes:
+          - "How can I find my NID number?"
+          - "I forgot my NID number"
+          - "Where can I retrieve my NID number?"
+          - "Can I find my NID number online?"
+        excludes:
+          - "Providing an actual NID number as sensitive information"
+          - "Recovering an online-account password"
+          - "Recovering a registration application/reference number"
 
   NID_VOTER_SERVICES:
     display_name: "Voter Record and Electoral Services"
