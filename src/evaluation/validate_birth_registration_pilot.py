@@ -558,7 +558,7 @@ def main():
             f"{wrong_topic_counts}"
         )
 
-    # --------------------------------------------------
+        # --------------------------------------------------
     # Query-family checks
     # --------------------------------------------------
 
@@ -571,6 +571,9 @@ def main():
     family_topics = defaultdict(set)
     family_counts = Counter()
 
+    invalid_family_ids = []
+    mismatched_seed_families = []
+
     for _, row in df.iterrows():
 
         family_id = row[
@@ -581,6 +584,10 @@ def main():
             "query_topic_id"
         ]
 
+        row_id = row[
+            "id"
+        ]
+
         family_topics[
             family_id
         ].add(query_id)
@@ -589,18 +596,83 @@ def main():
             family_id
         ] += 1
 
-        expected_prefix = (
-            query_id + "_F"
+        if not re.fullmatch(
+            r"BRP_\d{4}",
+            family_id,
+        ):
+            invalid_family_ids.append(
+                family_id
+            )
+
+        # Pilot v0.1 contains independently authored
+        # canonical seed queries.
+        #
+        # Therefore each seed initially receives its
+        # own semantic query-family ID:
+        #
+        # BRQ_0001 -> BRP_0001
+        # BRQ_0002 -> BRP_0002
+        #
+        # Genuine paraphrases added in later dataset
+        # versions may share the canonical seed's
+        # parent_query_id.
+
+        if re.fullmatch(
+            r"BRQ_\d{4}",
+            row_id,
+        ):
+            expected_family_id = (
+                "BRP_"
+                + row_id.split(
+                    "_",
+                    1,
+                )[1]
+            )
+
+            if (
+                family_id
+                != expected_family_id
+            ):
+                mismatched_seed_families.append(
+                    (
+                        row_id,
+                        family_id,
+                        expected_family_id,
+                    )
+                )
+
+    if invalid_family_ids:
+        errors.append(
+            "Invalid parent_query_id format: "
+            + ", ".join(
+                sorted(
+                    set(
+                        invalid_family_ids
+                    )
+                )[:20]
+            )
         )
 
-        if not family_id.startswith(
-            expected_prefix
-        ):
-            errors.append(
-                f"{row['id']}: parent_query_id "
-                f"{family_id!r} does not match "
-                f"query topic {query_id!r}."
+    if mismatched_seed_families:
+        formatted = [
+            (
+                f"{row_id}: found "
+                f"{found}, expected "
+                f"{expected}"
             )
+            for (
+                row_id,
+                found,
+                expected,
+            )
+            in mismatched_seed_families[:20]
+        ]
+
+        errors.append(
+            "Seed query-family assignments "
+            "are incorrect:\n"
+            + "\n".join(formatted)
+        )
 
     cross_topic_families = {
         family_id: topics
@@ -612,26 +684,30 @@ def main():
     if cross_topic_families:
         errors.append(
             "Query families span multiple "
-            f"labels: {cross_topic_families}"
+            f"labels: "
+            f"{cross_topic_families}"
         )
 
-    wrong_family_sizes = {
+    duplicate_seed_families = {
         family_id: count
         for family_id, count
         in family_counts.items()
-        if count != 2
+        if count != 1
     }
 
-    if wrong_family_sizes:
+    if duplicate_seed_families:
         errors.append(
-            "Pilot v0.1 expects exactly 2 seed "
-            "queries per family. Violations: "
-            f"{wrong_family_sizes}"
+            "Pilot v0.1 expects every "
+            "independently authored seed to "
+            "begin as its own query family. "
+            f"Violations: "
+            f"{duplicate_seed_families}"
         )
 
-    if len(family_counts) != 60:
+    if len(family_counts) != 120:
         errors.append(
-            f"Expected 60 query families, "
+            f"Pilot v0.1 expects 120 "
+            f"independent seed families, "
             f"found {len(family_counts)}."
         )
 
