@@ -464,15 +464,37 @@ parent_topics:
   BR_CERTIFICATE_ACCESS:
     display_name: "Birth Certificate Access and Reprint"
     description: >
-      Questions about obtaining another printable or physical copy of
-      an already registered birth certificate without changing the
-      underlying registration information.
-    covers:
-      - "Certificate Reprint"
-      - "Another Certificate Copy"
-      - "Certificate Reprint Requirements"
+      Questions about obtaining another copy or reprint of an
+      already issued birth registration certificate without
+      changing the underlying registered information.
 
-    query_topics: {}
+    default_evidence_status: "official_service_supported"
+
+    covers:
+      - "Birth Registration Certificate Reprint"
+      - "Another Birth Certificate Copy"
+
+    query_topics:
+
+      BR_CERTIFICATE_REPRINT:
+        display_name: "Birth Registration Certificate Reprint"
+        description: >
+          Questions about obtaining or requesting another copy
+          or reprint of an already issued birth registration
+          certificate when the underlying registration record
+          does not need correction.
+        includes:
+          - "How can I reprint my birth certificate?"
+          - "I need another copy of my birth registration certificate"
+          - "Can I get a new printed copy of my birth certificate?"
+          - "Where can I request a birth certificate reprint?"
+          - "How do I obtain another certificate copy?"
+          - "Can an existing birth certificate be reprinted?"
+        excludes:
+          - "Printing a submitted birth registration application form"
+          - "Correcting information on the birth registration"
+          - "Verifying whether a birth record is valid or exists"
+          - "Cancelling a birth registration record"
 
 
   BR_VERIFICATION:
