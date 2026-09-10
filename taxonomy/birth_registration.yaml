@@ -1,6 +1,6 @@
 taxonomy_version: "0.1.0"
 service_id: "BIRTH_REGISTRATION"
-status: "draft"
+status: "query_topics_drafted"
 
 description: >
   Working parent-topic taxonomy for Bangladesh Birth Registration
@@ -633,13 +633,43 @@ parent_topics:
     display_name: "General Birth Registration Information"
     description: >
       General informational questions about Birth Registration that
-      do not represent a specific application, correction,
-      verification, certificate, cancellation or payment workflow.
-    covers:
-      - "Birth Registration Purpose"
-      - "General Birth Registration Information"
+      do not represent a specific application, correction, status,
+      certificate reprint, verification, cancellation or fee
+      workflow.
 
-    query_topics: {}
+    default_evidence_status: "needs_query_pilot"
+
+    covers:
+      - "General Birth Registration Information"
+      - "Purpose of Birth Registration"
+      - "Birth Registration Rules and Guidance"
+
+    query_topics:
+
+      BR_GENERAL_INFORMATION:
+        display_name: "General Birth Registration Information"
+        description: >
+          Broad informational questions about Birth Registration,
+          including what it is, why it is used and where citizens can
+          find official rules or general guidance, when the query does
+          not express a more specific service intent.
+        includes:
+          - "What is birth registration?"
+          - "Why is birth registration needed?"
+          - "What is a birth registration certificate?"
+          - "Where can I find general information about birth registration?"
+          - "Where can I find the official birth registration rules?"
+          - "Is there an official birth registration guideline?"
+        excludes:
+          - "How to submit a new birth registration application"
+          - "Eligibility or requirements for a specific application"
+          - "Correction of existing birth registration information"
+          - "Application status or delay"
+          - "Certificate reprint"
+          - "Birth record verification"
+          - "Certificate cancellation"
+          - "Birth Registration fee questions"
+          - "Unsupported or unrelated queries"
 
 
 design_rules:
