@@ -550,10 +550,236 @@ parent_topics:
   NID_ONLINE_SERVICES:
     display_name: "NID Online Account and Portal"
     description: >
-      NID portal accounts, login, password recovery, OTP,
-      verification and other online-service access issues.
+      NID portal account creation, login, password and account
+      recovery, OTP and identity verification, account management,
+      portal availability and other online-service access issues.
+
     covers:
-      - "NID Online Account / Portal"
+      - "NID Online Account Registration"
+      - "NID Services Registration"
+      - "NID Account Login"
+      - "NID Portal Login Problem"
+      - "Forgotten Password / Password Reset"
+      - "NID Account Recovery"
+      - "OTP Not Received"
+      - "OTP Verification Problem"
+      - "Face Verification Problem"
+      - "Biometric Verification Problem"
+      - "NID Portal Not Working"
+      - "NID Account Information Update"
+      - "NID Account Deactivation"
+      - "General NID Online Service Problem"
+
+    query_topics:
+
+      NID_ONLINE_ACCOUNT_REGISTRATION:
+        display_name: "Online Account Registration"
+        description: >
+          Questions about creating, registering, signing up for or
+          activating an NID online-services account.
+        includes:
+          - "How to create an NID online account"
+          - "How to register for NID online services"
+          - "Where the portal registration option is"
+          - "Information required to create an account"
+          - "Whether registration can be completed using a phone"
+          - "Problems encountered while creating an account"
+          - "Activating online-service access"
+        excludes:
+          - "First-time voter/NID registration"
+          - "Logging into an existing online account"
+          - "Recovering an existing account"
+
+      NID_ONLINE_LOGIN:
+        display_name: "Online Account Login"
+        description: >
+          Questions asking how or where to sign in to an existing
+          NID online account.
+        includes:
+          - "How to log in"
+          - "Where the login page is"
+          - "How to sign in after creating an account"
+          - "How to access an existing NID account"
+        excludes:
+          - "Login attempts that are failing"
+          - "Forgotten-password problems"
+          - "Account recovery"
+
+      NID_ONLINE_LOGIN_PROBLEM:
+        display_name: "Online Account Login Problem"
+        description: >
+          Problems where the citizen has an existing NID account
+          but cannot successfully log in or access it normally.
+        includes:
+          - "Login is not working"
+          - "Correct information entered but login fails"
+          - "Login error"
+          - "Sign-in repeatedly fails"
+          - "Cannot access account despite having credentials"
+        excludes:
+          - "Citizen forgot the password"
+          - "Citizen lost broader access to the account"
+          - "The entire NID portal appears unavailable"
+
+      NID_ONLINE_PASSWORD_RESET:
+        display_name: "Forgotten Password and Password Reset"
+        description: >
+          Questions about a forgotten NID online-account password,
+          resetting it, changing it through the recovery flow or
+          problems completing a password reset.
+        includes:
+          - "Forgot NID account password"
+          - "How to reset password"
+          - "Where the forgot-password option is"
+          - "How to create a new password"
+          - "Password reset is not working"
+          - "Password-reset link or procedure"
+        excludes:
+          - "Normal login with a known password"
+          - "Loss of account access unrelated to only the password"
+
+      NID_ONLINE_ACCOUNT_RECOVERY:
+        display_name: "Online Account Recovery"
+        description: >
+          Questions about recovering or regaining access to an
+          existing NID online account when the citizen has lost
+          broader account access or account information.
+        includes:
+          - "Recover old NID online account"
+          - "Lost access to account"
+          - "Regain access to existing account"
+          - "Account recovery option"
+          - "Missing login information"
+          - "Recover an old account"
+        excludes:
+          - "Only forgetting or resetting the password"
+          - "Creating a completely new account"
+
+      NID_ONLINE_OTP_NOT_RECEIVED:
+        display_name: "OTP Not Received"
+        description: >
+          Problems where an NID verification OTP or verification
+          code has been requested but has not arrived.
+        includes:
+          - "OTP did not arrive"
+          - "OTP SMS not received"
+          - "Verification code not received"
+          - "OTP is taking too long"
+          - "Repeated OTP requests produce no SMS"
+        excludes:
+          - "An OTP was received but is rejected"
+          - "Face or biometric verification"
+
+      NID_ONLINE_OTP_VERIFICATION:
+        display_name: "OTP Verification Problem"
+        description: >
+          Problems where an OTP has been received but verification
+          cannot be completed successfully.
+        includes:
+          - "Correct OTP is rejected"
+          - "OTP verification fails"
+          - "OTP expired"
+          - "Portal does nothing after OTP submission"
+          - "Account verification remains incomplete"
+        excludes:
+          - "OTP never arrived"
+          - "Face verification"
+          - "Fingerprint or other biometric verification"
+
+      NID_ONLINE_FACE_VERIFICATION:
+        display_name: "Face Verification Problem"
+        description: >
+          Problems involving face detection or face verification
+          during NID online-account verification.
+        includes:
+          - "Face verification fails"
+          - "Portal cannot detect face"
+          - "Face image is not accepted"
+          - "Repeated face-verification failure"
+          - "Error during face verification"
+        excludes:
+          - "Fingerprint verification"
+          - "General biometric issue with no face reference"
+          - "OTP verification"
+
+      NID_ONLINE_BIOMETRIC_VERIFICATION:
+        display_name: "Biometric Verification Problem"
+        description: >
+          Problems involving fingerprint or other non-face biometric
+          verification for NID online services.
+        includes:
+          - "Fingerprint is not recognized"
+          - "Biometric verification fails"
+          - "Biometric information does not match"
+          - "Fingerprint detection problem"
+          - "Cannot complete biometric verification"
+        excludes:
+          - "Face-specific verification"
+          - "OTP verification"
+
+      NID_ONLINE_PORTAL_UNAVAILABLE:
+        display_name: "NID Portal Not Working"
+        description: >
+          Problems indicating that the NID portal or website itself
+          is unavailable, failing to load or returning general
+          system-level errors.
+        includes:
+          - "NID portal is down"
+          - "Website does not open"
+          - "Page does not load"
+          - "Portal repeatedly returns errors"
+          - "Online-service website appears unavailable"
+        excludes:
+          - "A login-only problem while the portal otherwise works"
+          - "A specific OTP or verification problem"
+          - "An unspecified problem with one online service"
+
+      NID_ONLINE_ACCOUNT_INFORMATION_UPDATE:
+        display_name: "Online Account Information Update"
+        description: >
+          Questions about editing or updating information associated
+          with the citizen's NID online-account profile.
+        includes:
+          - "Update account information"
+          - "Change linked mobile number"
+          - "Update contact information"
+          - "Edit online profile"
+          - "Correct information entered in the online account"
+        excludes:
+          - "Correcting information printed or stored on the actual NID"
+          - "NID name, DOB, address or other official-record correction"
+
+      NID_ONLINE_ACCOUNT_DEACTIVATION:
+        display_name: "Online Account Deactivation"
+        description: >
+          Questions about closing, deleting, deactivating or
+          reactivating an NID online account.
+        includes:
+          - "Deactivate account"
+          - "Close old account"
+          - "Delete account"
+          - "Permanent account deactivation"
+          - "Whether a deactivated account can be reactivated"
+        excludes:
+          - "Recovering an account because access was lost"
+
+      NID_ONLINE_GENERAL_PROBLEM:
+        display_name: "General Online Service Problem"
+        description: >
+          Online NID service problems where the citizen reports
+          difficulty but does not identify a sufficiently specific
+          account, login, OTP, verification or portal issue.
+        includes:
+          - "NID online service is not working"
+          - "Cannot complete an online service"
+          - "General online-service error"
+          - "Unspecified NID portal problem"
+          - "Where to get help for an online-service problem"
+        excludes:
+          - "A clearly identifiable login problem"
+          - "A clearly identifiable OTP problem"
+          - "Face or biometric verification"
+          - "The entire portal being unavailable"
 
   NID_SMART_CARD:
     display_name: "Smart NID Card"
