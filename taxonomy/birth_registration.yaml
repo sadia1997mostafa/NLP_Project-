@@ -1,0 +1,219 @@
+taxonomy_version: "0.1.0"
+service_id: "BIRTH_REGISTRATION"
+status: "draft"
+
+description: >
+  Working parent-topic taxonomy for Bangladesh Birth Registration
+  citizen queries. The structure is based on the Birth Registration
+  source/query-topic inventory. Query-topic / specific-intent IDs
+  will be defined only after the parent structure is reviewed.
+
+id_prefix: "BR"
+
+parent_topics:
+
+  BR_REGISTRATION:
+    display_name: "Birth Registration Application"
+    description: >
+      New birth registration and the process of submitting a birth
+      registration application, including eligibility, application
+      procedure, location, required information, supporting documents,
+      applicant/guardian details, overseas applications and
+      application-stage verification.
+    covers:
+      - "New Birth Registration"
+      - "Online Birth Registration Application"
+      - "Registration Eligibility"
+      - "Late Registration"
+      - "Registration Office / Location"
+      - "Overseas / Embassy Registration"
+      - "Required Information"
+      - "Required Documents"
+      - "Applicant / Guardian Information"
+      - "Parent Information During Registration"
+      - "Address Information During Registration"
+      - "Application OTP / Verification"
+
+    query_topics: {}
+
+
+  BR_CORRECTION:
+    display_name: "Birth Registration Information Correction"
+    description: >
+      Correction or updating of information already recorded in an
+      existing birth registration record or certificate.
+    covers:
+      - "General Information Correction"
+      - "Name Correction"
+      - "Date of Birth Correction"
+      - "Gender Information Correction"
+      - "Father Information Correction"
+      - "Mother Information Correction"
+      - "Birth Place / Address Correction"
+      - "Permanent Address Correction"
+      - "Present Address Correction"
+
+    query_topics: {}
+
+
+  BR_APPLICATION_MANAGEMENT:
+    display_name: "Application Status and Management"
+    description: >
+      Post-submission questions about an existing birth registration
+      application, including status tracking, delays and obtaining a
+      printable copy of a submitted application.
+    covers:
+      - "Application Status"
+      - "Application Delay"
+      - "Application Tracking"
+      - "Submitted Application Print"
+
+    query_topics: {}
+
+
+  BR_CERTIFICATE_ACCESS:
+    display_name: "Birth Certificate Access and Reprint"
+    description: >
+      Questions about obtaining another printable or physical copy of
+      an already registered birth certificate without changing the
+      underlying registration information.
+    covers:
+      - "Certificate Reprint"
+      - "Another Certificate Copy"
+      - "Certificate Reprint Requirements"
+
+    query_topics: {}
+
+
+  BR_VERIFICATION:
+    display_name: "Birth Registration Verification and Search"
+    description: >
+      Questions about checking whether a birth registration record
+      exists, verifying a birth certificate or resolving record-search
+      and verification problems.
+    covers:
+      - "Birth Registration Verification"
+      - "Birth Record Search"
+      - "Record Not Found"
+      - "Verification Failure"
+
+    query_topics: {}
+
+
+  BR_CANCELLATION:
+    display_name: "Birth Registration Cancellation"
+    description: >
+      Questions about cancelling an existing birth registration
+      record or submitting and following an official cancellation
+      request.
+    covers:
+      - "Cancellation Eligibility"
+      - "Cancellation Process"
+      - "Cancellation Requirements"
+      - "Cancellation Request Status"
+
+    query_topics: {}
+
+
+  BR_FEES_AND_PAYMENT:
+    display_name: "Birth Registration Fees and Payment"
+    description: >
+      Questions concerning fees, service-specific charges, payment
+      methods, payment status, receipts or refunds related to Birth
+      Registration services.
+    covers:
+      - "General Fee Information"
+      - "Registration Fee"
+      - "Correction Fee"
+      - "Certificate Reprint Fee"
+      - "Payment Method"
+      - "Payment Status"
+      - "Receipt / Refund"
+
+    query_topics: {}
+
+
+  BR_GENERAL_INFORMATION:
+    display_name: "General Birth Registration Information"
+    description: >
+      General informational questions about Birth Registration that
+      do not represent a specific application, correction,
+      verification, certificate, cancellation or payment workflow.
+    covers:
+      - "Birth Registration Purpose"
+      - "General Birth Registration Information"
+
+    query_topics: {}
+
+
+design_rules:
+
+  - >
+    Parent topics represent broad citizen information needs. Specific
+    intents will be represented by query-topic IDs beneath each parent.
+
+  - >
+    The taxonomy should remain lighter than the NID taxonomy and should
+    not create a separate classifier class for every portal field or
+    procedural detail.
+
+  - >
+    Questions about required documents, online procedure or office
+    location should become separate classifier leaves only when they
+    represent consistently distinguishable citizen intents.
+
+  - >
+    Certificate reprint is different from information correction. A
+    citizen may require another certificate copy while all registered
+    information is already correct.
+
+  - >
+    Birth-registration verification is different from obtaining another
+    certificate copy. Verification asks whether a record or certificate
+    can be validated.
+
+  - >
+    Application processing time, application status and application
+    delay require a later semantic boundary review.
+
+  - >
+    General information must not become a fallback for low-confidence
+    or unsupported queries. OOD/confidence handling will handle
+    unsupported cases.
+
+
+evidence_notes:
+
+  BR_REGISTRATION:
+    evidence_status: "official_workflow_supported"
+
+  BR_CORRECTION:
+    evidence_status: "official_workflow_supported"
+
+  BR_APPLICATION_MANAGEMENT:
+    evidence_status: "official_service_supported"
+
+  BR_CERTIFICATE_ACCESS:
+    evidence_status: "official_service_supported"
+
+  BR_VERIFICATION:
+    evidence_status: "official_service_supported"
+
+  BR_CANCELLATION:
+    evidence_status: "official_service_exists_needs_query_pilot"
+
+  BR_FEES_AND_PAYMENT:
+    evidence_status: "needs_detailed_source_review"
+
+  BR_GENERAL_INFORMATION:
+    evidence_status: "needs_query_pilot"
+
+
+freeze_status:
+  shared_contract_frozen: false
+  parent_topics_reviewed: false
+  query_topics_defined: false
+  inclusion_exclusion_rules_defined: false
+  semantic_audit_passed: false
+  pilot_dataset_created: false
+  taxonomy_ready_for_shared_contract: false
