@@ -16,26 +16,230 @@ parent_topics:
     display_name: "Birth Registration Application"
     description: >
       New birth registration and the process of submitting a birth
-      registration application, including eligibility, application
-      procedure, location, required information, supporting documents,
-      applicant/guardian details, overseas applications and
-      application-stage verification.
+      registration application, including the overall procedure,
+      registration location, overseas application, required personal
+      and parent information, addresses, applicant/guardian handling,
+      supporting documents and OTP verification.
+
+    default_evidence_status: "official_workflow_supported"
+
     covers:
       - "New Birth Registration"
       - "Online Birth Registration Application"
-      - "Registration Eligibility"
-      - "Late Registration"
       - "Registration Office / Location"
       - "Overseas / Embassy Registration"
-      - "Required Information"
-      - "Required Documents"
+      - "Registered Person Information"
+      - "Father and Mother Information"
+      - "Address Information"
       - "Applicant / Guardian Information"
-      - "Parent Information During Registration"
-      - "Address Information During Registration"
+      - "Supporting Documents"
       - "Application OTP / Verification"
 
-    query_topics: {}
+    query_topics:
 
+      BR_REGISTRATION_PROCESS:
+        display_name: "New Birth Registration Process"
+        description: >
+          General or end-to-end questions about how to submit a new
+          birth registration application.
+        includes:
+          - "How do I apply for birth registration?"
+          - "What is the birth registration process?"
+          - "How do I register a child's birth?"
+          - "Where do I start a new birth registration application?"
+        excludes:
+          - "Questions only about choosing the registration office"
+          - "Questions specifically about overseas registration"
+          - "Questions only about documents or OTP"
+          - "Correction of an existing birth registration"
+
+      BR_REGISTRATION_ONLINE_APPLICATION:
+        display_name: "Online Birth Registration Application"
+        description: >
+          Questions specifically about starting or completing the
+          new birth registration application through the BDRIS
+          online application system.
+        includes:
+          - "Can I apply for birth registration online?"
+          - "Where is the online birth registration application?"
+          - "How do I submit the application online?"
+          - "Can I start the application from home?"
+        excludes:
+          - "General registration process without an online focus"
+          - "Checking an already submitted application's status"
+          - "Printing an already submitted application"
+
+      BR_REGISTRATION_LOCATION_SELECTION:
+        display_name: "Registration Office and Location Selection"
+        description: >
+          Questions about selecting the address basis or registration
+          office through which the birth registration application
+          should be submitted.
+        includes:
+          - "Which registration office should I select?"
+          - "Should I apply using birth place or permanent address?"
+          - "Which office handles my birth registration?"
+          - "How do I choose the registration location?"
+        excludes:
+          - "Entering the detailed birth-place address"
+          - "Entering permanent or present address information"
+          - "Applying specifically through a Bangladesh embassy"
+
+      BR_REGISTRATION_OVERSEAS_EMBASSY:
+        display_name: "Overseas / Embassy Birth Registration"
+        description: >
+          Questions about submitting a birth registration application
+          through a Bangladesh embassy or mission while the applicant
+          is abroad.
+        includes:
+          - "Can I apply for birth registration from abroad?"
+          - "How do I apply through a Bangladesh embassy?"
+          - "Which embassy should I select for birth registration?"
+          - "How does overseas birth registration work?"
+        excludes:
+          - "Ordinary domestic registration-office selection"
+          - "Passport services"
+          - "Correction of an already registered birth record"
+
+      BR_REGISTRATION_PERSON_INFORMATION:
+        display_name: "Registered Person Information"
+        description: >
+          Questions about the personal information that must be
+          supplied for the person whose birth is being registered.
+        includes:
+          - "What information about the child is required?"
+          - "Do I need the name in Bangla and English?"
+          - "What personal details are entered in the application?"
+          - "What information is required about the person being registered?"
+        excludes:
+          - "Father or mother information"
+          - "Address information"
+          - "Supporting-document requirements"
+
+      BR_REGISTRATION_PARENT_INFORMATION:
+        display_name: "Father and Mother Information"
+        description: >
+          Questions about information required for the registered
+          person's father or mother during a new birth registration
+          application.
+        includes:
+          - "What father information is required?"
+          - "What mother information is required?"
+          - "Do I need my parents' birth registration numbers?"
+          - "What parent information must be entered?"
+          - "Is parent nationality information required?"
+        excludes:
+          - "Correcting father or mother information on an existing record"
+          - "Applicant/guardian relationship questions"
+          - "General supporting-document questions"
+
+      BR_REGISTRATION_ADDRESS_INFORMATION:
+        display_name: "Birth, Permanent and Present Address Information"
+        description: >
+          Questions about entering the birth-place, permanent or
+          present address sections of a new birth registration
+          application.
+        includes:
+          - "How do I enter the birth-place address?"
+          - "What should I use as permanent address?"
+          - "How do I enter present address?"
+          - "My present and permanent addresses are the same"
+          - "Which address information is required?"
+        excludes:
+          - "Choosing the registration office or location basis"
+          - "Correcting an address on an existing birth record"
+
+      BR_REGISTRATION_APPLICANT_RELATION:
+        display_name: "Applicant, Parent and Guardian Relationship"
+        description: >
+          Questions about who may submit or attest the application and
+          how the applicant's relationship to the person being
+          registered should be recorded.
+        includes:
+          - "Can the father submit the application?"
+          - "Can the mother apply?"
+          - "Can a legal guardian submit the application?"
+          - "Who can apply for a child?"
+          - "What relationship should I select as applicant?"
+          - "What if someone other than the parents submits the application?"
+        excludes:
+          - "Father or mother information fields themselves"
+          - "General personal information about the registered person"
+
+      BR_REGISTRATION_REQUIRED_DOCUMENTS:
+        display_name: "Birth Registration Supporting Documents"
+        description: >
+          Questions about documentary evidence or attachments required
+          to support a new birth registration application.
+        includes:
+          - "What documents are required for birth registration?"
+          - "What supporting papers should I upload?"
+          - "Do I need proof for a legal guardian?"
+          - "What documents must be attached?"
+          - "What file types can be uploaded?"
+        excludes:
+          - "Information fields entered directly in the form"
+          - "Documents required for correction of an existing record"
+
+      BR_REGISTRATION_MISSING_DOCUMENTS:
+        display_name: "Missing or Unavailable Registration Documents"
+        description: >
+          Questions about what to do when a document expected for the
+          birth registration application is missing or unavailable.
+        evidence_status: "needs_query_pilot"
+        includes:
+          - "What if I do not have one of the required documents?"
+          - "Can I apply if a supporting document is missing?"
+          - "What can I use instead of a missing document?"
+          - "I cannot provide one of the requested papers"
+        excludes:
+          - "General questions asking which documents are required"
+          - "Missing information on an already issued birth certificate"
+
+      BR_REGISTRATION_OTP_NOT_RECEIVED:
+        display_name: "Registration OTP Not Received"
+        description: >
+          Problems where the applicant requested the verification OTP
+          for the birth registration application but the code did not
+          arrive by the expected phone or email channel.
+        includes:
+          - "I did not receive the birth registration OTP"
+          - "OTP SMS did not arrive"
+          - "No verification code came to my email"
+          - "I requested OTP but received nothing"
+        excludes:
+          - "OTP arrived but is rejected"
+          - "General application failure unrelated to OTP"
+
+      BR_REGISTRATION_OTP_VERIFICATION:
+        display_name: "Registration OTP Verification Problem"
+        description: >
+          Problems where an OTP has been received but the application
+          cannot complete OTP verification successfully.
+        evidence_status: "needs_query_pilot"
+        includes:
+          - "The OTP is not being accepted"
+          - "I entered the verification code but it fails"
+          - "OTP verification is not completing"
+          - "My verification code shows an error"
+        excludes:
+          - "OTP was never received"
+          - "Record verification after registration"
+
+      BR_REGISTRATION_SUBMISSION_RULES:
+        display_name: "Application Submission and Edit Rules"
+        description: >
+          Questions about reviewing or submitting a new application and
+          whether information can still be changed after submission.
+        includes:
+          - "Can I edit the application after submitting it?"
+          - "Should I check the information before submission?"
+          - "Can submitted birth registration information be changed from the application?"
+          - "What happens after I press submit?"
+        excludes:
+          - "Correcting an already registered birth record"
+          - "Checking application status"
+          - "Printing a submitted application"
 
   BR_CORRECTION:
     display_name: "Birth Registration Information Correction"
