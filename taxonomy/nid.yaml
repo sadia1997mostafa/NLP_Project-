@@ -16,10 +16,262 @@ parent_topics:
     description: >
       First-time NID or voter registration and closely related
       registration procedures.
+
     covers:
       - "New NID / New Voter Registration"
       - "Expatriate NID Registration"
       - "NID Validity / Re-registration"
+
+    query_topics:
+
+      NID_REGISTRATION_ELIGIBILITY:
+        display_name: "Registration Eligibility"
+        description: >
+          General questions about who is eligible to register for
+          an NID or become a voter for the first time.
+        includes:
+          - "Who can apply for a new NID?"
+          - "Citizenship eligibility"
+          - "General voter eligibility conditions"
+        excludes:
+          - "Questions specifically about minimum age"
+          - "Questions specifically about registering late"
+
+      NID_REGISTRATION_AGE_ELIGIBILITY:
+        display_name: "Registration Age Requirement"
+        description: >
+          Questions specifically about minimum age, age limits,
+          or whether a person of a stated age can register.
+        includes:
+          - "Minimum age for NID"
+          - "Whether someone under 18 can register"
+          - "Age requirement for becoming a voter"
+        excludes:
+          - "General eligibility without an age question"
+          - "Late registration by an older applicant"
+
+      NID_REGISTRATION_PROCESS:
+        display_name: "First-Time Registration Process"
+        description: >
+          General or end-to-end questions about how to obtain
+          an NID or register as a voter for the first time.
+        includes:
+          - "How to register for the first time"
+          - "Step-by-step registration process"
+          - "Where to start"
+          - "Complete registration procedure"
+        excludes:
+          - "Online-only application questions"
+          - "Questions specifically about documents, biometrics or appointments"
+
+      NID_REGISTRATION_ONLINE_APPLICATION:
+        display_name: "Online Registration Application"
+        description: >
+          Questions about whether or how a first-time NID or voter
+          registration application can be started or submitted online.
+        includes:
+          - "Online application procedure"
+          - "Online registration website"
+          - "Applying from home"
+          - "Online submission"
+        excludes:
+          - "NID portal account/login problems"
+          - "General registration procedure not specifically online"
+
+      NID_REGISTRATION_REQUIRED_DOCUMENTS:
+        display_name: "Required Registration Documents"
+        description: >
+          Questions asking which documents or supporting evidence
+          are required for first-time NID registration.
+        includes:
+          - "Required document list"
+          - "Birth certificate requirement"
+          - "Parents' document requirement"
+          - "Educational certificate requirement"
+        excludes:
+          - "What to do when required documents are unavailable"
+
+      NID_REGISTRATION_APPLICATION_FORM:
+        display_name: "Registration Application Form"
+        description: >
+          Questions about obtaining, completing, submitting or
+          correcting the first-time registration application form.
+        includes:
+          - "Where to get the application form"
+          - "How to fill the form"
+          - "How to submit the form"
+          - "Mistake in the application form"
+          - "Information requested by a specific form field"
+        excludes:
+          - "General list of required personal information"
+
+      NID_REGISTRATION_APPLICATION_LOCATION:
+        display_name: "Registration Office or Application Location"
+        description: >
+          Questions about the office, registration center or physical
+          location where a citizen should apply.
+        includes:
+          - "Where to apply"
+          - "Which election office to visit"
+          - "Local registration center"
+          - "Whether an office visit is required"
+        excludes:
+          - "Which voter area the citizen should belong to"
+
+      NID_REGISTRATION_BIOMETRIC:
+        display_name: "Registration Biometric Process"
+        description: >
+          Questions about fingerprint, photograph, personal appearance
+          and other biometric steps during registration.
+        includes:
+          - "Fingerprint requirement"
+          - "Where biometrics are provided"
+          - "Personal attendance for biometrics"
+          - "What happens during biometric registration"
+        excludes:
+          - "Questions specifically about booking an appointment"
+
+      NID_REGISTRATION_AREA_SELECTION:
+        display_name: "Voter Registration Area Selection"
+        description: >
+          Questions about which geographic voter area should be used
+          during first-time registration.
+        includes:
+          - "Present-address voter area"
+          - "Permanent-address voter area"
+          - "Different current and permanent locations"
+          - "How registration area is determined"
+        excludes:
+          - "Changing voter area after already being registered"
+          - "How to fill present/permanent address fields"
+
+      NID_REGISTRATION_APPOINTMENT:
+        display_name: "Registration Appointment"
+        description: >
+          Questions about whether an appointment is required and how
+          to schedule, check or handle a registration or biometric appointment.
+        includes:
+          - "Appointment booking"
+          - "Online appointment"
+          - "Appointment date"
+          - "Missed appointment"
+        excludes:
+          - "General biometric procedure"
+
+      NID_REGISTRATION_ADDRESS_FIELDS:
+        display_name: "Present and Permanent Address in Registration"
+        description: >
+          Questions about entering present and permanent addresses
+          in a first-time NID application.
+        includes:
+          - "Meaning of present versus permanent address"
+          - "Which address to enter"
+          - "Different present and permanent addresses"
+        excludes:
+          - "Selecting a voter area"
+          - "Correcting an address on an existing NID"
+
+      NID_REGISTRATION_VERIFICATION:
+        display_name: "Registration Verification"
+        description: >
+          Questions specifically about the verification stage of a
+          new NID or voter registration application.
+        includes:
+          - "How verification works"
+          - "Meaning of verification status"
+          - "Physical verification"
+          - "Verification requirements"
+          - "Verification processing time"
+        excludes:
+          - "Generic application pending or delayed status"
+
+      NID_REGISTRATION_PHYSICAL_CARD_COLLECTION:
+        display_name: "First NID Card Collection"
+        description: >
+          Questions about receiving or collecting the physical NID
+          card after first-time registration.
+        includes:
+          - "When the physical card will be received"
+          - "Where the physical card is collected"
+          - "Card not received after registration"
+        excludes:
+          - "Smart NID Card-specific questions"
+          - "Replacement of a lost or damaged card"
+
+      NID_REGISTRATION_REQUIRED_INFORMATION:
+        display_name: "Required Registration Information"
+        description: >
+          Questions asking what personal information or details must
+          be supplied during first-time registration.
+        includes:
+          - "Required personal information"
+          - "Parents' information"
+          - "Mandatory registration information"
+          - "Which information is verified"
+        excludes:
+          - "Required supporting documents"
+          - "How to fill a particular form field"
+
+      NID_REGISTRATION_MISSING_DOCUMENTS:
+        display_name: "Missing or Incomplete Registration Documents"
+        description: >
+          Questions about registering when one or more required
+          documents are missing, lost or unavailable.
+        includes:
+          - "No birth certificate"
+          - "Incomplete documents"
+          - "Lost required document"
+          - "Alternative documentation"
+        excludes:
+          - "General document-list questions"
+
+      NID_REGISTRATION_REFERENCE_RECOVERY:
+        display_name: "Registration Reference Recovery"
+        description: >
+          Questions about recovering a lost application number,
+          application ID, registration slip, reference number or
+          tracking information.
+        includes:
+          - "Lost application number"
+          - "Lost registration slip"
+          - "Lost application ID"
+          - "Lost tracking information"
+
+      NID_REGISTRATION_LATE_REGISTRATION:
+        display_name: "Late First-Time Registration"
+        description: >
+          Questions from citizens who did not register at the usual
+          time and now want to become a voter or obtain an NID.
+        includes:
+          - "Registering many years late"
+          - "Older first-time applicant"
+          - "Never registered before"
+          - "Late registration procedure"
+        excludes:
+          - "Ordinary minimum-age eligibility"
+
+      NID_REGISTRATION_CANCELLATION:
+        display_name: "Registration Application Cancellation"
+        description: >
+          Questions about cancelling or withdrawing a submitted
+          first-time NID or voter registration application.
+        includes:
+          - "Cancel application"
+          - "Withdraw submitted application"
+          - "Application submitted by mistake"
+
+      NID_REGISTRATION_PROCESSING_TIME:
+        display_name: "Normal Registration Processing Time"
+        description: >
+          Questions about the normal expected time required to
+          complete first-time registration or receive the NID.
+        includes:
+          - "How long registration normally takes"
+          - "Expected processing duration"
+          - "Normal application-to-NID timeline"
+        excludes:
+          - "An application that is already unusually delayed"
+          - "A specific pending application"
 
   NID_CORRECTION:
     display_name: "NID Information Correction"
