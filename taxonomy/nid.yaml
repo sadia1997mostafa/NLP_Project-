@@ -1,0 +1,59 @@
+taxonomy_version: "0.1.0"
+service_id: "NID"
+status: "draft"
+
+description: >
+  Parent-topic taxonomy for National Identity Card and voter-related
+  citizen queries. Query-topic / specific-intent labels will be added
+  after the parent-topic structure is reviewed.
+
+parent_topics:
+
+  NID_REGISTRATION:
+    display_name: "New NID Registration"
+    description: >
+      First-time NID or voter registration, including eligibility,
+      application procedure, required documents, processing and related
+      registration questions.
+    current_dataset_label:
+      - "New NID Registration"
+
+  NID_CORRECTION:
+    display_name: "NID Information Correction"
+    description: >
+      Correction or update of information recorded on an existing NID,
+      such as name, parents' information, date of birth, gender,
+      blood group, marital status, address, photo or signature.
+    current_dataset_label:
+      - "NID Information Correction"
+
+  NID_REPLACEMENT:
+    display_name: "Lost, Stolen or Damaged NID"
+    description: >
+      Replacement or reissue questions involving an NID that has been
+      lost, stolen, damaged or otherwise needs replacement.
+    current_dataset_label:
+      - "Lost/Stolen NID"
+
+  NID_ONLINE_SERVICES:
+    display_name: "NID Online Account and Portal"
+    description: >
+      Queries involving the NID online portal, account registration,
+      login, password or account recovery, OTP, verification and
+      access to online NID services.
+    current_dataset_label:
+      - "NID Online Problem"
+
+  NID_SMART_CARD:
+    display_name: "Smart NID Card"
+    description: >
+      Queries involving Smart NID eligibility, application, status,
+      distribution, collection and related Smart Card issues.
+    current_dataset_label:
+      - "Smart ID Card"
+
+notes:
+  - "This file is a draft and is not yet part of the frozen shared contract."
+  - "Existing dataset labels are recorded to support later migration."
+  - "Additional NID coverage must be reviewed before parent-topic IDs are frozen."
+  - "Query-topic / specific-intent IDs are intentionally not defined yet."
