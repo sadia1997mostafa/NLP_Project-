@@ -784,10 +784,155 @@ parent_topics:
   NID_SMART_CARD:
     display_name: "Smart NID Card"
     description: >
-      Smart NID eligibility, application, status, distribution,
-      collection, delay and related Smart Card issues.
+      Smart NID eligibility, registration/application, issuance
+      status, collection, distribution, delay and general
+      Smart Card service problems.
+
     covers:
-      - "Smart NID Card"
+      - "Smart NID Eligibility"
+      - "Smart NID Registration"
+      - "Smart NID Application"
+      - "Smart NID Status"
+      - "Smart NID Collection Location"
+      - "Smart NID Distribution Date"
+      - "Smart NID Delay"
+      - "General Smart NID Problems"
+
+    query_topics:
+
+      NID_SMART_ELIGIBILITY:
+        display_name: "Smart NID Eligibility"
+        description: >
+          Questions about who is eligible to receive a Smart NID,
+          what conditions apply, or whether a particular citizen
+          qualifies for one.
+        includes:
+          - "Who can receive a Smart NID?"
+          - "Am I eligible for a Smart NID?"
+          - "Can a new voter receive a Smart NID?"
+          - "Can an existing NID holder receive one?"
+          - "Is there an age requirement?"
+          - "What are the eligibility conditions?"
+        excludes:
+          - "How to register for Smart NID"
+          - "How to apply after eligibility is known"
+
+      NID_SMART_REGISTRATION:
+        display_name: "Smart NID Registration"
+        description: >
+          Questions specifically about whether Smart NID requires
+          separate registration and how or where that registration
+          is performed.
+        includes:
+          - "Do I need to register separately for Smart NID?"
+          - "How do I register?"
+          - "Where can I register?"
+          - "Can Smart NID registration be done online?"
+          - "Registration procedure"
+        excludes:
+          - "General Smart NID application procedure"
+          - "First-time voter/NID registration"
+
+      NID_SMART_APPLICATION:
+        display_name: "Smart NID Application"
+        description: >
+          Questions about applying for a Smart NID, application
+          procedure, application requirements and submission.
+        includes:
+          - "How do I apply for a Smart NID?"
+          - "Smart NID application process"
+          - "Where to apply"
+          - "Can I apply online?"
+          - "Documents needed to apply"
+          - "What should I do to obtain a Smart NID?"
+        excludes:
+          - "Checking an already submitted application"
+          - "Generic Smart NID eligibility"
+          - "Smart NID fee questions"
+
+      NID_SMART_STATUS:
+        display_name: "Smart NID Status"
+        description: >
+          Questions about checking whether a Smart NID has been
+          issued, produced, approved or is ready after an
+          application or registration process.
+        includes:
+          - "How do I check Smart NID status?"
+          - "Has my Smart NID been produced?"
+          - "Is my card ready?"
+          - "Where can I check status?"
+          - "Can status be checked online?"
+          - "Is the Smart NID ready for collection?"
+        excludes:
+          - "Where to collect the card"
+          - "When distribution will occur"
+          - "A card that is explicitly delayed"
+
+      NID_SMART_COLLECTION_LOCATION:
+        display_name: "Smart NID Collection Location"
+        description: >
+          Questions about where and how a citizen should collect
+          an issued Smart NID card.
+        includes:
+          - "Where can I collect my Smart NID?"
+          - "Where is my collection center?"
+          - "Which election office should I visit?"
+          - "How do I find my collection location?"
+          - "Can another person collect it for me?"
+          - "What is required when collecting the card?"
+        excludes:
+          - "Whether the card is ready"
+          - "When distribution starts"
+
+      NID_SMART_DISTRIBUTION_DATE:
+        display_name: "Smart NID Distribution Date"
+        description: >
+          Questions about when Smart NID distribution starts,
+          the announced or local distribution date, and whether
+          distribution has begun in an area.
+        includes:
+          - "When will Smart NID cards be distributed?"
+          - "What is the distribution date?"
+          - "When will distribution start?"
+          - "Has distribution started?"
+          - "When will cards be distributed in my area?"
+          - "Where can I find the local distribution date?"
+        excludes:
+          - "Where the collection center is"
+          - "A citizen whose expected card is already delayed"
+
+      NID_SMART_DELAY:
+        display_name: "Smart NID Delay"
+        description: >
+          Questions where Smart NID issuance, readiness,
+          distribution or receipt is taking longer than expected.
+        includes:
+          - "My Smart NID is delayed"
+          - "Why have I not received my Smart NID?"
+          - "Distribution started but I did not receive mine"
+          - "Where should I contact about the delay?"
+          - "Why is my card taking so long?"
+          - "When will my delayed Smart NID arrive?"
+        excludes:
+          - "Normal status checking without an expressed delay"
+          - "General distribution-date questions"
+
+      NID_SMART_GENERAL_PROBLEM:
+        display_name: "General Smart NID Problem"
+        description: >
+          Smart NID problems where the citizen identifies a
+          Smart Card issue but does not provide enough information
+          to route it to eligibility, registration, application,
+          status, collection, distribution or delay.
+        includes:
+          - "I have a problem with my Smart NID"
+          - "My Smart NID is not working"
+          - "Where can I get help with my Smart NID?"
+          - "Smart NID information is not displaying correctly"
+          - "General Smart Card service problem"
+        excludes:
+          - "Any problem clearly belonging to another Smart NID leaf"
+          - "Lost, stolen or damaged Smart NID replacement"
 
   NID_STATUS_AND_ACCESS:
     display_name: "NID Status and Document Access"
