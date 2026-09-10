@@ -430,9 +430,122 @@ parent_topics:
     display_name: "Lost, Stolen, Damaged or Duplicate NID"
     description: >
       Replacement, duplicate or reissue procedures for an NID
-      that is lost, stolen, damaged or otherwise requires replacement.
+      that has been lost, stolen, damaged or otherwise requires
+      replacement.
+
     covers:
-      - "Lost/Damaged NID / Duplicate"
+      - "Lost NID"
+      - "Stolen NID"
+      - "Damaged NID"
+      - "NID Reissue / Replacement"
+      - "Duplicate NID"
+      - "Lost or Damaged Smart NID Replacement"
+
+    query_topics:
+
+      NID_REPLACEMENT_PROCESS:
+        display_name: "NID Replacement or Reissue Process"
+        description: >
+          General questions about what to do and how to obtain
+          another NID after loss, theft, damage or another
+          replacement situation.
+        includes:
+          - "NID lost, what should I do?"
+          - "How to replace a lost NID"
+          - "How to reissue an NID"
+          - "Replacement procedure"
+          - "Damaged NID replacement process"
+          - "Lost Smart NID replacement process"
+        excludes:
+          - "Questions specifically asking whether replacement is allowed"
+          - "Questions specifically asking for documents"
+          - "Questions specifically about filing a GD"
+          - "Application tracking or status"
+          - "Fee or payment questions"
+
+      NID_REPLACEMENT_ELIGIBILITY:
+        display_name: "Replacement Eligibility"
+        description: >
+          Questions asking whether an NID in a particular condition
+          can be replaced or reissued.
+        includes:
+          - "Can a damaged NID be replaced?"
+          - "Can I get another card after losing my NID?"
+          - "Is reissue available for a lost or damaged NID?"
+          - "Can a lost Smart NID be replaced?"
+        excludes:
+          - "How to perform the replacement"
+
+      NID_REPLACEMENT_REQUIRED_DOCUMENTS:
+        display_name: "Replacement Required Documents"
+        description: >
+          Questions asking which documents, papers or supporting
+          evidence are required for NID replacement or reissue.
+        includes:
+          - "Documents required for lost NID replacement"
+          - "Documents needed for reissue"
+          - "Supporting documents"
+          - "Whether birth registration is required"
+          - "Documents needed for Smart NID replacement"
+        excludes:
+          - "Documents needed specifically to file the police GD"
+          - "Fee or payment questions"
+
+      NID_REPLACEMENT_GD_REPORTING:
+        display_name: "Lost NID GD and Police Reporting"
+        description: >
+          Questions about reporting a lost or stolen NID to police,
+          whether a General Diary is required, how to file it and
+          what is needed for the GD.
+        includes:
+          - "Do I need a GD for a lost NID?"
+          - "How to file a GD"
+          - "Where to report a lost NID"
+          - "What documents are needed for the GD"
+          - "What information must be provided in the GD"
+          - "Whether the GD copy is needed for reissue"
+        excludes:
+          - "General replacement documents unrelated to the GD"
+          - "Police GD questions unrelated to an NID"
+
+      NID_REPLACEMENT_APPLICATION_LOCATION:
+        display_name: "Replacement Application Location"
+        description: >
+          Questions about where a citizen should submit an NID
+          replacement or reissue application.
+        includes:
+          - "Where to apply for NID reissue"
+          - "Which office handles replacement"
+          - "Where to submit a lost-NID replacement request"
+          - "Where to apply for Smart NID replacement"
+        excludes:
+          - "Questions specifically asking about online application"
+
+      NID_REPLACEMENT_ONLINE_APPLICATION:
+        display_name: "Online Replacement Application"
+        description: >
+          Questions about whether or how an NID replacement or
+          reissue application can be performed online.
+        includes:
+          - "Can I apply for NID reissue online?"
+          - "Online lost-NID replacement"
+          - "Online replacement application procedure"
+        excludes:
+          - "NID portal login or account problems"
+          - "Application status tracking"
+
+      NID_REPLACEMENT_PROCESSING_TIME:
+        display_name: "Normal Replacement Processing Time"
+        description: >
+          Questions asking how long an NID replacement or reissue
+          normally takes.
+        includes:
+          - "How many days does replacement take?"
+          - "Normal reissue processing time"
+          - "Expected time to receive the replacement card"
+        excludes:
+          - "An already delayed replacement application"
+          - "Checking the status of a submitted replacement request"
 
   NID_ONLINE_SERVICES:
     display_name: "NID Online Account and Portal"
