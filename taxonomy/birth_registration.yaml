@@ -1,6 +1,6 @@
-taxonomy_version: "0.1.0"
+taxonomy_version: "0.2.0"
 service_id: "BIRTH_REGISTRATION"
-status: "query_topics_drafted"
+status: "pilot_ready"
 
 description: >
   Working parent-topic taxonomy for Bangladesh Birth Registration
@@ -235,7 +235,7 @@ parent_topics:
           - "Can I edit the application after submitting it?"
           - "Should I check the information before submission?"
           - "Can submitted birth registration information be changed from the application?"
-          - "What happens after I press submit?"
+          - "Does submitting the application make the information final?"
         excludes:
           - "Correcting an already registered birth record"
           - "Checking application status"
@@ -344,6 +344,7 @@ parent_topics:
           existing Birth Registration Number with the registered
           person's birth record so that corrected parent information
           can be reflected appropriately.
+        evidence_status: "needs_query_pilot"
         includes:
           - "How do I link my father's birth registration number?"
           - "My mother's BRN was not added to my birth record"
@@ -737,9 +738,11 @@ evidence_notes:
 
 freeze_status:
   shared_contract_frozen: false
-  parent_topics_reviewed: false
-  query_topics_defined: false
-  inclusion_exclusion_rules_defined: false
-  semantic_audit_passed: false
+
+  parent_topics_reviewed: true
+  query_topics_defined: true
+  inclusion_exclusion_rules_defined: true
+  semantic_audit_passed: true
+
   pilot_dataset_created: false
   taxonomy_ready_for_shared_contract: false
