@@ -1114,10 +1114,109 @@ parent_topics:
   NID_FEES_AND_PAYMENT:
     display_name: "NID Fees and Payment"
     description: >
-      General NID service fees, payment methods, payment status,
-      receipts and related payment questions.
+      Questions concerning NID service fees, payment methods,
+      payment confirmation, receipts and refunds across supported
+      NID-related procedures.
+
     covers:
-      - "NID Fees & Payment"
+      - "General NID Fee Information"
+      - "Service-Specific NID Fees"
+      - "NID Payment Methods"
+      - "NID Payment Status"
+      - "NID Refund and Receipts"
+
+    query_topics:
+
+      NID_FEES_GENERAL_INFORMATION:
+        display_name: "General NID Fee Information"
+        description: >
+          General questions about NID fees or charges where the
+          citizen does not identify a specific NID operation.
+        evidence_status: "needs_pilot_expansion"
+        includes:
+          - "Does NID service require a fee?"
+          - "What are the NID service fees?"
+          - "Where can I find the NID fee list?"
+          - "How much do NID services cost?"
+          - "Are all NID services free?"
+        excludes:
+          - "Fee for a clearly identified service such as registration or reissue"
+          - "How to make a payment"
+          - "Whether a completed payment succeeded"
+
+      NID_FEES_SERVICE_SPECIFIC:
+        display_name: "Service-Specific NID Fee"
+        description: >
+          Questions asking whether a fee applies or how much must
+          be paid for a specifically identified NID procedure.
+        evidence_status: "supported_by_current_dataset"
+        includes:
+          - "How much is the new NID registration fee?"
+          - "Is first-time voter registration free?"
+          - "How much does NID replacement cost?"
+          - "What is the NID reissue fee?"
+          - "Is there a fee for correcting my NID name?"
+          - "How much does a particular NID service cost?"
+        excludes:
+          - "How or where to pay the fee"
+          - "Payment confirmation or status"
+          - "Refund or receipt requests"
+
+      NID_PAYMENT_METHOD:
+        display_name: "NID Payment Method"
+        description: >
+          Questions about how, where or through which payment
+          channel an NID-related fee should be paid.
+        evidence_status: "supported_by_current_dataset"
+        includes:
+          - "How do I pay the NID fee?"
+          - "Can I pay online?"
+          - "Can I use mobile banking?"
+          - "Can the fee be paid through a bank?"
+          - "Which payment methods are available?"
+          - "How do I pay a replacement or reissue fee?"
+        excludes:
+          - "How much the service costs"
+          - "Whether a previous payment succeeded"
+          - "Refund requests"
+
+      NID_PAYMENT_STATUS:
+        display_name: "NID Payment Status"
+        description: >
+          Questions about whether an NID-related payment was
+          successfully received, confirmed, verified or remains
+          pending or failed.
+        evidence_status: "needs_pilot_expansion"
+        includes:
+          - "How can I check my NID payment status?"
+          - "I paid the fee but it still shows unpaid"
+          - "Was my payment successful?"
+          - "My payment is pending"
+          - "Payment failed but money was deducted"
+          - "How do I confirm that the payment was received?"
+        excludes:
+          - "How to make the payment"
+          - "How much the fee is"
+          - "Requesting a refund or receipt"
+
+      NID_PAYMENT_REFUND_RECEIPT:
+        display_name: "NID Refund and Receipt"
+        description: >
+          Questions about payment receipts, proof of payment,
+          duplicate payment, incorrect payment or requesting a
+          refund for an NID-related transaction.
+        evidence_status: "needs_pilot_expansion"
+        includes:
+          - "How can I get my payment receipt?"
+          - "Where can I download proof of payment?"
+          - "I paid twice; what should I do?"
+          - "Can I get a refund?"
+          - "I paid the wrong amount"
+          - "How can I obtain another copy of my receipt?"
+        excludes:
+          - "Checking whether the payment succeeded"
+          - "How to pay a fee"
+          - "Asking only for the required fee amount"
 
   NID_GENERAL_INFORMATION:
     display_name: "General NID Information"
