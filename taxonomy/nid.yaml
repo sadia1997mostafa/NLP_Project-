@@ -1,59 +1,152 @@
-taxonomy_version: "0.1.0"
+taxonomy_version: "0.2.0"
 service_id: "NID"
-status: "draft"
+status: "draft_reviewed"
 
 description: >
-  Parent-topic taxonomy for National Identity Card and voter-related
-  citizen queries. Query-topic / specific-intent labels will be added
-  after the parent-topic structure is reviewed.
+  Working parent-topic taxonomy for National Identity Card and
+  voter-related citizen queries. This structure is derived from the
+  existing NID query inventory and coverage audit. Query-topic IDs
+  will be defined separately before the taxonomy is frozen into the
+  shared contract.
 
 parent_topics:
 
   NID_REGISTRATION:
-    display_name: "New NID Registration"
+    display_name: "NID / Voter Registration"
     description: >
-      First-time NID or voter registration, including eligibility,
-      application procedure, required documents, processing and related
-      registration questions.
-    current_dataset_label:
-      - "New NID Registration"
+      First-time NID or voter registration and closely related
+      registration procedures.
+    covers:
+      - "New NID / New Voter Registration"
+      - "Expatriate NID Registration"
+      - "NID Validity / Re-registration"
 
   NID_CORRECTION:
     display_name: "NID Information Correction"
     description: >
-      Correction or update of information recorded on an existing NID,
-      such as name, parents' information, date of birth, gender,
-      blood group, marital status, address, photo or signature.
-    current_dataset_label:
+      Correction or updating of personal information recorded
+      on an existing NID.
+    covers:
       - "NID Information Correction"
+      - "Name Change / Name Correction"
+      - "Father/Mother/Spouse Name Correction"
+      - "Date of Birth Correction"
+      - "Address Correction"
+      - "NID-Document Information Mismatch"
 
   NID_REPLACEMENT:
-    display_name: "Lost, Stolen or Damaged NID"
+    display_name: "Lost, Stolen, Damaged or Duplicate NID"
     description: >
-      Replacement or reissue questions involving an NID that has been
-      lost, stolen, damaged or otherwise needs replacement.
-    current_dataset_label:
-      - "Lost/Stolen NID"
+      Replacement, duplicate or reissue procedures for an NID
+      that is lost, stolen, damaged or otherwise requires replacement.
+    covers:
+      - "Lost/Damaged NID / Duplicate"
 
   NID_ONLINE_SERVICES:
     display_name: "NID Online Account and Portal"
     description: >
-      Queries involving the NID online portal, account registration,
-      login, password or account recovery, OTP, verification and
-      access to online NID services.
-    current_dataset_label:
-      - "NID Online Problem"
+      NID portal accounts, login, password recovery, OTP,
+      verification and other online-service access issues.
+    covers:
+      - "NID Online Account / Portal"
 
   NID_SMART_CARD:
     display_name: "Smart NID Card"
     description: >
-      Queries involving Smart NID eligibility, application, status,
-      distribution, collection and related Smart Card issues.
-    current_dataset_label:
-      - "Smart ID Card"
+      Smart NID eligibility, application, status, distribution,
+      collection, delay and related Smart Card issues.
+    covers:
+      - "Smart NID Card"
 
-notes:
-  - "This file is a draft and is not yet part of the frozen shared contract."
-  - "Existing dataset labels are recorded to support later migration."
-  - "Additional NID coverage must be reviewed before parent-topic IDs are frozen."
-  - "Query-topic / specific-intent IDs are intentionally not defined yet."
+  NID_STATUS_AND_ACCESS:
+    display_name: "NID Status and Document Access"
+    description: >
+      Queries about obtaining existing NID information or accessing
+      the user's NID record/document and checking relevant status.
+    covers:
+      - "NID Download"
+      - "NID Number Retrieval"
+      - "NID/Voter Registration Status"
+
+  NID_VOTER_SERVICES:
+    display_name: "Voter Record and Electoral Services"
+    description: >
+      Voter-record operations that are distinct from ordinary
+      correction of personal NID information.
+    covers:
+      - "Voter Area Migration"
+      - "Vote Center Information"
+      - "Deceased Voter / Voter Deletion"
+
+  NID_FEES_AND_PAYMENT:
+    display_name: "NID Fees and Payment"
+    description: >
+      General NID service fees, payment methods, payment status,
+      receipts and related payment questions.
+    covers:
+      - "NID Fees & Payment"
+
+  NID_GENERAL_INFORMATION:
+    display_name: "General NID Information"
+    description: >
+      General eligibility, service information or NID questions
+      that do not yet belong to a more specific supported workflow.
+    covers:
+      - "General NID Eligibility & Information"
+
+
+design_rules:
+
+  - >
+    Parent topics describe broad citizen-service areas. Specific
+    information needs will be represented as query-topic IDs beneath
+    these parents.
+
+  - >
+    The existing spreadsheet problem labels are source labels only
+    and do not define the final hierarchy.
+
+  - >
+    Voter Area Migration is separated from ordinary Address Correction
+    because changing residential information and transferring a voter
+    area represent different citizen service needs.
+
+  - >
+    Status/document-access queries are separated from portal-account
+    problems. For example, downloading an NID and recovering a portal
+    password should not be the same intent family.
+
+  - >
+    Generic fee/payment questions belong to NID_FEES_AND_PAYMENT.
+    Operation-specific fee questions may later be routed to a more
+    specific query topic if the query clearly identifies the operation.
+
+  - >
+    NID_GENERAL_INFORMATION must not become a catch-all class for
+    ambiguous queries. Low-confidence or unsupported queries will
+    eventually use clarification/OOD handling instead.
+
+
+source_dataset_mapping:
+
+  "NID Information Correction":
+    primary_parent: "NID_CORRECTION"
+
+  "New NID Registration":
+    primary_parent: "NID_REGISTRATION"
+
+  "Lost/Stolen NID":
+    primary_parent: "NID_REPLACEMENT"
+
+  "NID Online Problem":
+    primary_parent: "NID_ONLINE_SERVICES"
+
+  "Smart ID Card":
+    primary_parent: "NID_SMART_CARD"
+
+
+freeze_status:
+  shared_contract_frozen: false
+  parent_topics_reviewed: true
+  query_topics_defined: false
+  inclusion_exclusion_rules_defined: false
