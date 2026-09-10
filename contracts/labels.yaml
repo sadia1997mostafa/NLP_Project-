@@ -1,0 +1,31 @@
+contract_version: "1.0.0"
+
+services:
+  NID:
+    display_name: "NID"
+    description: "National Identity Card and voter-related services."
+
+  BIRTH_REGISTRATION:
+    display_name: "Birth Registration"
+    description: "Birth registration certificate and related services."
+
+  PASSPORT:
+    display_name: "Passport"
+    description: "Bangladesh passport application and related services."
+
+  TAX:
+    display_name: "Tax"
+    description: "Income tax, return filing, TIN and related tax services."
+
+  POLICE_GD:
+    display_name: "Police GD"
+    description: "General Diary and related police reporting services."
+
+  DRIVING_LICENCE:
+    display_name: "Driving Licence"
+    description: "Driving licence application, renewal and related services."
+
+priority_labels:
+  - Low
+  - Medium
+  - High
