@@ -498,18 +498,60 @@ parent_topics:
 
 
   BR_VERIFICATION:
-    display_name: "Birth Registration Verification and Search"
+    display_name: "Birth Registration Verification"
     description: >
-      Questions about checking whether a birth registration record
-      exists, verifying a birth certificate or resolving record-search
-      and verification problems.
+      Questions about verifying an existing birth registration record
+      using the official verification service, and problems where an
+      expected record cannot be successfully verified.
+
+    default_evidence_status: "official_service_supported"
+
     covers:
       - "Birth Registration Verification"
-      - "Birth Record Search"
+      - "Birth Record Verification"
       - "Record Not Found"
       - "Verification Failure"
 
-    query_topics: {}
+    query_topics:
+
+      BR_VERIFICATION_RECORD:
+        display_name: "Verify Birth Registration Record"
+        description: >
+          Questions about checking or verifying an existing birth
+          registration record using the Birth Registration Number
+          and date of birth through the official verification service.
+        includes:
+          - "How can I verify my birth registration?"
+          - "How do I check whether my birth certificate is valid?"
+          - "Where can I verify a birth registration online?"
+          - "How do I verify using my birth registration number?"
+          - "What information is needed to verify a birth record?"
+          - "Can I check my birth registration using BRN and date of birth?"
+        excludes:
+          - "Checking the status of a submitted registration application"
+          - "Obtaining another copy of an issued certificate"
+          - "Correcting information in an existing birth record"
+          - "Recovering a forgotten Birth Registration Number"
+
+      BR_VERIFICATION_FAILURE:
+        display_name: "Birth Registration Verification Failure"
+        description: >
+          Problems where the citizen attempts to verify an expected
+          existing birth registration record but the verification
+          service does not return or accept the record as expected.
+        evidence_status: "needs_query_pilot"
+        includes:
+          - "My birth registration cannot be verified"
+          - "The verification page cannot find my record"
+          - "I entered my BRN and date of birth but no record appears"
+          - "My information is correct but verification is failing"
+          - "Why is my birth registration showing no result?"
+          - "What should I do if my birth record cannot be verified?"
+        excludes:
+          - "The citizen does not know the Birth Registration Number"
+          - "A new birth registration application is still pending"
+          - "The citizen wants to correct information already shown in the record"
+          - "The verification website itself is generally unavailable"
 
 
   BR_CANCELLATION:
