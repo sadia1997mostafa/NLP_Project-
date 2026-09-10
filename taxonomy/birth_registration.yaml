@@ -591,19 +591,42 @@ parent_topics:
   BR_FEES_AND_PAYMENT:
     display_name: "Birth Registration Fees and Payment"
     description: >
-      Questions concerning fees, service-specific charges, payment
-      methods, payment status, receipts or refunds related to Birth
-      Registration services.
+      Questions about official fees or charges associated with Birth
+      Registration services. Detailed fee amounts and payment
+      procedures belong in the verified government knowledge corpus
+      rather than in the classifier taxonomy.
+
+    default_evidence_status: "official_fee_service_supported"
+
     covers:
-      - "General Fee Information"
+      - "Birth Registration Fee Information"
       - "Registration Fee"
       - "Correction Fee"
       - "Certificate Reprint Fee"
-      - "Payment Method"
-      - "Payment Status"
-      - "Receipt / Refund"
 
-    query_topics: {}
+    query_topics:
+
+      BR_FEES_INFORMATION:
+        display_name: "Birth Registration Fee Information"
+        description: >
+          Questions asking whether a Birth Registration service has a
+          fee or how much an official Birth Registration-related
+          service costs, including registration, correction and
+          certificate reprint charges.
+        includes:
+          - "Is birth registration free?"
+          - "How much does birth registration cost?"
+          - "What is the birth registration fee?"
+          - "Is there a fee for correcting birth registration information?"
+          - "How much is the birth certificate correction fee?"
+          - "Is there a fee to reprint a birth certificate?"
+          - "What are the official Birth Registration charges?"
+        excludes:
+          - "How to submit a new Birth Registration application"
+          - "How to correct information"
+          - "How to obtain a certificate reprint"
+          - "Questions specifically about payment method when the supported payment workflow has not yet been verified"
+          - "Payment failure or payment status questions when the supported payment workflow has not yet been verified"
 
 
   BR_GENERAL_INFORMATION:
