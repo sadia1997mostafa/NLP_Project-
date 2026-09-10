@@ -278,13 +278,153 @@ parent_topics:
     description: >
       Correction or updating of personal information recorded
       on an existing NID.
+
     covers:
-      - "NID Information Correction"
       - "Name Change / Name Correction"
-      - "Father/Mother/Spouse Name Correction"
+      - "Father/Mother Name Correction"
       - "Date of Birth Correction"
+      - "Gender Correction"
+      - "Blood Group Correction"
+      - "Marital Status Correction"
+      - "Spouse Name Correction"
       - "Address Correction"
-      - "NID-Document Information Mismatch"
+      - "Photo Change / Correction"
+      - "Signature Change / Correction"
+
+    query_topics:
+
+      NID_CORRECTION_NAME:
+        display_name: "Own Name Correction"
+        description: >
+          Correction, spelling correction, addition, removal or
+          modification of the NID holder's own name.
+        includes:
+          - "Wrong own name"
+          - "Name spelling mistake"
+          - "Missing part of own name"
+          - "Own name differs from certificate or other document"
+          - "Procedure or documents for own-name correction"
+        excludes:
+          - "Father or mother's name"
+          - "Spouse's name"
+          - "A generic document mismatch involving another field"
+
+      NID_CORRECTION_PARENT_NAME:
+        display_name: "Father or Mother Name Correction"
+        description: >
+          Correction or updating of the NID holder's father or
+          mother's name.
+        includes:
+          - "Father's name incorrect"
+          - "Mother's name incorrect"
+          - "Parent-name spelling error"
+          - "Parent name differs from supporting documents"
+          - "Documents or procedure for parent-name correction"
+        excludes:
+          - "Citizen's own name"
+          - "Spouse information"
+
+      NID_CORRECTION_DOB:
+        display_name: "Date of Birth Correction"
+        description: >
+          Correction of an incorrect date, day, month or year of
+          birth recorded on the NID.
+        includes:
+          - "Wrong date of birth"
+          - "Wrong birth year"
+          - "Wrong day or month"
+          - "NID birth date differs from birth registration"
+          - "Documents or procedure for date-of-birth correction"
+        excludes:
+          - "Age eligibility for first-time registration"
+
+      NID_CORRECTION_GENDER:
+        display_name: "Gender Information Correction"
+        description: >
+          Correction or updating of gender information recorded
+          incorrectly on an existing NID.
+        includes:
+          - "Incorrect gender"
+          - "Incorrect male/female designation"
+          - "Gender information differs from supporting documents"
+          - "Procedure or documents for gender correction"
+
+      NID_CORRECTION_BLOOD_GROUP:
+        display_name: "Blood Group Correction"
+        description: >
+          Correction or updating of blood-group information
+          recorded on an existing NID.
+        includes:
+          - "Wrong blood group"
+          - "Blood-group update"
+          - "Documents or proof for blood-group correction"
+
+      NID_CORRECTION_MARITAL_STATUS:
+        display_name: "Marital Status Correction"
+        description: >
+          Correction or updating of marital-status information
+          such as married or unmarried status.
+        includes:
+          - "Incorrect marital status"
+          - "Status still shows unmarried after marriage"
+          - "Marital-status update"
+          - "Documents or procedure for marital-status correction"
+        excludes:
+          - "Adding or correcting the spouse's actual name"
+
+      NID_CORRECTION_SPOUSE_NAME:
+        display_name: "Spouse Name Correction"
+        description: >
+          Addition, correction or updating of husband or wife
+          information recorded on the NID.
+        includes:
+          - "Incorrect spouse name"
+          - "Spouse-name spelling correction"
+          - "Adding husband or wife name"
+          - "Updating spouse information"
+          - "Documents or procedure for spouse-name correction"
+        excludes:
+          - "Changing only married/unmarried status"
+
+      NID_CORRECTION_ADDRESS:
+        display_name: "Address Correction"
+        description: >
+          Correction, addition or updating of address information
+          recorded on an existing NID.
+        includes:
+          - "Incorrect address"
+          - "Current address missing"
+          - "Address update after moving"
+          - "Incorrect village or area name"
+          - "Documents or procedure for address correction"
+        excludes:
+          - "Transferring the citizen's voter area"
+          - "Choosing a voter area during first-time registration"
+
+      NID_CORRECTION_PHOTO:
+        display_name: "Photo Change or Correction"
+        description: >
+          Updating or replacing the photograph associated with
+          an existing NID.
+        includes:
+          - "Old photograph"
+          - "Poor-quality photograph"
+          - "Request to provide a new photograph"
+          - "Photo-change procedure"
+        excludes:
+          - "Biometric photograph taken during first-time registration"
+
+      NID_CORRECTION_SIGNATURE:
+        display_name: "Signature Change or Correction"
+        description: >
+          Correction, replacement or updating of the signature
+          associated with an existing NID.
+        includes:
+          - "Incorrect signature"
+          - "Old signature needs replacement"
+          - "Changed signature"
+          - "Signature-update procedure"
+          - "Requirements for signature correction"
 
   NID_REPLACEMENT:
     display_name: "Lost, Stolen, Damaged or Duplicate NID"
