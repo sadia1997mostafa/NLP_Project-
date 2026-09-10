@@ -92,7 +92,6 @@ def main():
         "description",
         "includes",
         "excludes",
-        "evidence_status",
     }
 
     for parent_id, parent in parents.items():
@@ -105,6 +104,19 @@ def main():
         if not isinstance(parent, dict):
             errors.append(f"{parent_id} must contain a mapping.")
             continue
+
+        default_evidence_status = parent.get(
+            "default_evidence_status"
+        )
+
+        if (
+            default_evidence_status is not None
+            and default_evidence_status not in ALLOWED_EVIDENCE_STATUS
+        ):
+            errors.append(
+                f"{parent_id} has invalid default_evidence_status: "
+                f"{default_evidence_status!r}"
+            )
 
         for field in required_parent_fields:
             if field not in parent:
@@ -142,9 +154,7 @@ def main():
 
             for field in required_leaf_fields:
                 if field not in query:
-                    if field == "evidence_status":
-                        missing_evidence.append(query_id)
-                    elif field == "excludes":
+                    if field == "excludes":
                         missing_excludes.append(query_id)
                     elif field == "includes":
                         missing_includes.append(query_id)
@@ -153,12 +163,15 @@ def main():
                             f"{query_id} missing required field: {field}"
                         )
 
-            evidence_status = query.get("evidence_status")
+            evidence_status = query.get(
+                "evidence_status",
+                default_evidence_status,
+            )
 
-            if (
-                evidence_status is not None
-                and evidence_status not in ALLOWED_EVIDENCE_STATUS
-            ):
+            if evidence_status is None:
+                missing_evidence.append(query_id)
+
+            elif evidence_status not in ALLOWED_EVIDENCE_STATUS:
                 errors.append(
                     f"{query_id} has invalid evidence_status: "
                     f"{evidence_status!r}"

@@ -1,4 +1,4 @@
-taxonomy_version: "0.2.0"
+taxonomy_version: "0.3.0"
 service_id: "NID"
 status: "draft_reviewed"
 
@@ -16,6 +16,8 @@ parent_topics:
     description: >
       First-time NID or voter registration and closely related
       registration procedures.
+
+    default_evidence_status: "supported_by_current_dataset"
 
     covers:
       - "New NID / New Voter Registration"
@@ -235,6 +237,10 @@ parent_topics:
           - "Lost registration slip"
           - "Lost application ID"
           - "Lost tracking information"
+        excludes:
+          - "Recovering the citizen's NID number"
+          - "Recovering an NID online account or password"
+          - "Checking application status when the reference is already known"
 
       NID_REGISTRATION_LATE_REGISTRATION:
         display_name: "Late First-Time Registration"
@@ -258,6 +264,10 @@ parent_topics:
           - "Cancel application"
           - "Withdraw submitted application"
           - "Application submitted by mistake"
+        excludes:
+          - "Deactivating an NID online account"
+          - "Deceased-voter record deletion"
+          - "Correcting information on an existing NID"
 
       NID_REGISTRATION_PROCESSING_TIME:
         display_name: "Normal Registration Processing Time"
@@ -297,6 +307,8 @@ parent_topics:
     description: >
       Correction or updating of personal information recorded
       on an existing NID.
+
+    default_evidence_status: "supported_by_current_dataset"
 
     covers:
       - "Name Change / Name Correction"
@@ -367,6 +379,9 @@ parent_topics:
           - "Incorrect male/female designation"
           - "Gender information differs from supporting documents"
           - "Procedure or documents for gender correction"
+        excludes:
+          - "Gender information entered during first-time registration"
+          - "Correction of a different NID field"
 
       NID_CORRECTION_BLOOD_GROUP:
         display_name: "Blood Group Correction"
@@ -377,6 +392,9 @@ parent_topics:
           - "Wrong blood group"
           - "Blood-group update"
           - "Documents or proof for blood-group correction"
+        excludes:
+          - "Blood-group information entered during first-time registration"
+          - "Correction of a different NID field"
 
       NID_CORRECTION_MARITAL_STATUS:
         display_name: "Marital Status Correction"
@@ -444,6 +462,10 @@ parent_topics:
           - "Changed signature"
           - "Signature-update procedure"
           - "Requirements for signature correction"
+        excludes:
+          - "Signature captured during first-time registration"
+          - "Face, fingerprint or online biometric verification"
+          - "Correction of a different NID field"
 
   NID_REPLACEMENT:
     display_name: "Lost, Stolen, Damaged or Duplicate NID"
@@ -451,6 +473,8 @@ parent_topics:
       Replacement, duplicate or reissue procedures for an NID
       that has been lost, stolen, damaged or otherwise requires
       replacement.
+
+    default_evidence_status: "supported_by_current_dataset"
 
     covers:
       - "Lost NID"
@@ -572,6 +596,8 @@ parent_topics:
       NID portal account creation, login, password and account
       recovery, OTP and identity verification, account management,
       portal availability and other online-service access issues.
+
+    default_evidence_status: "supported_by_current_dataset"
 
     covers:
       - "NID Online Account Registration"
@@ -807,6 +833,8 @@ parent_topics:
       status, collection, distribution, delay and general
       Smart Card service problems.
 
+    default_evidence_status: "supported_by_current_dataset"
+
     covers:
       - "Smart NID Eligibility"
       - "Smart NID Registration"
@@ -860,7 +888,7 @@ parent_topics:
         includes:
           - "How do I apply for a Smart NID?"
           - "Smart NID application process"
-          - "Where to apply"
+          - "Where to apply for a Smart NID"
           - "Can I apply online?"
           - "Documents needed to apply"
           - "What should I do to obtain a Smart NID?"
