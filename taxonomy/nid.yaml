@@ -20,7 +20,6 @@ parent_topics:
     covers:
       - "New NID / New Voter Registration"
       - "Expatriate NID Registration"
-      - "NID Validity / Re-registration"
 
     query_topics:
 
@@ -272,6 +271,26 @@ parent_topics:
         excludes:
           - "An application that is already unusually delayed"
           - "A specific pending application"
+
+      NID_REGISTRATION_EXPATRIATE:
+        display_name: "Expatriate / Overseas NID Registration"
+        description: >
+          Questions about first-time NID or voter registration for
+          Bangladeshi citizens who are living, working or residing
+          outside Bangladesh.
+        evidence_status: "needs_pilot_expansion"
+        includes:
+          - "Can a Bangladeshi living abroad apply for an NID?"
+          - "How can an expatriate register for an NID?"
+          - "Can I apply for NID from overseas?"
+          - "What is the NID registration process for expatriates?"
+          - "Where does an overseas Bangladeshi complete registration?"
+          - "What documents are required for expatriate registration?"
+        excludes:
+          - "Ordinary first-time registration inside Bangladesh"
+          - "Passport services"
+          - "Changing an existing NID address because the citizen moved abroad"
+          - "General validity of an already issued NID"
 
   NID_CORRECTION:
     display_name: "NID Information Correction"
@@ -1221,10 +1240,54 @@ parent_topics:
   NID_GENERAL_INFORMATION:
     display_name: "General NID Information"
     description: >
-      General eligibility, service information or NID questions
-      that do not yet belong to a more specific supported workflow.
+      General informational and lifecycle questions about NID that
+      do not represent a specific correction, replacement, portal,
+      Smart Card, voter-service, fee or application workflow.
+
     covers:
-      - "General NID Eligibility & Information"
+      - "General NID Information"
+      - "NID Validity / Re-registration"
+
+    query_topics:
+
+      NID_GENERAL_PURPOSE_AND_USE:
+        display_name: "NID Purpose and General Use"
+        description: >
+          General questions about what an NID is, why it is needed,
+          what it is used for or basic information about the NID
+          service.
+        evidence_status: "needs_pilot_expansion"
+        includes:
+          - "What is an NID?"
+          - "Why do I need an NID?"
+          - "What is an NID used for?"
+          - "What services require an NID?"
+          - "What is the purpose of the National Identity Card?"
+          - "Where is NID generally used?"
+        excludes:
+          - "Who is eligible to register for a new NID"
+          - "How to apply for an NID"
+          - "A specific NID procedure"
+
+      NID_GENERAL_VALIDITY_REREGISTRATION:
+        display_name: "NID Validity and Re-registration"
+        description: >
+          Questions about whether an existing NID remains valid,
+          expires, needs renewal or requires the citizen to register
+          again.
+        evidence_status: "needs_pilot_expansion"
+        includes:
+          - "Does an NID expire?"
+          - "How long is my NID valid?"
+          - "Do I need to register again?"
+          - "Is my old NID still valid?"
+          - "Do I need a new registration after many years?"
+          - "Does NID require renewal?"
+        excludes:
+          - "First-time NID registration"
+          - "Replacing a lost or damaged NID"
+          - "Smart NID distribution or replacement"
+          - "Correcting information on an existing NID"
 
 
 design_rules:
