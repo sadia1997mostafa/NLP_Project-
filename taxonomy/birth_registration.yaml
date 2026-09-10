@@ -245,19 +245,130 @@ parent_topics:
     display_name: "Birth Registration Information Correction"
     description: >
       Correction or updating of information already recorded in an
-      existing birth registration record or certificate.
+      existing birth registration record, including personal
+      information, parent information and address information.
+
+    default_evidence_status: "official_workflow_supported"
+
     covers:
-      - "General Information Correction"
+      - "General Birth Registration Correction"
       - "Name Correction"
       - "Date of Birth Correction"
       - "Gender Information Correction"
-      - "Father Information Correction"
-      - "Mother Information Correction"
-      - "Birth Place / Address Correction"
-      - "Permanent Address Correction"
-      - "Present Address Correction"
+      - "Father / Mother Information Correction"
+      - "Parent Birth Registration Number Mapping"
+      - "Address Correction"
 
-    query_topics: {}
+    query_topics:
+
+      BR_CORRECTION_PROCESS:
+        display_name: "Birth Registration Correction Process"
+        description: >
+          General questions about how to request correction of
+          information in an existing birth registration record.
+        includes:
+          - "How do I correct my birth registration?"
+          - "What is the birth registration correction process?"
+          - "Where do I apply to change incorrect information?"
+          - "Can birth registration information be corrected online?"
+          - "How many times can I submit a correction request?"
+        excludes:
+          - "Questions clearly identifying a specific field to correct"
+          - "Correction application status"
+          - "Certificate reprint without changing information"
+
+      BR_CORRECTION_NAME:
+        display_name: "Registered Person Name Correction"
+        description: >
+          Correction of the registered person's own Bangla or
+          English name information.
+        includes:
+          - "My name is wrong on my birth certificate"
+          - "How do I correct the spelling of my name?"
+          - "My English name is incorrect"
+          - "My Bangla name needs correction"
+          - "Part of my name is missing"
+        excludes:
+          - "Father or mother's name correction"
+          - "Date of birth correction"
+          - "Name entry during a new registration"
+
+      BR_CORRECTION_DOB:
+        display_name: "Date of Birth Correction"
+        description: >
+          Correction of an incorrect date of birth recorded in
+          an existing birth registration.
+        includes:
+          - "My date of birth is wrong"
+          - "How can I correct my birth year?"
+          - "The day or month is incorrect"
+          - "My recorded birth date needs changing"
+        excludes:
+          - "Entering date of birth during a new registration"
+          - "Using date of birth to verify an existing record"
+
+      BR_CORRECTION_GENDER:
+        display_name: "Gender Information Correction"
+        description: >
+          Correction of gender information recorded incorrectly
+          in an existing birth registration.
+        includes:
+          - "Gender is incorrect on my birth registration"
+          - "How do I correct the gender field?"
+          - "Wrong gender was recorded"
+        excludes:
+          - "Entering gender during a new registration"
+          - "Correction of another personal-information field"
+
+      BR_CORRECTION_PARENT_INFORMATION:
+        display_name: "Father or Mother Information Correction"
+        description: >
+          Correction of the registered person's father or mother
+          information, particularly parent names and related
+          parent-record information.
+        includes:
+          - "My father's name is wrong"
+          - "My mother's name needs correction"
+          - "How do I correct my parent's name?"
+          - "My parent's English name is incorrect"
+          - "Parent information on my birth record is wrong"
+        excludes:
+          - "Registered person's own name correction"
+          - "Entering parent information during a new registration"
+          - "Only linking an existing parent's birth registration number"
+
+      BR_CORRECTION_PARENT_BRN_MAPPING:
+        display_name: "Parent Birth Registration Number Mapping"
+        description: >
+          Questions about linking or mapping a father or mother's
+          existing Birth Registration Number with the registered
+          person's birth record so that corrected parent information
+          can be reflected appropriately.
+        includes:
+          - "How do I link my father's birth registration number?"
+          - "My mother's BRN was not added to my birth record"
+          - "How can I map my parent's birth registration number?"
+          - "Parent information was corrected but my certificate still shows the old name"
+        excludes:
+          - "Correcting the parent's own birth registration information"
+          - "General parent-name correction without a BRN linking issue"
+          - "Entering parent BRN during a new registration"
+
+      BR_CORRECTION_ADDRESS:
+        display_name: "Birth Registration Address Correction"
+        description: >
+          Correction of birth-place, permanent or present address
+          information recorded in an existing birth registration.
+        includes:
+          - "My birth-place address is wrong"
+          - "How do I correct my permanent address?"
+          - "My present address needs correction"
+          - "The village or area in my birth registration is incorrect"
+          - "How do I change incorrect address information?"
+        excludes:
+          - "Entering address during a new registration"
+          - "Choosing the registration office/location"
+          - "Correction of personal or parent information"
 
 
   BR_APPLICATION_MANAGEMENT:
