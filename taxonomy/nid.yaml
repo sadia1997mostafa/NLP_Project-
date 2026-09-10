@@ -1045,12 +1045,71 @@ parent_topics:
   NID_VOTER_SERVICES:
     display_name: "Voter Record and Electoral Services"
     description: >
-      Voter-record operations that are distinct from ordinary
-      correction of personal NID information.
+      Voter-record and electoral-service queries associated with
+      an existing voter record, including voter-area transfer,
+      vote-center information and deceased-voter record handling.
+
     covers:
       - "Voter Area Migration"
       - "Vote Center Information"
       - "Deceased Voter / Voter Deletion"
+
+    query_topics:
+
+      NID_VOTER_AREA_TRANSFER:
+        display_name: "Voter Area Transfer"
+        description: >
+          Questions about moving or transferring an existing
+          voter's registered voter area from one geographic
+          location to another.
+        evidence_status: "supported_by_current_dataset"
+        includes:
+          - "How do I change my voter area?"
+          - "I moved to another area; how do I transfer my voter record?"
+          - "Can I transfer from one upazila to another?"
+          - "My voter area still shows my old location"
+          - "What documents are required for voter-area transfer?"
+          - "Do I need to visit the election office?"
+          - "How do I apply for voter-area migration?"
+        excludes:
+          - "Correcting an address without changing voter area"
+          - "Choosing a voter area during first-time registration"
+          - "Finding the citizen's assigned vote center"
+
+      NID_VOTER_CENTER_INFORMATION:
+        display_name: "Vote Center Information"
+        description: >
+          Questions about finding or identifying the polling or
+          vote center assigned to an existing voter.
+        evidence_status: "needs_pilot_expansion"
+        includes:
+          - "Where is my vote center?"
+          - "How can I find my polling center?"
+          - "Which center am I assigned to?"
+          - "How can I check my vote-center information?"
+          - "Where do I go to vote?"
+        excludes:
+          - "Changing voter area"
+          - "Finding an election office for an NID application"
+          - "Selecting a voter area during first registration"
+
+      NID_VOTER_DECEASED_DELETION:
+        display_name: "Deceased Voter Record / Voter Deletion"
+        description: >
+          Questions concerning the voter record of a deceased
+          person, including reporting the death or requesting
+          appropriate removal or updating of the voter record.
+        evidence_status: "needs_pilot_expansion"
+        includes:
+          - "How do I report a deceased voter?"
+          - "How is a deceased person's voter record updated?"
+          - "How can a deceased voter be removed from the voter list?"
+          - "What documents are required for deceased-voter record handling?"
+          - "Where should a family member report the death?"
+        excludes:
+          - "Cancelling a living citizen's first-time NID application"
+          - "Deactivating an NID online account"
+          - "General NID correction"
 
   NID_FEES_AND_PAYMENT:
     display_name: "NID Fees and Payment"
