@@ -555,18 +555,37 @@ parent_topics:
 
 
   BR_CANCELLATION:
-    display_name: "Birth Registration Cancellation"
+    display_name: "Birth Registration Certificate Cancellation"
     description: >
-      Questions about cancelling an existing birth registration
-      record or submitting and following an official cancellation
-      request.
-    covers:
-      - "Cancellation Eligibility"
-      - "Cancellation Process"
-      - "Cancellation Requirements"
-      - "Cancellation Request Status"
+      Questions about requesting cancellation through the official
+      Birth Registration certificate cancellation service.
 
-    query_topics: {}
+    default_evidence_status: "official_service_supported"
+
+    covers:
+      - "Birth Registration Certificate Cancellation"
+      - "Certificate Cancellation Application"
+
+    query_topics:
+
+      BR_CANCELLATION_PROCESS:
+        display_name: "Birth Registration Certificate Cancellation Process"
+        description: >
+          General questions about whether and how to submit an official
+          request to cancel a Birth Registration certificate through
+          the BDRIS cancellation service.
+        includes:
+          - "How do I apply to cancel a birth registration certificate?"
+          - "Can a birth registration certificate be cancelled?"
+          - "Where can I submit a birth certificate cancellation request?"
+          - "How do I start a certificate cancellation application?"
+          - "Is there an online birth registration cancellation service?"
+        excludes:
+          - "Correcting incorrect information on a birth registration"
+          - "Obtaining another copy of a birth certificate"
+          - "Checking the status of a new birth registration application"
+          - "Deleting or cancelling an NID or another government record"
+          - "Questions specifically about cancellation documents, eligibility, fees or request status when those details are not yet source-verified"
 
 
   BR_FEES_AND_PAYMENT:
