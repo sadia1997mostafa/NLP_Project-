@@ -755,7 +755,8 @@ def print_summary(rows, stats, errors):
         "All 224 rows are independent synthetic pilot seeds."
     )
     print(
-        "DO NOT TRAIN: human semantic review is still required."
+        "Human semantic review is complete; the pilot remains a reviewed seed "
+        "dataset and is not an authorization to begin model training."
     )
 
 

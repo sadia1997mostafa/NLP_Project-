@@ -1,6 +1,6 @@
 taxonomy_version: "0.2.0"
 service_id: "PASSPORT"
-status: "semantic_audit_passed"
+status: "pilot_reviewed"
 
 description: >
   Working taxonomy for Bangladesh e-Passport citizen queries.
@@ -1697,5 +1697,5 @@ freeze_status:
   inclusion_exclusion_rules_defined: true
   semantic_audit_passed: true
 
-  pilot_dataset_created: false
-  taxonomy_ready_for_shared_contract: false
+  pilot_dataset_created: true
+  taxonomy_ready_for_shared_contract: true
