@@ -1,0 +1,530 @@
+taxonomy_version: 0.2.0
+service_id: DRIVING_LICENCE
+status: pilot_reviewed
+description: Working citizen-intent taxonomy for Bangladesh BRTA learner and driving licence services.
+id_prefix: DRIVING_LICENCE
+parent_topics:
+  DRIVING_LICENCE_LEARNER:
+    display_name: Learner Driving Licence
+    description: Eligibility, application, supporting evidence, medical certificate and access
+      to a learner licence.
+    default_evidence_status: official_service_supported
+    covers:
+    - Learner eligibility
+    - Learner application
+    - Documents
+    - Medical
+    - Learner copy
+    query_topics:
+      DRIVING_LICENCE_LEARNER_ELIGIBILITY:
+        display_name: Learner Licence Eligibility
+        description: Whether a person qualifies or may apply for a learner licence.
+        evidence_status: needs_source_review
+        includes:
+        - Who may get learner licence
+        - Learner eligibility conditions
+        excludes:
+        - Full licence eligibility
+        - How to apply
+      DRIVING_LICENCE_LEARNER_PROCESS:
+        display_name: Learner Licence Application Process
+        description: General end-to-end process for obtaining a learner licence.
+        evidence_status: official_service_supported
+        includes:
+        - How to apply for learner
+        - Learner licence steps
+        excludes:
+        - Full smart-card licence process
+        - Test scheduling only
+      DRIVING_LICENCE_LEARNER_DOCUMENTS:
+        display_name: Learner Licence Required Documents
+        description: Documents and information needed for a learner application.
+        evidence_status: official_service_supported
+        includes:
+        - Learner documents
+        - Information for learner form
+        excludes:
+        - Full licence documents
+        - Test-day preparation
+      DRIVING_LICENCE_LEARNER_MEDICAL:
+        display_name: Learner Licence Medical Certificate
+        description: Questions about the medical-certificate requirement for learner or licence
+          processing.
+        evidence_status: official_service_supported
+        includes:
+        - Medical certificate for licence
+        - Where medical form is used
+        excludes:
+        - General documents
+        - Medical diagnosis or advice
+      DRIVING_LICENCE_LEARNER_COPY:
+        display_name: Learner Licence Copy or Download
+        description: Obtaining or printing an issued learner licence or permit.
+        evidence_status: official_service_supported
+        includes:
+        - Download learner licence
+        - Print learner permit
+        excludes:
+        - Smart-card collection
+        - Learner application status
+  DRIVING_LICENCE_APPLICATION:
+    display_name: New Driving Licence Application
+    description: Application for a new full/smart-card driving licence, including online submission,
+      licence type and vehicle class.
+    default_evidence_status: official_service_supported
+    covers:
+    - New licence
+    - Online application
+    - Professional type
+    - Vehicle class
+    query_topics:
+      DRIVING_LICENCE_NEW_PROCESS:
+        display_name: New Driving Licence Application Process
+        description: General process for obtaining a full driving licence after the appropriate
+          preceding steps.
+        evidence_status: official_service_supported
+        includes:
+        - How to get new licence
+        - Full licence process
+        excludes:
+        - Learner application
+        - Renewal
+      DRIVING_LICENCE_ONLINE_APPLICATION:
+        display_name: Online Driving Licence Application
+        description: Starting or submitting a driving-licence application through BSP.
+        evidence_status: official_service_supported
+        includes:
+        - Apply for licence online
+        - Submit BSP application
+        excludes:
+        - BSP account registration
+        - General offline process
+      DRIVING_LICENCE_TYPE_SELECTION:
+        display_name: Professional or Non-Professional Licence Type
+        description: Choosing or understanding the requested professional/non-professional licence
+          type.
+        evidence_status: official_service_supported
+        includes:
+        - Professional licence type
+        - Non-professional licence choice
+        excludes:
+        - Vehicle class selection
+        - Eligibility answer with mutable rules
+      DRIVING_LICENCE_VEHICLE_CLASS:
+        display_name: Driving Licence Vehicle Class Selection
+        description: Selecting the relevant motor-vehicle class for a licence application.
+        evidence_status: official_service_supported
+        includes:
+        - Select vehicle class
+        - Motorcycle/car class
+        excludes:
+        - Professional/non-professional type
+        - Adding a class to existing licence
+  DRIVING_LICENCE_TEST:
+    display_name: Driving Competency Test
+    description: Test process, scheduling, preparation, results and another attempt after an unsuccessful
+      test.
+    default_evidence_status: official_service_supported
+    covers:
+    - Test process
+    - Schedule
+    - Requirements
+    - Result
+    - Retake
+    query_topics:
+      DRIVING_LICENCE_TEST_PROCESS:
+        display_name: Driving Test Process
+        description: General questions about stages of the driving competency test.
+        evidence_status: official_service_supported
+        includes:
+        - What happens in driving test
+        - Test stages
+        excludes:
+        - Test schedule
+        - Test result
+      DRIVING_LICENCE_TEST_SCHEDULE:
+        display_name: Driving Test Schedule or Appointment
+        description: Finding or arranging the date/time of a driving test.
+        evidence_status: official_service_supported
+        includes:
+        - Find test date
+        - Schedule driving test
+        excludes:
+        - Test result
+        - General test process
+      DRIVING_LICENCE_TEST_REQUIREMENTS:
+        display_name: Driving Test Requirements and Preparation
+        description: What to bring or prepare for the driving test.
+        evidence_status: official_service_supported
+        includes:
+        - Documents for test day
+        - How to prepare for test
+        excludes:
+        - Learner application documents
+        - Current test answers
+      DRIVING_LICENCE_TEST_RESULT:
+        display_name: Driving Test Result
+        description: Checking the result of a completed driving competency test.
+        evidence_status: official_service_supported
+        includes:
+        - Check DCTC result
+        - Driving test pass status
+        excludes:
+        - Test schedule
+        - Licence application status
+      DRIVING_LICENCE_TEST_RETAKE:
+        display_name: Driving Test Retake Guidance
+        description: Questions about the next test attempt after an unsuccessful or missed test.
+        evidence_status: needs_source_review
+        includes:
+        - Retake failed driving test
+        - Missed test next step
+        excludes:
+        - First test schedule
+        - Current legal retake interval
+  DRIVING_LICENCE_ONLINE_ACCOUNT:
+    display_name: BRTA Service Portal Account
+    description: BSP account registration, login, password, OTP and general access problems.
+    default_evidence_status: official_service_supported
+    covers:
+    - Account registration
+    - Login
+    - Password
+    - OTP
+    - Access problem
+    query_topics:
+      DRIVING_LICENCE_ACCOUNT_REGISTRATION:
+        display_name: BRTA Portal Account Registration
+        description: Creating a service-recipient account on BSP.
+        evidence_status: official_service_supported
+        includes:
+        - Create BSP account
+        - Register as driver
+        excludes:
+        - Submit licence application
+        - Login to existing account
+      DRIVING_LICENCE_ACCOUNT_LOGIN:
+        display_name: BRTA Portal Account Login
+        description: How or where to sign in to an existing BSP account.
+        evidence_status: official_service_supported
+        includes:
+        - Login to BSP
+        - Find sign-in
+        excludes:
+        - Login failure
+        - Password reset
+      DRIVING_LICENCE_PASSWORD_RESET:
+        display_name: BRTA Portal Password Reset
+        description: Recovering or resetting a forgotten BSP password.
+        evidence_status: official_service_supported
+        includes:
+        - Forgot BSP password
+        - Reset password
+        excludes:
+        - Generic access problem
+        - OTP-only issue
+      DRIVING_LICENCE_ACCOUNT_OTP:
+        display_name: BRTA Portal OTP Problem
+        description: OTP delivery or acceptance problems in a portal workflow.
+        evidence_status: official_service_supported
+        includes:
+        - BSP OTP not received
+        - OTP invalid
+        excludes:
+        - Password forgotten
+        - Payment verification
+      DRIVING_LICENCE_ACCOUNT_ACCESS_PROBLEM:
+        display_name: General BRTA Portal Access Problem
+        description: An existing BSP account cannot be accessed and no specific known cause is
+          stated.
+        evidence_status: official_service_supported
+        includes:
+        - Cannot access BSP account
+        - Unknown portal-account error
+        excludes:
+        - Known password issue
+        - Portal entirely unavailable
+  DRIVING_LICENCE_PAYMENT:
+    display_name: Driving Licence Fees and Payment
+    description: Fee information, payment channels, verification and failed transactions.
+    default_evidence_status: official_service_supported
+    covers:
+    - Fee
+    - Payment method
+    - Verification
+    - Failure
+    query_topics:
+      DRIVING_LICENCE_FEE_INFORMATION:
+        display_name: Driving Licence Fee Information
+        description: Whether a licence service has a charge or how to find its official fee.
+        evidence_status: official_service_supported
+        includes:
+        - Licence fee amount
+        - Official fee calculator
+        excludes:
+        - How to pay
+        - Exact fee embedded in label
+      DRIVING_LICENCE_PAYMENT_METHOD:
+        display_name: Driving Licence Payment Method
+        description: How or through which supported channel a licence fee is paid.
+        evidence_status: official_service_supported
+        includes:
+        - Pay licence fee
+        - Payment channel
+        excludes:
+        - Fee amount
+        - Payment verification
+      DRIVING_LICENCE_PAYMENT_VERIFICATION:
+        display_name: Driving Licence Payment Verification
+        description: Checking whether a completed licence payment was successfully recorded.
+        evidence_status: official_service_supported
+        includes:
+        - Verify licence payment
+        - Payment status
+        excludes:
+        - How to pay
+        - Failed transaction
+      DRIVING_LICENCE_PAYMENT_FAILURE:
+        display_name: Driving Licence Payment Failure
+        description: A licence-fee transaction cannot be completed or fails.
+        evidence_status: official_service_supported
+        includes:
+        - Licence payment failed
+        - Transaction error
+        excludes:
+        - Payment method
+        - Successful payment verification
+  DRIVING_LICENCE_STATUS_DELIVERY:
+    display_name: Licence Status, Issuance and Delivery
+    description: Application tracking, delays, readiness and collection/delivery of the issued
+      licence.
+    default_evidence_status: official_service_supported
+    covers:
+    - Status
+    - Delay
+    - Ready
+    - Collection
+    - Digital verification
+    query_topics:
+      DRIVING_LICENCE_APPLICATION_STATUS:
+        display_name: Driving Licence Application Status
+        description: Checking the current stage of a submitted licence application.
+        evidence_status: official_service_supported
+        includes:
+        - Track licence application
+        - Check current status
+        excludes:
+        - Explicit delay
+        - Test result
+      DRIVING_LICENCE_APPLICATION_DELAY:
+        display_name: Driving Licence Application Delay
+        description: A submitted licence application appears stuck longer than expected.
+        evidence_status: official_service_supported
+        includes:
+        - Licence pending too long
+        - Application delayed
+        excludes:
+        - Normal status check
+        - Current processing-time promise
+      DRIVING_LICENCE_READY:
+        display_name: Driving Licence Ready for Collection
+        description: Checking whether the physical/smart-card licence is ready.
+        evidence_status: official_service_supported
+        includes:
+        - Licence ready
+        - Card produced
+        excludes:
+        - How to collect
+        - Application general status
+      DRIVING_LICENCE_COLLECTION_DELIVERY:
+        display_name: Driving Licence Collection or Delivery
+        description: How or where to receive an issued physical/smart-card licence.
+        evidence_status: official_service_supported
+        includes:
+        - Collect licence card
+        - Licence delivery
+        excludes:
+        - Whether card is ready
+        - Download learner permit
+      DRIVING_LICENCE_VERIFICATION:
+        display_name: Driving Licence Verification
+        description: Checking the validity or record of an existing driving licence through an
+          official service.
+        evidence_status: official_service_supported
+        includes:
+        - Verify driving licence
+        - Check e-license record
+        excludes:
+        - Application status
+        - Test result
+  DRIVING_LICENCE_RENEWAL:
+    display_name: Driving Licence Renewal
+    description: Renewal process, renewal documents and expiry-related renewal guidance.
+    default_evidence_status: official_service_supported
+    covers:
+    - Renewal process
+    - Documents
+    - Expired licence
+    query_topics:
+      DRIVING_LICENCE_RENEWAL_PROCESS:
+        display_name: Driving Licence Renewal Process
+        description: General process for renewing an existing driving licence.
+        evidence_status: official_service_supported
+        includes:
+        - How to renew licence
+        - Renewal application
+        excludes:
+        - Duplicate replacement
+        - New licence
+      DRIVING_LICENCE_RENEWAL_DOCUMENTS:
+        display_name: Driving Licence Renewal Documents
+        description: Supporting documents or information needed for renewal.
+        evidence_status: official_service_supported
+        includes:
+        - Renewal documents
+        - Old licence requirement
+        excludes:
+        - New learner documents
+        - Renewal fee
+      DRIVING_LICENCE_EXPIRED_RENEWAL:
+        display_name: Expired Driving Licence Renewal
+        description: Renewal guidance when the existing licence has already expired.
+        evidence_status: official_service_supported
+        includes:
+        - Renew expired licence
+        - Licence validity ended
+        excludes:
+        - Licence expiring in future without special issue
+        - Lost licence duplicate
+  DRIVING_LICENCE_REPLACEMENT:
+    display_name: Duplicate or Replacement Driving Licence
+    description: Duplicate/replacement process for a lost, damaged or otherwise unavailable licence.
+    default_evidence_status: official_service_supported
+    covers:
+    - Duplicate
+    - Lost
+    - Damaged
+    query_topics:
+      DRIVING_LICENCE_DUPLICATE_PROCESS:
+        display_name: Duplicate Driving Licence Process
+        description: General duplicate/replacement application without a more specific cause.
+        evidence_status: official_service_supported
+        includes:
+        - Apply for duplicate licence
+        - Replacement process
+        excludes:
+        - Renewal
+        - Specific lost or damaged cause
+      DRIVING_LICENCE_LOST_REPLACEMENT:
+        display_name: Lost Driving Licence Replacement
+        description: Obtaining a duplicate/replacement because the licence was lost.
+        evidence_status: official_service_supported
+        includes:
+        - Lost licence duplicate
+        - Missing licence replacement
+        excludes:
+        - Damaged licence
+        - Lost learner-application reference
+      DRIVING_LICENCE_DAMAGED_REPLACEMENT:
+        display_name: Damaged Driving Licence Replacement
+        description: Obtaining a duplicate/replacement because the licence is damaged or unusable.
+        evidence_status: official_service_supported
+        includes:
+        - Damaged licence duplicate
+        - Broken card replacement
+        excludes:
+        - Lost licence
+        - Information correction
+  DRIVING_LICENCE_CHANGES:
+    display_name: Driving Licence Information and Class Changes
+    description: Corrections, address changes, vehicle-class additions/changes and licence-type
+      changes.
+    default_evidence_status: official_service_supported
+    covers:
+    - Information correction
+    - Address
+    - Vehicle class
+    - Licence type
+    query_topics:
+      DRIVING_LICENCE_INFORMATION_CORRECTION:
+        display_name: Driving Licence Information Correction
+        description: Correcting wrong personal information on an existing licence.
+        evidence_status: official_service_supported
+        includes:
+        - Correct licence name
+        - Fix personal data
+        excludes:
+        - Address-only change
+        - Damaged card
+      DRIVING_LICENCE_ADDRESS_CHANGE:
+        display_name: Driving Licence Address Change
+        description: Changing the address recorded for an existing driving licence.
+        evidence_status: official_service_supported
+        includes:
+        - Change licence address
+        - Update present address
+        excludes:
+        - General information correction
+        - Office selection
+      DRIVING_LICENCE_VEHICLE_CLASS_CHANGE:
+        display_name: Vehicle Class Addition or Change
+        description: Adding or changing a motor-vehicle class on an existing licence.
+        evidence_status: official_service_supported
+        includes:
+        - Add vehicle class
+        - Change class
+        excludes:
+        - Choose class for new application
+        - Professional type change
+      DRIVING_LICENCE_TYPE_CHANGE:
+        display_name: Professional/Non-Professional Licence Type Change
+        description: Changing the professional or non-professional type of an existing licence.
+        evidence_status: needs_source_review
+        includes:
+        - Change licence type
+        - Professional conversion
+        excludes:
+        - New-application type selection
+        - Vehicle class addition
+  DRIVING_LICENCE_GENERAL:
+    display_name: General Driving Licence Information
+    description: Broad service guidance that does not express a more specific licence workflow.
+    default_evidence_status: official_service_supported
+    covers:
+    - General service guidance
+    - Available licence services
+    query_topics:
+      DRIVING_LICENCE_GENERAL_GUIDANCE:
+        display_name: General Driving Licence Service Guidance
+        description: Broad questions about available BRTA driving-licence services and where to
+          begin.
+        evidence_status: needs_pilot_validation
+        includes:
+        - What licence services exist
+        - General BRTA guidance
+        excludes:
+        - Specific application question
+        - OOD fallback
+      DRIVING_LICENCE_PORTAL_UNAVAILABLE:
+        display_name: BRTA Service Portal Unavailable
+        description: The BSP website itself does not load or appears generally unavailable.
+        evidence_status: official_service_supported
+        includes:
+        - BSP portal down
+        - Website not opening
+        excludes:
+        - Known account access issue
+        - Single payment failure
+design_rules:
+- Classify the stable citizen need rather than current fees, ages, dates or office details.
+- Keep learner, new licence, renewal, replacement and record-change lifecycles distinct.
+- Separate test scheduling, requirements, results and retake needs.
+- General guidance is never an OOD fallback.
+freeze_status:
+  shared_contract_frozen: false
+  parent_topics_reviewed: true
+  query_topics_defined: true
+  inclusion_exclusion_rules_defined: true
+  semantic_audit_passed: true
+  pilot_dataset_created: true
+  taxonomy_ready_for_shared_contract: true
