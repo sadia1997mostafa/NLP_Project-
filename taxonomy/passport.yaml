@@ -1,13 +1,13 @@
-taxonomy_version: "0.1.9"
+taxonomy_version: "0.2.0"
 service_id: "PASSPORT"
-status: "query_topics_defined"
+status: "semantic_audit_passed"
 
 description: >
   Working taxonomy for Bangladesh e-Passport citizen queries.
-  Parent topics have been reviewed and specific query-topic definitions
-  have now been completed across all parent topics. The taxonomy still
-  requires structural validation and semantic audit before pilot
-  annotation and any shared-contract freeze.
+  Parent topics and query-topic definitions have been completed, and the
+  taxonomy has passed structural validation and semantic audit with
+  explicit pilot-review flags. It is ready for controlled pilot annotation
+  but remains unfrozen pending pilot review.
 
 id_prefix: "PASS"
 
@@ -1695,7 +1695,7 @@ freeze_status:
   parent_topics_reviewed: true
   query_topics_defined: true
   inclusion_exclusion_rules_defined: true
-  semantic_audit_passed: false
+  semantic_audit_passed: true
 
   pilot_dataset_created: false
   taxonomy_ready_for_shared_contract: false
