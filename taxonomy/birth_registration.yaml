@@ -1,6 +1,6 @@
-taxonomy_version: "0.2.0"
+taxonomy_version: "0.2.1"
 service_id: "BIRTH_REGISTRATION"
-status: "pilot_ready"
+status: "dataset_v0_2_validated"
 
 description: >
   Working parent-topic taxonomy for Bangladesh Birth Registration
@@ -744,5 +744,5 @@ freeze_status:
   inclusion_exclusion_rules_defined: true
   semantic_audit_passed: true
 
-  pilot_dataset_created: false
+  pilot_dataset_created: true
   taxonomy_ready_for_shared_contract: false
