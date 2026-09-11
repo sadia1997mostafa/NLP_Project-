@@ -1,0 +1,431 @@
+taxonomy_version: 0.2.0
+service_id: POLICE_GD
+status: pilot_reviewed
+description: Working citizen-intent taxonomy for Bangladesh Police General Diary and Online GD
+  services.
+id_prefix: POLICE_GD
+parent_topics:
+  POLICE_GD_GUIDANCE:
+    display_name: GD Purpose and Routing Guidance
+    description: What a GD is, when citizens seek it and when urgent or case-oriented routing
+      needs clarification.
+    default_evidence_status: official_service_supported
+    covers:
+    - GD purpose
+    - Appropriate use
+    - Emergency routing
+    - GD versus case
+    query_topics:
+      POLICE_GD_PURPOSE:
+        display_name: General Diary Purpose
+        description: General questions about what a GD is and why it is used.
+        evidence_status: official_service_supported
+        includes:
+        - What is a GD
+        - Purpose of General Diary
+        excludes:
+        - How to file a GD
+        - A specific lost-item report
+      POLICE_GD_APPROPRIATE_USE:
+        display_name: Whether a Matter Is Appropriate for GD
+        description: Questions asking whether a described non-emergency matter may be reported
+          through GD.
+        evidence_status: official_service_supported
+        includes:
+        - Can this matter be a GD
+        - When GD is used
+        excludes:
+        - Immediate danger
+        - How to submit an already-decided GD
+      POLICE_GD_EMERGENCY_ROUTING:
+        display_name: Emergency or Immediate-Danger Routing
+        description: Queries asking whether an urgent safety situation should use GD or immediate
+          emergency help.
+        evidence_status: needs_pilot_validation
+        includes:
+        - Immediate danger and GD
+        - Urgent police help versus GD
+        excludes:
+        - Routine administrative GD
+        - Legal determination of offence
+      POLICE_GD_CASE_VS_GD_GUIDANCE:
+        display_name: GD Versus Case/Complaint Guidance
+        description: Queries seeking routing guidance between an administrative GD and a matter
+          that may require station attendance or a case process.
+        evidence_status: needs_pilot_validation
+        includes:
+        - GD or case guidance
+        - Complaint route clarification
+        excludes:
+        - A legal conclusion
+        - Emergency response instructions
+  POLICE_GD_FILING:
+    display_name: GD Filing and Submission
+    description: Preparing and submitting a General Diary complaint, including information, attachments
+      and jurisdiction.
+    default_evidence_status: official_service_supported
+    covers:
+    - Filing process
+    - Online submission
+    - Required information
+    - Attachments
+    - Jurisdiction
+    query_topics:
+      POLICE_GD_FILING_PROCESS:
+        display_name: General Diary Filing Process
+        description: General end-to-end questions about making a GD.
+        evidence_status: official_service_supported
+        includes:
+        - How to file GD
+        - GD submission steps
+        excludes:
+        - Online-only focus
+        - Status after submission
+      POLICE_GD_ONLINE_SUBMISSION:
+        display_name: Online GD Submission
+        description: Starting or completing a GD through the online portal/app.
+        evidence_status: official_service_supported
+        includes:
+        - File GD online
+        - Submit online complaint
+        excludes:
+        - General offline GD process
+        - Online account registration
+      POLICE_GD_REQUIRED_INFORMATION:
+        display_name: Information Required for GD
+        description: Information that must be entered about the complainant or incident.
+        evidence_status: official_service_supported
+        includes:
+        - Information needed for GD
+        - Details required in complaint
+        excludes:
+        - Supporting files
+        - Account identity verification
+      POLICE_GD_ATTACHMENTS:
+        display_name: GD Supporting Documents and Attachments
+        description: Supporting documents, images or files attached to a GD complaint.
+        evidence_status: official_service_supported
+        includes:
+        - Attach documents to GD
+        - Supporting evidence upload
+        excludes:
+        - Information typed in form
+        - Digital GD copy download
+      POLICE_GD_INCIDENT_DETAILS:
+        display_name: Incident Time, Place and Description
+        description: How to describe when, where and how the reported event occurred.
+        evidence_status: official_service_supported
+        includes:
+        - Enter incident location
+        - Write incident description
+        excludes:
+        - Select responsible police station
+        - Account address information
+      POLICE_GD_JURISDICTION:
+        display_name: Police Station and Jurisdiction Selection
+        description: Choosing the district or police station responsible for a GD submission.
+        evidence_status: official_service_supported
+        includes:
+        - Which station for GD
+        - Select district and thana
+        excludes:
+        - Incident address entry
+        - Contacting assigned investigating officer
+      POLICE_GD_IDENTITY_REQUIREMENTS:
+        display_name: Online GD Identity and Registration Requirements
+        description: Identity and contact requirements for using the online GD service.
+        evidence_status: official_service_supported
+        includes:
+        - Identity needed for online GD
+        - Registration requirements
+        excludes:
+        - Incident supporting documents
+        - Providing real identifiers in pilot text
+  POLICE_GD_INCIDENT_TYPE:
+    display_name: GD Incident and Item Type
+    description: The kind of loss, theft, found property or other incident the citizen wants recorded.
+    default_evidence_status: official_service_supported
+    covers:
+    - Lost document
+    - Lost item
+    - Stolen item
+    - Found property
+    - Other incident
+    query_topics:
+      POLICE_GD_LOST_DOCUMENT:
+        display_name: Lost Document GD
+        description: Reporting a lost identity, education, travel or other document.
+        evidence_status: official_service_supported
+        includes:
+        - Lost document GD
+        - Missing certificate report
+        excludes:
+        - Lost phone/item
+        - Lost Passport replacement instructions
+      POLICE_GD_LOST_ITEM_DEVICE:
+        display_name: Lost Item or Device GD
+        description: Reporting a lost phone, device or other property that is not primarily a
+          document.
+        evidence_status: official_service_supported
+        includes:
+        - Lost phone GD
+        - Lost property report
+        excludes:
+        - Stolen property
+        - Found item report
+      POLICE_GD_STOLEN_ITEM:
+        display_name: Stolen Item GD/Complaint
+        description: Reporting property believed to have been stolen.
+        evidence_status: official_service_supported
+        includes:
+        - Stolen item complaint
+        - Theft report through portal
+        excludes:
+        - Merely misplaced item
+        - Emergency in progress
+      POLICE_GD_FOUND_ITEM:
+        display_name: Found Item Report
+        description: Reporting property the citizen found and wants to notify police about.
+        evidence_status: official_service_supported
+        includes:
+        - Report found property
+        - Found item GD
+        excludes:
+        - Recovering the citizen's lost property
+        - Stolen-item complaint
+      POLICE_GD_OTHER_INCIDENT:
+        display_name: Other Non-Emergency GD Complaint
+        description: A non-emergency complaint that does not fit the supported lost/stolen/found
+          item groups.
+        evidence_status: needs_pilot_validation
+        includes:
+        - Other GD complaint
+        - Non-emergency incident report
+        excludes:
+        - Unknown/OOD question
+        - Immediate danger
+  POLICE_GD_ONLINE_ACCOUNT:
+    display_name: Online GD Account and Access
+    description: Account registration, login, password, OTP, verification and general access problems.
+    default_evidence_status: official_service_supported
+    covers:
+    - Account registration
+    - Login
+    - Password
+    - OTP
+    - Identity verification
+    - Access problem
+    query_topics:
+      POLICE_GD_ACCOUNT_REGISTRATION:
+        display_name: Online GD Account Registration
+        description: Creating and registering an online GD user account.
+        evidence_status: official_service_supported
+        includes:
+        - Create GD account
+        - Register for GD portal
+        excludes:
+        - Submit complaint
+        - Login to existing existing account
+      POLICE_GD_ACCOUNT_LOGIN:
+        display_name: Online GD Account Login
+        description: How or where to sign in to an existing online GD account.
+        evidence_status: official_service_supported
+        includes:
+        - GD portal login
+        - Sign in to account
+        excludes:
+        - Login failure
+        - Password reset
+      POLICE_GD_PASSWORD_RESET:
+        display_name: Online GD Password Reset
+        description: Resetting or recovering a forgotten online GD password.
+        evidence_status: official_service_supported
+        includes:
+        - Forgot GD password
+        - Reset password
+        excludes:
+        - Generic access failure
+        - OTP issue
+      POLICE_GD_OTP_PROBLEM:
+        display_name: Online GD OTP Problem
+        description: OTP delivery or acceptance problems during registration or access.
+        evidence_status: official_service_supported
+        includes:
+        - GD OTP not received
+        - OTP rejected
+        excludes:
+        - Password reset without OTP issue
+        - Complaint reference number
+      POLICE_GD_IDENTITY_VERIFICATION_PROBLEM:
+        display_name: Online GD Identity Verification Problem
+        description: Problems completing identity or live-photo verification for an online GD
+          account.
+        evidence_status: official_service_supported
+        includes:
+        - Identity verification failed
+        - Live photo not accepted
+        excludes:
+        - Incident attachment problem
+        - OTP-only problem
+      POLICE_GD_ACCOUNT_ACCESS_PROBLEM:
+        display_name: General Online GD Account Access Problem
+        description: An existing account cannot be accessed and no specific credential cause is
+          clear.
+        evidence_status: official_service_supported
+        includes:
+        - Cannot access GD account
+        - Unknown account error
+        excludes:
+        - Known password issue
+        - OTP-specific issue
+  POLICE_GD_STATUS_FOLLOWUP:
+    display_name: GD Status and Follow-Up
+    description: Tracking a submitted complaint, delay, officer contact and police-station follow-up.
+    default_evidence_status: official_service_supported
+    covers:
+    - Status
+    - Delay
+    - Investigating officer
+    - Follow-up
+    query_topics:
+      POLICE_GD_STATUS:
+        display_name: GD Application Status
+        description: Checking the current state of a submitted online GD complaint.
+        evidence_status: official_service_supported
+        includes:
+        - Check GD status
+        - Track complaint
+        excludes:
+        - Complaint explicitly delayed
+        - Download GD copy
+      POLICE_GD_DELAY:
+        display_name: GD Review or Processing Delay
+        description: A submitted GD complaint appears stuck longer than expected.
+        evidence_status: official_service_supported
+        includes:
+        - GD pending too long
+        - Complaint delayed
+        excludes:
+        - Normal status check
+        - Mutable processing-time promise
+      POLICE_GD_OFFICER_CONTACT:
+        display_name: Investigating Officer Contact
+        description: Using the service to identify or communicate with the officer assigned to
+          a complaint.
+        evidence_status: official_service_supported
+        includes:
+        - Contact investigating officer
+        - Find assigned officer
+        excludes:
+        - Choose filing police station
+        - Emergency contact
+      POLICE_GD_STATION_FOLLOWUP:
+        display_name: Police Station Follow-Up
+        description: Questions about when or how to follow up at the relevant police station after
+          online submission.
+        evidence_status: official_service_supported
+        includes:
+        - Follow up at station
+        - Attend station after complaint
+        excludes:
+        - Selecting jurisdiction before submission
+        - Immediate emergency response
+  POLICE_GD_COPY_REFERENCE:
+    display_name: GD Copy, Receipt and Reference
+    description: Access to the digital GD copy, submission acknowledgement and complaint reference.
+    default_evidence_status: official_service_supported
+    covers:
+    - GD copy
+    - Receipt
+    - Reference code
+    query_topics:
+      POLICE_GD_COPY_DOWNLOAD:
+        display_name: Digital GD Copy Download
+        description: Downloading or sharing the digital copy of a completed GD when available.
+        evidence_status: official_service_supported
+        includes:
+        - Download GD copy
+        - Get digital GD document
+        excludes:
+        - Submission receipt
+        - Application status
+      POLICE_GD_SUBMISSION_RECEIPT:
+        display_name: GD Submission Acknowledgement
+        description: Obtaining confirmation or receipt immediately associated with complaint submission.
+        evidence_status: official_service_supported
+        includes:
+        - GD submission receipt
+        - Complaint acknowledgement
+        excludes:
+        - Final digital GD copy
+        - Payment receipt
+      POLICE_GD_REFERENCE_RECOVERY:
+        display_name: GD Complaint Reference Recovery
+        description: Finding or recovering a complaint code, reference or GD number needed for
+          access.
+        evidence_status: official_service_supported
+        includes:
+        - Lost complaint code
+        - Recover GD reference
+        excludes:
+        - Recover account password
+        - Download known GD copy
+  POLICE_GD_TECHNICAL_PROBLEMS:
+    display_name: Online GD Technical Problems
+    description: Submission failures and portal-level availability problems.
+    default_evidence_status: official_service_supported
+    covers:
+    - Submission failure
+    - Portal unavailable
+    query_topics:
+      POLICE_GD_SUBMISSION_FAILURE:
+        display_name: Online GD Submission Failure
+        description: A completed complaint cannot be submitted because of an error.
+        evidence_status: official_service_supported
+        includes:
+        - GD submit failed
+        - Complaint form error
+        excludes:
+        - Account login issue
+        - Attachment-only question
+      POLICE_GD_PORTAL_UNAVAILABLE:
+        display_name: Online GD Portal Unavailable
+        description: The GD website or app itself does not load or appears unavailable.
+        evidence_status: official_service_supported
+        includes:
+        - GD portal down
+        - App not opening
+        excludes:
+        - One complaint submission failure
+        - Known login problem
+  POLICE_GD_GENERAL_INFORMATION:
+    display_name: General Online GD Service Information
+    description: Broad orientation about available Online GD service capabilities.
+    default_evidence_status: official_service_supported
+    covers:
+    - Available GD services
+    - General guidance
+    query_topics:
+      POLICE_GD_GENERAL_SERVICE_GUIDANCE:
+        display_name: General Online GD Service Guidance
+        description: Broad questions about what help and functions the online GD service provides.
+        evidence_status: needs_pilot_validation
+        includes:
+        - What online GD services exist
+        - Where to start
+        excludes:
+        - Specific filing question
+        - OOD fallback
+design_rules:
+- Classify administrative GD intent without making a legal determination.
+- Keep emergency/immediate-danger routing distinct from ordinary GD guidance.
+- Incident type and procedural goal are different dimensions; use the dominant request.
+- General guidance is never an OOD fallback.
+freeze_status:
+  shared_contract_frozen: false
+  parent_topics_reviewed: true
+  query_topics_defined: true
+  inclusion_exclusion_rules_defined: true
+  semantic_audit_passed: true
+  pilot_dataset_created: true
+  taxonomy_ready_for_shared_contract: true
