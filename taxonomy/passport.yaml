@@ -1,4 +1,4 @@
-taxonomy_version: "0.1.6"
+taxonomy_version: "0.1.7"
 service_id: "PASSPORT"
 status: "query_topics_in_progress"
 
@@ -971,8 +971,9 @@ parent_topics:
     display_name: "Passport Fees and Payment"
     description: >
       Questions about e-Passport fees and payment workflows, including
-      payment methods, payment confirmation, receipts, failed
-      transactions and delivery-category fee questions.
+      general fee information, payment methods, payment confirmation,
+      failed transactions, deducted-money problems, refunds, receipts
+      and delivery-category fee questions.
 
     default_evidence_status: "official_service_supported"
 
@@ -984,11 +985,190 @@ parent_topics:
       - "Payment Confirmation"
       - "Payment Failure"
       - "Money Deducted but Payment Failed"
+      - "Refund"
       - "Payment Receipt"
       - "Payment Slip"
       - "Delivery Category Fee"
 
-    query_topics: {}
+    query_topics:
+
+      PASSPORT_FEES_INFORMATION:
+        display_name: "Passport Fee Information"
+        description: >
+          General questions asking how much passport-related processing
+          costs or what fee applies when the user is not specifically
+          asking about payment execution, transaction failure or a
+          receipt.
+
+        evidence_status: "official_fee_service_supported"
+
+        includes:
+          - "How much does an e-Passport cost?"
+          - "What is the passport application fee?"
+          - "How much do I need to pay for my passport?"
+          - "What are the current passport fees?"
+
+        excludes:
+          - "Questions specifically comparing delivery-category fees"
+          - "Questions about how to make the payment"
+          - "Payment failure"
+          - "Payment confirmation"
+          - "Refund questions"
+
+
+      PASSPORT_PAYMENT_METHOD:
+        display_name: "Passport Payment Method"
+        description: >
+          Questions about how or where passport fees can be paid,
+          including supported online or offline payment channels, when
+          the user's main need is choosing or understanding a payment
+          method.
+
+        evidence_status: "official_service_supported"
+
+        includes:
+          - "How can I pay the passport fee?"
+          - "What payment methods are available for e-Passport?"
+          - "Can I pay the passport fee online?"
+          - "Where can I pay the passport fee offline?"
+
+        excludes:
+          - "Questions only asking how much the fee is"
+          - "Checking whether an already made payment succeeded"
+          - "A payment transaction that failed"
+          - "Receipt or payment-slip retrieval"
+
+
+      PASSPORT_PAYMENT_CONFIRMATION:
+        display_name: "Passport Payment Confirmation"
+        description: >
+          Questions about determining whether a passport-fee payment has
+          been successfully received, recorded or confirmed after the
+          applicant has attempted payment.
+
+        evidence_status: "official_service_supported"
+
+        includes:
+          - "How do I know whether my passport payment was successful?"
+          - "Has my e-Passport payment been confirmed?"
+          - "How can I check if the passport fee was received?"
+          - "Where can I verify my passport payment status?"
+
+        excludes:
+          - "General instructions for making a payment"
+          - "Payment that explicitly failed"
+          - "Money deducted although the system shows payment failure"
+          - "Questions specifically asking for a payment receipt"
+
+
+      PASSPORT_PAYMENT_FAILURE:
+        display_name: "Passport Payment Failure"
+        description: >
+          Questions where a passport-fee transaction did not complete
+          successfully, excluding cases where the user specifically says
+          money was deducted despite the failed transaction.
+
+        evidence_status: "official_service_supported"
+
+        includes:
+          - "My passport payment failed. What should I do?"
+          - "The e-Passport fee transaction was unsuccessful."
+          - "I cannot complete my passport payment."
+          - "Why is my passport payment failing?"
+
+        excludes:
+          - "Money was deducted but the payment still shows as failed"
+          - "General payment-method questions"
+          - "Payment confirmation after an apparently successful transaction"
+          - "Refund-only questions"
+
+
+      PASSPORT_PAYMENT_DEDUCTED_BUT_FAILED:
+        display_name: "Passport Payment Deducted but Transaction Failed"
+        description: >
+          Questions where money was deducted or charged during a
+          passport-fee transaction but the passport system did not
+          record the transaction as successful.
+
+        evidence_status: "official_service_supported"
+
+        includes:
+          - "Money was deducted but my passport payment failed."
+          - "I was charged but the e-Passport payment is unsuccessful."
+          - "The fee was taken from my account but the portal shows payment failed."
+          - "I paid the passport fee but the transaction was not recorded."
+
+        excludes:
+          - "Ordinary payment failure where no money was deducted"
+          - "General payment confirmation"
+          - "General fee information"
+          - "A refund question after the failed-payment problem has already been established"
+
+
+      PASSPORT_PAYMENT_REFUND:
+        display_name: "Passport Payment Refund"
+        description: >
+          Questions specifically about refunding or recovering money
+          associated with a passport payment transaction.
+
+        evidence_status: "official_service_supported"
+
+        includes:
+          - "How do I get a refund for my passport payment?"
+          - "When will my failed passport payment be refunded?"
+          - "How can I recover money from an unsuccessful passport transaction?"
+          - "What is the refund process for an e-Passport payment?"
+
+        excludes:
+          - "Initial report that money was deducted but payment failed"
+          - "General passport-fee information"
+          - "Payment confirmation"
+          - "Receipt or payment-slip questions"
+
+
+      PASSPORT_PAYMENT_RECEIPT:
+        display_name: "Passport Payment Receipt or Slip"
+        description: >
+          Questions about obtaining, finding, printing or using proof
+          of a passport-fee payment such as a payment receipt or payment
+          slip.
+
+        evidence_status: "official_service_supported"
+
+        includes:
+          - "How do I get my passport payment receipt?"
+          - "Where can I find the e-Passport payment slip?"
+          - "Can I print my passport fee receipt?"
+          - "I need proof that I paid the passport fee."
+
+        excludes:
+          - "Checking whether payment itself succeeded"
+          - "Payment failure"
+          - "General payment methods"
+          - "Application-form printing"
+
+
+      PASSPORT_FEES_DELIVERY_CATEGORY:
+        display_name: "Passport Delivery Category Fee"
+        description: >
+          Questions specifically comparing or asking about fees
+          associated with passport delivery or processing categories,
+          such as regular, express or other officially offered service
+          categories.
+
+        evidence_status: "official_fee_service_supported"
+
+        includes:
+          - "What is the fee for regular passport delivery?"
+          - "How much does express passport service cost?"
+          - "Is the urgent passport fee different?"
+          - "What are the fees for the different passport delivery options?"
+
+        excludes:
+          - "General questions asking only the overall passport fee"
+          - "Questions asking how long each delivery category takes"
+          - "Application-status or delay questions"
+          - "Payment transaction problems"
 
 
   PASSPORT_STATUS_AND_DELIVERY:
@@ -1150,12 +1330,45 @@ design_rules:
     second concerns where the applicant attends physical enrolment.
 
   - >
-    Application status, application delay and normal processing time
-    must later receive distinct semantic-boundary review.
+    General fee information and delivery-category fee questions are
+    separate. PASSPORT_FEES_INFORMATION covers broad fee questions,
+    while PASSPORT_FEES_DELIVERY_CATEGORY applies when the citizen
+    explicitly asks about the fee associated with regular, express,
+    urgent or another offered delivery category.
 
   - >
-    Payment information and payment failure must not automatically use
-    the same specific-intent label.
+    PASSPORT_PAYMENT_METHOD represents how or where to pay. Online and
+    offline payment channels are method variants and do not currently
+    require separate classifier leaves.
+
+  - >
+    Payment confirmation and payment failure are separate. Confirmation
+    asks whether an attempted payment was successfully recorded, while
+    failure states that the transaction did not complete successfully.
+
+  - >
+    PASSPORT_PAYMENT_DEDUCTED_BUT_FAILED is narrower than general
+    PASSPORT_PAYMENT_FAILURE because the user explicitly reports that
+    money was charged or deducted despite the failed transaction.
+
+  - >
+    Refund questions are represented separately from the original
+    transaction failure because the citizen's immediate information need
+    has changed from diagnosing payment to recovering the money.
+
+  - >
+    Payment receipts and slips represent proof-of-payment retrieval and
+    must not be confused with application-form printing or payment
+    confirmation.
+
+  - >
+    Exact current fee amounts and available payment providers are mutable
+    knowledge and remain in Partner B's verified knowledge corpus rather
+    than being hard-coded into classifier semantics.
+
+  - >
+    Application status, application delay and normal processing time
+    must later receive distinct semantic-boundary review.
 
   - >
     A lost passport and a lost delivery slip are different objects and
