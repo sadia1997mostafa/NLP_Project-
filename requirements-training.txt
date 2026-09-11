@@ -1,0 +1,7 @@
+# Install only for the model-training phase; preparation validators use the existing environment.
+pandas>=2.0,<3
+PyYAML>=6.0,<7
+numpy>=1.26,<3
+scikit-learn>=1.4,<2
+torch>=2.2,<3
+transformers>=4.44,<5
