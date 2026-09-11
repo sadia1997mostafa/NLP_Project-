@@ -1,4 +1,4 @@
-taxonomy_version: "0.1.3"
+taxonomy_version: "0.1.4"
 service_id: "PASSPORT"
 status: "query_topics_in_progress"
 
@@ -415,7 +415,180 @@ parent_topics:
       - "Registered Mobile Number Change"
       - "Account Access Problems"
 
-    query_topics: {}
+    query_topics:
+
+      PASSPORT_ONLINE_ACCOUNT_REGISTRATION:
+        display_name: "Passport Online Account Registration"
+        description: >
+          Questions specifically about creating or registering a new
+          account for the Bangladesh e-Passport online service.
+
+        evidence_status: "official_service_supported"
+
+        includes:
+          - "How do I create an e-Passport account?"
+          - "How can I register an account on the passport portal?"
+          - "Where do I open a new passport online account?"
+          - "I want to create an account for e-Passport services."
+
+        excludes:
+          - "Starting the passport application after an account already exists"
+          - "Logging into an existing account"
+          - "Password recovery"
+          - "Account activation problems"
+
+
+      PASSPORT_ONLINE_ACCOUNT_LOGIN:
+        display_name: "Passport Online Account Login"
+        description: >
+          Questions about the normal process of signing into an existing
+          e-Passport portal account when the user is primarily asking how
+          or where to log in.
+
+        evidence_status: "official_service_supported"
+
+        includes:
+          - "How do I log into my passport account?"
+          - "Where is the e-Passport account login?"
+          - "How can I sign in to my existing passport portal account?"
+          - "What is the login process for the e-Passport portal?"
+
+        excludes:
+          - "Forgotten or lost passwords"
+          - "Password-reset procedure"
+          - "Account activation"
+          - "Cases where the user cannot access the account despite attempting login"
+
+
+      PASSPORT_ONLINE_ACCOUNT_PASSWORD_RESET:
+        display_name: "Forgotten Password and Password Reset"
+        description: >
+          Questions about recovering access to an e-Passport online
+          account because the password was forgotten, lost or needs to
+          be reset.
+
+        evidence_status: "official_service_supported"
+
+        includes:
+          - "I forgot my passport account password."
+          - "How do I reset my e-Passport portal password?"
+          - "I cannot remember my passport account password."
+          - "How can I recover my passport account password?"
+
+        excludes:
+          - "General account login instructions"
+          - "Account activation"
+          - "Activation email not received"
+          - "Changing the registered email or mobile number"
+
+
+      PASSPORT_ONLINE_ACCOUNT_ACTIVATION:
+        display_name: "Passport Account Activation"
+        description: >
+          Questions about activating a newly created e-Passport portal
+          account when the user is asking about the activation process
+          itself.
+
+        evidence_status: "official_service_supported"
+
+        includes:
+          - "How do I activate my e-Passport account?"
+          - "What should I do to activate my passport portal account?"
+          - "My new passport account needs activation."
+          - "How does passport account activation work?"
+
+        excludes:
+          - "Activation email was not received"
+          - "Forgotten password"
+          - "General account registration"
+          - "Login problems after an already activated account"
+
+
+      PASSPORT_ONLINE_ACCOUNT_ACTIVATION_EMAIL_NOT_RECEIVED:
+        display_name: "Passport Account Activation Email Not Received"
+        description: >
+          Questions where the applicant created an e-Passport account
+          but did not receive the activation or verification email needed
+          to continue the account setup.
+
+        evidence_status: "official_service_supported"
+
+        includes:
+          - "I did not receive the passport account activation email."
+          - "My e-Passport verification email has not arrived."
+          - "I registered but did not get the activation link."
+          - "What should I do if the passport portal activation email is missing?"
+
+        excludes:
+          - "General instructions for activating an account"
+          - "Password-reset email problems"
+          - "Changing the registered email address"
+          - "Application-status notifications"
+
+
+      PASSPORT_ONLINE_ACCOUNT_EMAIL_CHANGE:
+        display_name: "Change Registered Passport Account Email"
+        description: >
+          Questions specifically about changing or updating the email
+          address registered with an e-Passport portal account.
+
+        evidence_status: "official_service_supported"
+
+        includes:
+          - "How do I change the email on my passport account?"
+          - "Can I update my registered e-Passport email address?"
+          - "My passport account email has changed; what should I do?"
+          - "I want to replace the email linked to my passport portal account."
+
+        excludes:
+          - "Activation email not received"
+          - "Changing a mobile number"
+          - "Correcting email information in a passport application"
+          - "Password-reset problems"
+
+
+      PASSPORT_ONLINE_ACCOUNT_MOBILE_CHANGE:
+        display_name: "Change Registered Passport Account Mobile Number"
+        description: >
+          Questions specifically about changing or updating the mobile
+          number registered with an e-Passport portal account.
+
+        evidence_status: "official_service_supported"
+
+        includes:
+          - "How do I change the mobile number on my passport account?"
+          - "Can I update my registered phone number on the e-Passport portal?"
+          - "My passport account is linked to my old mobile number."
+          - "I need to replace the phone number registered with my passport account."
+
+        excludes:
+          - "Changing the registered email address"
+          - "Application-form phone-number information"
+          - "General account login"
+          - "Passport application status questions"
+
+
+      PASSPORT_ONLINE_ACCOUNT_ACCESS_PROBLEM:
+        display_name: "Passport Online Account Access Problem"
+        description: >
+          General account-access failure where an existing e-Passport
+          account cannot be accessed and the user's problem is not more
+          specifically represented by password reset, activation or
+          registered-contact-information labels.
+
+        evidence_status: "needs_query_pilot"
+
+        includes:
+          - "I cannot access my e-Passport account."
+          - "My passport portal account is not opening."
+          - "I cannot get into my existing passport account."
+          - "My e-Passport account access is not working."
+
+        excludes:
+          - "The user explicitly forgot the password"
+          - "The user explicitly did not receive an activation email"
+          - "The user specifically needs to change email or mobile number"
+          - "The portal itself appears unavailable for everyone"
 
 
   PASSPORT_APPOINTMENT_AND_ENROLMENT:
@@ -579,6 +752,27 @@ design_rules:
     Documents required at physical enrolment remain under
     PASSPORT_DOCUMENTS, while questions about scheduling or performing
     enrolment remain under PASSPORT_APPOINTMENT_AND_ENROLMENT.
+
+  - >
+    Normal account login and account-access failure are separate.
+    PASSPORT_ONLINE_ACCOUNT_LOGIN represents ordinary instructions for
+    signing in, while PASSPORT_ONLINE_ACCOUNT_ACCESS_PROBLEM represents
+    a failure to access an existing account when no narrower cause has
+    been identified.
+
+  - >
+    Forgotten-password questions are grouped with password reset because
+    the user's actionable information need is account-password recovery.
+
+  - >
+    Account activation and activation-email-not-received are separate.
+    The first concerns the activation workflow, while the second
+    represents failure to receive the message needed for that workflow.
+
+  - >
+    Registered email change and registered mobile-number change remain
+    separate specific intents because they involve different account
+    contact fields and may require different support guidance.
 
   - >
     Application status, application delay and normal processing time
