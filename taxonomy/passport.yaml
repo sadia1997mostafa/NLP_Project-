@@ -1,4 +1,4 @@
-taxonomy_version: "0.1.4"
+taxonomy_version: "0.1.5"
 service_id: "PASSPORT"
 status: "query_topics_in_progress"
 
@@ -610,7 +610,160 @@ parent_topics:
       - "Enrolment Preparation"
       - "Biometric Enrolment"
 
-    query_topics: {}
+    query_topics:
+
+      PASSPORT_APPOINTMENT_SCHEDULING:
+        display_name: "Passport Appointment Scheduling"
+        description: >
+          Questions specifically about how to obtain or schedule an
+          appointment for the passport enrolment process.
+
+        evidence_status: "official_service_supported"
+
+        includes:
+          - "How do I schedule my passport appointment?"
+          - "How can I book an appointment for e-Passport enrolment?"
+          - "Where do I select an appointment for my passport?"
+          - "How do I get an appointment after submitting my application?"
+
+        excludes:
+          - "Questions only asking about an already assigned appointment date"
+          - "Problems with an appointment that has already been scheduled"
+          - "General passport application questions"
+          - "Questions about the physical enrolment procedure itself"
+
+
+      PASSPORT_APPOINTMENT_DATE:
+        display_name: "Passport Appointment Date"
+        description: >
+          Questions about identifying, checking or understanding the
+          appointment date or time associated with an existing passport
+          application.
+
+        evidence_status: "official_service_supported"
+
+        includes:
+          - "How do I check my passport appointment date?"
+          - "When is my e-Passport appointment?"
+          - "Where can I see my scheduled passport appointment?"
+          - "How do I know the date of my enrolment appointment?"
+
+        excludes:
+          - "Scheduling a new appointment"
+          - "Changing or resolving a problem with an appointment"
+          - "Application-status questions"
+          - "Normal passport processing-time questions"
+
+
+      PASSPORT_APPOINTMENT_PROBLEM:
+        display_name: "Passport Appointment Problem"
+        description: >
+          Questions where the applicant has an appointment-related
+          difficulty after or while attempting to arrange the passport
+          enrolment appointment and no narrower appointment intent
+          adequately describes the problem.
+
+        evidence_status: "needs_query_pilot"
+
+        includes:
+          - "I am having a problem with my passport appointment."
+          - "My e-Passport appointment is not working properly."
+          - "I cannot complete the passport appointment step."
+          - "There is an issue with my scheduled passport appointment."
+
+        excludes:
+          - "Ordinary instructions for scheduling an appointment"
+          - "Questions only asking for the appointment date"
+          - "Online-account login problems"
+          - "Application-status or passport-delivery problems"
+
+
+      PASSPORT_APPOINTMENT_REQUIREMENTS:
+        display_name: "Passport Appointment Attendance Requirements"
+        description: >
+          Questions about what the applicant must do or prepare in order
+          to attend a passport appointment, excluding questions whose
+          main focus is the list of supporting documents.
+
+        evidence_status: "official_service_supported"
+
+        includes:
+          - "What do I need to do before attending my passport appointment?"
+          - "What should I prepare for my e-Passport appointment?"
+          - "What are the requirements for attending passport enrolment?"
+          - "What should I know before going to my passport appointment?"
+
+        excludes:
+          - "Questions specifically asking which documents to bring"
+          - "Appointment scheduling"
+          - "Questions about the biometric procedure itself"
+          - "Passport collection requirements"
+
+
+      PASSPORT_ENROLMENT_PROCESS:
+        display_name: "Passport Enrolment Process"
+        description: >
+          General questions about what happens during the physical
+          e-Passport enrolment stage after the application has been
+          prepared or submitted.
+
+        evidence_status: "official_workflow_supported"
+
+        includes:
+          - "What happens during passport enrolment?"
+          - "How does the e-Passport enrolment process work?"
+          - "What do I do when I go for passport enrolment?"
+          - "What are the steps at the passport office during enrolment?"
+
+        excludes:
+          - "Questions specifically about which documents to take"
+          - "Questions specifically about biometric capture"
+          - "Questions only about appointment scheduling"
+          - "Passport collection after issuance"
+
+
+      PASSPORT_ENROLMENT_LOCATION:
+        display_name: "Passport Enrolment Location"
+        description: >
+          Questions specifically about where the applicant must go to
+          complete physical passport enrolment after the application
+          workflow has progressed to that stage.
+
+        evidence_status: "official_service_supported"
+
+        includes:
+          - "Where do I go for passport enrolment?"
+          - "At which office will my passport biometrics be taken?"
+          - "Where is my e-Passport enrolment location?"
+          - "Which place do I visit for the physical enrolment step?"
+
+        excludes:
+          - "Choosing the responsible passport office while starting an application"
+          - "Passport collection location"
+          - "Bangladesh mission selection for a new overseas application"
+          - "General passport-office address questions without enrolment context"
+
+
+      PASSPORT_ENROLMENT_BIOMETRICS:
+        display_name: "Passport Biometric Enrolment"
+        description: >
+          Questions specifically about the biometric capture stage of
+          passport enrolment, such as the biometric information collected
+          or the general biometric procedure.
+
+        evidence_status: "official_workflow_supported"
+
+        includes:
+          - "What happens during passport biometric enrolment?"
+          - "What biometrics are taken for an e-Passport?"
+          - "How does passport biometric capture work?"
+          - "What should I expect during the biometric step?"
+
+        excludes:
+          - "General enrolment-process questions without a biometric focus"
+          - "Documents required for enrolment"
+          - "Appointment scheduling"
+          - "Unsupported assumptions about a specific biometric failure"
 
 
   PASSPORT_REISSUE:
@@ -773,6 +926,33 @@ design_rules:
     Registered email change and registered mobile-number change remain
     separate specific intents because they involve different account
     contact fields and may require different support guidance.
+
+  - >
+    Appointment scheduling and appointment-date queries are separate.
+    Scheduling represents creating or obtaining an appointment, while
+    appointment-date queries concern an appointment already associated
+    with the application.
+
+  - >
+    General appointment problems use PASSPORT_APPOINTMENT_PROBLEM only
+    when a more specific appointment intent does not explain the user's
+    issue. It must not become a generic fallback for unrelated portal,
+    application or status failures.
+
+  - >
+    Appointment attendance requirements and enrolment documents are
+    distinct. Questions whose main focus is supporting paperwork belong
+    under PASSPORT_DOCUMENTS_ENROLMENT.
+
+  - >
+    PASSPORT_ENROLMENT_PROCESS represents the overall physical enrolment
+    workflow, while PASSPORT_ENROLMENT_BIOMETRICS is reserved for queries
+    specifically focused on biometric capture.
+
+  - >
+    Application-office selection and enrolment location must remain
+    distinct. The first concerns routing the new application, while the
+    second concerns where the applicant attends physical enrolment.
 
   - >
     Application status, application delay and normal processing time
