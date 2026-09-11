@@ -1,13 +1,13 @@
-taxonomy_version: "0.1.2"
+taxonomy_version: "0.1.3"
 service_id: "PASSPORT"
 status: "query_topics_in_progress"
 
 description: >
   Working parent-topic taxonomy for Bangladesh e-Passport citizen
-  queries. The structure is based on the Passport source/query-topic
-  inventory. Parent topics have been reviewed. Specific query-topic
-  definitions are now being added incrementally and will be reviewed
-  before the taxonomy is considered complete.
+  queries. The parent topics have been reviewed and specific
+  query-topic definitions are being added incrementally. The taxonomy
+  will undergo structural and semantic review before it is considered
+  complete.
 
 id_prefix: "PASS"
 
@@ -215,7 +215,184 @@ parent_topics:
       - "GO / Government Order"
       - "NOC / No Objection Certificate"
 
-    query_topics: {}
+    query_topics:
+
+      PASSPORT_DOCUMENTS_REQUIRED:
+        display_name: "General Passport Required Documents"
+        description: >
+          General questions asking which documents or supporting papers
+          are required for a passport application when the user does not
+          focus on one specific document type or applicant category.
+
+        evidence_status: "official_workflow_supported"
+
+        includes:
+          - "What documents do I need for a passport application?"
+          - "Which papers are required for a new passport?"
+          - "What documents should I prepare before applying?"
+          - "Give me the general passport document checklist."
+
+        excludes:
+          - "Questions specifically about whether NID is required"
+          - "Questions specifically about Birth Registration requirements"
+          - "Questions specifically about a previous passport"
+          - "Questions about missing or unavailable documents"
+          - "Questions specifically about documents for minors"
+
+
+      PASSPORT_DOCUMENTS_NID_REQUIREMENT:
+        display_name: "NID Requirement for Passport"
+        description: >
+          Questions specifically about whether, when or how a National
+          Identity Card is required as supporting identity evidence for
+          passport-related processing.
+
+        evidence_status: "official_workflow_supported"
+
+        includes:
+          - "Do I need an NID to apply for a passport?"
+          - "Is NID mandatory for an e-Passport?"
+          - "Can I apply using my NID?"
+          - "Does passport application require NID information?"
+
+        excludes:
+          - "Questions specifically about Birth Registration documents"
+          - "Questions about correcting NID information"
+          - "General passport document-checklist questions"
+          - "Questions about a missing NID document without a passport context"
+
+
+      PASSPORT_DOCUMENTS_BIRTH_REGISTRATION_REQUIREMENT:
+        display_name: "Birth Registration Requirement for Passport"
+        description: >
+          Questions specifically about using or requiring a Birth
+          Registration Certificate or Birth Registration Number as
+          identity evidence in a passport application.
+
+        evidence_status: "official_workflow_supported"
+
+        includes:
+          - "Can I use Birth Registration for passport application?"
+          - "Is a Birth Registration Certificate required for a passport?"
+          - "Do I need my birth certificate for an e-Passport?"
+          - "Can a passport application use a Birth Registration Number?"
+
+        excludes:
+          - "Questions specifically about NID requirements"
+          - "Birth Registration correction or verification services"
+          - "General passport document-checklist questions"
+          - "Questions about obtaining a Birth Registration Certificate"
+
+
+      PASSPORT_DOCUMENTS_PREVIOUS_PASSPORT:
+        display_name: "Previous Passport Document Requirement"
+        description: >
+          Questions specifically about providing an existing or previous
+          passport as a supporting document during passport processing,
+          especially where the applicant already held a passport.
+
+        evidence_status: "official_workflow_supported"
+
+        includes:
+          - "Do I need to bring my old passport?"
+          - "Is my previous passport required for re-issue?"
+          - "Do I have to submit the existing passport during enrolment?"
+          - "Why is the previous passport needed?"
+
+        excludes:
+          - "General passport re-issue process questions"
+          - "Lost passport replacement questions"
+          - "Stolen passport questions"
+          - "General required-document questions"
+
+
+      PASSPORT_DOCUMENTS_MINOR_APPLICANT:
+        display_name: "Documents for Minor Passport Applicant"
+        description: >
+          Questions specifically about supporting documents or identity
+          evidence required when the passport applicant is a child or
+          minor.
+
+        evidence_status: "official_workflow_supported"
+
+        includes:
+          - "What documents are needed for a child's passport?"
+          - "Which papers are required for a minor passport applicant?"
+          - "What parent documents are needed for my child's passport?"
+          - "What documents do I need when applying for my child?"
+
+        excludes:
+          - "General passport application process for adults"
+          - "General document requirements without a minor-applicant focus"
+          - "Birth Registration questions not specifically related to a minor passport"
+          - "General parental-information fields in an application form"
+
+
+      PASSPORT_DOCUMENTS_ENROLMENT:
+        display_name: "Documents Required for Passport Enrolment"
+        description: >
+          Questions specifically about which application papers,
+          identity documents, receipts or other supporting documents
+          should be taken to the physical passport enrolment stage.
+
+        evidence_status: "official_workflow_supported"
+
+        includes:
+          - "What documents should I bring to passport enrolment?"
+          - "Which papers do I need to carry on enrolment day?"
+          - "What documents are needed when I go for biometrics?"
+          - "What paperwork should I take to the passport office after applying?"
+
+        excludes:
+          - "General passport document requirements before starting an application"
+          - "Appointment scheduling problems"
+          - "Questions about how biometric enrolment itself works"
+          - "Passport collection document requirements after issuance"
+
+
+      PASSPORT_DOCUMENTS_MISSING:
+        display_name: "Missing or Unavailable Passport Document"
+        description: >
+          Questions where the applicant knows or believes that a
+          supporting passport document is required but cannot provide,
+          locate or obtain that document.
+
+        evidence_status: "needs_query_pilot"
+
+        includes:
+          - "One of my passport documents is missing; what should I do?"
+          - "I cannot provide a required document for my passport application."
+          - "What happens if I do not have one of the required papers?"
+          - "A required passport document is unavailable. Can I still apply?"
+
+        excludes:
+          - "General questions asking which documents are required"
+          - "Lost passport questions where the missing object is the passport itself"
+          - "Lost delivery-slip questions"
+          - "Questions about obtaining or correcting another government document"
+
+
+      PASSPORT_DOCUMENTS_OFFICIAL_DIPLOMATIC:
+        display_name: "Official or Diplomatic Passport Documents"
+        description: >
+          Questions specifically about supporting administrative
+          documentation for official or diplomatic passport applications,
+          including Government Order or No Objection Certificate related
+          requirements where applicable.
+
+        evidence_status: "needs_query_volume_review"
+
+        includes:
+          - "What documents are required for an official passport?"
+          - "Do I need an NOC for an official passport?"
+          - "Is a Government Order needed for a diplomatic passport application?"
+          - "Which supporting papers are needed for a government employee passport?"
+
+        excludes:
+          - "General questions about how to apply for an official passport"
+          - "Ordinary citizen passport document requirements"
+          - "General NID or Birth Registration questions"
+          - "Re-issue questions not specifically about supporting documentation"
 
 
   PASSPORT_ONLINE_ACCOUNT:
@@ -383,9 +560,25 @@ design_rules:
     unless query volume and semantic separation justify its own parent.
 
   - >
-    Required documents and missing documents must later be evaluated as
-    separate specific intents. Asking which documents are required is
-    different from being unable to provide a required document.
+    Required documents and missing documents are separate specific
+    intents. Asking which documents are required is different from
+    already knowing a document is required but being unable to provide
+    it.
+
+  - >
+    NID requirement and Birth Registration requirement are represented
+    separately because citizens frequently ask specifically whether one
+    identity document can or must be used for passport processing.
+
+  - >
+    Questions about a previous passport as a required supporting
+    document remain under PASSPORT_DOCUMENTS, while the actual process
+    of obtaining another passport remains under PASSPORT_REISSUE.
+
+  - >
+    Documents required at physical enrolment remain under
+    PASSPORT_DOCUMENTS, while questions about scheduling or performing
+    enrolment remain under PASSPORT_APPOINTMENT_AND_ENROLMENT.
 
   - >
     Application status, application delay and normal processing time
@@ -421,8 +614,9 @@ design_rules:
 
   - >
     Mutable facts such as current fees, processing durations, passport
-    office addresses and payment providers must not be encoded in the
-    taxonomy. Those belong in the verified knowledge corpus.
+    office addresses, eligibility details and payment providers must
+    not be encoded in the taxonomy. Those belong in the verified
+    knowledge corpus.
 
   - >
     General information must not be used as a fallback for unsupported
