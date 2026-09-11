@@ -1,4 +1,4 @@
-taxonomy_version: "0.1.7"
+taxonomy_version: "0.1.8"
 service_id: "PASSPORT"
 status: "query_topics_in_progress"
 
@@ -1193,7 +1193,158 @@ parent_topics:
       - "Passport Collection"
       - "Delivery Slip"
 
-    query_topics: {}
+    query_topics:
+
+      PASSPORT_APPLICATION_STATUS:
+        display_name: "Passport Application Status"
+        description: >
+          Questions about the current state, stage or approval status
+          of an already submitted passport application.
+
+        evidence_status: "official_service_supported"
+
+        includes:
+          - "How do I check my passport application status?"
+          - "What stage is my e-Passport application in?"
+          - "Has my passport application been approved?"
+          - "Where can I see the current status of my passport application?"
+
+        excludes:
+          - "Complaints that the application has been delayed"
+          - "Questions asking the normal processing duration"
+          - "Questions about whether the passport is ready for collection"
+          - "Payment-status questions"
+
+
+      PASSPORT_APPLICATION_DELAY:
+        display_name: "Passport Application Delay"
+        description: >
+          Questions where the applicant reports or suspects that their
+          submitted passport application is taking unusually long or
+          has remained at a stage longer than expected.
+
+        evidence_status: "needs_query_pilot"
+
+        includes:
+          - "My passport application is delayed. What should I do?"
+          - "Why is my e-Passport taking so long?"
+          - "My application has been stuck for a long time."
+          - "What can I do if passport processing is delayed?"
+
+        excludes:
+          - "General questions asking how long processing normally takes"
+          - "Ordinary application-status checks without a delay complaint"
+          - "Appointment delay"
+          - "Payment problems"
+
+
+      PASSPORT_PROCESSING_TIME:
+        display_name: "Passport Processing Time"
+        description: >
+          General questions about the expected or normal time required
+          for passport processing, without reporting that a specific
+          applicant's case is already delayed.
+
+        evidence_status: "official_service_supported"
+
+        includes:
+          - "How long does passport processing normally take?"
+          - "What is the usual e-Passport processing time?"
+          - "How many days does it normally take to get a passport?"
+          - "What is the expected processing duration for a passport?"
+
+        excludes:
+          - "A specific application that is already taking unusually long"
+          - "Checking the current stage of an application"
+          - "Questions only about delivery-category fees"
+          - "Appointment scheduling"
+
+
+      PASSPORT_DELIVERY_CATEGORY:
+        display_name: "Passport Delivery or Processing Category"
+        description: >
+          Questions about available passport delivery or processing
+          categories such as regular, express or officially offered
+          urgent categories when the primary focus is the category or
+          service level rather than its fee.
+
+        evidence_status: "official_service_supported"
+
+        includes:
+          - "What is regular passport delivery?"
+          - "What is express passport service?"
+          - "What delivery options are available for e-Passport?"
+          - "Can I choose an urgent passport processing category?"
+
+        excludes:
+          - "Questions specifically asking how much each category costs"
+          - "Questions only asking the normal processing duration"
+          - "Checking the status of an already submitted application"
+          - "Complaints about application delay"
+
+
+      PASSPORT_READY_FOR_COLLECTION:
+        display_name: "Passport Ready for Collection"
+        description: >
+          Questions about determining whether an issued or processed
+          passport is ready to be collected by the applicant.
+
+        evidence_status: "official_service_supported"
+
+        includes:
+          - "How do I know if my passport is ready for collection?"
+          - "Is my e-Passport ready to pick up?"
+          - "Where can I check whether my passport is ready?"
+          - "How will I know when I can collect my passport?"
+
+        excludes:
+          - "General application-stage questions before the passport is ready"
+          - "Questions about how to physically collect a ready passport"
+          - "Questions about a lost delivery slip"
+          - "Questions about normal processing time"
+
+
+      PASSPORT_COLLECTION:
+        display_name: "Passport Collection"
+        description: >
+          Questions about the process of physically receiving or
+          collecting a passport after it has become ready for delivery.
+
+        evidence_status: "official_service_supported"
+
+        includes:
+          - "How do I collect my passport?"
+          - "What is the process for receiving my e-Passport?"
+          - "Where do I go to collect my ready passport?"
+          - "What should I do when my passport is ready for pickup?"
+
+        excludes:
+          - "Checking whether the passport is ready for collection"
+          - "Lost delivery-slip problems"
+          - "Application-office selection"
+          - "Physical enrolment location"
+
+
+      PASSPORT_DELIVERY_SLIP_LOST:
+        display_name: "Lost Passport Delivery Slip"
+        description: >
+          Questions specifically about what to do when the applicant
+          has lost or cannot produce the delivery slip associated with
+          collecting an already processed passport.
+
+        evidence_status: "official_service_supported"
+
+        includes:
+          - "I lost my passport delivery slip. What should I do?"
+          - "Can I collect my passport without the delivery slip?"
+          - "My passport collection slip is missing."
+          - "What should I do if I cannot find my passport delivery receipt?"
+
+        excludes:
+          - "A passport itself that has been lost"
+          - "A passport payment receipt or payment slip"
+          - "Checking whether the passport is ready"
+          - "General passport collection instructions when the delivery slip is available"
 
 
   PASSPORT_GENERAL_INFORMATION:
@@ -1260,10 +1411,6 @@ design_rules:
     A previous passport being required as supporting evidence belongs
     under PASSPORT_DOCUMENTS_PREVIOUS_PASSPORT, while asking how to obtain
     the replacement or re-issued passport belongs under PASSPORT_REISSUE.
-
-  - >
-    Passport collection remains inside PASSPORT_STATUS_AND_DELIVERY
-    unless query volume and semantic separation justify its own parent.
 
   - >
     Required documents and missing documents are separate specific
@@ -1367,12 +1514,38 @@ design_rules:
     than being hard-coded into classifier semantics.
 
   - >
-    Application status, application delay and normal processing time
-    must later receive distinct semantic-boundary review.
+    PASSPORT_APPLICATION_STATUS covers current stage or approval-state
+    questions. A user reporting that their case has been stuck or is
+    taking unusually long belongs under PASSPORT_APPLICATION_DELAY.
 
   - >
-    A lost passport and a lost delivery slip are different objects and
-    must never be represented by the same query-topic label.
+    PASSPORT_PROCESSING_TIME represents the normal expected duration of
+    passport processing, while PASSPORT_APPLICATION_DELAY represents a
+    specific case that the citizen believes is taking unusually long.
+
+  - >
+    PASSPORT_DELIVERY_CATEGORY represents questions about regular,
+    express, urgent or similar processing categories when the focus is
+    the category itself. Questions specifically about category prices
+    belong under PASSPORT_FEES_DELIVERY_CATEGORY.
+
+  - >
+    PASSPORT_READY_FOR_COLLECTION and PASSPORT_COLLECTION are separate.
+    The first asks whether the passport can now be collected, while the
+    second asks how or where to complete the collection process.
+
+  - >
+    A lost passport and a lost passport delivery slip represent
+    different objects and different workflow stages.
+    PASSPORT_REISSUE_LOST applies when the passport itself is missing,
+    while PASSPORT_DELIVERY_SLIP_LOST applies when the collection slip
+    is missing.
+
+  - >
+    A passport payment slip and a passport delivery slip must remain
+    distinct. Payment-slip queries belong under
+    PASSPORT_PAYMENT_RECEIPT, while a lost collection or delivery slip
+    belongs under PASSPORT_DELIVERY_SLIP_LOST.
 
   - >
     Portal account problems and appointment problems must remain
