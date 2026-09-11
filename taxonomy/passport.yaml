@@ -1,12 +1,13 @@
-taxonomy_version: "0.1.1"
+taxonomy_version: "0.1.2"
 service_id: "PASSPORT"
-status: "parent_topics_reviewed"
+status: "query_topics_in_progress"
 
 description: >
   Working parent-topic taxonomy for Bangladesh e-Passport citizen
   queries. The structure is based on the Passport source/query-topic
-  inventory. Query-topic / specific-intent IDs will be defined only
-  after the parent structure is reviewed.
+  inventory. Parent topics have been reviewed. Specific query-topic
+  definitions are now being added incrementally and will be reviewed
+  before the taxonomy is considered complete.
 
 id_prefix: "PASS"
 
@@ -35,7 +36,159 @@ parent_topics:
       - "Application From Abroad / Bangladesh Mission"
       - "Official / Diplomatic Passport Application"
 
-    query_topics: {}
+    query_topics:
+
+      PASSPORT_APPLICATION_PROCESS:
+        display_name: "New Passport Application Process"
+        description: >
+          General or end-to-end questions about how to apply for a new
+          Bangladesh e-Passport when the user is not specifically asking
+          about one narrower application sub-step.
+
+        evidence_status: "official_workflow_supported"
+
+        includes:
+          - "How do I apply for a new passport?"
+          - "What is the process for getting my first e-Passport?"
+          - "Where do I start a new passport application?"
+          - "How can I get a passport for the first time?"
+
+        excludes:
+          - "Questions specifically about applying through the online portal"
+          - "Questions specifically about which passport office to select"
+          - "Questions specifically about required documents"
+          - "Questions about re-issuing a previously issued passport"
+          - "Questions specifically about passport type, validity or page options"
+
+
+      PASSPORT_APPLICATION_ONLINE:
+        display_name: "Online Passport Application"
+        description: >
+          Questions specifically about starting, completing or submitting
+          a new passport application through the Bangladesh e-Passport
+          online application system.
+
+        evidence_status: "official_workflow_supported"
+
+        includes:
+          - "Can I apply for a passport online?"
+          - "How do I submit a new passport application online?"
+          - "Where is the online passport application form?"
+          - "How do I complete the e-Passport application through the portal?"
+
+        excludes:
+          - "Creating or logging into an e-Passport portal account"
+          - "Forgotten password or account activation problems"
+          - "General new-passport process questions without an online focus"
+          - "Checking the status of an already submitted application"
+
+
+      PASSPORT_APPLICATION_OFFICE_SELECTION:
+        display_name: "Passport Office Selection"
+        description: >
+          Questions about determining or selecting the Regional Passport
+          Office or other responsible application location for a new
+          passport application.
+
+        evidence_status: "official_workflow_supported"
+
+        includes:
+          - "Which passport office should I select?"
+          - "Which Regional Passport Office handles my application?"
+          - "How do I choose the passport office from my present address?"
+          - "Which office should I use for my district or police station?"
+
+        excludes:
+          - "Entering the applicant's address in the application form"
+          - "Finding where biometric enrolment happens after application"
+          - "Passport collection questions"
+          - "Applying specifically through a Bangladesh mission abroad"
+
+
+      PASSPORT_APPLICATION_INFORMATION:
+        display_name: "Passport Application Information"
+        description: >
+          Questions about the personal or application-form information that
+          must be entered when completing a new passport application.
+
+        evidence_status: "official_workflow_supported"
+
+        includes:
+          - "What information do I need to enter in the passport application?"
+          - "What personal information is required in the application form?"
+          - "How should I fill in my passport application details?"
+          - "What information does the new passport form ask for?"
+
+        excludes:
+          - "Questions about documents that prove the entered information"
+          - "Questions about NID or Birth Registration document requirements"
+          - "Correcting information on a previously issued passport"
+          - "Changing information during passport re-issue"
+
+
+      PASSPORT_APPLICATION_PASSPORT_OPTIONS:
+        display_name: "Passport Type, Validity and Page Options"
+        description: >
+          Questions about selectable passport characteristics or application
+          choices such as available passport type, validity period, number of
+          pages or similar passport-option selections.
+
+        evidence_status: "official_workflow_supported"
+
+        includes:
+          - "Which passport validity option should I select?"
+          - "What page options are available for an e-Passport?"
+          - "How do I choose the passport type?"
+          - "What passport options can I select while applying?"
+
+        excludes:
+          - "Questions only about the price of different passport options"
+          - "Questions only about regular or express delivery"
+          - "General new-passport application process questions"
+          - "Re-issue questions for an existing passport"
+
+
+      PASSPORT_APPLICATION_OVERSEAS:
+        display_name: "New Passport Application From Abroad"
+        description: >
+          Questions about making a new or first passport application while
+          living outside Bangladesh through an appropriate Bangladesh
+          embassy or mission.
+
+        evidence_status: "official_workflow_supported"
+
+        includes:
+          - "How do I apply for a new passport from abroad?"
+          - "Can I apply for my first passport through a Bangladesh embassy?"
+          - "Which Bangladesh mission should handle my new passport application?"
+          - "How does new passport application work while living overseas?"
+
+        excludes:
+          - "Re-issuing an existing passport while abroad"
+          - "General domestic passport-office selection"
+          - "Visa or immigration-service questions"
+          - "Birth Registration services through an embassy"
+
+
+      PASSPORT_APPLICATION_OFFICIAL_DIPLOMATIC:
+        display_name: "Official or Diplomatic Passport Application"
+        description: >
+          Questions specifically about applying for an official or diplomatic
+          passport category rather than an ordinary citizen e-Passport.
+
+        evidence_status: "needs_query_volume_review"
+
+        includes:
+          - "How do I apply for an official passport?"
+          - "What is the application process for a diplomatic passport?"
+          - "How does a government employee apply for an official passport?"
+          - "I need an official passport; how do I apply?"
+
+        excludes:
+          - "Questions specifically asking which GO or NOC documents are required"
+          - "General ordinary e-Passport applications"
+          - "General document-requirement questions"
+          - "Re-issue of an existing official or diplomatic passport"
 
 
   PASSPORT_DOCUMENTS:
@@ -207,8 +360,8 @@ design_rules:
 
   - >
     Parent topics represent broad citizen information needs. Specific
-    classifier intents will later be represented by query-topic IDs
-    beneath each parent.
+    classifier intents are represented by query-topic IDs beneath each
+    parent.
 
   - >
     Passport office selection remains inside PASSPORT_APPLICATION
@@ -256,7 +409,7 @@ design_rules:
     intent parent. New-passport questions from abroad belong under
     PASSPORT_APPLICATION, while re-issue questions from abroad belong
     under PASSPORT_REISSUE. Overseas-specific leaves may be created
-    later only where semantic evidence justifies them.
+    only where semantic evidence justifies them.
 
   - >
     Official or diplomatic passport status is a contextual/application
