@@ -1,13 +1,13 @@
-taxonomy_version: "0.1.8"
+taxonomy_version: "0.1.9"
 service_id: "PASSPORT"
-status: "query_topics_in_progress"
+status: "query_topics_defined"
 
 description: >
-  Working parent-topic taxonomy for Bangladesh e-Passport citizen
-  queries. The parent topics have been reviewed and specific
-  query-topic definitions are being added incrementally. The taxonomy
-  will undergo structural and semantic review before it is considered
-  complete.
+  Working taxonomy for Bangladesh e-Passport citizen queries.
+  Parent topics have been reviewed and specific query-topic definitions
+  have now been completed across all parent topics. The taxonomy still
+  requires structural validation and semantic audit before pilot
+  annotation and any shared-contract freeze.
 
 id_prefix: "PASS"
 
@@ -1351,8 +1351,9 @@ parent_topics:
     display_name: "General Passport Information"
     description: >
       General questions about Bangladesh e-Passport services when the
-      user is seeking broad information and does not express a more
-      specific operational intent.
+      citizen is seeking broad explanatory or orientation information
+      and does not express a more specific operational intent already
+      represented elsewhere in the taxonomy.
 
     default_evidence_status: "needs_query_pilot"
 
@@ -1362,7 +1363,73 @@ parent_topics:
       - "New Passport vs Re-Issue"
       - "General Passport Service Guidance"
 
-    query_topics: {}
+    query_topics:
+
+      PASSPORT_GENERAL_EPASSPORT_INFORMATION:
+        display_name: "General e-Passport Information"
+        description: >
+          Broad explanatory questions about what a Bangladesh e-Passport
+          is or general characteristics of the e-Passport service where
+          the citizen is not asking how to perform a specific transaction.
+
+        evidence_status: "official_service_supported"
+
+        includes:
+          - "What is an e-Passport?"
+          - "What does e-Passport mean?"
+          - "Tell me about Bangladesh e-Passport."
+          - "How is an e-Passport generally different from an older passport?"
+
+        excludes:
+          - "How to apply for a new passport"
+          - "How to reissue an existing passport"
+          - "Passport fee questions"
+          - "Passport delivery or status questions"
+          - "Questions about a specific e-Passport portal function"
+
+
+      PASSPORT_GENERAL_NEW_VS_REISSUE:
+        display_name: "New Passport vs Re-Issue Guidance"
+        description: >
+          Questions where a citizen is specifically trying to determine
+          whether their situation should be handled as a new passport
+          application or as a re-issue of a previously issued passport.
+
+        evidence_status: "official_workflow_supported"
+
+        includes:
+          - "Should I apply for a new passport or reissue my old one?"
+          - "What is the difference between new passport and re-issue?"
+          - "I had a passport before; should I select new application or re-issue?"
+          - "How do I know whether my case is new passport or re-issue?"
+
+        excludes:
+          - "Questions clearly asking how to make a first-time application"
+          - "Questions clearly asking how to reissue an existing passport"
+          - "Questions specifically about expiry, loss, theft or damage"
+          - "General e-Passport definition questions"
+
+
+      PASSPORT_GENERAL_SERVICE_GUIDANCE:
+        display_name: "General Passport Service Guidance"
+        description: >
+          Broad orientation questions about which passport service or
+          workflow may be relevant when the citizen has not yet stated a
+          sufficiently specific transaction or problem for another leaf.
+
+        evidence_status: "needs_query_pilot"
+
+        includes:
+          - "What passport services are available?"
+          - "What kinds of passport problems can this service help with?"
+          - "Where should I start if I need help with a passport service?"
+          - "Which passport service should I use for my situation?"
+
+        excludes:
+          - "Any query expressing a specific application, document, account, appointment, re-issue, payment, status or collection intent"
+          - "Unsupported non-passport government-service queries"
+          - "Visa, immigration or foreign-country passport services"
+          - "Using general information merely because classifier confidence is low"
 
 
 design_rules:
@@ -1567,6 +1634,23 @@ design_rules:
     evidence.
 
   - >
+    PASSPORT_GENERAL_EPASSPORT_INFORMATION is explanatory rather than
+    transactional. If the citizen asks how to perform a specific
+    passport operation, the corresponding operational leaf must be used.
+
+  - >
+    PASSPORT_GENERAL_NEW_VS_REISSUE applies only when the citizen is
+    uncertain which of those two workflows applies. Once a clear
+    new-application or re-issue intent is stated, the specific
+    PASSPORT_APPLICATION or PASSPORT_REISSUE leaf takes precedence.
+
+  - >
+    PASSPORT_GENERAL_SERVICE_GUIDANCE is a narrow orientation intent,
+    not a fallback classifier label. Unsupported, unrelated or
+    low-confidence queries must be handled through OOD and confidence
+    logic instead.
+
+  - >
     Mutable facts such as current fees, processing durations, passport
     office addresses, eligibility details and payment providers must
     not be encoded in the taxonomy. Those belong in the verified
@@ -1609,8 +1693,8 @@ freeze_status:
   shared_contract_frozen: false
 
   parent_topics_reviewed: true
-  query_topics_defined: false
-  inclusion_exclusion_rules_defined: false
+  query_topics_defined: true
+  inclusion_exclusion_rules_defined: true
   semantic_audit_passed: false
 
   pilot_dataset_created: false
