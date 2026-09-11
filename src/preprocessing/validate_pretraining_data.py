@@ -26,6 +26,11 @@ TAXONOMY_FILES = {
     "NID": "nid.yaml", "BIRTH_REGISTRATION": "birth_registration.yaml", "PASSPORT": "passport.yaml",
     "TAX": "tax.yaml", "POLICE_GD": "police_gd.yaml", "DRIVING_LICENCE": "driving_licence.yaml",
 }
+ALLOWED_PRIORITY = {"Low", "Medium", "High"}
+ALLOWED_STYLE = {"Formal", "Informal", "Mixed"}
+ALLOWED_SOURCE = {"REAL", "SYNTHETIC", "PARAPHRASED"}
+ALLOWED_DIFFICULTY = {"Easy", "Medium", "Hard"}
+BOOL_VALUES = {"TRUE", "FALSE"}
 
 
 def read(path: Path) -> pd.DataFrame:
@@ -46,7 +51,19 @@ def main() -> None:
         frame = read(PROCESSED / filename)
         frames[service] = frame
         if list(frame.columns) != DATASET_COLUMNS: errors.append(f"{service}: schema mismatch")
+        if frame["text"].str.strip().eq("").any(): errors.append(f"{service}: blank text")
+        if frame["id"].str.strip().eq("").any(): errors.append(f"{service}: blank row ID")
         if set(frame.service) != {service}: errors.append(f"{service}: wrong service value")
+        if not set(frame.priority) <= ALLOWED_PRIORITY: errors.append(f"{service}: invalid priority")
+        if not set(frame.language_style) <= ALLOWED_STYLE: errors.append(f"{service}: invalid language style")
+        if not set(frame.source_type) <= ALLOWED_SOURCE: errors.append(f"{service}: invalid provenance")
+        if not set(frame.difficulty) <= ALLOWED_DIFFICULTY: errors.append(f"{service}: invalid difficulty")
+        privacy_flags = set(frame.privacy_present.str.upper())
+        ood_flags = set(frame.is_ood.str.upper())
+        if not privacy_flags <= BOOL_VALUES: errors.append(f"{service}: invalid privacy flag")
+        if ood_flags != {"FALSE"}: errors.append(f"{service}: in-domain OOD flag invalid")
+        bad_privacy = frame.privacy_present.str.upper().eq("FALSE") & frame.privacy_types.ne("")
+        if bad_privacy.any(): errors.append(f"{service}: privacy types set on privacy-negative rows")
         counts = frame.groupby("query_topic_id").size()
         expected_leaves = {leaf for leaf, values in expected.items() if values[0] == service}
         if set(counts.index) != expected_leaves: errors.append(f"{service}: leaf coverage mismatch")
@@ -62,13 +79,19 @@ def main() -> None:
 
     merged = read(PROCESSED / "all_services_canonical_v0_1.csv")
     if len(merged) != sum(map(len, frames.values())): errors.append("Merged row count mismatch")
+    if merged.id.duplicated().any(): errors.append("Merged row IDs are not globally unique")
     if merged.query_topic_id.nunique() != 264: errors.append("Merged intent count is not 264")
     duplicate_count = merged.text.map(normalized_key).duplicated().sum()
     if duplicate_count: errors.append(f"In-domain normalized duplicates: {duplicate_count}")
 
     ood = read(PROCESSED / "ood_canonical_v0_1.csv")
+    if list(ood.columns) != DATASET_COLUMNS: errors.append("OOD schema mismatch")
     if len(ood) != 360 or ood.query_topic_id.nunique() != 12: errors.append("OOD size/category mismatch")
-    if set(ood.is_ood) != {"TRUE"} or set(ood.service) != {"OOD"}: errors.append("OOD labels invalid")
+    if set(ood.is_ood.str.upper()) != {"TRUE"} or set(ood.service) != {"OOD"}: errors.append("OOD labels invalid")
+    if ood.id.duplicated().any() or ood.text.str.strip().eq("").any(): errors.append("OOD IDs/text invalid")
+    if set(ood.source_type) - {"SYNTHETIC", "PARAPHRASED"}: errors.append("OOD provenance invalid")
+    if set(ood.groupby("parent_query_id").size()) != {3}: errors.append("OOD family size invalid")
+    if set(ood.privacy_present.str.upper()) != {"FALSE"} or ood.privacy_types.ne("").any(): errors.append("OOD privacy contract invalid")
     if ood.text.map(normalized_key).duplicated().any(): errors.append("OOD normalized duplicates")
     if set(ood.text.map(normalized_key)) & set(merged.text.map(normalized_key)): errors.append("OOD/in-domain text overlap")
 
@@ -81,6 +104,9 @@ def main() -> None:
     if text_leakage: errors.append(f"Exact text split leakage: {text_leakage}")
     if sum(map(len, splits.values())) != len(merged): errors.append("Split row total mismatch")
     if set().union(*family_sets.values()) != set(merged.parent_query_id): errors.append("Split family coverage mismatch")
+    for name, frame in splits.items():
+        if frame.query_topic_id.nunique() != 264: errors.append(f"{name}: not all intents represented")
+        if set(frame.service) != set(SERVICES): errors.append(f"{name}: not all services represented")
 
     print("=" * 72)
     print("SIX-SERVICE PRE-TRAINING DATA VALIDATION")
