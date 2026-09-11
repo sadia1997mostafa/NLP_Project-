@@ -1,0 +1,340 @@
+taxonomy_version: "0.1.0"
+service_id: "PASSPORT"
+status: "parent_topics_drafted"
+
+description: >
+  Working parent-topic taxonomy for Bangladesh e-Passport citizen
+  queries. The structure is based on the Passport source/query-topic
+  inventory. Query-topic / specific-intent IDs will be defined only
+  after the parent structure is reviewed.
+
+id_prefix: "PASS"
+
+parent_topics:
+
+  PASSPORT_APPLICATION:
+    display_name: "New Passport Application"
+    description: >
+      First-time or new e-Passport application questions, including
+      the overall application process, online application, application
+      information, passport type choices and selection of the
+      responsible passport office.
+
+    default_evidence_status: "official_workflow_supported"
+
+    covers:
+      - "New / First Passport Application"
+      - "Online Passport Application"
+      - "Application Process"
+      - "Application Information"
+      - "Passport Type / Validity / Page Selection"
+      - "Passport Office Selection"
+      - "Regional Passport Office"
+      - "Application Location"
+
+    query_topics: {}
+
+
+  PASSPORT_DOCUMENTS:
+    display_name: "Passport Documents and Requirements"
+    description: >
+      Questions about documents and supporting evidence required for
+      an e-Passport application or enrolment, including identity
+      documents, previous passport, minor-applicant documents and
+      situations where required documents are unavailable.
+
+    default_evidence_status: "official_workflow_supported"
+
+    covers:
+      - "Required Documents"
+      - "NID Requirement"
+      - "Birth Registration Requirement"
+      - "Previous Passport Requirement"
+      - "Minor Applicant Documents"
+      - "Supporting Documents"
+      - "Documents for Enrolment"
+      - "Missing / Unavailable Documents"
+
+    query_topics: {}
+
+
+  PASSPORT_ONLINE_ACCOUNT:
+    display_name: "Passport Online Account"
+    description: >
+      Questions about creating, accessing or recovering an e-Passport
+      portal account, including login credentials, password recovery,
+      account activation and registered contact-information problems.
+
+    default_evidence_status: "official_service_supported"
+
+    covers:
+      - "Online Account Registration"
+      - "Account Login"
+      - "Forgotten Password"
+      - "Password Reset"
+      - "Account Activation"
+      - "Activation Email Not Received"
+      - "Registered Email Change"
+      - "Registered Mobile Number Change"
+      - "Account Access Problems"
+
+    query_topics: {}
+
+
+  PASSPORT_APPOINTMENT_AND_ENROLMENT:
+    display_name: "Passport Appointment and Enrolment"
+    description: >
+      Questions about appointment scheduling and the physical
+      enrolment stage of the e-Passport process, including attendance,
+      enrolment preparation and appointment-related problems.
+
+    default_evidence_status: "official_service_supported"
+
+    covers:
+      - "Appointment Scheduling"
+      - "Appointment Date"
+      - "Appointment Problems"
+      - "Appointment Requirements"
+      - "Enrolment Process"
+      - "Enrolment Location"
+      - "Enrolment Preparation"
+      - "Biometric Enrolment"
+
+    query_topics: {}
+
+
+  PASSPORT_REISSUE:
+    display_name: "Passport Re-Issue and Replacement"
+    description: >
+      Questions about obtaining another passport after a previous
+      passport has already been issued. This includes ordinary
+      re-issue, expiry, loss, theft, damage and re-issue caused by
+      changes in passport information.
+
+    default_evidence_status: "official_workflow_supported"
+
+    covers:
+      - "Passport Re-Issue"
+      - "Expired Passport"
+      - "Expiring Passport"
+      - "Re-Issue Without Information Change"
+      - "Re-Issue With Information Change"
+      - "Lost Passport"
+      - "Stolen Passport"
+      - "Damaged Passport"
+      - "Replacement Passport"
+      - "Changed Personal Information"
+
+    query_topics: {}
+
+
+  PASSPORT_FEES_AND_PAYMENT:
+    display_name: "Passport Fees and Payment"
+    description: >
+      Questions about e-Passport fees and payment workflows, including
+      payment methods, payment confirmation, receipts, failed
+      transactions and delivery-category fee questions.
+
+    default_evidence_status: "official_service_supported"
+
+    covers:
+      - "Passport Fee Information"
+      - "Payment Method"
+      - "Online Payment"
+      - "Offline Payment"
+      - "Payment Confirmation"
+      - "Payment Failure"
+      - "Money Deducted but Payment Failed"
+      - "Payment Receipt"
+      - "Payment Slip"
+      - "Delivery Category Fee"
+
+    query_topics: {}
+
+
+  PASSPORT_STATUS_AND_DELIVERY:
+    display_name: "Passport Application Status and Delivery"
+    description: >
+      Questions about the state of a submitted passport application,
+      expected processing duration, unusual delay, delivery category,
+      passport readiness and collection of an issued passport.
+
+    default_evidence_status: "official_service_supported"
+
+    covers:
+      - "Application Status"
+      - "Application Stage"
+      - "Application Approval"
+      - "Application Delay"
+      - "Processing Time"
+      - "Regular Delivery"
+      - "Express Delivery"
+      - "Urgent / Super Express Delivery"
+      - "Passport Ready for Collection"
+      - "Passport Collection"
+      - "Delivery Slip"
+
+    query_topics: {}
+
+
+  PASSPORT_OVERSEAS_SERVICE:
+    display_name: "Overseas Passport Service"
+    description: >
+      Passport-service questions from citizens living outside
+      Bangladesh, including application or re-issue through a
+      Bangladesh embassy or mission and determining the responsible
+      overseas mission.
+
+    default_evidence_status: "official_workflow_supported"
+
+    covers:
+      - "Passport Application From Abroad"
+      - "Bangladesh Mission Application"
+      - "Embassy Passport Service"
+      - "Overseas Passport Re-Issue"
+      - "Responsible Bangladesh Mission"
+      - "Passport Service While Living Abroad"
+
+    query_topics: {}
+
+
+  PASSPORT_SPECIAL_CATEGORY:
+    display_name: "Official and Diplomatic Passport"
+    description: >
+      Questions involving official or diplomatic passport categories
+      and supporting administrative documents such as government
+      orders or no-objection documentation.
+
+    default_evidence_status: "needs_query_volume_review"
+
+    covers:
+      - "Official Passport"
+      - "Diplomatic Passport"
+      - "Government Employee Passport"
+      - "GO / Government Order"
+      - "NOC / No Objection Certificate"
+      - "Special Supporting Documents"
+
+    query_topics: {}
+
+
+  PASSPORT_GENERAL_INFORMATION:
+    display_name: "General Passport Information"
+    description: >
+      General questions about Bangladesh e-Passport services when the
+      user is seeking broad information and does not express a more
+      specific operational intent.
+
+    default_evidence_status: "needs_query_pilot"
+
+    covers:
+      - "What is an e-Passport?"
+      - "General Passport Information"
+      - "New Passport vs Re-Issue"
+      - "General Passport Service Guidance"
+
+    query_topics: {}
+
+
+design_rules:
+
+  - >
+    Parent topics represent broad citizen information needs. Specific
+    classifier intents will later be represented by query-topic IDs
+    beneath each parent.
+
+  - >
+    Passport office selection remains inside PASSPORT_APPLICATION
+    unless pilot evidence shows that it requires a separate parent.
+
+  - >
+    Lost, stolen and damaged passport cases remain inside
+    PASSPORT_REISSUE because each normally concerns obtaining another
+    passport after a previous passport existed. They may later become
+    distinct query-topic leaves.
+
+  - >
+    Information change connected to an already issued passport remains
+    inside PASSPORT_REISSUE unless semantic review shows that a separate
+    parent is required.
+
+  - >
+    Passport collection remains inside PASSPORT_STATUS_AND_DELIVERY
+    unless query volume and semantic separation justify its own parent.
+
+  - >
+    Required documents and missing documents must later be evaluated as
+    separate specific intents. Asking which documents are required is
+    different from being unable to provide a required document.
+
+  - >
+    Application status, application delay and normal processing time
+    must later receive distinct semantic-boundary review.
+
+  - >
+    Payment information and payment failure must not automatically use
+    the same specific-intent label.
+
+  - >
+    A lost passport and a lost delivery slip are different objects and
+    must never be represented by the same query-topic label.
+
+  - >
+    Portal account problems and appointment problems must remain
+    semantically distinct even though both occur during the online
+    passport workflow.
+
+  - >
+    Mutable facts such as current fees, processing durations, passport
+    office addresses and payment providers must not be encoded in the
+    taxonomy. Those belong in the verified knowledge corpus.
+
+  - >
+    General information must not be used as a fallback for unsupported
+    or low-confidence queries. OOD and confidence handling will handle
+    unsupported cases.
+
+
+evidence_notes:
+
+  PASSPORT_APPLICATION:
+    evidence_status: "official_workflow_supported"
+
+  PASSPORT_DOCUMENTS:
+    evidence_status: "official_workflow_supported"
+
+  PASSPORT_ONLINE_ACCOUNT:
+    evidence_status: "official_service_supported"
+
+  PASSPORT_APPOINTMENT_AND_ENROLMENT:
+    evidence_status: "official_service_supported"
+
+  PASSPORT_REISSUE:
+    evidence_status: "official_workflow_supported"
+
+  PASSPORT_FEES_AND_PAYMENT:
+    evidence_status: "official_service_supported"
+
+  PASSPORT_STATUS_AND_DELIVERY:
+    evidence_status: "official_service_supported"
+
+  PASSPORT_OVERSEAS_SERVICE:
+    evidence_status: "official_workflow_supported"
+
+  PASSPORT_SPECIAL_CATEGORY:
+    evidence_status: "needs_query_volume_review"
+
+  PASSPORT_GENERAL_INFORMATION:
+    evidence_status: "needs_query_pilot"
+
+
+freeze_status:
+  shared_contract_frozen: false
+
+  parent_topics_reviewed: false
+  query_topics_defined: false
+  inclusion_exclusion_rules_defined: false
+  semantic_audit_passed: false
+
+  pilot_dataset_created: false
+  taxonomy_ready_for_shared_contract: false
