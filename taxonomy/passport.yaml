@@ -1,1701 +1,1359 @@
-taxonomy_version: "0.2.0"
-service_id: "PASSPORT"
-status: "pilot_reviewed"
+taxonomy_version: 0.2.0
+service_id: PASSPORT
+status: contract_frozen
+description: 'Working taxonomy for Bangladesh e-Passport citizen queries. Parent topics and query-topic
+  definitions have been completed, and the taxonomy has passed structural validation and semantic
+  audit with explicit pilot-review flags. It is ready for controlled pilot annotation but remains
+  unfrozen pending pilot review.
 
-description: >
-  Working taxonomy for Bangladesh e-Passport citizen queries.
-  Parent topics and query-topic definitions have been completed, and the
-  taxonomy has passed structural validation and semantic audit with
-  explicit pilot-review flags. It is ready for controlled pilot annotation
-  but remains unfrozen pending pilot review.
-
-id_prefix: "PASS"
-
+  '
+id_prefix: PASS
 parent_topics:
-
   PASSPORT_APPLICATION:
-    display_name: "New Passport Application"
-    description: >
-      First-time or new e-Passport application questions, including
-      the overall application process, online application, application
-      information, passport type choices, selection of the responsible
-      passport office and new-passport application from abroad through
-      an appropriate Bangladesh mission.
+    display_name: New Passport Application
+    description: 'First-time or new e-Passport application questions, including the overall application
+      process, online application, application information, passport type choices, selection of
+      the responsible passport office and new-passport application from abroad through an appropriate
+      Bangladesh mission.
 
-    default_evidence_status: "official_workflow_supported"
-
+      '
+    default_evidence_status: official_workflow_supported
     covers:
-      - "New / First Passport Application"
-      - "Online Passport Application"
-      - "Application Process"
-      - "Application Information"
-      - "Passport Type / Validity / Page Selection"
-      - "Passport Office Selection"
-      - "Regional Passport Office"
-      - "Application Location"
-      - "Application From Abroad / Bangladesh Mission"
-      - "Official / Diplomatic Passport Application"
-
+    - New / First Passport Application
+    - Online Passport Application
+    - Application Process
+    - Application Information
+    - Passport Type / Validity / Page Selection
+    - Passport Office Selection
+    - Regional Passport Office
+    - Application Location
+    - Application From Abroad / Bangladesh Mission
+    - Official / Diplomatic Passport Application
     query_topics:
-
       PASSPORT_APPLICATION_PROCESS:
-        display_name: "New Passport Application Process"
-        description: >
-          General or end-to-end questions about how to apply for a new
-          Bangladesh e-Passport when the user is not specifically asking
-          about one narrower application sub-step.
+        display_name: New Passport Application Process
+        description: 'General or end-to-end questions about how to apply for a new Bangladesh
+          e-Passport when the user is not specifically asking about one narrower application sub-step.
 
-        evidence_status: "official_workflow_supported"
-
+          '
+        evidence_status: official_workflow_supported
         includes:
-          - "How do I apply for a new passport?"
-          - "What is the process for getting my first e-Passport?"
-          - "Where do I start a new passport application?"
-          - "How can I get a passport for the first time?"
-
+        - How do I apply for a new passport?
+        - What is the process for getting my first e-Passport?
+        - Where do I start a new passport application?
+        - How can I get a passport for the first time?
         excludes:
-          - "Questions specifically about applying through the online portal"
-          - "Questions specifically about which passport office to select"
-          - "Questions specifically about required documents"
-          - "Questions about re-issuing a previously issued passport"
-          - "Questions specifically about passport type, validity or page options"
-
-
+        - Questions specifically about applying through the online portal
+        - Questions specifically about which passport office to select
+        - Questions specifically about required documents
+        - Questions about re-issuing a previously issued passport
+        - Questions specifically about passport type, validity or page options
       PASSPORT_APPLICATION_ONLINE:
-        display_name: "Online Passport Application"
-        description: >
-          Questions specifically about starting, completing or submitting
-          a new passport application through the Bangladesh e-Passport
-          online application system.
+        display_name: Online Passport Application
+        description: 'Questions specifically about starting, completing or submitting a new passport
+          application through the Bangladesh e-Passport online application system.
 
-        evidence_status: "official_workflow_supported"
-
+          '
+        evidence_status: official_workflow_supported
         includes:
-          - "Can I apply for a passport online?"
-          - "How do I submit a new passport application online?"
-          - "Where is the online passport application form?"
-          - "How do I complete the e-Passport application through the portal?"
-
+        - Can I apply for a passport online?
+        - How do I submit a new passport application online?
+        - Where is the online passport application form?
+        - How do I complete the e-Passport application through the portal?
         excludes:
-          - "Creating or logging into an e-Passport portal account"
-          - "Forgotten password or account activation problems"
-          - "General new-passport process questions without an online focus"
-          - "Checking the status of an already submitted application"
-
-
+        - Creating or logging into an e-Passport portal account
+        - Forgotten password or account activation problems
+        - General new-passport process questions without an online focus
+        - Checking the status of an already submitted application
       PASSPORT_APPLICATION_OFFICE_SELECTION:
-        display_name: "Passport Office Selection"
-        description: >
-          Questions about determining or selecting the Regional Passport
-          Office or other responsible application location for a new
-          passport application.
+        display_name: Passport Office Selection
+        description: 'Questions about determining or selecting the Regional Passport Office or
+          other responsible application location for a new passport application.
 
-        evidence_status: "official_workflow_supported"
-
+          '
+        evidence_status: official_workflow_supported
         includes:
-          - "Which passport office should I select?"
-          - "Which Regional Passport Office handles my application?"
-          - "How do I choose the passport office from my present address?"
-          - "Which office should I use for my district or police station?"
-
+        - Which passport office should I select?
+        - Which Regional Passport Office handles my application?
+        - How do I choose the passport office from my present address?
+        - Which office should I use for my district or police station?
         excludes:
-          - "Entering the applicant's address in the application form"
-          - "Finding where biometric enrolment happens after application"
-          - "Passport collection questions"
-          - "Applying specifically through a Bangladesh mission abroad"
-
-
+        - Entering the applicant's address in the application form
+        - Finding where biometric enrolment happens after application
+        - Passport collection questions
+        - Applying specifically through a Bangladesh mission abroad
       PASSPORT_APPLICATION_INFORMATION:
-        display_name: "Passport Application Information"
-        description: >
-          Questions about the personal or application-form information that
-          must be entered when completing a new passport application.
+        display_name: Passport Application Information
+        description: 'Questions about the personal or application-form information that must be
+          entered when completing a new passport application.
 
-        evidence_status: "official_workflow_supported"
-
+          '
+        evidence_status: official_workflow_supported
         includes:
-          - "What information do I need to enter in the passport application?"
-          - "What personal information is required in the application form?"
-          - "How should I fill in my passport application details?"
-          - "What information does the new passport form ask for?"
-
+        - What information do I need to enter in the passport application?
+        - What personal information is required in the application form?
+        - How should I fill in my passport application details?
+        - What information does the new passport form ask for?
         excludes:
-          - "Questions about documents that prove the entered information"
-          - "Questions about NID or Birth Registration document requirements"
-          - "Correcting information on a previously issued passport"
-          - "Changing information during passport re-issue"
-
-
+        - Questions about documents that prove the entered information
+        - Questions about NID or Birth Registration document requirements
+        - Correcting information on a previously issued passport
+        - Changing information during passport re-issue
       PASSPORT_APPLICATION_PASSPORT_OPTIONS:
-        display_name: "Passport Type, Validity and Page Options"
-        description: >
-          Questions about selectable passport characteristics or application
-          choices such as available passport type, validity period, number of
-          pages or similar passport-option selections.
+        display_name: Passport Type, Validity and Page Options
+        description: 'Questions about selectable passport characteristics or application choices
+          such as available passport type, validity period, number of pages or similar passport-option
+          selections.
 
-        evidence_status: "official_workflow_supported"
-
+          '
+        evidence_status: official_workflow_supported
         includes:
-          - "Which passport validity option should I select?"
-          - "What page options are available for an e-Passport?"
-          - "How do I choose the passport type?"
-          - "What passport options can I select while applying?"
-
+        - Which passport validity option should I select?
+        - What page options are available for an e-Passport?
+        - How do I choose the passport type?
+        - What passport options can I select while applying?
         excludes:
-          - "Questions only about the price of different passport options"
-          - "Questions only about regular or express delivery"
-          - "General new-passport application process questions"
-          - "Re-issue questions for an existing passport"
-
-
+        - Questions only about the price of different passport options
+        - Questions only about regular or express delivery
+        - General new-passport application process questions
+        - Re-issue questions for an existing passport
       PASSPORT_APPLICATION_OVERSEAS:
-        display_name: "New Passport Application From Abroad"
-        description: >
-          Questions about making a new or first passport application while
-          living outside Bangladesh through an appropriate Bangladesh
-          embassy or mission.
+        display_name: New Passport Application From Abroad
+        description: 'Questions about making a new or first passport application while living
+          outside Bangladesh through an appropriate Bangladesh embassy or mission.
 
-        evidence_status: "official_workflow_supported"
-
+          '
+        evidence_status: official_workflow_supported
         includes:
-          - "How do I apply for a new passport from abroad?"
-          - "Can I apply for my first passport through a Bangladesh embassy?"
-          - "Which Bangladesh mission should handle my new passport application?"
-          - "How does new passport application work while living overseas?"
-
+        - How do I apply for a new passport from abroad?
+        - Can I apply for my first passport through a Bangladesh embassy?
+        - Which Bangladesh mission should handle my new passport application?
+        - How does new passport application work while living overseas?
         excludes:
-          - "Re-issuing an existing passport while abroad"
-          - "General domestic passport-office selection"
-          - "Visa or immigration-service questions"
-          - "Birth Registration services through an embassy"
-
-
+        - Re-issuing an existing passport while abroad
+        - General domestic passport-office selection
+        - Visa or immigration-service questions
+        - Birth Registration services through an embassy
       PASSPORT_APPLICATION_OFFICIAL_DIPLOMATIC:
-        display_name: "Official or Diplomatic Passport Application"
-        description: >
-          Questions specifically about applying for an official or diplomatic
-          passport category rather than an ordinary citizen e-Passport.
+        display_name: Official or Diplomatic Passport Application
+        description: 'Questions specifically about applying for an official or diplomatic passport
+          category rather than an ordinary citizen e-Passport.
 
-        evidence_status: "needs_query_volume_review"
-
+          '
+        evidence_status: needs_query_volume_review
         includes:
-          - "How do I apply for an official passport?"
-          - "What is the application process for a diplomatic passport?"
-          - "How does a government employee apply for an official passport?"
-          - "I need an official passport; how do I apply?"
-
+        - How do I apply for an official passport?
+        - What is the application process for a diplomatic passport?
+        - How does a government employee apply for an official passport?
+        - I need an official passport; how do I apply?
         excludes:
-          - "Questions specifically asking which GO or NOC documents are required"
-          - "General ordinary e-Passport applications"
-          - "General document-requirement questions"
-          - "Re-issue of an existing official or diplomatic passport"
-
-
+        - Questions specifically asking which GO or NOC documents are required
+        - General ordinary e-Passport applications
+        - General document-requirement questions
+        - Re-issue of an existing official or diplomatic passport
   PASSPORT_DOCUMENTS:
-    display_name: "Passport Documents and Requirements"
-    description: >
-      Questions about documents and supporting evidence required for
-      an e-Passport application or enrolment, including identity
-      documents, previous passport, minor-applicant documents,
-      special-category supporting documents and situations where
-      required documents are unavailable.
+    display_name: Passport Documents and Requirements
+    description: 'Questions about documents and supporting evidence required for an e-Passport
+      application or enrolment, including identity documents, previous passport, minor-applicant
+      documents, special-category supporting documents and situations where required documents
+      are unavailable.
 
-    default_evidence_status: "official_workflow_supported"
-
+      '
+    default_evidence_status: official_workflow_supported
     covers:
-      - "Required Documents"
-      - "NID Requirement"
-      - "Birth Registration Requirement"
-      - "Previous Passport Requirement"
-      - "Minor Applicant Documents"
-      - "Supporting Documents"
-      - "Documents for Enrolment"
-      - "Missing / Unavailable Documents"
-      - "Official / Diplomatic Passport Documents"
-      - "GO / Government Order"
-      - "NOC / No Objection Certificate"
-
+    - Required Documents
+    - NID Requirement
+    - Birth Registration Requirement
+    - Previous Passport Requirement
+    - Minor Applicant Documents
+    - Supporting Documents
+    - Documents for Enrolment
+    - Missing / Unavailable Documents
+    - Official / Diplomatic Passport Documents
+    - GO / Government Order
+    - NOC / No Objection Certificate
     query_topics:
-
       PASSPORT_DOCUMENTS_REQUIRED:
-        display_name: "General Passport Required Documents"
-        description: >
-          General questions asking which documents or supporting papers
-          are required for a passport application when the user does not
-          focus on one specific document type or applicant category.
+        display_name: General Passport Required Documents
+        description: 'General questions asking which documents or supporting papers are required
+          for a passport application when the user does not focus on one specific document type
+          or applicant category.
 
-        evidence_status: "official_workflow_supported"
-
+          '
+        evidence_status: official_workflow_supported
         includes:
-          - "What documents do I need for a passport application?"
-          - "Which papers are required for a new passport?"
-          - "What documents should I prepare before applying?"
-          - "Give me the general passport document checklist."
-
+        - What documents do I need for a passport application?
+        - Which papers are required for a new passport?
+        - What documents should I prepare before applying?
+        - Give me the general passport document checklist.
         excludes:
-          - "Questions specifically about whether NID is required"
-          - "Questions specifically about Birth Registration requirements"
-          - "Questions specifically about a previous passport"
-          - "Questions about missing or unavailable documents"
-          - "Questions specifically about documents for minors"
-
-
+        - Questions specifically about whether NID is required
+        - Questions specifically about Birth Registration requirements
+        - Questions specifically about a previous passport
+        - Questions about missing or unavailable documents
+        - Questions specifically about documents for minors
       PASSPORT_DOCUMENTS_NID_REQUIREMENT:
-        display_name: "NID Requirement for Passport"
-        description: >
-          Questions specifically about whether, when or how a National
-          Identity Card is required as supporting identity evidence for
-          passport-related processing.
+        display_name: NID Requirement for Passport
+        description: 'Questions specifically about whether, when or how a National Identity Card
+          is required as supporting identity evidence for passport-related processing.
 
-        evidence_status: "official_workflow_supported"
-
+          '
+        evidence_status: official_workflow_supported
         includes:
-          - "Do I need an NID to apply for a passport?"
-          - "Is NID mandatory for an e-Passport?"
-          - "Can I apply using my NID?"
-          - "Does passport application require NID information?"
-
+        - Do I need an NID to apply for a passport?
+        - Is NID mandatory for an e-Passport?
+        - Can I apply using my NID?
+        - Does passport application require NID information?
         excludes:
-          - "Questions specifically about Birth Registration documents"
-          - "Questions about correcting NID information"
-          - "General passport document-checklist questions"
-          - "Questions about a missing NID document without a passport context"
-
-
+        - Questions specifically about Birth Registration documents
+        - Questions about correcting NID information
+        - General passport document-checklist questions
+        - Questions about a missing NID document without a passport context
       PASSPORT_DOCUMENTS_BIRTH_REGISTRATION_REQUIREMENT:
-        display_name: "Birth Registration Requirement for Passport"
-        description: >
-          Questions specifically about using or requiring a Birth
-          Registration Certificate or Birth Registration Number as
-          identity evidence in a passport application.
+        display_name: Birth Registration Requirement for Passport
+        description: 'Questions specifically about using or requiring a Birth Registration Certificate
+          or Birth Registration Number as identity evidence in a passport application.
 
-        evidence_status: "official_workflow_supported"
-
+          '
+        evidence_status: official_workflow_supported
         includes:
-          - "Can I use Birth Registration for passport application?"
-          - "Is a Birth Registration Certificate required for a passport?"
-          - "Do I need my birth certificate for an e-Passport?"
-          - "Can a passport application use a Birth Registration Number?"
-
+        - Can I use Birth Registration for passport application?
+        - Is a Birth Registration Certificate required for a passport?
+        - Do I need my birth certificate for an e-Passport?
+        - Can a passport application use a Birth Registration Number?
         excludes:
-          - "Questions specifically about NID requirements"
-          - "Birth Registration correction or verification services"
-          - "General passport document-checklist questions"
-          - "Questions about obtaining a Birth Registration Certificate"
-
-
+        - Questions specifically about NID requirements
+        - Birth Registration correction or verification services
+        - General passport document-checklist questions
+        - Questions about obtaining a Birth Registration Certificate
       PASSPORT_DOCUMENTS_PREVIOUS_PASSPORT:
-        display_name: "Previous Passport Document Requirement"
-        description: >
-          Questions specifically about providing an existing or previous
-          passport as a supporting document during passport processing,
-          especially where the applicant already held a passport.
+        display_name: Previous Passport Document Requirement
+        description: 'Questions specifically about providing an existing or previous passport
+          as a supporting document during passport processing, especially where the applicant
+          already held a passport.
 
-        evidence_status: "official_workflow_supported"
-
+          '
+        evidence_status: official_workflow_supported
         includes:
-          - "Do I need to bring my old passport?"
-          - "Is my previous passport required for re-issue?"
-          - "Do I have to submit the existing passport during enrolment?"
-          - "Why is the previous passport needed?"
-
+        - Do I need to bring my old passport?
+        - Is my previous passport required for re-issue?
+        - Do I have to submit the existing passport during enrolment?
+        - Why is the previous passport needed?
         excludes:
-          - "General passport re-issue process questions"
-          - "Lost passport replacement questions"
-          - "Stolen passport questions"
-          - "General required-document questions"
-
-
+        - General passport re-issue process questions
+        - Lost passport replacement questions
+        - Stolen passport questions
+        - General required-document questions
       PASSPORT_DOCUMENTS_MINOR_APPLICANT:
-        display_name: "Documents for Minor Passport Applicant"
-        description: >
-          Questions specifically about supporting documents or identity
-          evidence required when the passport applicant is a child or
-          minor.
+        display_name: Documents for Minor Passport Applicant
+        description: 'Questions specifically about supporting documents or identity evidence required
+          when the passport applicant is a child or minor.
 
-        evidence_status: "official_workflow_supported"
-
+          '
+        evidence_status: official_workflow_supported
         includes:
-          - "What documents are needed for a child's passport?"
-          - "Which papers are required for a minor passport applicant?"
-          - "What parent documents are needed for my child's passport?"
-          - "What documents do I need when applying for my child?"
-
+        - What documents are needed for a child's passport?
+        - Which papers are required for a minor passport applicant?
+        - What parent documents are needed for my child's passport?
+        - What documents do I need when applying for my child?
         excludes:
-          - "General passport application process for adults"
-          - "General document requirements without a minor-applicant focus"
-          - "Birth Registration questions not specifically related to a minor passport"
-          - "General parental-information fields in an application form"
-
-
+        - General passport application process for adults
+        - General document requirements without a minor-applicant focus
+        - Birth Registration questions not specifically related to a minor passport
+        - General parental-information fields in an application form
       PASSPORT_DOCUMENTS_ENROLMENT:
-        display_name: "Documents Required for Passport Enrolment"
-        description: >
-          Questions specifically about which application papers,
-          identity documents, receipts or other supporting documents
-          should be taken to the physical passport enrolment stage.
+        display_name: Documents Required for Passport Enrolment
+        description: 'Questions specifically about which application papers, identity documents,
+          receipts or other supporting documents should be taken to the physical passport enrolment
+          stage.
 
-        evidence_status: "official_workflow_supported"
-
+          '
+        evidence_status: official_workflow_supported
         includes:
-          - "What documents should I bring to passport enrolment?"
-          - "Which papers do I need to carry on enrolment day?"
-          - "What documents are needed when I go for biometrics?"
-          - "What paperwork should I take to the passport office after applying?"
-
+        - What documents should I bring to passport enrolment?
+        - Which papers do I need to carry on enrolment day?
+        - What documents are needed when I go for biometrics?
+        - What paperwork should I take to the passport office after applying?
         excludes:
-          - "General passport document requirements before starting an application"
-          - "Appointment scheduling problems"
-          - "Questions about how biometric enrolment itself works"
-          - "Passport collection document requirements after issuance"
-
-
+        - General passport document requirements before starting an application
+        - Appointment scheduling problems
+        - Questions about how biometric enrolment itself works
+        - Passport collection document requirements after issuance
       PASSPORT_DOCUMENTS_MISSING:
-        display_name: "Missing or Unavailable Passport Document"
-        description: >
-          Questions where the applicant knows or believes that a
-          supporting passport document is required but cannot provide,
-          locate or obtain that document.
+        display_name: Missing or Unavailable Passport Document
+        description: 'Questions where the applicant knows or believes that a supporting passport
+          document is required but cannot provide, locate or obtain that document.
 
-        evidence_status: "needs_query_pilot"
-
+          '
+        evidence_status: needs_query_pilot
         includes:
-          - "One of my passport documents is missing; what should I do?"
-          - "I cannot provide a required document for my passport application."
-          - "What happens if I do not have one of the required papers?"
-          - "A required passport document is unavailable. Can I still apply?"
-
+        - One of my passport documents is missing; what should I do?
+        - I cannot provide a required document for my passport application.
+        - What happens if I do not have one of the required papers?
+        - A required passport document is unavailable. Can I still apply?
         excludes:
-          - "General questions asking which documents are required"
-          - "Lost passport questions where the missing object is the passport itself"
-          - "Lost delivery-slip questions"
-          - "Questions about obtaining or correcting another government document"
-
-
+        - General questions asking which documents are required
+        - Lost passport questions where the missing object is the passport itself
+        - Lost delivery-slip questions
+        - Questions about obtaining or correcting another government document
       PASSPORT_DOCUMENTS_OFFICIAL_DIPLOMATIC:
-        display_name: "Official or Diplomatic Passport Documents"
-        description: >
-          Questions specifically about supporting administrative
-          documentation for official or diplomatic passport applications,
-          including Government Order or No Objection Certificate related
-          requirements where applicable.
+        display_name: Official or Diplomatic Passport Documents
+        description: 'Questions specifically about supporting administrative documentation for
+          official or diplomatic passport applications, including Government Order or No Objection
+          Certificate related requirements where applicable.
 
-        evidence_status: "needs_query_volume_review"
-
+          '
+        evidence_status: needs_query_volume_review
         includes:
-          - "What documents are required for an official passport?"
-          - "Do I need an NOC for an official passport?"
-          - "Is a Government Order needed for a diplomatic passport application?"
-          - "Which supporting papers are needed for a government employee passport?"
-
+        - What documents are required for an official passport?
+        - Do I need an NOC for an official passport?
+        - Is a Government Order needed for a diplomatic passport application?
+        - Which supporting papers are needed for a government employee passport?
         excludes:
-          - "General questions about how to apply for an official passport"
-          - "Ordinary citizen passport document requirements"
-          - "General NID or Birth Registration questions"
-          - "Re-issue questions not specifically about supporting documentation"
-
-
+        - General questions about how to apply for an official passport
+        - Ordinary citizen passport document requirements
+        - General NID or Birth Registration questions
+        - Re-issue questions not specifically about supporting documentation
   PASSPORT_ONLINE_ACCOUNT:
-    display_name: "Passport Online Account"
-    description: >
-      Questions about creating, accessing or recovering an e-Passport
-      portal account, including login credentials, password recovery,
-      account activation and registered contact-information problems.
+    display_name: Passport Online Account
+    description: 'Questions about creating, accessing or recovering an e-Passport portal account,
+      including login credentials, password recovery, account activation and registered contact-information
+      problems.
 
-    default_evidence_status: "official_service_supported"
-
+      '
+    default_evidence_status: official_service_supported
     covers:
-      - "Online Account Registration"
-      - "Account Login"
-      - "Forgotten Password"
-      - "Password Reset"
-      - "Account Activation"
-      - "Activation Email Not Received"
-      - "Registered Email Change"
-      - "Registered Mobile Number Change"
-      - "Account Access Problems"
-
+    - Online Account Registration
+    - Account Login
+    - Forgotten Password
+    - Password Reset
+    - Account Activation
+    - Activation Email Not Received
+    - Registered Email Change
+    - Registered Mobile Number Change
+    - Account Access Problems
     query_topics:
-
       PASSPORT_ONLINE_ACCOUNT_REGISTRATION:
-        display_name: "Passport Online Account Registration"
-        description: >
-          Questions specifically about creating or registering a new
-          account for the Bangladesh e-Passport online service.
+        display_name: Passport Online Account Registration
+        description: 'Questions specifically about creating or registering a new account for the
+          Bangladesh e-Passport online service.
 
-        evidence_status: "official_service_supported"
-
+          '
+        evidence_status: official_service_supported
         includes:
-          - "How do I create an e-Passport account?"
-          - "How can I register an account on the passport portal?"
-          - "Where do I open a new passport online account?"
-          - "I want to create an account for e-Passport services."
-
+        - How do I create an e-Passport account?
+        - How can I register an account on the passport portal?
+        - Where do I open a new passport online account?
+        - I want to create an account for e-Passport services.
         excludes:
-          - "Starting the passport application after an account already exists"
-          - "Logging into an existing account"
-          - "Password recovery"
-          - "Account activation problems"
-
-
+        - Starting the passport application after an account already exists
+        - Logging into an existing account
+        - Password recovery
+        - Account activation problems
       PASSPORT_ONLINE_ACCOUNT_LOGIN:
-        display_name: "Passport Online Account Login"
-        description: >
-          Questions about the normal process of signing into an existing
-          e-Passport portal account when the user is primarily asking how
-          or where to log in.
+        display_name: Passport Online Account Login
+        description: 'Questions about the normal process of signing into an existing e-Passport
+          portal account when the user is primarily asking how or where to log in.
 
-        evidence_status: "official_service_supported"
-
+          '
+        evidence_status: official_service_supported
         includes:
-          - "How do I log into my passport account?"
-          - "Where is the e-Passport account login?"
-          - "How can I sign in to my existing passport portal account?"
-          - "What is the login process for the e-Passport portal?"
-
+        - How do I log into my passport account?
+        - Where is the e-Passport account login?
+        - How can I sign in to my existing passport portal account?
+        - What is the login process for the e-Passport portal?
         excludes:
-          - "Forgotten or lost passwords"
-          - "Password-reset procedure"
-          - "Account activation"
-          - "Cases where the user cannot access the account despite attempting login"
-
-
+        - Forgotten or lost passwords
+        - Password-reset procedure
+        - Account activation
+        - Cases where the user cannot access the account despite attempting login
       PASSPORT_ONLINE_ACCOUNT_PASSWORD_RESET:
-        display_name: "Forgotten Password and Password Reset"
-        description: >
-          Questions about recovering access to an e-Passport online
-          account because the password was forgotten, lost or needs to
-          be reset.
+        display_name: Forgotten Password and Password Reset
+        description: 'Questions about recovering access to an e-Passport online account because
+          the password was forgotten, lost or needs to be reset.
 
-        evidence_status: "official_service_supported"
-
+          '
+        evidence_status: official_service_supported
         includes:
-          - "I forgot my passport account password."
-          - "How do I reset my e-Passport portal password?"
-          - "I cannot remember my passport account password."
-          - "How can I recover my passport account password?"
-
+        - I forgot my passport account password.
+        - How do I reset my e-Passport portal password?
+        - I cannot remember my passport account password.
+        - How can I recover my passport account password?
         excludes:
-          - "General account login instructions"
-          - "Account activation"
-          - "Activation email not received"
-          - "Changing the registered email or mobile number"
-
-
+        - General account login instructions
+        - Account activation
+        - Activation email not received
+        - Changing the registered email or mobile number
       PASSPORT_ONLINE_ACCOUNT_ACTIVATION:
-        display_name: "Passport Account Activation"
-        description: >
-          Questions about activating a newly created e-Passport portal
-          account when the user is asking about the activation process
-          itself.
+        display_name: Passport Account Activation
+        description: 'Questions about activating a newly created e-Passport portal account when
+          the user is asking about the activation process itself.
 
-        evidence_status: "official_service_supported"
-
+          '
+        evidence_status: official_service_supported
         includes:
-          - "How do I activate my e-Passport account?"
-          - "What should I do to activate my passport portal account?"
-          - "My new passport account needs activation."
-          - "How does passport account activation work?"
-
+        - How do I activate my e-Passport account?
+        - What should I do to activate my passport portal account?
+        - My new passport account needs activation.
+        - How does passport account activation work?
         excludes:
-          - "Activation email was not received"
-          - "Forgotten password"
-          - "General account registration"
-          - "Login problems after an already activated account"
-
-
+        - Activation email was not received
+        - Forgotten password
+        - General account registration
+        - Login problems after an already activated account
       PASSPORT_ONLINE_ACCOUNT_ACTIVATION_EMAIL_NOT_RECEIVED:
-        display_name: "Passport Account Activation Email Not Received"
-        description: >
-          Questions where the applicant created an e-Passport account
-          but did not receive the activation or verification email needed
-          to continue the account setup.
+        display_name: Passport Account Activation Email Not Received
+        description: 'Questions where the applicant created an e-Passport account but did not
+          receive the activation or verification email needed to continue the account setup.
 
-        evidence_status: "official_service_supported"
-
+          '
+        evidence_status: official_service_supported
         includes:
-          - "I did not receive the passport account activation email."
-          - "My e-Passport verification email has not arrived."
-          - "I registered but did not get the activation link."
-          - "What should I do if the passport portal activation email is missing?"
-
+        - I did not receive the passport account activation email.
+        - My e-Passport verification email has not arrived.
+        - I registered but did not get the activation link.
+        - What should I do if the passport portal activation email is missing?
         excludes:
-          - "General instructions for activating an account"
-          - "Password-reset email problems"
-          - "Changing the registered email address"
-          - "Application-status notifications"
-
-
+        - General instructions for activating an account
+        - Password-reset email problems
+        - Changing the registered email address
+        - Application-status notifications
       PASSPORT_ONLINE_ACCOUNT_EMAIL_CHANGE:
-        display_name: "Change Registered Passport Account Email"
-        description: >
-          Questions specifically about changing or updating the email
-          address registered with an e-Passport portal account.
+        display_name: Change Registered Passport Account Email
+        description: 'Questions specifically about changing or updating the email address registered
+          with an e-Passport portal account.
 
-        evidence_status: "official_service_supported"
-
+          '
+        evidence_status: official_service_supported
         includes:
-          - "How do I change the email on my passport account?"
-          - "Can I update my registered e-Passport email address?"
-          - "My passport account email has changed; what should I do?"
-          - "I want to replace the email linked to my passport portal account."
-
+        - How do I change the email on my passport account?
+        - Can I update my registered e-Passport email address?
+        - My passport account email has changed; what should I do?
+        - I want to replace the email linked to my passport portal account.
         excludes:
-          - "Activation email not received"
-          - "Changing a mobile number"
-          - "Correcting email information in a passport application"
-          - "Password-reset problems"
-
-
+        - Activation email not received
+        - Changing a mobile number
+        - Correcting email information in a passport application
+        - Password-reset problems
       PASSPORT_ONLINE_ACCOUNT_MOBILE_CHANGE:
-        display_name: "Change Registered Passport Account Mobile Number"
-        description: >
-          Questions specifically about changing or updating the mobile
-          number registered with an e-Passport portal account.
+        display_name: Change Registered Passport Account Mobile Number
+        description: 'Questions specifically about changing or updating the mobile number registered
+          with an e-Passport portal account.
 
-        evidence_status: "official_service_supported"
-
+          '
+        evidence_status: official_service_supported
         includes:
-          - "How do I change the mobile number on my passport account?"
-          - "Can I update my registered phone number on the e-Passport portal?"
-          - "My passport account is linked to my old mobile number."
-          - "I need to replace the phone number registered with my passport account."
-
+        - How do I change the mobile number on my passport account?
+        - Can I update my registered phone number on the e-Passport portal?
+        - My passport account is linked to my old mobile number.
+        - I need to replace the phone number registered with my passport account.
         excludes:
-          - "Changing the registered email address"
-          - "Application-form phone-number information"
-          - "General account login"
-          - "Passport application status questions"
-
-
+        - Changing the registered email address
+        - Application-form phone-number information
+        - General account login
+        - Passport application status questions
       PASSPORT_ONLINE_ACCOUNT_ACCESS_PROBLEM:
-        display_name: "Passport Online Account Access Problem"
-        description: >
-          General account-access failure where an existing e-Passport
-          account cannot be accessed and the user's problem is not more
-          specifically represented by password reset, activation or
-          registered-contact-information labels.
+        display_name: Passport Online Account Access Problem
+        description: 'General account-access failure where an existing e-Passport account cannot
+          be accessed and the user''s problem is not more specifically represented by password
+          reset, activation or registered-contact-information labels.
 
-        evidence_status: "needs_query_pilot"
-
+          '
+        evidence_status: needs_query_pilot
         includes:
-          - "I cannot access my e-Passport account."
-          - "My passport portal account is not opening."
-          - "I cannot get into my existing passport account."
-          - "My e-Passport account access is not working."
-
+        - I cannot access my e-Passport account.
+        - My passport portal account is not opening.
+        - I cannot get into my existing passport account.
+        - My e-Passport account access is not working.
         excludes:
-          - "The user explicitly forgot the password"
-          - "The user explicitly did not receive an activation email"
-          - "The user specifically needs to change email or mobile number"
-          - "The portal itself appears unavailable for everyone"
-
-
+        - The user explicitly forgot the password
+        - The user explicitly did not receive an activation email
+        - The user specifically needs to change email or mobile number
+        - The portal itself appears unavailable for everyone
   PASSPORT_APPOINTMENT_AND_ENROLMENT:
-    display_name: "Passport Appointment and Enrolment"
-    description: >
-      Questions about appointment scheduling and the physical
-      enrolment stage of the e-Passport process, including attendance,
-      enrolment preparation and appointment-related problems.
+    display_name: Passport Appointment and Enrolment
+    description: 'Questions about appointment scheduling and the physical enrolment stage of the
+      e-Passport process, including attendance, enrolment preparation and appointment-related
+      problems.
 
-    default_evidence_status: "official_service_supported"
-
+      '
+    default_evidence_status: official_service_supported
     covers:
-      - "Appointment Scheduling"
-      - "Appointment Date"
-      - "Appointment Problems"
-      - "Appointment Requirements"
-      - "Enrolment Process"
-      - "Enrolment Location"
-      - "Enrolment Preparation"
-      - "Biometric Enrolment"
-
+    - Appointment Scheduling
+    - Appointment Date
+    - Appointment Problems
+    - Appointment Requirements
+    - Enrolment Process
+    - Enrolment Location
+    - Enrolment Preparation
+    - Biometric Enrolment
     query_topics:
-
       PASSPORT_APPOINTMENT_SCHEDULING:
-        display_name: "Passport Appointment Scheduling"
-        description: >
-          Questions specifically about how to obtain or schedule an
-          appointment for the passport enrolment process.
+        display_name: Passport Appointment Scheduling
+        description: 'Questions specifically about how to obtain or schedule an appointment for
+          the passport enrolment process.
 
-        evidence_status: "official_service_supported"
-
+          '
+        evidence_status: official_service_supported
         includes:
-          - "How do I schedule my passport appointment?"
-          - "How can I book an appointment for e-Passport enrolment?"
-          - "Where do I select an appointment for my passport?"
-          - "How do I get an appointment after submitting my application?"
-
+        - How do I schedule my passport appointment?
+        - How can I book an appointment for e-Passport enrolment?
+        - Where do I select an appointment for my passport?
+        - How do I get an appointment after submitting my application?
         excludes:
-          - "Questions only asking about an already assigned appointment date"
-          - "Problems with an appointment that has already been scheduled"
-          - "General passport application questions"
-          - "Questions about the physical enrolment procedure itself"
-
-
+        - Questions only asking about an already assigned appointment date
+        - Problems with an appointment that has already been scheduled
+        - General passport application questions
+        - Questions about the physical enrolment procedure itself
       PASSPORT_APPOINTMENT_DATE:
-        display_name: "Passport Appointment Date"
-        description: >
-          Questions about identifying, checking or understanding the
-          appointment date or time associated with an existing passport
-          application.
+        display_name: Passport Appointment Date
+        description: 'Questions about identifying, checking or understanding the appointment date
+          or time associated with an existing passport application.
 
-        evidence_status: "official_service_supported"
-
+          '
+        evidence_status: official_service_supported
         includes:
-          - "How do I check my passport appointment date?"
-          - "When is my e-Passport appointment?"
-          - "Where can I see my scheduled passport appointment?"
-          - "How do I know the date of my enrolment appointment?"
-
+        - How do I check my passport appointment date?
+        - When is my e-Passport appointment?
+        - Where can I see my scheduled passport appointment?
+        - How do I know the date of my enrolment appointment?
         excludes:
-          - "Scheduling a new appointment"
-          - "Changing or resolving a problem with an appointment"
-          - "Application-status questions"
-          - "Normal passport processing-time questions"
-
-
+        - Scheduling a new appointment
+        - Changing or resolving a problem with an appointment
+        - Application-status questions
+        - Normal passport processing-time questions
       PASSPORT_APPOINTMENT_PROBLEM:
-        display_name: "Passport Appointment Problem"
-        description: >
-          Questions where the applicant has an appointment-related
-          difficulty after or while attempting to arrange the passport
-          enrolment appointment and no narrower appointment intent
-          adequately describes the problem.
+        display_name: Passport Appointment Problem
+        description: 'Questions where the applicant has an appointment-related difficulty after
+          or while attempting to arrange the passport enrolment appointment and no narrower appointment
+          intent adequately describes the problem.
 
-        evidence_status: "needs_query_pilot"
-
+          '
+        evidence_status: needs_query_pilot
         includes:
-          - "I am having a problem with my passport appointment."
-          - "My e-Passport appointment is not working properly."
-          - "I cannot complete the passport appointment step."
-          - "There is an issue with my scheduled passport appointment."
-
+        - I am having a problem with my passport appointment.
+        - My e-Passport appointment is not working properly.
+        - I cannot complete the passport appointment step.
+        - There is an issue with my scheduled passport appointment.
         excludes:
-          - "Ordinary instructions for scheduling an appointment"
-          - "Questions only asking for the appointment date"
-          - "Online-account login problems"
-          - "Application-status or passport-delivery problems"
-
-
+        - Ordinary instructions for scheduling an appointment
+        - Questions only asking for the appointment date
+        - Online-account login problems
+        - Application-status or passport-delivery problems
       PASSPORT_APPOINTMENT_REQUIREMENTS:
-        display_name: "Passport Appointment Attendance Requirements"
-        description: >
-          Questions about what the applicant must do or prepare in order
-          to attend a passport appointment, excluding questions whose
-          main focus is the list of supporting documents.
+        display_name: Passport Appointment Attendance Requirements
+        description: 'Questions about what the applicant must do or prepare in order to attend
+          a passport appointment, excluding questions whose main focus is the list of supporting
+          documents.
 
-        evidence_status: "official_service_supported"
-
+          '
+        evidence_status: official_service_supported
         includes:
-          - "What do I need to do before attending my passport appointment?"
-          - "What should I prepare for my e-Passport appointment?"
-          - "What are the requirements for attending passport enrolment?"
-          - "What should I know before going to my passport appointment?"
-
+        - What do I need to do before attending my passport appointment?
+        - What should I prepare for my e-Passport appointment?
+        - What are the requirements for attending passport enrolment?
+        - What should I know before going to my passport appointment?
         excludes:
-          - "Questions specifically asking which documents to bring"
-          - "Appointment scheduling"
-          - "Questions about the biometric procedure itself"
-          - "Passport collection requirements"
-
-
+        - Questions specifically asking which documents to bring
+        - Appointment scheduling
+        - Questions about the biometric procedure itself
+        - Passport collection requirements
       PASSPORT_ENROLMENT_PROCESS:
-        display_name: "Passport Enrolment Process"
-        description: >
-          General questions about what happens during the physical
-          e-Passport enrolment stage after the application has been
-          prepared or submitted.
+        display_name: Passport Enrolment Process
+        description: 'General questions about what happens during the physical e-Passport enrolment
+          stage after the application has been prepared or submitted.
 
-        evidence_status: "official_workflow_supported"
-
+          '
+        evidence_status: official_workflow_supported
         includes:
-          - "What happens during passport enrolment?"
-          - "How does the e-Passport enrolment process work?"
-          - "What do I do when I go for passport enrolment?"
-          - "What are the steps at the passport office during enrolment?"
-
+        - What happens during passport enrolment?
+        - How does the e-Passport enrolment process work?
+        - What do I do when I go for passport enrolment?
+        - What are the steps at the passport office during enrolment?
         excludes:
-          - "Questions specifically about which documents to take"
-          - "Questions specifically about biometric capture"
-          - "Questions only about appointment scheduling"
-          - "Passport collection after issuance"
-
-
+        - Questions specifically about which documents to take
+        - Questions specifically about biometric capture
+        - Questions only about appointment scheduling
+        - Passport collection after issuance
       PASSPORT_ENROLMENT_LOCATION:
-        display_name: "Passport Enrolment Location"
-        description: >
-          Questions specifically about where the applicant must go to
-          complete physical passport enrolment after the application
-          workflow has progressed to that stage.
+        display_name: Passport Enrolment Location
+        description: 'Questions specifically about where the applicant must go to complete physical
+          passport enrolment after the application workflow has progressed to that stage.
 
-        evidence_status: "official_service_supported"
-
+          '
+        evidence_status: official_service_supported
         includes:
-          - "Where do I go for passport enrolment?"
-          - "At which office will my passport biometrics be taken?"
-          - "Where is my e-Passport enrolment location?"
-          - "Which place do I visit for the physical enrolment step?"
-
+        - Where do I go for passport enrolment?
+        - At which office will my passport biometrics be taken?
+        - Where is my e-Passport enrolment location?
+        - Which place do I visit for the physical enrolment step?
         excludes:
-          - "Choosing the responsible passport office while starting an application"
-          - "Passport collection location"
-          - "Bangladesh mission selection for a new overseas application"
-          - "General passport-office address questions without enrolment context"
-
-
+        - Choosing the responsible passport office while starting an application
+        - Passport collection location
+        - Bangladesh mission selection for a new overseas application
+        - General passport-office address questions without enrolment context
       PASSPORT_ENROLMENT_BIOMETRICS:
-        display_name: "Passport Biometric Enrolment"
-        description: >
-          Questions specifically about the biometric capture stage of
-          passport enrolment, such as the biometric information collected
-          or the general biometric procedure.
+        display_name: Passport Biometric Enrolment
+        description: 'Questions specifically about the biometric capture stage of passport enrolment,
+          such as the biometric information collected or the general biometric procedure.
 
-        evidence_status: "official_workflow_supported"
-
+          '
+        evidence_status: official_workflow_supported
         includes:
-          - "What happens during passport biometric enrolment?"
-          - "What biometrics are taken for an e-Passport?"
-          - "How does passport biometric capture work?"
-          - "What should I expect during the biometric step?"
-
+        - What happens during passport biometric enrolment?
+        - What biometrics are taken for an e-Passport?
+        - How does passport biometric capture work?
+        - What should I expect during the biometric step?
         excludes:
-          - "General enrolment-process questions without a biometric focus"
-          - "Documents required for enrolment"
-          - "Appointment scheduling"
-          - "Unsupported assumptions about a specific biometric failure"
-
-
+        - General enrolment-process questions without a biometric focus
+        - Documents required for enrolment
+        - Appointment scheduling
+        - Unsupported assumptions about a specific biometric failure
   PASSPORT_REISSUE:
-    display_name: "Passport Re-Issue and Replacement"
-    description: >
-      Questions about obtaining another passport after a previous
-      passport has already been issued. This includes ordinary
-      re-issue, expiry, loss, theft, damage, overseas re-issue and
-      re-issue caused by changes in passport information.
+    display_name: Passport Re-Issue and Replacement
+    description: 'Questions about obtaining another passport after a previous passport has already
+      been issued. This includes ordinary re-issue, expiry, loss, theft, damage, overseas re-issue
+      and re-issue caused by changes in passport information.
 
-    default_evidence_status: "official_workflow_supported"
-
+      '
+    default_evidence_status: official_workflow_supported
     covers:
-      - "Passport Re-Issue"
-      - "Expired Passport"
-      - "Expiring Passport"
-      - "Re-Issue Without Information Change"
-      - "Re-Issue With Information Change"
-      - "Lost Passport"
-      - "Stolen Passport"
-      - "Damaged Passport"
-      - "Replacement Passport"
-      - "Changed Personal Information"
-      - "Overseas Passport Re-Issue"
-
+    - Passport Re-Issue
+    - Expired Passport
+    - Expiring Passport
+    - Re-Issue Without Information Change
+    - Re-Issue With Information Change
+    - Lost Passport
+    - Stolen Passport
+    - Damaged Passport
+    - Replacement Passport
+    - Changed Personal Information
+    - Overseas Passport Re-Issue
     query_topics:
-
       PASSPORT_REISSUE_PROCESS:
-        display_name: "General Passport Re-Issue Process"
-        description: >
-          General or end-to-end questions about obtaining a re-issued
-          passport when a passport has previously been issued and the
-          user does not identify a more specific reason such as loss,
-          theft, damage, expiry or information change.
+        display_name: General Passport Re-Issue Process
+        description: 'General or end-to-end questions about obtaining a re-issued passport when
+          a passport has previously been issued and the user does not identify a more specific
+          reason such as loss, theft, damage, expiry or information change.
 
-        evidence_status: "official_workflow_supported"
-
+          '
+        evidence_status: official_workflow_supported
         includes:
-          - "How do I reissue my passport?"
-          - "What is the passport re-issue process?"
-          - "How can I apply for another passport when I already have one?"
-          - "Where do I start a passport re-issue application?"
-
+        - How do I reissue my passport?
+        - What is the passport re-issue process?
+        - How can I apply for another passport when I already have one?
+        - Where do I start a passport re-issue application?
         excludes:
-          - "First-time passport applications"
-          - "Questions specifically about an expired passport"
-          - "Lost, stolen or damaged passport cases"
-          - "Re-issue specifically because passport information has changed"
-          - "Re-issue specifically while living abroad"
-
-
+        - First-time passport applications
+        - Questions specifically about an expired passport
+        - Lost, stolen or damaged passport cases
+        - Re-issue specifically because passport information has changed
+        - Re-issue specifically while living abroad
       PASSPORT_REISSUE_EXPIRY:
-        display_name: "Expired or Expiring Passport Re-Issue"
-        description: >
-          Questions specifically about re-issuing or renewing a passport
-          because it has expired or is approaching expiry.
+        display_name: Expired or Expiring Passport Re-Issue
+        description: 'Questions specifically about re-issuing or renewing a passport because it
+          has expired or is approaching expiry.
 
-        evidence_status: "official_workflow_supported"
-
+          '
+        evidence_status: official_workflow_supported
         includes:
-          - "My passport has expired; how do I reissue it?"
-          - "How do I renew an expiring passport?"
-          - "My passport is about to expire. What should I do?"
-          - "How can I get a new passport after my old one expires?"
-
+        - My passport has expired; how do I reissue it?
+        - How do I renew an expiring passport?
+        - My passport is about to expire. What should I do?
+        - How can I get a new passport after my old one expires?
         excludes:
-          - "General re-issue questions without an expiry reason"
-          - "Lost passport cases"
-          - "Damaged passport cases"
-          - "Re-issue specifically for changing information"
-
-
+        - General re-issue questions without an expiry reason
+        - Lost passport cases
+        - Damaged passport cases
+        - Re-issue specifically for changing information
       PASSPORT_REISSUE_WITH_INFORMATION_CHANGE:
-        display_name: "Passport Re-Issue With Information Change"
-        description: >
-          Questions about re-issuing a passport because personal or
-          passport-record information needs to be changed or updated.
+        display_name: Passport Re-Issue With Information Change
+        description: 'Questions about re-issuing a passport because personal or passport-record
+          information needs to be changed or updated.
 
-        evidence_status: "official_workflow_supported"
-
+          '
+        evidence_status: official_workflow_supported
         includes:
-          - "How do I change information while reissuing my passport?"
-          - "My personal information has changed; how do I reissue my passport?"
-          - "I need a new passport with corrected information."
-          - "How can I update my passport information during re-issue?"
-
+        - How do I change information while reissuing my passport?
+        - My personal information has changed; how do I reissue my passport?
+        - I need a new passport with corrected information.
+        - How can I update my passport information during re-issue?
         excludes:
-          - "Correcting an online-account email or mobile number"
-          - "Questions only about what information to enter in a new application"
-          - "General re-issue without an information change"
-          - "NID or Birth Registration correction services themselves"
-
-
+        - Correcting an online-account email or mobile number
+        - Questions only about what information to enter in a new application
+        - General re-issue without an information change
+        - NID or Birth Registration correction services themselves
       PASSPORT_REISSUE_LOST:
-        display_name: "Lost Passport Re-Issue"
-        description: >
-          Questions specifically about obtaining a replacement or
-          re-issued passport after the previously issued passport has
-          been lost.
+        display_name: Lost Passport Re-Issue
+        description: 'Questions specifically about obtaining a replacement or re-issued passport
+          after the previously issued passport has been lost.
 
-        evidence_status: "official_workflow_supported"
-
+          '
+        evidence_status: official_workflow_supported
         includes:
-          - "I lost my passport. How do I get another one?"
-          - "How do I reissue a lost passport?"
-          - "My passport is missing; what should I do to replace it?"
-          - "What is the process for getting a replacement for a lost passport?"
-
+        - I lost my passport. How do I get another one?
+        - How do I reissue a lost passport?
+        - My passport is missing; what should I do to replace it?
+        - What is the process for getting a replacement for a lost passport?
         excludes:
-          - "Passport stolen by another person"
-          - "Passport physically damaged but still available"
-          - "Lost passport delivery slip"
-          - "General re-issue without a loss reason"
-
-
+        - Passport stolen by another person
+        - Passport physically damaged but still available
+        - Lost passport delivery slip
+        - General re-issue without a loss reason
       PASSPORT_REISSUE_STOLEN:
-        display_name: "Stolen Passport Re-Issue"
-        description: >
-          Questions specifically about replacement or re-issue after a
-          passport has been stolen.
+        display_name: Stolen Passport Re-Issue
+        description: 'Questions specifically about replacement or re-issue after a passport has
+          been stolen.
 
-        evidence_status: "official_workflow_supported"
-
+          '
+        evidence_status: official_workflow_supported
         includes:
-          - "My passport was stolen. How do I replace it?"
-          - "How do I reissue a stolen passport?"
-          - "Someone stole my passport; what should I do?"
-          - "What is the replacement process for a stolen passport?"
-
+        - My passport was stolen. How do I replace it?
+        - How do I reissue a stolen passport?
+        - Someone stole my passport; what should I do?
+        - What is the replacement process for a stolen passport?
         excludes:
-          - "Passport that was simply lost"
-          - "Damaged passport"
-          - "Lost delivery slip"
-          - "General re-issue without a theft reason"
-
-
+        - Passport that was simply lost
+        - Damaged passport
+        - Lost delivery slip
+        - General re-issue without a theft reason
       PASSPORT_REISSUE_DAMAGED:
-        display_name: "Damaged Passport Re-Issue"
-        description: >
-          Questions specifically about obtaining another passport because
-          the previously issued passport has been physically damaged or
-          is no longer usable.
+        display_name: Damaged Passport Re-Issue
+        description: 'Questions specifically about obtaining another passport because the previously
+          issued passport has been physically damaged or is no longer usable.
 
-        evidence_status: "official_workflow_supported"
-
+          '
+        evidence_status: official_workflow_supported
         includes:
-          - "My passport is damaged. How do I replace it?"
-          - "How do I reissue a damaged passport?"
-          - "My passport is torn; what should I do?"
-          - "How can I get another passport because mine is damaged?"
-
+        - My passport is damaged. How do I replace it?
+        - How do I reissue a damaged passport?
+        - My passport is torn; what should I do?
+        - How can I get another passport because mine is damaged?
         excludes:
-          - "Lost passport"
-          - "Stolen passport"
-          - "Expired passport without physical damage"
-          - "General re-issue questions"
-
-
+        - Lost passport
+        - Stolen passport
+        - Expired passport without physical damage
+        - General re-issue questions
       PASSPORT_REISSUE_WITHOUT_INFORMATION_CHANGE:
-        display_name: "Passport Re-Issue Without Information Change"
-        description: >
-          Questions specifically indicating that the applicant wants a
-          passport re-issued while keeping the existing passport
-          information unchanged.
+        display_name: Passport Re-Issue Without Information Change
+        description: 'Questions specifically indicating that the applicant wants a passport re-issued
+          while keeping the existing passport information unchanged.
 
-        evidence_status: "official_workflow_supported"
-
+          '
+        evidence_status: official_workflow_supported
         includes:
-          - "How do I reissue my passport without changing any information?"
-          - "My passport details are unchanged; how do I apply for re-issue?"
-          - "Can I reissue my passport with the same information?"
-          - "I need a re-issued passport but no personal details have changed."
-
+        - How do I reissue my passport without changing any information?
+        - My passport details are unchanged; how do I apply for re-issue?
+        - Can I reissue my passport with the same information?
+        - I need a re-issued passport but no personal details have changed.
         excludes:
-          - "Re-issue specifically because information must be changed"
-          - "Lost, stolen or damaged passport cases"
-          - "First-time passport application"
-          - "Questions only about required documents for re-issue"
-
-
+        - Re-issue specifically because information must be changed
+        - Lost, stolen or damaged passport cases
+        - First-time passport application
+        - Questions only about required documents for re-issue
       PASSPORT_REISSUE_OVERSEAS:
-        display_name: "Passport Re-Issue From Abroad"
-        description: >
-          Questions specifically about re-issuing an already existing or
-          previously issued Bangladesh passport while the applicant is
-          living outside Bangladesh through an appropriate Bangladesh
-          embassy or mission.
+        display_name: Passport Re-Issue From Abroad
+        description: 'Questions specifically about re-issuing an already existing or previously
+          issued Bangladesh passport while the applicant is living outside Bangladesh through
+          an appropriate Bangladesh embassy or mission.
 
-        evidence_status: "official_workflow_supported"
-
+          '
+        evidence_status: official_workflow_supported
         includes:
-          - "How do I reissue my passport from abroad?"
-          - "Can I renew my Bangladesh passport through an embassy?"
-          - "How can I replace my existing passport while living overseas?"
-          - "Which Bangladesh mission handles my passport re-issue abroad?"
-
+        - How do I reissue my passport from abroad?
+        - Can I renew my Bangladesh passport through an embassy?
+        - How can I replace my existing passport while living overseas?
+        - Which Bangladesh mission handles my passport re-issue abroad?
         excludes:
-          - "First-time passport application from abroad"
-          - "Domestic passport re-issue"
-          - "Visa or immigration-service questions"
-          - "Questions only about embassy location without a passport re-issue intent"
-
-
+        - First-time passport application from abroad
+        - Domestic passport re-issue
+        - Visa or immigration-service questions
+        - Questions only about embassy location without a passport re-issue intent
   PASSPORT_FEES_AND_PAYMENT:
-    display_name: "Passport Fees and Payment"
-    description: >
-      Questions about e-Passport fees and payment workflows, including
-      general fee information, payment methods, payment confirmation,
-      failed transactions, deducted-money problems, refunds, receipts
-      and delivery-category fee questions.
+    display_name: Passport Fees and Payment
+    description: 'Questions about e-Passport fees and payment workflows, including general fee
+      information, payment methods, payment confirmation, failed transactions, deducted-money
+      problems, refunds, receipts and delivery-category fee questions.
 
-    default_evidence_status: "official_service_supported"
-
+      '
+    default_evidence_status: official_service_supported
     covers:
-      - "Passport Fee Information"
-      - "Payment Method"
-      - "Online Payment"
-      - "Offline Payment"
-      - "Payment Confirmation"
-      - "Payment Failure"
-      - "Money Deducted but Payment Failed"
-      - "Refund"
-      - "Payment Receipt"
-      - "Payment Slip"
-      - "Delivery Category Fee"
-
+    - Passport Fee Information
+    - Payment Method
+    - Online Payment
+    - Offline Payment
+    - Payment Confirmation
+    - Payment Failure
+    - Money Deducted but Payment Failed
+    - Refund
+    - Payment Receipt
+    - Payment Slip
+    - Delivery Category Fee
     query_topics:
-
       PASSPORT_FEES_INFORMATION:
-        display_name: "Passport Fee Information"
-        description: >
-          General questions asking how much passport-related processing
-          costs or what fee applies when the user is not specifically
-          asking about payment execution, transaction failure or a
-          receipt.
+        display_name: Passport Fee Information
+        description: 'General questions asking how much passport-related processing costs or what
+          fee applies when the user is not specifically asking about payment execution, transaction
+          failure or a receipt.
 
-        evidence_status: "official_fee_service_supported"
-
+          '
+        evidence_status: official_fee_service_supported
         includes:
-          - "How much does an e-Passport cost?"
-          - "What is the passport application fee?"
-          - "How much do I need to pay for my passport?"
-          - "What are the current passport fees?"
-
+        - How much does an e-Passport cost?
+        - What is the passport application fee?
+        - How much do I need to pay for my passport?
+        - What are the current passport fees?
         excludes:
-          - "Questions specifically comparing delivery-category fees"
-          - "Questions about how to make the payment"
-          - "Payment failure"
-          - "Payment confirmation"
-          - "Refund questions"
-
-
+        - Questions specifically comparing delivery-category fees
+        - Questions about how to make the payment
+        - Payment failure
+        - Payment confirmation
+        - Refund questions
       PASSPORT_PAYMENT_METHOD:
-        display_name: "Passport Payment Method"
-        description: >
-          Questions about how or where passport fees can be paid,
-          including supported online or offline payment channels, when
-          the user's main need is choosing or understanding a payment
-          method.
+        display_name: Passport Payment Method
+        description: 'Questions about how or where passport fees can be paid, including supported
+          online or offline payment channels, when the user''s main need is choosing or understanding
+          a payment method.
 
-        evidence_status: "official_service_supported"
-
+          '
+        evidence_status: official_service_supported
         includes:
-          - "How can I pay the passport fee?"
-          - "What payment methods are available for e-Passport?"
-          - "Can I pay the passport fee online?"
-          - "Where can I pay the passport fee offline?"
-
+        - How can I pay the passport fee?
+        - What payment methods are available for e-Passport?
+        - Can I pay the passport fee online?
+        - Where can I pay the passport fee offline?
         excludes:
-          - "Questions only asking how much the fee is"
-          - "Checking whether an already made payment succeeded"
-          - "A payment transaction that failed"
-          - "Receipt or payment-slip retrieval"
-
-
+        - Questions only asking how much the fee is
+        - Checking whether an already made payment succeeded
+        - A payment transaction that failed
+        - Receipt or payment-slip retrieval
       PASSPORT_PAYMENT_CONFIRMATION:
-        display_name: "Passport Payment Confirmation"
-        description: >
-          Questions about determining whether a passport-fee payment has
-          been successfully received, recorded or confirmed after the
-          applicant has attempted payment.
+        display_name: Passport Payment Confirmation
+        description: 'Questions about determining whether a passport-fee payment has been successfully
+          received, recorded or confirmed after the applicant has attempted payment.
 
-        evidence_status: "official_service_supported"
-
+          '
+        evidence_status: official_service_supported
         includes:
-          - "How do I know whether my passport payment was successful?"
-          - "Has my e-Passport payment been confirmed?"
-          - "How can I check if the passport fee was received?"
-          - "Where can I verify my passport payment status?"
-
+        - How do I know whether my passport payment was successful?
+        - Has my e-Passport payment been confirmed?
+        - How can I check if the passport fee was received?
+        - Where can I verify my passport payment status?
         excludes:
-          - "General instructions for making a payment"
-          - "Payment that explicitly failed"
-          - "Money deducted although the system shows payment failure"
-          - "Questions specifically asking for a payment receipt"
-
-
+        - General instructions for making a payment
+        - Payment that explicitly failed
+        - Money deducted although the system shows payment failure
+        - Questions specifically asking for a payment receipt
       PASSPORT_PAYMENT_FAILURE:
-        display_name: "Passport Payment Failure"
-        description: >
-          Questions where a passport-fee transaction did not complete
-          successfully, excluding cases where the user specifically says
-          money was deducted despite the failed transaction.
+        display_name: Passport Payment Failure
+        description: 'Questions where a passport-fee transaction did not complete successfully,
+          excluding cases where the user specifically says money was deducted despite the failed
+          transaction.
 
-        evidence_status: "official_service_supported"
-
+          '
+        evidence_status: official_service_supported
         includes:
-          - "My passport payment failed. What should I do?"
-          - "The e-Passport fee transaction was unsuccessful."
-          - "I cannot complete my passport payment."
-          - "Why is my passport payment failing?"
-
+        - My passport payment failed. What should I do?
+        - The e-Passport fee transaction was unsuccessful.
+        - I cannot complete my passport payment.
+        - Why is my passport payment failing?
         excludes:
-          - "Money was deducted but the payment still shows as failed"
-          - "General payment-method questions"
-          - "Payment confirmation after an apparently successful transaction"
-          - "Refund-only questions"
-
-
+        - Money was deducted but the payment still shows as failed
+        - General payment-method questions
+        - Payment confirmation after an apparently successful transaction
+        - Refund-only questions
       PASSPORT_PAYMENT_DEDUCTED_BUT_FAILED:
-        display_name: "Passport Payment Deducted but Transaction Failed"
-        description: >
-          Questions where money was deducted or charged during a
-          passport-fee transaction but the passport system did not
-          record the transaction as successful.
+        display_name: Passport Payment Deducted but Transaction Failed
+        description: 'Questions where money was deducted or charged during a passport-fee transaction
+          but the passport system did not record the transaction as successful.
 
-        evidence_status: "official_service_supported"
-
+          '
+        evidence_status: official_service_supported
         includes:
-          - "Money was deducted but my passport payment failed."
-          - "I was charged but the e-Passport payment is unsuccessful."
-          - "The fee was taken from my account but the portal shows payment failed."
-          - "I paid the passport fee but the transaction was not recorded."
-
+        - Money was deducted but my passport payment failed.
+        - I was charged but the e-Passport payment is unsuccessful.
+        - The fee was taken from my account but the portal shows payment failed.
+        - I paid the passport fee but the transaction was not recorded.
         excludes:
-          - "Ordinary payment failure where no money was deducted"
-          - "General payment confirmation"
-          - "General fee information"
-          - "A refund question after the failed-payment problem has already been established"
-
-
+        - Ordinary payment failure where no money was deducted
+        - General payment confirmation
+        - General fee information
+        - A refund question after the failed-payment problem has already been established
       PASSPORT_PAYMENT_REFUND:
-        display_name: "Passport Payment Refund"
-        description: >
-          Questions specifically about refunding or recovering money
-          associated with a passport payment transaction.
+        display_name: Passport Payment Refund
+        description: 'Questions specifically about refunding or recovering money associated with
+          a passport payment transaction.
 
-        evidence_status: "official_service_supported"
-
+          '
+        evidence_status: official_service_supported
         includes:
-          - "How do I get a refund for my passport payment?"
-          - "When will my failed passport payment be refunded?"
-          - "How can I recover money from an unsuccessful passport transaction?"
-          - "What is the refund process for an e-Passport payment?"
-
+        - How do I get a refund for my passport payment?
+        - When will my failed passport payment be refunded?
+        - How can I recover money from an unsuccessful passport transaction?
+        - What is the refund process for an e-Passport payment?
         excludes:
-          - "Initial report that money was deducted but payment failed"
-          - "General passport-fee information"
-          - "Payment confirmation"
-          - "Receipt or payment-slip questions"
-
-
+        - Initial report that money was deducted but payment failed
+        - General passport-fee information
+        - Payment confirmation
+        - Receipt or payment-slip questions
       PASSPORT_PAYMENT_RECEIPT:
-        display_name: "Passport Payment Receipt or Slip"
-        description: >
-          Questions about obtaining, finding, printing or using proof
-          of a passport-fee payment such as a payment receipt or payment
-          slip.
+        display_name: Passport Payment Receipt or Slip
+        description: 'Questions about obtaining, finding, printing or using proof of a passport-fee
+          payment such as a payment receipt or payment slip.
 
-        evidence_status: "official_service_supported"
-
+          '
+        evidence_status: official_service_supported
         includes:
-          - "How do I get my passport payment receipt?"
-          - "Where can I find the e-Passport payment slip?"
-          - "Can I print my passport fee receipt?"
-          - "I need proof that I paid the passport fee."
-
+        - How do I get my passport payment receipt?
+        - Where can I find the e-Passport payment slip?
+        - Can I print my passport fee receipt?
+        - I need proof that I paid the passport fee.
         excludes:
-          - "Checking whether payment itself succeeded"
-          - "Payment failure"
-          - "General payment methods"
-          - "Application-form printing"
-
-
+        - Checking whether payment itself succeeded
+        - Payment failure
+        - General payment methods
+        - Application-form printing
       PASSPORT_FEES_DELIVERY_CATEGORY:
-        display_name: "Passport Delivery Category Fee"
-        description: >
-          Questions specifically comparing or asking about fees
-          associated with passport delivery or processing categories,
-          such as regular, express or other officially offered service
-          categories.
+        display_name: Passport Delivery Category Fee
+        description: 'Questions specifically comparing or asking about fees associated with passport
+          delivery or processing categories, such as regular, express or other officially offered
+          service categories.
 
-        evidence_status: "official_fee_service_supported"
-
+          '
+        evidence_status: official_fee_service_supported
         includes:
-          - "What is the fee for regular passport delivery?"
-          - "How much does express passport service cost?"
-          - "Is the urgent passport fee different?"
-          - "What are the fees for the different passport delivery options?"
-
+        - What is the fee for regular passport delivery?
+        - How much does express passport service cost?
+        - Is the urgent passport fee different?
+        - What are the fees for the different passport delivery options?
         excludes:
-          - "General questions asking only the overall passport fee"
-          - "Questions asking how long each delivery category takes"
-          - "Application-status or delay questions"
-          - "Payment transaction problems"
-
-
+        - General questions asking only the overall passport fee
+        - Questions asking how long each delivery category takes
+        - Application-status or delay questions
+        - Payment transaction problems
   PASSPORT_STATUS_AND_DELIVERY:
-    display_name: "Passport Application Status and Delivery"
-    description: >
-      Questions about the state of a submitted passport application,
-      expected processing duration, unusual delay, delivery category,
-      passport readiness and collection of an issued passport.
+    display_name: Passport Application Status and Delivery
+    description: 'Questions about the state of a submitted passport application, expected processing
+      duration, unusual delay, delivery category, passport readiness and collection of an issued
+      passport.
 
-    default_evidence_status: "official_service_supported"
-
+      '
+    default_evidence_status: official_service_supported
     covers:
-      - "Application Status"
-      - "Application Stage"
-      - "Application Approval"
-      - "Application Delay"
-      - "Processing Time"
-      - "Regular Delivery"
-      - "Express Delivery"
-      - "Urgent / Super Express Delivery"
-      - "Passport Ready for Collection"
-      - "Passport Collection"
-      - "Delivery Slip"
-
+    - Application Status
+    - Application Stage
+    - Application Approval
+    - Application Delay
+    - Processing Time
+    - Regular Delivery
+    - Express Delivery
+    - Urgent / Super Express Delivery
+    - Passport Ready for Collection
+    - Passport Collection
+    - Delivery Slip
     query_topics:
-
       PASSPORT_APPLICATION_STATUS:
-        display_name: "Passport Application Status"
-        description: >
-          Questions about the current state, stage or approval status
-          of an already submitted passport application.
+        display_name: Passport Application Status
+        description: 'Questions about the current state, stage or approval status of an already
+          submitted passport application.
 
-        evidence_status: "official_service_supported"
-
+          '
+        evidence_status: official_service_supported
         includes:
-          - "How do I check my passport application status?"
-          - "What stage is my e-Passport application in?"
-          - "Has my passport application been approved?"
-          - "Where can I see the current status of my passport application?"
-
+        - How do I check my passport application status?
+        - What stage is my e-Passport application in?
+        - Has my passport application been approved?
+        - Where can I see the current status of my passport application?
         excludes:
-          - "Complaints that the application has been delayed"
-          - "Questions asking the normal processing duration"
-          - "Questions about whether the passport is ready for collection"
-          - "Payment-status questions"
-
-
+        - Complaints that the application has been delayed
+        - Questions asking the normal processing duration
+        - Questions about whether the passport is ready for collection
+        - Payment-status questions
       PASSPORT_APPLICATION_DELAY:
-        display_name: "Passport Application Delay"
-        description: >
-          Questions where the applicant reports or suspects that their
-          submitted passport application is taking unusually long or
-          has remained at a stage longer than expected.
+        display_name: Passport Application Delay
+        description: 'Questions where the applicant reports or suspects that their submitted passport
+          application is taking unusually long or has remained at a stage longer than expected.
 
-        evidence_status: "needs_query_pilot"
-
+          '
+        evidence_status: needs_query_pilot
         includes:
-          - "My passport application is delayed. What should I do?"
-          - "Why is my e-Passport taking so long?"
-          - "My application has been stuck for a long time."
-          - "What can I do if passport processing is delayed?"
-
+        - My passport application is delayed. What should I do?
+        - Why is my e-Passport taking so long?
+        - My application has been stuck for a long time.
+        - What can I do if passport processing is delayed?
         excludes:
-          - "General questions asking how long processing normally takes"
-          - "Ordinary application-status checks without a delay complaint"
-          - "Appointment delay"
-          - "Payment problems"
-
-
+        - General questions asking how long processing normally takes
+        - Ordinary application-status checks without a delay complaint
+        - Appointment delay
+        - Payment problems
       PASSPORT_PROCESSING_TIME:
-        display_name: "Passport Processing Time"
-        description: >
-          General questions about the expected or normal time required
-          for passport processing, without reporting that a specific
-          applicant's case is already delayed.
+        display_name: Passport Processing Time
+        description: 'General questions about the expected or normal time required for passport
+          processing, without reporting that a specific applicant''s case is already delayed.
 
-        evidence_status: "official_service_supported"
-
+          '
+        evidence_status: official_service_supported
         includes:
-          - "How long does passport processing normally take?"
-          - "What is the usual e-Passport processing time?"
-          - "How many days does it normally take to get a passport?"
-          - "What is the expected processing duration for a passport?"
-
+        - How long does passport processing normally take?
+        - What is the usual e-Passport processing time?
+        - How many days does it normally take to get a passport?
+        - What is the expected processing duration for a passport?
         excludes:
-          - "A specific application that is already taking unusually long"
-          - "Checking the current stage of an application"
-          - "Questions only about delivery-category fees"
-          - "Appointment scheduling"
-
-
+        - A specific application that is already taking unusually long
+        - Checking the current stage of an application
+        - Questions only about delivery-category fees
+        - Appointment scheduling
       PASSPORT_DELIVERY_CATEGORY:
-        display_name: "Passport Delivery or Processing Category"
-        description: >
-          Questions about available passport delivery or processing
-          categories such as regular, express or officially offered
-          urgent categories when the primary focus is the category or
-          service level rather than its fee.
+        display_name: Passport Delivery or Processing Category
+        description: 'Questions about available passport delivery or processing categories such
+          as regular, express or officially offered urgent categories when the primary focus is
+          the category or service level rather than its fee.
 
-        evidence_status: "official_service_supported"
-
+          '
+        evidence_status: official_service_supported
         includes:
-          - "What is regular passport delivery?"
-          - "What is express passport service?"
-          - "What delivery options are available for e-Passport?"
-          - "Can I choose an urgent passport processing category?"
-
+        - What is regular passport delivery?
+        - What is express passport service?
+        - What delivery options are available for e-Passport?
+        - Can I choose an urgent passport processing category?
         excludes:
-          - "Questions specifically asking how much each category costs"
-          - "Questions only asking the normal processing duration"
-          - "Checking the status of an already submitted application"
-          - "Complaints about application delay"
-
-
+        - Questions specifically asking how much each category costs
+        - Questions only asking the normal processing duration
+        - Checking the status of an already submitted application
+        - Complaints about application delay
       PASSPORT_READY_FOR_COLLECTION:
-        display_name: "Passport Ready for Collection"
-        description: >
-          Questions about determining whether an issued or processed
-          passport is ready to be collected by the applicant.
+        display_name: Passport Ready for Collection
+        description: 'Questions about determining whether an issued or processed passport is ready
+          to be collected by the applicant.
 
-        evidence_status: "official_service_supported"
-
+          '
+        evidence_status: official_service_supported
         includes:
-          - "How do I know if my passport is ready for collection?"
-          - "Is my e-Passport ready to pick up?"
-          - "Where can I check whether my passport is ready?"
-          - "How will I know when I can collect my passport?"
-
+        - How do I know if my passport is ready for collection?
+        - Is my e-Passport ready to pick up?
+        - Where can I check whether my passport is ready?
+        - How will I know when I can collect my passport?
         excludes:
-          - "General application-stage questions before the passport is ready"
-          - "Questions about how to physically collect a ready passport"
-          - "Questions about a lost delivery slip"
-          - "Questions about normal processing time"
-
-
+        - General application-stage questions before the passport is ready
+        - Questions about how to physically collect a ready passport
+        - Questions about a lost delivery slip
+        - Questions about normal processing time
       PASSPORT_COLLECTION:
-        display_name: "Passport Collection"
-        description: >
-          Questions about the process of physically receiving or
-          collecting a passport after it has become ready for delivery.
+        display_name: Passport Collection
+        description: 'Questions about the process of physically receiving or collecting a passport
+          after it has become ready for delivery.
 
-        evidence_status: "official_service_supported"
-
+          '
+        evidence_status: official_service_supported
         includes:
-          - "How do I collect my passport?"
-          - "What is the process for receiving my e-Passport?"
-          - "Where do I go to collect my ready passport?"
-          - "What should I do when my passport is ready for pickup?"
-
+        - How do I collect my passport?
+        - What is the process for receiving my e-Passport?
+        - Where do I go to collect my ready passport?
+        - What should I do when my passport is ready for pickup?
         excludes:
-          - "Checking whether the passport is ready for collection"
-          - "Lost delivery-slip problems"
-          - "Application-office selection"
-          - "Physical enrolment location"
-
-
+        - Checking whether the passport is ready for collection
+        - Lost delivery-slip problems
+        - Application-office selection
+        - Physical enrolment location
       PASSPORT_DELIVERY_SLIP_LOST:
-        display_name: "Lost Passport Delivery Slip"
-        description: >
-          Questions specifically about what to do when the applicant
-          has lost or cannot produce the delivery slip associated with
-          collecting an already processed passport.
+        display_name: Lost Passport Delivery Slip
+        description: 'Questions specifically about what to do when the applicant has lost or cannot
+          produce the delivery slip associated with collecting an already processed passport.
 
-        evidence_status: "official_service_supported"
-
+          '
+        evidence_status: official_service_supported
         includes:
-          - "I lost my passport delivery slip. What should I do?"
-          - "Can I collect my passport without the delivery slip?"
-          - "My passport collection slip is missing."
-          - "What should I do if I cannot find my passport delivery receipt?"
-
+        - I lost my passport delivery slip. What should I do?
+        - Can I collect my passport without the delivery slip?
+        - My passport collection slip is missing.
+        - What should I do if I cannot find my passport delivery receipt?
         excludes:
-          - "A passport itself that has been lost"
-          - "A passport payment receipt or payment slip"
-          - "Checking whether the passport is ready"
-          - "General passport collection instructions when the delivery slip is available"
-
-
+        - A passport itself that has been lost
+        - A passport payment receipt or payment slip
+        - Checking whether the passport is ready
+        - General passport collection instructions when the delivery slip is available
   PASSPORT_GENERAL_INFORMATION:
-    display_name: "General Passport Information"
-    description: >
-      General questions about Bangladesh e-Passport services when the
-      citizen is seeking broad explanatory or orientation information
-      and does not express a more specific operational intent already
-      represented elsewhere in the taxonomy.
+    display_name: General Passport Information
+    description: 'General questions about Bangladesh e-Passport services when the citizen is seeking
+      broad explanatory or orientation information and does not express a more specific operational
+      intent already represented elsewhere in the taxonomy.
 
-    default_evidence_status: "needs_query_pilot"
-
+      '
+    default_evidence_status: needs_query_pilot
     covers:
-      - "What is an e-Passport?"
-      - "General Passport Information"
-      - "New Passport vs Re-Issue"
-      - "General Passport Service Guidance"
-
+    - What is an e-Passport?
+    - General Passport Information
+    - New Passport vs Re-Issue
+    - General Passport Service Guidance
     query_topics:
-
       PASSPORT_GENERAL_EPASSPORT_INFORMATION:
-        display_name: "General e-Passport Information"
-        description: >
-          Broad explanatory questions about what a Bangladesh e-Passport
-          is or general characteristics of the e-Passport service where
-          the citizen is not asking how to perform a specific transaction.
+        display_name: General e-Passport Information
+        description: 'Broad explanatory questions about what a Bangladesh e-Passport is or general
+          characteristics of the e-Passport service where the citizen is not asking how to perform
+          a specific transaction.
 
-        evidence_status: "official_service_supported"
-
+          '
+        evidence_status: official_service_supported
         includes:
-          - "What is an e-Passport?"
-          - "What does e-Passport mean?"
-          - "Tell me about Bangladesh e-Passport."
-          - "How is an e-Passport generally different from an older passport?"
-
+        - What is an e-Passport?
+        - What does e-Passport mean?
+        - Tell me about Bangladesh e-Passport.
+        - How is an e-Passport generally different from an older passport?
         excludes:
-          - "How to apply for a new passport"
-          - "How to reissue an existing passport"
-          - "Passport fee questions"
-          - "Passport delivery or status questions"
-          - "Questions about a specific e-Passport portal function"
-
-
+        - How to apply for a new passport
+        - How to reissue an existing passport
+        - Passport fee questions
+        - Passport delivery or status questions
+        - Questions about a specific e-Passport portal function
       PASSPORT_GENERAL_NEW_VS_REISSUE:
-        display_name: "New Passport vs Re-Issue Guidance"
-        description: >
-          Questions where a citizen is specifically trying to determine
-          whether their situation should be handled as a new passport
-          application or as a re-issue of a previously issued passport.
+        display_name: New Passport vs Re-Issue Guidance
+        description: 'Questions where a citizen is specifically trying to determine whether their
+          situation should be handled as a new passport application or as a re-issue of a previously
+          issued passport.
 
-        evidence_status: "official_workflow_supported"
-
+          '
+        evidence_status: official_workflow_supported
         includes:
-          - "Should I apply for a new passport or reissue my old one?"
-          - "What is the difference between new passport and re-issue?"
-          - "I had a passport before; should I select new application or re-issue?"
-          - "How do I know whether my case is new passport or re-issue?"
-
+        - Should I apply for a new passport or reissue my old one?
+        - What is the difference between new passport and re-issue?
+        - I had a passport before; should I select new application or re-issue?
+        - How do I know whether my case is new passport or re-issue?
         excludes:
-          - "Questions clearly asking how to make a first-time application"
-          - "Questions clearly asking how to reissue an existing passport"
-          - "Questions specifically about expiry, loss, theft or damage"
-          - "General e-Passport definition questions"
-
-
+        - Questions clearly asking how to make a first-time application
+        - Questions clearly asking how to reissue an existing passport
+        - Questions specifically about expiry, loss, theft or damage
+        - General e-Passport definition questions
       PASSPORT_GENERAL_SERVICE_GUIDANCE:
-        display_name: "General Passport Service Guidance"
-        description: >
-          Broad orientation questions about which passport service or
-          workflow may be relevant when the citizen has not yet stated a
-          sufficiently specific transaction or problem for another leaf.
+        display_name: General Passport Service Guidance
+        description: 'Broad orientation questions about which passport service or workflow may
+          be relevant when the citizen has not yet stated a sufficiently specific transaction
+          or problem for another leaf.
 
-        evidence_status: "needs_query_pilot"
-
+          '
+        evidence_status: needs_query_pilot
         includes:
-          - "What passport services are available?"
-          - "What kinds of passport problems can this service help with?"
-          - "Where should I start if I need help with a passport service?"
-          - "Which passport service should I use for my situation?"
-
+        - What passport services are available?
+        - What kinds of passport problems can this service help with?
+        - Where should I start if I need help with a passport service?
+        - Which passport service should I use for my situation?
         excludes:
-          - "Any query expressing a specific application, document, account, appointment, re-issue, payment, status or collection intent"
-          - "Unsupported non-passport government-service queries"
-          - "Visa, immigration or foreign-country passport services"
-          - "Using general information merely because classifier confidence is low"
-
-
+        - Any query expressing a specific application, document, account, appointment, re-issue,
+          payment, status or collection intent
+        - Unsupported non-passport government-service queries
+        - Visa, immigration or foreign-country passport services
+        - Using general information merely because classifier confidence is low
 design_rules:
+- 'Parent topics represent broad citizen information needs. Specific classifier intents are represented
+  by query-topic IDs beneath each parent.
 
-  - >
-    Parent topics represent broad citizen information needs. Specific
-    classifier intents are represented by query-topic IDs beneath each
-    parent.
+  '
+- 'Passport office selection remains inside PASSPORT_APPLICATION unless pilot evidence shows that
+  it requires a separate parent.
 
-  - >
-    Passport office selection remains inside PASSPORT_APPLICATION
-    unless pilot evidence shows that it requires a separate parent.
+  '
+- 'Lost, stolen and damaged passport cases remain inside PASSPORT_REISSUE because each concerns
+  obtaining another passport after a previously issued passport becomes unavailable or unusable.
 
-  - >
-    Lost, stolen and damaged passport cases remain inside
-    PASSPORT_REISSUE because each concerns obtaining another passport
-    after a previously issued passport becomes unavailable or unusable.
+  '
+- 'Lost, stolen and damaged passport cases are represented by separate query-topic IDs because
+  the stated reason for replacement differs and may lead to different supporting guidance.
 
-  - >
-    Lost, stolen and damaged passport cases are represented by separate
-    query-topic IDs because the stated reason for replacement differs
-    and may lead to different supporting guidance.
+  '
+- 'Information change connected to an already issued passport remains inside PASSPORT_REISSUE
+  and is represented separately from re-issue without information change.
 
-  - >
-    Information change connected to an already issued passport remains
-    inside PASSPORT_REISSUE and is represented separately from re-issue
-    without information change.
+  '
+- 'General PASSPORT_REISSUE_PROCESS should be used only when the user asks broadly about re-issue
+  and does not state a more specific reason such as expiry, loss, theft, damage, information change
+  or overseas processing.
 
-  - >
-    General PASSPORT_REISSUE_PROCESS should be used only when the user
-    asks broadly about re-issue and does not state a more specific reason
-    such as expiry, loss, theft, damage, information change or overseas
-    processing.
+  '
+- 'Expiry is represented separately because it expresses a clear reason for obtaining a re-issued
+  passport and is semantically distinct from loss, theft, damage and information correction.
 
-  - >
-    Expiry is represented separately because it expresses a clear reason
-    for obtaining a re-issued passport and is semantically distinct from
-    loss, theft, damage and information correction.
+  '
+- 'Overseas re-issue is represented as a leaf under PASSPORT_REISSUE rather than as a first-level
+  parent because overseas location is a contextual attribute of the re-issue intent.
 
-  - >
-    Overseas re-issue is represented as a leaf under PASSPORT_REISSUE
-    rather than as a first-level parent because overseas location is a
-    contextual attribute of the re-issue intent.
+  '
+- 'A previous passport being required as supporting evidence belongs under PASSPORT_DOCUMENTS_PREVIOUS_PASSPORT,
+  while asking how to obtain the replacement or re-issued passport belongs under PASSPORT_REISSUE.
 
-  - >
-    A previous passport being required as supporting evidence belongs
-    under PASSPORT_DOCUMENTS_PREVIOUS_PASSPORT, while asking how to obtain
-    the replacement or re-issued passport belongs under PASSPORT_REISSUE.
+  '
+- 'Required documents and missing documents are separate specific intents. Asking which documents
+  are required is different from already knowing a document is required but being unable to provide
+  it.
 
-  - >
-    Required documents and missing documents are separate specific
-    intents. Asking which documents are required is different from
-    already knowing a document is required but being unable to provide
-    it.
+  '
+- 'NID requirement and Birth Registration requirement are represented separately because citizens
+  frequently ask specifically whether one identity document can or must be used for passport processing.
 
-  - >
-    NID requirement and Birth Registration requirement are represented
-    separately because citizens frequently ask specifically whether one
-    identity document can or must be used for passport processing.
+  '
+- 'Documents required at physical enrolment remain under PASSPORT_DOCUMENTS, while questions about
+  scheduling or performing enrolment remain under PASSPORT_APPOINTMENT_AND_ENROLMENT.
 
-  - >
-    Documents required at physical enrolment remain under
-    PASSPORT_DOCUMENTS, while questions about scheduling or performing
-    enrolment remain under PASSPORT_APPOINTMENT_AND_ENROLMENT.
+  '
+- 'Normal account login and account-access failure are separate. PASSPORT_ONLINE_ACCOUNT_LOGIN
+  represents ordinary instructions for signing in, while PASSPORT_ONLINE_ACCOUNT_ACCESS_PROBLEM
+  represents a failure to access an existing account when no narrower cause has been identified.
 
-  - >
-    Normal account login and account-access failure are separate.
-    PASSPORT_ONLINE_ACCOUNT_LOGIN represents ordinary instructions for
-    signing in, while PASSPORT_ONLINE_ACCOUNT_ACCESS_PROBLEM represents
-    a failure to access an existing account when no narrower cause has
-    been identified.
+  '
+- 'Forgotten-password questions are grouped with password reset because the user''s actionable
+  information need is account-password recovery.
 
-  - >
-    Forgotten-password questions are grouped with password reset because
-    the user's actionable information need is account-password recovery.
+  '
+- 'Account activation and activation-email-not-received are separate. The first concerns the activation
+  workflow, while the second represents failure to receive the message needed for that workflow.
 
-  - >
-    Account activation and activation-email-not-received are separate.
-    The first concerns the activation workflow, while the second
-    represents failure to receive the message needed for that workflow.
+  '
+- 'Registered email change and registered mobile-number change remain separate specific intents
+  because they involve different account contact fields and may require different support guidance.
 
-  - >
-    Registered email change and registered mobile-number change remain
-    separate specific intents because they involve different account
-    contact fields and may require different support guidance.
+  '
+- 'Appointment scheduling and appointment-date queries are separate. Scheduling represents creating
+  or obtaining an appointment, while appointment-date queries concern an appointment already associated
+  with the application.
 
-  - >
-    Appointment scheduling and appointment-date queries are separate.
-    Scheduling represents creating or obtaining an appointment, while
-    appointment-date queries concern an appointment already associated
-    with the application.
+  '
+- 'General appointment problems use PASSPORT_APPOINTMENT_PROBLEM only when a more specific appointment
+  intent does not explain the user''s issue. It must not become a generic fallback for unrelated
+  portal, application or status failures.
 
-  - >
-    General appointment problems use PASSPORT_APPOINTMENT_PROBLEM only
-    when a more specific appointment intent does not explain the user's
-    issue. It must not become a generic fallback for unrelated portal,
-    application or status failures.
+  '
+- 'Appointment attendance requirements and enrolment documents are distinct. Questions whose main
+  focus is supporting paperwork belong under PASSPORT_DOCUMENTS_ENROLMENT.
 
-  - >
-    Appointment attendance requirements and enrolment documents are
-    distinct. Questions whose main focus is supporting paperwork belong
-    under PASSPORT_DOCUMENTS_ENROLMENT.
+  '
+- 'PASSPORT_ENROLMENT_PROCESS represents the overall physical enrolment workflow, while PASSPORT_ENROLMENT_BIOMETRICS
+  is reserved for queries specifically focused on biometric capture.
 
-  - >
-    PASSPORT_ENROLMENT_PROCESS represents the overall physical enrolment
-    workflow, while PASSPORT_ENROLMENT_BIOMETRICS is reserved for queries
-    specifically focused on biometric capture.
+  '
+- 'Application-office selection and enrolment location must remain distinct. The first concerns
+  routing the new application, while the second concerns where the applicant attends physical
+  enrolment.
 
-  - >
-    Application-office selection and enrolment location must remain
-    distinct. The first concerns routing the new application, while the
-    second concerns where the applicant attends physical enrolment.
+  '
+- 'General fee information and delivery-category fee questions are separate. PASSPORT_FEES_INFORMATION
+  covers broad fee questions, while PASSPORT_FEES_DELIVERY_CATEGORY applies when the citizen explicitly
+  asks about the fee associated with regular, express, urgent or another offered delivery category.
 
-  - >
-    General fee information and delivery-category fee questions are
-    separate. PASSPORT_FEES_INFORMATION covers broad fee questions,
-    while PASSPORT_FEES_DELIVERY_CATEGORY applies when the citizen
-    explicitly asks about the fee associated with regular, express,
-    urgent or another offered delivery category.
+  '
+- 'PASSPORT_PAYMENT_METHOD represents how or where to pay. Online and offline payment channels
+  are method variants and do not currently require separate classifier leaves.
 
-  - >
-    PASSPORT_PAYMENT_METHOD represents how or where to pay. Online and
-    offline payment channels are method variants and do not currently
-    require separate classifier leaves.
+  '
+- 'Payment confirmation and payment failure are separate. Confirmation asks whether an attempted
+  payment was successfully recorded, while failure states that the transaction did not complete
+  successfully.
 
-  - >
-    Payment confirmation and payment failure are separate. Confirmation
-    asks whether an attempted payment was successfully recorded, while
-    failure states that the transaction did not complete successfully.
+  '
+- 'PASSPORT_PAYMENT_DEDUCTED_BUT_FAILED is narrower than general PASSPORT_PAYMENT_FAILURE because
+  the user explicitly reports that money was charged or deducted despite the failed transaction.
 
-  - >
-    PASSPORT_PAYMENT_DEDUCTED_BUT_FAILED is narrower than general
-    PASSPORT_PAYMENT_FAILURE because the user explicitly reports that
-    money was charged or deducted despite the failed transaction.
+  '
+- 'Refund questions are represented separately from the original transaction failure because the
+  citizen''s immediate information need has changed from diagnosing payment to recovering the
+  money.
 
-  - >
-    Refund questions are represented separately from the original
-    transaction failure because the citizen's immediate information need
-    has changed from diagnosing payment to recovering the money.
+  '
+- 'Payment receipts and slips represent proof-of-payment retrieval and must not be confused with
+  application-form printing or payment confirmation.
 
-  - >
-    Payment receipts and slips represent proof-of-payment retrieval and
-    must not be confused with application-form printing or payment
-    confirmation.
+  '
+- 'Exact current fee amounts and available payment providers are mutable knowledge and remain
+  in Partner B''s verified knowledge corpus rather than being hard-coded into classifier semantics.
 
-  - >
-    Exact current fee amounts and available payment providers are mutable
-    knowledge and remain in Partner B's verified knowledge corpus rather
-    than being hard-coded into classifier semantics.
+  '
+- 'PASSPORT_APPLICATION_STATUS covers current stage or approval-state questions. A user reporting
+  that their case has been stuck or is taking unusually long belongs under PASSPORT_APPLICATION_DELAY.
 
-  - >
-    PASSPORT_APPLICATION_STATUS covers current stage or approval-state
-    questions. A user reporting that their case has been stuck or is
-    taking unusually long belongs under PASSPORT_APPLICATION_DELAY.
+  '
+- 'PASSPORT_PROCESSING_TIME represents the normal expected duration of passport processing, while
+  PASSPORT_APPLICATION_DELAY represents a specific case that the citizen believes is taking unusually
+  long.
 
-  - >
-    PASSPORT_PROCESSING_TIME represents the normal expected duration of
-    passport processing, while PASSPORT_APPLICATION_DELAY represents a
-    specific case that the citizen believes is taking unusually long.
+  '
+- 'PASSPORT_DELIVERY_CATEGORY represents questions about regular, express, urgent or similar processing
+  categories when the focus is the category itself. Questions specifically about category prices
+  belong under PASSPORT_FEES_DELIVERY_CATEGORY.
 
-  - >
-    PASSPORT_DELIVERY_CATEGORY represents questions about regular,
-    express, urgent or similar processing categories when the focus is
-    the category itself. Questions specifically about category prices
-    belong under PASSPORT_FEES_DELIVERY_CATEGORY.
+  '
+- 'PASSPORT_READY_FOR_COLLECTION and PASSPORT_COLLECTION are separate. The first asks whether
+  the passport can now be collected, while the second asks how or where to complete the collection
+  process.
 
-  - >
-    PASSPORT_READY_FOR_COLLECTION and PASSPORT_COLLECTION are separate.
-    The first asks whether the passport can now be collected, while the
-    second asks how or where to complete the collection process.
+  '
+- 'A lost passport and a lost passport delivery slip represent different objects and different
+  workflow stages. PASSPORT_REISSUE_LOST applies when the passport itself is missing, while PASSPORT_DELIVERY_SLIP_LOST
+  applies when the collection slip is missing.
 
-  - >
-    A lost passport and a lost passport delivery slip represent
-    different objects and different workflow stages.
-    PASSPORT_REISSUE_LOST applies when the passport itself is missing,
-    while PASSPORT_DELIVERY_SLIP_LOST applies when the collection slip
-    is missing.
+  '
+- 'A passport payment slip and a passport delivery slip must remain distinct. Payment-slip queries
+  belong under PASSPORT_PAYMENT_RECEIPT, while a lost collection or delivery slip belongs under
+  PASSPORT_DELIVERY_SLIP_LOST.
 
-  - >
-    A passport payment slip and a passport delivery slip must remain
-    distinct. Payment-slip queries belong under
-    PASSPORT_PAYMENT_RECEIPT, while a lost collection or delivery slip
-    belongs under PASSPORT_DELIVERY_SLIP_LOST.
+  '
+- 'Portal account problems and appointment problems must remain semantically distinct even though
+  both occur during the online passport workflow.
 
-  - >
-    Portal account problems and appointment problems must remain
-    semantically distinct even though both occur during the online
-    passport workflow.
+  '
+- 'Overseas status is a contextual attribute rather than a first-level intent parent. New-passport
+  questions from abroad belong under PASSPORT_APPLICATION, while re-issue questions from abroad
+  belong under PASSPORT_REISSUE.
 
-  - >
-    Overseas status is a contextual attribute rather than a first-level
-    intent parent. New-passport questions from abroad belong under
-    PASSPORT_APPLICATION, while re-issue questions from abroad belong
-    under PASSPORT_REISSUE.
+  '
+- 'Official or diplomatic passport status is a contextual/application category rather than a first-level
+  intent parent. Application questions belong under PASSPORT_APPLICATION, while supporting document
+  questions such as GO or NOC belong under PASSPORT_DOCUMENTS. Dedicated leaves require sufficient
+  query evidence.
 
-  - >
-    Official or diplomatic passport status is a contextual/application
-    category rather than a first-level intent parent. Application
-    questions belong under PASSPORT_APPLICATION, while supporting
-    document questions such as GO or NOC belong under
-    PASSPORT_DOCUMENTS. Dedicated leaves require sufficient query
-    evidence.
+  '
+- 'PASSPORT_GENERAL_EPASSPORT_INFORMATION is explanatory rather than transactional. If the citizen
+  asks how to perform a specific passport operation, the corresponding operational leaf must be
+  used.
 
-  - >
-    PASSPORT_GENERAL_EPASSPORT_INFORMATION is explanatory rather than
-    transactional. If the citizen asks how to perform a specific
-    passport operation, the corresponding operational leaf must be used.
+  '
+- 'PASSPORT_GENERAL_NEW_VS_REISSUE applies only when the citizen is uncertain which of those two
+  workflows applies. Once a clear new-application or re-issue intent is stated, the specific PASSPORT_APPLICATION
+  or PASSPORT_REISSUE leaf takes precedence.
 
-  - >
-    PASSPORT_GENERAL_NEW_VS_REISSUE applies only when the citizen is
-    uncertain which of those two workflows applies. Once a clear
-    new-application or re-issue intent is stated, the specific
-    PASSPORT_APPLICATION or PASSPORT_REISSUE leaf takes precedence.
+  '
+- 'PASSPORT_GENERAL_SERVICE_GUIDANCE is a narrow orientation intent, not a fallback classifier
+  label. Unsupported, unrelated or low-confidence queries must be handled through OOD and confidence
+  logic instead.
 
-  - >
-    PASSPORT_GENERAL_SERVICE_GUIDANCE is a narrow orientation intent,
-    not a fallback classifier label. Unsupported, unrelated or
-    low-confidence queries must be handled through OOD and confidence
-    logic instead.
+  '
+- 'Mutable facts such as current fees, processing durations, passport office addresses, eligibility
+  details and payment providers must not be encoded in the taxonomy. Those belong in the verified
+  knowledge corpus.
 
-  - >
-    Mutable facts such as current fees, processing durations, passport
-    office addresses, eligibility details and payment providers must
-    not be encoded in the taxonomy. Those belong in the verified
-    knowledge corpus.
+  '
+- 'General information must not be used as a fallback for unsupported or low-confidence queries.
+  OOD and confidence handling will handle unsupported cases.
 
-  - >
-    General information must not be used as a fallback for unsupported
-    or low-confidence queries. OOD and confidence handling will handle
-    unsupported cases.
-
-
+  '
 evidence_notes:
-
   PASSPORT_APPLICATION:
-    evidence_status: "official_workflow_supported"
-
+    evidence_status: official_workflow_supported
   PASSPORT_DOCUMENTS:
-    evidence_status: "official_workflow_supported"
-
+    evidence_status: official_workflow_supported
   PASSPORT_ONLINE_ACCOUNT:
-    evidence_status: "official_service_supported"
-
+    evidence_status: official_service_supported
   PASSPORT_APPOINTMENT_AND_ENROLMENT:
-    evidence_status: "official_service_supported"
-
+    evidence_status: official_service_supported
   PASSPORT_REISSUE:
-    evidence_status: "official_workflow_supported"
-
+    evidence_status: official_workflow_supported
   PASSPORT_FEES_AND_PAYMENT:
-    evidence_status: "official_service_supported"
-
+    evidence_status: official_service_supported
   PASSPORT_STATUS_AND_DELIVERY:
-    evidence_status: "official_service_supported"
-
+    evidence_status: official_service_supported
   PASSPORT_GENERAL_INFORMATION:
-    evidence_status: "needs_query_pilot"
-
-
+    evidence_status: needs_query_pilot
 freeze_status:
-  shared_contract_frozen: false
-
+  shared_contract_frozen: true
   parent_topics_reviewed: true
   query_topics_defined: true
   inclusion_exclusion_rules_defined: true
   semantic_audit_passed: true
-
   pilot_dataset_created: true
   taxonomy_ready_for_shared_contract: true

@@ -9,7 +9,7 @@ TAXONOMY_PATH = Path("taxonomy/passport.yaml")
 EXPECTED_SERVICE_ID = "PASSPORT"
 EXPECTED_ID_PREFIX = "PASS"
 EXPECTED_VERSION = "0.2.0"
-EXPECTED_STATUS = "pilot_reviewed"
+EXPECTED_STATUS = "contract_frozen"
 
 EXPECTED_PARENTS = {
     "PASSPORT_APPLICATION",
@@ -64,7 +64,7 @@ REQUIRED_LEAF_KEYS = {
 }
 
 EXPECTED_FREEZE_STATUS = {
-    "shared_contract_frozen": False,
+    "shared_contract_frozen": True,
     "parent_topics_reviewed": True,
     "query_topics_defined": True,
     "inclusion_exclusion_rules_defined": True,
@@ -508,11 +508,8 @@ def main():
 
     print("RESULT: PASS")
     print("Passport taxonomy is structurally consistent.")
-    print(
-        "Semantic audit and pilot review are recorded as passed. The Passport "
-        "taxonomy is locally ready for the future shared-contract review."
-    )
-    print("The global shared contract remains unfrozen.")
+    print("Semantic audit and pilot review are recorded as passed.")
+    print("The six-service shared label contract is frozen.")
 
 
 if __name__ == "__main__":

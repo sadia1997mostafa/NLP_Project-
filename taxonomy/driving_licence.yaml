@@ -1,6 +1,6 @@
 taxonomy_version: 0.2.0
 service_id: DRIVING_LICENCE
-status: pilot_reviewed
+status: contract_frozen
 description: Working citizen-intent taxonomy for Bangladesh BRTA learner and driving licence services.
 id_prefix: DRIVING_LICENCE
 parent_topics:
@@ -521,7 +521,7 @@ design_rules:
 - Separate test scheduling, requirements, results and retake needs.
 - General guidance is never an OOD fallback.
 freeze_status:
-  shared_contract_frozen: false
+  shared_contract_frozen: true
   parent_topics_reviewed: true
   query_topics_defined: true
   inclusion_exclusion_rules_defined: true

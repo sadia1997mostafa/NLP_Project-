@@ -84,8 +84,8 @@ def main() -> None:
     }
     if set(flags) != required_flags:
         errors.append("freeze_status does not contain the exact required flags")
-    if flags.get("shared_contract_frozen") is not False:
-        errors.append("shared_contract_frozen must remain false")
+    if not isinstance(flags.get("shared_contract_frozen"), bool):
+        errors.append("shared_contract_frozen must be boolean")
 
     print("=" * 72)
     print(f"{service} TAXONOMY VALIDATION")
@@ -109,7 +109,7 @@ def main() -> None:
             print(f"ERROR: {error}")
         sys.exit(1)
     print("RESULT: PASS")
-    print("Shared contract remains unfrozen.")
+    print("Shared contract frozen:", flags.get("shared_contract_frozen"))
 
 
 def validate_pilot(args, service, leaves, errors) -> None:

@@ -1,6 +1,6 @@
 taxonomy_version: 0.2.0
 service_id: TAX
-status: pilot_reviewed
+status: contract_frozen
 description: Working intent taxonomy for Bangladesh NBR taxpayer, e-TIN, e-Return, payment, document
   and support queries.
 id_prefix: TAX
@@ -409,7 +409,7 @@ design_rules:
 - General guidance is a real orientation intent and never an OOD fallback.
 - Specific account, filing, payment and document intents take precedence over broad labels.
 freeze_status:
-  shared_contract_frozen: false
+  shared_contract_frozen: true
   parent_topics_reviewed: true
   query_topics_defined: true
   inclusion_exclusion_rules_defined: true

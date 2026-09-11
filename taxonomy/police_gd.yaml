@@ -1,6 +1,6 @@
 taxonomy_version: 0.2.0
 service_id: POLICE_GD
-status: pilot_reviewed
+status: contract_frozen
 description: Working citizen-intent taxonomy for Bangladesh Police General Diary and Online GD
   services.
 id_prefix: POLICE_GD
@@ -422,7 +422,7 @@ design_rules:
 - Incident type and procedural goal are different dimensions; use the dominant request.
 - General guidance is never an OOD fallback.
 freeze_status:
-  shared_contract_frozen: false
+  shared_contract_frozen: true
   parent_topics_reviewed: true
   query_topics_defined: true
   inclusion_exclusion_rules_defined: true

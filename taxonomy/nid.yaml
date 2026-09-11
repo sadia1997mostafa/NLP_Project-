@@ -1,1375 +1,1300 @@
-taxonomy_version: "0.3.0"
-service_id: "NID"
-status: "draft_reviewed"
-
-description: >
-  Working parent-topic taxonomy for National Identity Card and
-  voter-related citizen queries. This structure is derived from the
-  existing NID query inventory and coverage audit. Query-topic IDs
-  will be defined separately before the taxonomy is frozen into the
-  shared contract.
-
+taxonomy_version: 0.3.0
+service_id: NID
+status: contract_frozen
+description: Reviewed NID and voter-service taxonomy with 9 parent topics, 73 query-topic intents,
+  complete inclusion/exclusion boundaries and a validated synthetic pre-training core.
 parent_topics:
-
   NID_REGISTRATION:
-    display_name: "NID / Voter Registration"
-    description: >
-      First-time NID or voter registration and closely related
-      registration procedures.
+    display_name: NID / Voter Registration
+    description: 'First-time NID or voter registration and closely related registration procedures.
 
-    default_evidence_status: "supported_by_current_dataset"
-
+      '
+    default_evidence_status: supported_by_current_dataset
     covers:
-      - "New NID / New Voter Registration"
-      - "Expatriate NID Registration"
-
+    - New NID / New Voter Registration
+    - Expatriate NID Registration
     query_topics:
-
       NID_REGISTRATION_ELIGIBILITY:
-        display_name: "Registration Eligibility"
-        description: >
-          General questions about who is eligible to register for
-          an NID or become a voter for the first time.
-        includes:
-          - "Who can apply for a new NID?"
-          - "Citizenship eligibility"
-          - "General voter eligibility conditions"
-        excludes:
-          - "Questions specifically about minimum age"
-          - "Questions specifically about registering late"
+        display_name: Registration Eligibility
+        description: 'General questions about who is eligible to register for an NID or become
+          a voter for the first time.
 
+          '
+        includes:
+        - Who can apply for a new NID?
+        - Citizenship eligibility
+        - General voter eligibility conditions
+        excludes:
+        - Questions specifically about minimum age
+        - Questions specifically about registering late
       NID_REGISTRATION_AGE_ELIGIBILITY:
-        display_name: "Registration Age Requirement"
-        description: >
-          Questions specifically about minimum age, age limits,
-          or whether a person of a stated age can register.
-        includes:
-          - "Minimum age for NID"
-          - "Whether someone under 18 can register"
-          - "Age requirement for becoming a voter"
-        excludes:
-          - "General eligibility without an age question"
-          - "Late registration by an older applicant"
+        display_name: Registration Age Requirement
+        description: 'Questions specifically about minimum age, age limits, or whether a person
+          of a stated age can register.
 
+          '
+        includes:
+        - Minimum age for NID
+        - Whether someone under 18 can register
+        - Age requirement for becoming a voter
+        excludes:
+        - General eligibility without an age question
+        - Late registration by an older applicant
       NID_REGISTRATION_PROCESS:
-        display_name: "First-Time Registration Process"
-        description: >
-          General or end-to-end questions about how to obtain
-          an NID or register as a voter for the first time.
-        includes:
-          - "How to register for the first time"
-          - "Step-by-step registration process"
-          - "Where to start"
-          - "Complete registration procedure"
-        excludes:
-          - "Online-only application questions"
-          - "Questions specifically about documents, biometrics or appointments"
+        display_name: First-Time Registration Process
+        description: 'General or end-to-end questions about how to obtain an NID or register as
+          a voter for the first time.
 
+          '
+        includes:
+        - How to register for the first time
+        - Step-by-step registration process
+        - Where to start
+        - Complete registration procedure
+        excludes:
+        - Online-only application questions
+        - Questions specifically about documents, biometrics or appointments
       NID_REGISTRATION_ONLINE_APPLICATION:
-        display_name: "Online Registration Application"
-        description: >
-          Questions about whether or how a first-time NID or voter
-          registration application can be started or submitted online.
-        includes:
-          - "Online application procedure"
-          - "Online registration website"
-          - "Applying from home"
-          - "Online submission"
-        excludes:
-          - "NID portal account/login problems"
-          - "General registration procedure not specifically online"
+        display_name: Online Registration Application
+        description: 'Questions about whether or how a first-time NID or voter registration application
+          can be started or submitted online.
 
+          '
+        includes:
+        - Online application procedure
+        - Online registration website
+        - Applying from home
+        - Online submission
+        excludes:
+        - NID portal account/login problems
+        - General registration procedure not specifically online
       NID_REGISTRATION_REQUIRED_DOCUMENTS:
-        display_name: "Required Registration Documents"
-        description: >
-          Questions asking which documents or supporting evidence
-          are required for first-time NID registration.
-        includes:
-          - "Required document list"
-          - "Birth certificate requirement"
-          - "Parents' document requirement"
-          - "Educational certificate requirement"
-        excludes:
-          - "What to do when required documents are unavailable"
+        display_name: Required Registration Documents
+        description: 'Questions asking which documents or supporting evidence are required for
+          first-time NID registration.
 
+          '
+        includes:
+        - Required document list
+        - Birth certificate requirement
+        - Parents' document requirement
+        - Educational certificate requirement
+        excludes:
+        - What to do when required documents are unavailable
       NID_REGISTRATION_APPLICATION_FORM:
-        display_name: "Registration Application Form"
-        description: >
-          Questions about obtaining, completing, submitting or
-          correcting the first-time registration application form.
-        includes:
-          - "Where to get the application form"
-          - "How to fill the form"
-          - "How to submit the form"
-          - "Mistake in the application form"
-          - "Information requested by a specific form field"
-        excludes:
-          - "General list of required personal information"
+        display_name: Registration Application Form
+        description: 'Questions about obtaining, completing, submitting or correcting the first-time
+          registration application form.
 
+          '
+        includes:
+        - Where to get the application form
+        - How to fill the form
+        - How to submit the form
+        - Mistake in the application form
+        - Information requested by a specific form field
+        excludes:
+        - General list of required personal information
       NID_REGISTRATION_APPLICATION_LOCATION:
-        display_name: "Registration Office or Application Location"
-        description: >
-          Questions about the office, registration center or physical
-          location where a citizen should apply.
-        includes:
-          - "Where to apply"
-          - "Which election office to visit"
-          - "Local registration center"
-          - "Whether an office visit is required"
-        excludes:
-          - "Which voter area the citizen should belong to"
+        display_name: Registration Office or Application Location
+        description: 'Questions about the office, registration center or physical location where
+          a citizen should apply.
 
+          '
+        includes:
+        - Where to apply
+        - Which election office to visit
+        - Local registration center
+        - Whether an office visit is required
+        excludes:
+        - Which voter area the citizen should belong to
       NID_REGISTRATION_BIOMETRIC:
-        display_name: "Registration Biometric Process"
-        description: >
-          Questions about fingerprint, photograph, personal appearance
-          and other biometric steps during registration.
-        includes:
-          - "Fingerprint requirement"
-          - "Where biometrics are provided"
-          - "Personal attendance for biometrics"
-          - "What happens during biometric registration"
-        excludes:
-          - "Questions specifically about booking an appointment"
+        display_name: Registration Biometric Process
+        description: 'Questions about fingerprint, photograph, personal appearance and other biometric
+          steps during registration.
 
+          '
+        includes:
+        - Fingerprint requirement
+        - Where biometrics are provided
+        - Personal attendance for biometrics
+        - What happens during biometric registration
+        excludes:
+        - Questions specifically about booking an appointment
       NID_REGISTRATION_AREA_SELECTION:
-        display_name: "Voter Registration Area Selection"
-        description: >
-          Questions about which geographic voter area should be used
-          during first-time registration.
-        includes:
-          - "Present-address voter area"
-          - "Permanent-address voter area"
-          - "Different current and permanent locations"
-          - "How registration area is determined"
-        excludes:
-          - "Changing voter area after already being registered"
-          - "How to fill present/permanent address fields"
+        display_name: Voter Registration Area Selection
+        description: 'Questions about which geographic voter area should be used during first-time
+          registration.
 
+          '
+        includes:
+        - Present-address voter area
+        - Permanent-address voter area
+        - Different current and permanent locations
+        - How registration area is determined
+        excludes:
+        - Changing voter area after already being registered
+        - How to fill present/permanent address fields
       NID_REGISTRATION_APPOINTMENT:
-        display_name: "Registration Appointment"
-        description: >
-          Questions about whether an appointment is required and how
-          to schedule, check or handle a registration or biometric appointment.
-        includes:
-          - "Appointment booking"
-          - "Online appointment"
-          - "Appointment date"
-          - "Missed appointment"
-        excludes:
-          - "General biometric procedure"
+        display_name: Registration Appointment
+        description: 'Questions about whether an appointment is required and how to schedule,
+          check or handle a registration or biometric appointment.
 
+          '
+        includes:
+        - Appointment booking
+        - Online appointment
+        - Appointment date
+        - Missed appointment
+        excludes:
+        - General biometric procedure
       NID_REGISTRATION_ADDRESS_FIELDS:
-        display_name: "Present and Permanent Address in Registration"
-        description: >
-          Questions about entering present and permanent addresses
-          in a first-time NID application.
-        includes:
-          - "Meaning of present versus permanent address"
-          - "Which address to enter"
-          - "Different present and permanent addresses"
-        excludes:
-          - "Selecting a voter area"
-          - "Correcting an address on an existing NID"
+        display_name: Present and Permanent Address in Registration
+        description: 'Questions about entering present and permanent addresses in a first-time
+          NID application.
 
+          '
+        includes:
+        - Meaning of present versus permanent address
+        - Which address to enter
+        - Different present and permanent addresses
+        excludes:
+        - Selecting a voter area
+        - Correcting an address on an existing NID
       NID_REGISTRATION_VERIFICATION:
-        display_name: "Registration Verification"
-        description: >
-          Questions specifically about the verification stage of a
-          new NID or voter registration application.
-        includes:
-          - "How verification works"
-          - "Meaning of verification status"
-          - "Physical verification"
-          - "Verification requirements"
-          - "Verification processing time"
-        excludes:
-          - "Generic application pending or delayed status"
-
-      NID_REGISTRATION_PHYSICAL_CARD_COLLECTION:
-        display_name: "First NID Card Collection"
-        description: >
-          Questions about receiving or collecting the physical NID
-          card after first-time registration.
-        includes:
-          - "When the physical card will be received"
-          - "Where the physical card is collected"
-          - "Card not received after registration"
-        excludes:
-          - "Smart NID Card-specific questions"
-          - "Replacement of a lost or damaged card"
-
-      NID_REGISTRATION_REQUIRED_INFORMATION:
-        display_name: "Required Registration Information"
-        description: >
-          Questions asking what personal information or details must
-          be supplied during first-time registration.
-        includes:
-          - "Required personal information"
-          - "Parents' information"
-          - "Mandatory registration information"
-          - "Which information is verified"
-        excludes:
-          - "Required supporting documents"
-          - "How to fill a particular form field"
-
-      NID_REGISTRATION_MISSING_DOCUMENTS:
-        display_name: "Missing or Incomplete Registration Documents"
-        description: >
-          Questions about registering when one or more required
-          documents are missing, lost or unavailable.
-        includes:
-          - "No birth certificate"
-          - "Incomplete documents"
-          - "Lost required document"
-          - "Alternative documentation"
-        excludes:
-          - "General document-list questions"
-
-      NID_REGISTRATION_REFERENCE_RECOVERY:
-        display_name: "Registration Reference Recovery"
-        description: >
-          Questions about recovering a lost application number,
-          application ID, registration slip, reference number or
-          tracking information.
-        includes:
-          - "Lost application number"
-          - "Lost registration slip"
-          - "Lost application ID"
-          - "Lost tracking information"
-        excludes:
-          - "Recovering the citizen's NID number"
-          - "Recovering an NID online account or password"
-          - "Checking application status when the reference is already known"
-
-      NID_REGISTRATION_LATE_REGISTRATION:
-        display_name: "Late First-Time Registration"
-        description: >
-          Questions from citizens who did not register at the usual
-          time and now want to become a voter or obtain an NID.
-        includes:
-          - "Registering many years late"
-          - "Older first-time applicant"
-          - "Never registered before"
-          - "Late registration procedure"
-        excludes:
-          - "Ordinary minimum-age eligibility"
-
-      NID_REGISTRATION_CANCELLATION:
-        display_name: "Registration Application Cancellation"
-        description: >
-          Questions about cancelling or withdrawing a submitted
-          first-time NID or voter registration application.
-        includes:
-          - "Cancel application"
-          - "Withdraw submitted application"
-          - "Application submitted by mistake"
-        excludes:
-          - "Deactivating an NID online account"
-          - "Deceased-voter record deletion"
-          - "Correcting information on an existing NID"
-
-      NID_REGISTRATION_PROCESSING_TIME:
-        display_name: "Normal Registration Processing Time"
-        description: >
-          Questions about the normal expected time required to
-          complete first-time registration or receive the NID.
-        includes:
-          - "How long registration normally takes"
-          - "Expected processing duration"
-          - "Normal application-to-NID timeline"
-        excludes:
-          - "An application that is already unusually delayed"
-          - "A specific pending application"
-
-      NID_REGISTRATION_EXPATRIATE:
-        display_name: "Expatriate / Overseas NID Registration"
-        description: >
-          Questions about first-time NID or voter registration for
-          Bangladeshi citizens who are living, working or residing
-          outside Bangladesh.
-        evidence_status: "needs_pilot_expansion"
-        includes:
-          - "Can a Bangladeshi living abroad apply for an NID?"
-          - "How can an expatriate register for an NID?"
-          - "Can I apply for NID from overseas?"
-          - "What is the NID registration process for expatriates?"
-          - "Where does an overseas Bangladeshi complete registration?"
-          - "What documents are required for expatriate registration?"
-        excludes:
-          - "Ordinary first-time registration inside Bangladesh"
-          - "Passport services"
-          - "Changing an existing NID address because the citizen moved abroad"
-          - "General validity of an already issued NID"
-
-  NID_CORRECTION:
-    display_name: "NID Information Correction"
-    description: >
-      Correction or updating of personal information recorded
-      on an existing NID.
-
-    default_evidence_status: "supported_by_current_dataset"
-
-    covers:
-      - "Name Change / Name Correction"
-      - "Father/Mother Name Correction"
-      - "Date of Birth Correction"
-      - "Gender Correction"
-      - "Blood Group Correction"
-      - "Marital Status Correction"
-      - "Spouse Name Correction"
-      - "Address Correction"
-      - "Photo Change / Correction"
-      - "Signature Change / Correction"
-
-    query_topics:
-
-      NID_CORRECTION_NAME:
-        display_name: "Own Name Correction"
-        description: >
-          Correction, spelling correction, addition, removal or
-          modification of the NID holder's own name.
-        includes:
-          - "Wrong own name"
-          - "Name spelling mistake"
-          - "Missing part of own name"
-          - "Own name differs from certificate or other document"
-          - "Procedure or documents for own-name correction"
-        excludes:
-          - "Father or mother's name"
-          - "Spouse's name"
-          - "A generic document mismatch involving another field"
-
-      NID_CORRECTION_PARENT_NAME:
-        display_name: "Father or Mother Name Correction"
-        description: >
-          Correction or updating of the NID holder's father or
-          mother's name.
-        includes:
-          - "Father's name incorrect"
-          - "Mother's name incorrect"
-          - "Parent-name spelling error"
-          - "Parent name differs from supporting documents"
-          - "Documents or procedure for parent-name correction"
-        excludes:
-          - "Citizen's own name"
-          - "Spouse information"
-
-      NID_CORRECTION_DOB:
-        display_name: "Date of Birth Correction"
-        description: >
-          Correction of an incorrect date, day, month or year of
-          birth recorded on the NID.
-        includes:
-          - "Wrong date of birth"
-          - "Wrong birth year"
-          - "Wrong day or month"
-          - "NID birth date differs from birth registration"
-          - "Documents or procedure for date-of-birth correction"
-        excludes:
-          - "Age eligibility for first-time registration"
-
-      NID_CORRECTION_GENDER:
-        display_name: "Gender Information Correction"
-        description: >
-          Correction or updating of gender information recorded
-          incorrectly on an existing NID.
-        includes:
-          - "Incorrect gender"
-          - "Incorrect male/female designation"
-          - "Gender information differs from supporting documents"
-          - "Procedure or documents for gender correction"
-        excludes:
-          - "Gender information entered during first-time registration"
-          - "Correction of a different NID field"
-
-      NID_CORRECTION_BLOOD_GROUP:
-        display_name: "Blood Group Correction"
-        description: >
-          Correction or updating of blood-group information
-          recorded on an existing NID.
-        includes:
-          - "Wrong blood group"
-          - "Blood-group update"
-          - "Documents or proof for blood-group correction"
-        excludes:
-          - "Blood-group information entered during first-time registration"
-          - "Correction of a different NID field"
-
-      NID_CORRECTION_MARITAL_STATUS:
-        display_name: "Marital Status Correction"
-        description: >
-          Correction or updating of marital-status information
-          such as married or unmarried status.
-        includes:
-          - "Incorrect marital status"
-          - "Status still shows unmarried after marriage"
-          - "Marital-status update"
-          - "Documents or procedure for marital-status correction"
-        excludes:
-          - "Adding or correcting the spouse's actual name"
-
-      NID_CORRECTION_SPOUSE_NAME:
-        display_name: "Spouse Name Correction"
-        description: >
-          Addition, correction or updating of husband or wife
-          information recorded on the NID.
-        includes:
-          - "Incorrect spouse name"
-          - "Spouse-name spelling correction"
-          - "Adding husband or wife name"
-          - "Updating spouse information"
-          - "Documents or procedure for spouse-name correction"
-        excludes:
-          - "Changing only married/unmarried status"
-
-      NID_CORRECTION_ADDRESS:
-        display_name: "Address Correction"
-        description: >
-          Correction, addition or updating of address information
-          recorded on an existing NID.
-        includes:
-          - "Incorrect address"
-          - "Current address missing"
-          - "Address update after moving"
-          - "Incorrect village or area name"
-          - "Documents or procedure for address correction"
-        excludes:
-          - "Transferring the citizen's voter area"
-          - "Choosing a voter area during first-time registration"
-
-      NID_CORRECTION_PHOTO:
-        display_name: "Photo Change or Correction"
-        description: >
-          Updating or replacing the photograph associated with
-          an existing NID.
-        includes:
-          - "Old photograph"
-          - "Poor-quality photograph"
-          - "Request to provide a new photograph"
-          - "Photo-change procedure"
-        excludes:
-          - "Biometric photograph taken during first-time registration"
-
-      NID_CORRECTION_SIGNATURE:
-        display_name: "Signature Change or Correction"
-        description: >
-          Correction, replacement or updating of the signature
-          associated with an existing NID.
-        includes:
-          - "Incorrect signature"
-          - "Old signature needs replacement"
-          - "Changed signature"
-          - "Signature-update procedure"
-          - "Requirements for signature correction"
-        excludes:
-          - "Signature captured during first-time registration"
-          - "Face, fingerprint or online biometric verification"
-          - "Correction of a different NID field"
-
-  NID_REPLACEMENT:
-    display_name: "Lost, Stolen, Damaged or Duplicate NID"
-    description: >
-      Replacement, duplicate or reissue procedures for an NID
-      that has been lost, stolen, damaged or otherwise requires
-      replacement.
-
-    default_evidence_status: "supported_by_current_dataset"
-
-    covers:
-      - "Lost NID"
-      - "Stolen NID"
-      - "Damaged NID"
-      - "NID Reissue / Replacement"
-      - "Duplicate NID"
-      - "Lost or Damaged Smart NID Replacement"
-
-    query_topics:
-
-      NID_REPLACEMENT_PROCESS:
-        display_name: "NID Replacement or Reissue Process"
-        description: >
-          General questions about what to do and how to obtain
-          another NID after loss, theft, damage or another
-          replacement situation.
-        includes:
-          - "NID lost, what should I do?"
-          - "How to replace a lost NID"
-          - "How to reissue an NID"
-          - "Replacement procedure"
-          - "Damaged NID replacement process"
-          - "Lost Smart NID replacement process"
-        excludes:
-          - "Questions specifically asking whether replacement is allowed"
-          - "Questions specifically asking for documents"
-          - "Questions specifically about filing a GD"
-          - "Application tracking or status"
-          - "Fee or payment questions"
-
-      NID_REPLACEMENT_ELIGIBILITY:
-        display_name: "Replacement Eligibility"
-        description: >
-          Questions asking whether an NID in a particular condition
-          can be replaced or reissued.
-        includes:
-          - "Can a damaged NID be replaced?"
-          - "Can I get another card after losing my NID?"
-          - "Is reissue available for a lost or damaged NID?"
-          - "Can a lost Smart NID be replaced?"
-        excludes:
-          - "How to perform the replacement"
-
-      NID_REPLACEMENT_REQUIRED_DOCUMENTS:
-        display_name: "Replacement Required Documents"
-        description: >
-          Questions asking which documents, papers or supporting
-          evidence are required for NID replacement or reissue.
-        includes:
-          - "Documents required for lost NID replacement"
-          - "Documents needed for reissue"
-          - "Supporting documents"
-          - "Whether birth registration is required"
-          - "Documents needed for Smart NID replacement"
-        excludes:
-          - "Documents needed specifically to file the police GD"
-          - "Fee or payment questions"
-
-      NID_REPLACEMENT_GD_REPORTING:
-        display_name: "Lost NID GD and Police Reporting"
-        description: >
-          Questions about reporting a lost or stolen NID to police,
-          whether a General Diary is required, how to file it and
-          what is needed for the GD.
-        includes:
-          - "Do I need a GD for a lost NID?"
-          - "How to file a GD"
-          - "Where to report a lost NID"
-          - "What documents are needed for the GD"
-          - "What information must be provided in the GD"
-          - "Whether the GD copy is needed for reissue"
-        excludes:
-          - "General replacement documents unrelated to the GD"
-          - "Police GD questions unrelated to an NID"
-
-      NID_REPLACEMENT_APPLICATION_LOCATION:
-        display_name: "Replacement Application Location"
-        description: >
-          Questions about where a citizen should submit an NID
-          replacement or reissue application.
-        includes:
-          - "Where to apply for NID reissue"
-          - "Which office handles replacement"
-          - "Where to submit a lost-NID replacement request"
-          - "Where to apply for Smart NID replacement"
-        excludes:
-          - "Questions specifically asking about online application"
-
-      NID_REPLACEMENT_ONLINE_APPLICATION:
-        display_name: "Online Replacement Application"
-        description: >
-          Questions about whether or how an NID replacement or
-          reissue application can be performed online.
-        includes:
-          - "Can I apply for NID reissue online?"
-          - "Online lost-NID replacement"
-          - "Online replacement application procedure"
-        excludes:
-          - "NID portal login or account problems"
-          - "Application status tracking"
-
-      NID_REPLACEMENT_PROCESSING_TIME:
-        display_name: "Normal Replacement Processing Time"
-        description: >
-          Questions asking how long an NID replacement or reissue
-          normally takes.
-        includes:
-          - "How many days does replacement take?"
-          - "Normal reissue processing time"
-          - "Expected time to receive the replacement card"
-        excludes:
-          - "An already delayed replacement application"
-          - "Checking the status of a submitted replacement request"
-
-  NID_ONLINE_SERVICES:
-    display_name: "NID Online Account and Portal"
-    description: >
-      NID portal account creation, login, password and account
-      recovery, OTP and identity verification, account management,
-      portal availability and other online-service access issues.
-
-    default_evidence_status: "supported_by_current_dataset"
-
-    covers:
-      - "NID Online Account Registration"
-      - "NID Services Registration"
-      - "NID Account Login"
-      - "NID Portal Login Problem"
-      - "Forgotten Password / Password Reset"
-      - "NID Account Recovery"
-      - "OTP Not Received"
-      - "OTP Verification Problem"
-      - "Face Verification Problem"
-      - "Biometric Verification Problem"
-      - "NID Portal Not Working"
-      - "NID Account Information Update"
-      - "NID Account Deactivation"
-      - "General NID Online Service Problem"
-
-    query_topics:
-
-      NID_ONLINE_ACCOUNT_REGISTRATION:
-        display_name: "Online Account Registration"
-        description: >
-          Questions about creating, registering, signing up for or
-          activating an NID online-services account.
-        includes:
-          - "How to create an NID online account"
-          - "How to register for NID online services"
-          - "Where the portal registration option is"
-          - "Information required to create an account"
-          - "Whether registration can be completed using a phone"
-          - "Problems encountered while creating an account"
-          - "Activating online-service access"
-        excludes:
-          - "First-time voter/NID registration"
-          - "Logging into an existing online account"
-          - "Recovering an existing account"
-
-      NID_ONLINE_LOGIN:
-        display_name: "Online Account Login"
-        description: >
-          Questions asking how or where to sign in to an existing
-          NID online account.
-        includes:
-          - "How to log in"
-          - "Where the login page is"
-          - "How to sign in after creating an account"
-          - "How to access an existing NID account"
-        excludes:
-          - "Login attempts that are failing"
-          - "Forgotten-password problems"
-          - "Account recovery"
-
-      NID_ONLINE_LOGIN_PROBLEM:
-        display_name: "Online Account Login Problem"
-        description: >
-          Problems where the citizen has an existing NID account
-          but cannot successfully log in or access it normally.
-        includes:
-          - "Login is not working"
-          - "Correct information entered but login fails"
-          - "Login error"
-          - "Sign-in repeatedly fails"
-          - "Cannot access account despite having credentials"
-        excludes:
-          - "Citizen forgot the password"
-          - "Citizen lost broader access to the account"
-          - "The entire NID portal appears unavailable"
-
-      NID_ONLINE_PASSWORD_RESET:
-        display_name: "Forgotten Password and Password Reset"
-        description: >
-          Questions about a forgotten NID online-account password,
-          resetting it, changing it through the recovery flow or
-          problems completing a password reset.
-        includes:
-          - "Forgot NID account password"
-          - "How to reset password"
-          - "Where the forgot-password option is"
-          - "How to create a new password"
-          - "Password reset is not working"
-          - "Password-reset link or procedure"
-        excludes:
-          - "Normal login with a known password"
-          - "Loss of account access unrelated to only the password"
-
-      NID_ONLINE_ACCOUNT_RECOVERY:
-        display_name: "Online Account Recovery"
-        description: >
-          Questions about recovering or regaining access to an
-          existing NID online account when the citizen has lost
-          broader account access or account information.
-        includes:
-          - "Recover old NID online account"
-          - "Lost access to account"
-          - "Regain access to existing account"
-          - "Account recovery option"
-          - "Missing login information"
-          - "Recover an old account"
-        excludes:
-          - "Only forgetting or resetting the password"
-          - "Creating a completely new account"
-
-      NID_ONLINE_OTP_NOT_RECEIVED:
-        display_name: "OTP Not Received"
-        description: >
-          Problems where an NID verification OTP or verification
-          code has been requested but has not arrived.
-        includes:
-          - "OTP did not arrive"
-          - "OTP SMS not received"
-          - "Verification code not received"
-          - "OTP is taking too long"
-          - "Repeated OTP requests produce no SMS"
-        excludes:
-          - "An OTP was received but is rejected"
-          - "Face or biometric verification"
-
-      NID_ONLINE_OTP_VERIFICATION:
-        display_name: "OTP Verification Problem"
-        description: >
-          Problems where an OTP has been received but verification
-          cannot be completed successfully.
-        includes:
-          - "Correct OTP is rejected"
-          - "OTP verification fails"
-          - "OTP expired"
-          - "Portal does nothing after OTP submission"
-          - "Account verification remains incomplete"
-        excludes:
-          - "OTP never arrived"
-          - "Face verification"
-          - "Fingerprint or other biometric verification"
-
-      NID_ONLINE_FACE_VERIFICATION:
-        display_name: "Face Verification Problem"
-        description: >
-          Problems involving face detection or face verification
-          during NID online-account verification.
-        includes:
-          - "Face verification fails"
-          - "Portal cannot detect face"
-          - "Face image is not accepted"
-          - "Repeated face-verification failure"
-          - "Error during face verification"
-        excludes:
-          - "Fingerprint verification"
-          - "General biometric issue with no face reference"
-          - "OTP verification"
-
-      NID_ONLINE_BIOMETRIC_VERIFICATION:
-        display_name: "Biometric Verification Problem"
-        description: >
-          Problems involving fingerprint or other non-face biometric
-          verification for NID online services.
-        includes:
-          - "Fingerprint is not recognized"
-          - "Biometric verification fails"
-          - "Biometric information does not match"
-          - "Fingerprint detection problem"
-          - "Cannot complete biometric verification"
-        excludes:
-          - "Face-specific verification"
-          - "OTP verification"
-
-      NID_ONLINE_PORTAL_UNAVAILABLE:
-        display_name: "NID Portal Not Working"
-        description: >
-          Problems indicating that the NID portal or website itself
-          is unavailable, failing to load or returning general
-          system-level errors.
-        includes:
-          - "NID portal is down"
-          - "Website does not open"
-          - "Page does not load"
-          - "Portal repeatedly returns errors"
-          - "Online-service website appears unavailable"
-        excludes:
-          - "A login-only problem while the portal otherwise works"
-          - "A specific OTP or verification problem"
-          - "An unspecified problem with one online service"
-
-      NID_ONLINE_ACCOUNT_INFORMATION_UPDATE:
-        display_name: "Online Account Information Update"
-        description: >
-          Questions about editing or updating information associated
-          with the citizen's NID online-account profile.
-        includes:
-          - "Update account information"
-          - "Change linked mobile number"
-          - "Update contact information"
-          - "Edit online profile"
-          - "Correct information entered in the online account"
-        excludes:
-          - "Correcting information printed or stored on the actual NID"
-          - "NID name, DOB, address or other official-record correction"
-
-      NID_ONLINE_ACCOUNT_DEACTIVATION:
-        display_name: "Online Account Deactivation"
-        description: >
-          Questions about closing, deleting, deactivating or
-          reactivating an NID online account.
-        includes:
-          - "Deactivate account"
-          - "Close old account"
-          - "Delete account"
-          - "Permanent account deactivation"
-          - "Whether a deactivated account can be reactivated"
-        excludes:
-          - "Recovering an account because access was lost"
-
-      NID_ONLINE_GENERAL_PROBLEM:
-        display_name: "General Online Service Problem"
-        description: >
-          Online NID service problems where the citizen reports
-          difficulty but does not identify a sufficiently specific
-          account, login, OTP, verification or portal issue.
-        includes:
-          - "NID online service is not working"
-          - "Cannot complete an online service"
-          - "General online-service error"
-          - "Unspecified NID portal problem"
-          - "Where to get help for an online-service problem"
-        excludes:
-          - "A clearly identifiable login problem"
-          - "A clearly identifiable OTP problem"
-          - "Face or biometric verification"
-          - "The entire portal being unavailable"
-
-  NID_SMART_CARD:
-    display_name: "Smart NID Card"
-    description: >
-      Smart NID eligibility, registration/application, issuance
-      status, collection, distribution, delay and general
-      Smart Card service problems.
-
-    default_evidence_status: "supported_by_current_dataset"
-
-    covers:
-      - "Smart NID Eligibility"
-      - "Smart NID Registration"
-      - "Smart NID Application"
-      - "Smart NID Status"
-      - "Smart NID Collection Location"
-      - "Smart NID Distribution Date"
-      - "Smart NID Delay"
-      - "General Smart NID Problems"
-
-    query_topics:
-
-      NID_SMART_ELIGIBILITY:
-        display_name: "Smart NID Eligibility"
-        description: >
-          Questions about who is eligible to receive a Smart NID,
-          what conditions apply, or whether a particular citizen
-          qualifies for one.
-        includes:
-          - "Who can receive a Smart NID?"
-          - "Am I eligible for a Smart NID?"
-          - "Can a new voter receive a Smart NID?"
-          - "Can an existing NID holder receive one?"
-          - "Is there an age requirement?"
-          - "What are the eligibility conditions?"
-        excludes:
-          - "How to register for Smart NID"
-          - "How to apply after eligibility is known"
-
-      NID_SMART_REGISTRATION:
-        display_name: "Smart NID Registration"
-        description: >
-          Questions specifically about whether Smart NID requires
-          separate registration and how or where that registration
-          is performed.
-        includes:
-          - "Do I need to register separately for Smart NID?"
-          - "How do I register?"
-          - "Where can I register?"
-          - "Can Smart NID registration be done online?"
-          - "Registration procedure"
-        excludes:
-          - "General Smart NID application procedure"
-          - "First-time voter/NID registration"
-
-      NID_SMART_APPLICATION:
-        display_name: "Smart NID Application"
-        description: >
-          Questions about applying for a Smart NID, application
-          procedure, application requirements and submission.
-        includes:
-          - "How do I apply for a Smart NID?"
-          - "Smart NID application process"
-          - "Where to apply for a Smart NID"
-          - "Can I apply online?"
-          - "Documents needed to apply"
-          - "What should I do to obtain a Smart NID?"
-        excludes:
-          - "Checking an already submitted application"
-          - "Generic Smart NID eligibility"
-          - "Smart NID fee questions"
-
-      NID_SMART_STATUS:
-        display_name: "Smart NID Status"
-        description: >
-          Questions about checking whether a Smart NID has been
-          issued, produced, approved or is ready after an
-          application or registration process.
-        includes:
-          - "How do I check Smart NID status?"
-          - "Has my Smart NID been produced?"
-          - "Is my card ready?"
-          - "Where can I check status?"
-          - "Can status be checked online?"
-          - "Is the Smart NID ready for collection?"
-        excludes:
-          - "Where to collect the card"
-          - "When distribution will occur"
-          - "A card that is explicitly delayed"
-
-      NID_SMART_COLLECTION_LOCATION:
-        display_name: "Smart NID Collection Location"
-        description: >
-          Questions about where and how a citizen should collect
-          an issued Smart NID card.
-        includes:
-          - "Where can I collect my Smart NID?"
-          - "Where is my collection center?"
-          - "Which election office should I visit?"
-          - "How do I find my collection location?"
-          - "Can another person collect it for me?"
-          - "What is required when collecting the card?"
-        excludes:
-          - "Whether the card is ready"
-          - "When distribution starts"
-
-      NID_SMART_DISTRIBUTION_DATE:
-        display_name: "Smart NID Distribution Date"
-        description: >
-          Questions about when Smart NID distribution starts,
-          the announced or local distribution date, and whether
-          distribution has begun in an area.
-        includes:
-          - "When will Smart NID cards be distributed?"
-          - "What is the distribution date?"
-          - "When will distribution start?"
-          - "Has distribution started?"
-          - "When will cards be distributed in my area?"
-          - "Where can I find the local distribution date?"
-        excludes:
-          - "Where the collection center is"
-          - "A citizen whose expected card is already delayed"
-
-      NID_SMART_DELAY:
-        display_name: "Smart NID Delay"
-        description: >
-          Questions where Smart NID issuance, readiness,
-          distribution or receipt is taking longer than expected.
-        includes:
-          - "My Smart NID is delayed"
-          - "Why have I not received my Smart NID?"
-          - "Distribution started but I did not receive mine"
-          - "Where should I contact about the delay?"
-          - "Why is my card taking so long?"
-          - "When will my delayed Smart NID arrive?"
-        excludes:
-          - "Normal status checking without an expressed delay"
-          - "General distribution-date questions"
-
-      NID_SMART_GENERAL_PROBLEM:
-        display_name: "General Smart NID Problem"
-        description: >
-          Smart NID problems where the citizen identifies a
-          Smart Card issue but does not provide enough information
-          to route it to eligibility, registration, application,
-          status, collection, distribution or delay.
-        includes:
-          - "I have a problem with my Smart NID"
-          - "My Smart NID is not working"
-          - "Where can I get help with my Smart NID?"
-          - "Smart NID information is not displaying correctly"
-          - "General Smart Card service problem"
-        excludes:
-          - "Any problem clearly belonging to another Smart NID leaf"
-          - "Lost, stolen or damaged Smart NID replacement"
-
-  NID_STATUS_AND_ACCESS:
-    display_name: "NID Status and Document Access"
-    description: >
-      Status tracking for NID-related applications and access to
-      an existing citizen's NID document or NID number.
-
-    covers:
-      - "NID Download"
-      - "NID Number Retrieval"
-      - "NID/Voter Registration Status"
-      - "NID Registration Application Delay"
-      - "NID Reissue / Replacement Status"
-
-    query_topics:
-
-      NID_STATUS_REGISTRATION_APPLICATION:
-        display_name: "New NID / Voter Registration Status"
-        description: >
-          Questions about checking, tracking or understanding the
-          current status of a submitted first-time NID or voter
+        display_name: Registration Verification
+        description: 'Questions specifically about the verification stage of a new NID or voter
           registration application.
-        evidence_status: "supported_by_current_dataset"
-        includes:
-          - "How can I check my NID application status?"
-          - "Where can I track my voter registration?"
-          - "Has my NID application been approved?"
-          - "Is my application still pending?"
-          - "What stage is my registration currently in?"
-          - "Can I check registration status online?"
-        excludes:
-          - "Normal expected registration processing time"
-          - "A clearly long-delayed or stuck registration"
-          - "Replacement/reissue application status"
-          - "Smart NID status"
 
+          '
+        includes:
+        - How verification works
+        - Meaning of verification status
+        - Physical verification
+        - Verification requirements
+        - Verification processing time
+        excludes:
+        - Generic application pending or delayed status
+      NID_REGISTRATION_PHYSICAL_CARD_COLLECTION:
+        display_name: First NID Card Collection
+        description: 'Questions about receiving or collecting the physical NID card after first-time
+          registration.
+
+          '
+        includes:
+        - When the physical card will be received
+        - Where the physical card is collected
+        - Card not received after registration
+        excludes:
+        - Smart NID Card-specific questions
+        - Replacement of a lost or damaged card
+      NID_REGISTRATION_REQUIRED_INFORMATION:
+        display_name: Required Registration Information
+        description: 'Questions asking what personal information or details must be supplied during
+          first-time registration.
+
+          '
+        includes:
+        - Required personal information
+        - Parents' information
+        - Mandatory registration information
+        - Which information is verified
+        excludes:
+        - Required supporting documents
+        - How to fill a particular form field
+      NID_REGISTRATION_MISSING_DOCUMENTS:
+        display_name: Missing or Incomplete Registration Documents
+        description: 'Questions about registering when one or more required documents are missing,
+          lost or unavailable.
+
+          '
+        includes:
+        - No birth certificate
+        - Incomplete documents
+        - Lost required document
+        - Alternative documentation
+        excludes:
+        - General document-list questions
+      NID_REGISTRATION_REFERENCE_RECOVERY:
+        display_name: Registration Reference Recovery
+        description: 'Questions about recovering a lost application number, application ID, registration
+          slip, reference number or tracking information.
+
+          '
+        includes:
+        - Lost application number
+        - Lost registration slip
+        - Lost application ID
+        - Lost tracking information
+        excludes:
+        - Recovering the citizen's NID number
+        - Recovering an NID online account or password
+        - Checking application status when the reference is already known
+      NID_REGISTRATION_LATE_REGISTRATION:
+        display_name: Late First-Time Registration
+        description: 'Questions from citizens who did not register at the usual time and now want
+          to become a voter or obtain an NID.
+
+          '
+        includes:
+        - Registering many years late
+        - Older first-time applicant
+        - Never registered before
+        - Late registration procedure
+        excludes:
+        - Ordinary minimum-age eligibility
+      NID_REGISTRATION_CANCELLATION:
+        display_name: Registration Application Cancellation
+        description: 'Questions about cancelling or withdrawing a submitted first-time NID or
+          voter registration application.
+
+          '
+        includes:
+        - Cancel application
+        - Withdraw submitted application
+        - Application submitted by mistake
+        excludes:
+        - Deactivating an NID online account
+        - Deceased-voter record deletion
+        - Correcting information on an existing NID
+      NID_REGISTRATION_PROCESSING_TIME:
+        display_name: Normal Registration Processing Time
+        description: 'Questions about the normal expected time required to complete first-time
+          registration or receive the NID.
+
+          '
+        includes:
+        - How long registration normally takes
+        - Expected processing duration
+        - Normal application-to-NID timeline
+        excludes:
+        - An application that is already unusually delayed
+        - A specific pending application
+      NID_REGISTRATION_EXPATRIATE:
+        display_name: Expatriate / Overseas NID Registration
+        description: 'Questions about first-time NID or voter registration for Bangladeshi citizens
+          who are living, working or residing outside Bangladesh.
+
+          '
+        evidence_status: needs_pilot_expansion
+        includes:
+        - Can a Bangladeshi living abroad apply for an NID?
+        - How can an expatriate register for an NID?
+        - Can I apply for NID from overseas?
+        - What is the NID registration process for expatriates?
+        - Where does an overseas Bangladeshi complete registration?
+        - What documents are required for expatriate registration?
+        excludes:
+        - Ordinary first-time registration inside Bangladesh
+        - Passport services
+        - Changing an existing NID address because the citizen moved abroad
+        - General validity of an already issued NID
+  NID_CORRECTION:
+    display_name: NID Information Correction
+    description: 'Correction or updating of personal information recorded on an existing NID.
+
+      '
+    default_evidence_status: supported_by_current_dataset
+    covers:
+    - Name Change / Name Correction
+    - Father/Mother Name Correction
+    - Date of Birth Correction
+    - Gender Correction
+    - Blood Group Correction
+    - Marital Status Correction
+    - Spouse Name Correction
+    - Address Correction
+    - Photo Change / Correction
+    - Signature Change / Correction
+    query_topics:
+      NID_CORRECTION_NAME:
+        display_name: Own Name Correction
+        description: 'Correction, spelling correction, addition, removal or modification of the
+          NID holder''s own name.
+
+          '
+        includes:
+        - Wrong own name
+        - Name spelling mistake
+        - Missing part of own name
+        - Own name differs from certificate or other document
+        - Procedure or documents for own-name correction
+        excludes:
+        - Father or mother's name
+        - Spouse's name
+        - A generic document mismatch involving another field
+      NID_CORRECTION_PARENT_NAME:
+        display_name: Father or Mother Name Correction
+        description: 'Correction or updating of the NID holder''s father or mother''s name.
+
+          '
+        includes:
+        - Father's name incorrect
+        - Mother's name incorrect
+        - Parent-name spelling error
+        - Parent name differs from supporting documents
+        - Documents or procedure for parent-name correction
+        excludes:
+        - Citizen's own name
+        - Spouse information
+      NID_CORRECTION_DOB:
+        display_name: Date of Birth Correction
+        description: 'Correction of an incorrect date, day, month or year of birth recorded on
+          the NID.
+
+          '
+        includes:
+        - Wrong date of birth
+        - Wrong birth year
+        - Wrong day or month
+        - NID birth date differs from birth registration
+        - Documents or procedure for date-of-birth correction
+        excludes:
+        - Age eligibility for first-time registration
+      NID_CORRECTION_GENDER:
+        display_name: Gender Information Correction
+        description: 'Correction or updating of gender information recorded incorrectly on an
+          existing NID.
+
+          '
+        includes:
+        - Incorrect gender
+        - Incorrect male/female designation
+        - Gender information differs from supporting documents
+        - Procedure or documents for gender correction
+        excludes:
+        - Gender information entered during first-time registration
+        - Correction of a different NID field
+      NID_CORRECTION_BLOOD_GROUP:
+        display_name: Blood Group Correction
+        description: 'Correction or updating of blood-group information recorded on an existing
+          NID.
+
+          '
+        includes:
+        - Wrong blood group
+        - Blood-group update
+        - Documents or proof for blood-group correction
+        excludes:
+        - Blood-group information entered during first-time registration
+        - Correction of a different NID field
+      NID_CORRECTION_MARITAL_STATUS:
+        display_name: Marital Status Correction
+        description: 'Correction or updating of marital-status information such as married or
+          unmarried status.
+
+          '
+        includes:
+        - Incorrect marital status
+        - Status still shows unmarried after marriage
+        - Marital-status update
+        - Documents or procedure for marital-status correction
+        excludes:
+        - Adding or correcting the spouse's actual name
+      NID_CORRECTION_SPOUSE_NAME:
+        display_name: Spouse Name Correction
+        description: 'Addition, correction or updating of husband or wife information recorded
+          on the NID.
+
+          '
+        includes:
+        - Incorrect spouse name
+        - Spouse-name spelling correction
+        - Adding husband or wife name
+        - Updating spouse information
+        - Documents or procedure for spouse-name correction
+        excludes:
+        - Changing only married/unmarried status
+      NID_CORRECTION_ADDRESS:
+        display_name: Address Correction
+        description: 'Correction, addition or updating of address information recorded on an existing
+          NID.
+
+          '
+        includes:
+        - Incorrect address
+        - Current address missing
+        - Address update after moving
+        - Incorrect village or area name
+        - Documents or procedure for address correction
+        excludes:
+        - Transferring the citizen's voter area
+        - Choosing a voter area during first-time registration
+      NID_CORRECTION_PHOTO:
+        display_name: Photo Change or Correction
+        description: 'Updating or replacing the photograph associated with an existing NID.
+
+          '
+        includes:
+        - Old photograph
+        - Poor-quality photograph
+        - Request to provide a new photograph
+        - Photo-change procedure
+        excludes:
+        - Biometric photograph taken during first-time registration
+      NID_CORRECTION_SIGNATURE:
+        display_name: Signature Change or Correction
+        description: 'Correction, replacement or updating of the signature associated with an
+          existing NID.
+
+          '
+        includes:
+        - Incorrect signature
+        - Old signature needs replacement
+        - Changed signature
+        - Signature-update procedure
+        - Requirements for signature correction
+        excludes:
+        - Signature captured during first-time registration
+        - Face, fingerprint or online biometric verification
+        - Correction of a different NID field
+  NID_REPLACEMENT:
+    display_name: Lost, Stolen, Damaged or Duplicate NID
+    description: 'Replacement, duplicate or reissue procedures for an NID that has been lost,
+      stolen, damaged or otherwise requires replacement.
+
+      '
+    default_evidence_status: supported_by_current_dataset
+    covers:
+    - Lost NID
+    - Stolen NID
+    - Damaged NID
+    - NID Reissue / Replacement
+    - Duplicate NID
+    - Lost or Damaged Smart NID Replacement
+    query_topics:
+      NID_REPLACEMENT_PROCESS:
+        display_name: NID Replacement or Reissue Process
+        description: 'General questions about what to do and how to obtain another NID after loss,
+          theft, damage or another replacement situation.
+
+          '
+        includes:
+        - NID lost, what should I do?
+        - How to replace a lost NID
+        - How to reissue an NID
+        - Replacement procedure
+        - Damaged NID replacement process
+        - Lost Smart NID replacement process
+        excludes:
+        - Questions specifically asking whether replacement is allowed
+        - Questions specifically asking for documents
+        - Questions specifically about filing a GD
+        - Application tracking or status
+        - Fee or payment questions
+      NID_REPLACEMENT_ELIGIBILITY:
+        display_name: Replacement Eligibility
+        description: 'Questions asking whether an NID in a particular condition can be replaced
+          or reissued.
+
+          '
+        includes:
+        - Can a damaged NID be replaced?
+        - Can I get another card after losing my NID?
+        - Is reissue available for a lost or damaged NID?
+        - Can a lost Smart NID be replaced?
+        excludes:
+        - How to perform the replacement
+      NID_REPLACEMENT_REQUIRED_DOCUMENTS:
+        display_name: Replacement Required Documents
+        description: 'Questions asking which documents, papers or supporting evidence are required
+          for NID replacement or reissue.
+
+          '
+        includes:
+        - Documents required for lost NID replacement
+        - Documents needed for reissue
+        - Supporting documents
+        - Whether birth registration is required
+        - Documents needed for Smart NID replacement
+        excludes:
+        - Documents needed specifically to file the police GD
+        - Fee or payment questions
+      NID_REPLACEMENT_GD_REPORTING:
+        display_name: Lost NID GD and Police Reporting
+        description: 'Questions about reporting a lost or stolen NID to police, whether a General
+          Diary is required, how to file it and what is needed for the GD.
+
+          '
+        includes:
+        - Do I need a GD for a lost NID?
+        - How to file a GD
+        - Where to report a lost NID
+        - What documents are needed for the GD
+        - What information must be provided in the GD
+        - Whether the GD copy is needed for reissue
+        excludes:
+        - General replacement documents unrelated to the GD
+        - Police GD questions unrelated to an NID
+      NID_REPLACEMENT_APPLICATION_LOCATION:
+        display_name: Replacement Application Location
+        description: 'Questions about where a citizen should submit an NID replacement or reissue
+          application.
+
+          '
+        includes:
+        - Where to apply for NID reissue
+        - Which office handles replacement
+        - Where to submit a lost-NID replacement request
+        - Where to apply for Smart NID replacement
+        excludes:
+        - Questions specifically asking about online application
+      NID_REPLACEMENT_ONLINE_APPLICATION:
+        display_name: Online Replacement Application
+        description: 'Questions about whether or how an NID replacement or reissue application
+          can be performed online.
+
+          '
+        includes:
+        - Can I apply for NID reissue online?
+        - Online lost-NID replacement
+        - Online replacement application procedure
+        excludes:
+        - NID portal login or account problems
+        - Application status tracking
+      NID_REPLACEMENT_PROCESSING_TIME:
+        display_name: Normal Replacement Processing Time
+        description: 'Questions asking how long an NID replacement or reissue normally takes.
+
+          '
+        includes:
+        - How many days does replacement take?
+        - Normal reissue processing time
+        - Expected time to receive the replacement card
+        excludes:
+        - An already delayed replacement application
+        - Checking the status of a submitted replacement request
+  NID_ONLINE_SERVICES:
+    display_name: NID Online Account and Portal
+    description: 'NID portal account creation, login, password and account recovery, OTP and identity
+      verification, account management, portal availability and other online-service access issues.
+
+      '
+    default_evidence_status: supported_by_current_dataset
+    covers:
+    - NID Online Account Registration
+    - NID Services Registration
+    - NID Account Login
+    - NID Portal Login Problem
+    - Forgotten Password / Password Reset
+    - NID Account Recovery
+    - OTP Not Received
+    - OTP Verification Problem
+    - Face Verification Problem
+    - Biometric Verification Problem
+    - NID Portal Not Working
+    - NID Account Information Update
+    - NID Account Deactivation
+    - General NID Online Service Problem
+    query_topics:
+      NID_ONLINE_ACCOUNT_REGISTRATION:
+        display_name: Online Account Registration
+        description: 'Questions about creating, registering, signing up for or activating an NID
+          online-services account.
+
+          '
+        includes:
+        - How to create an NID online account
+        - How to register for NID online services
+        - Where the portal registration option is
+        - Information required to create an account
+        - Whether registration can be completed using a phone
+        - Problems encountered while creating an account
+        - Activating online-service access
+        excludes:
+        - First-time voter/NID registration
+        - Logging into an existing online account
+        - Recovering an existing account
+      NID_ONLINE_LOGIN:
+        display_name: Online Account Login
+        description: 'Questions asking how or where to sign in to an existing NID online account.
+
+          '
+        includes:
+        - How to log in
+        - Where the login page is
+        - How to sign in after creating an account
+        - How to access an existing NID account
+        excludes:
+        - Login attempts that are failing
+        - Forgotten-password problems
+        - Account recovery
+      NID_ONLINE_LOGIN_PROBLEM:
+        display_name: Online Account Login Problem
+        description: 'Problems where the citizen has an existing NID account but cannot successfully
+          log in or access it normally.
+
+          '
+        includes:
+        - Login is not working
+        - Correct information entered but login fails
+        - Login error
+        - Sign-in repeatedly fails
+        - Cannot access account despite having credentials
+        excludes:
+        - Citizen forgot the password
+        - Citizen lost broader access to the account
+        - The entire NID portal appears unavailable
+      NID_ONLINE_PASSWORD_RESET:
+        display_name: Forgotten Password and Password Reset
+        description: 'Questions about a forgotten NID online-account password, resetting it, changing
+          it through the recovery flow or problems completing a password reset.
+
+          '
+        includes:
+        - Forgot NID account password
+        - How to reset password
+        - Where the forgot-password option is
+        - How to create a new password
+        - Password reset is not working
+        - Password-reset link or procedure
+        excludes:
+        - Normal login with a known password
+        - Loss of account access unrelated to only the password
+      NID_ONLINE_ACCOUNT_RECOVERY:
+        display_name: Online Account Recovery
+        description: 'Questions about recovering or regaining access to an existing NID online
+          account when the citizen has lost broader account access or account information.
+
+          '
+        includes:
+        - Recover old NID online account
+        - Lost access to account
+        - Regain access to existing account
+        - Account recovery option
+        - Missing login information
+        - Recover an old account
+        excludes:
+        - Only forgetting or resetting the password
+        - Creating a completely new account
+      NID_ONLINE_OTP_NOT_RECEIVED:
+        display_name: OTP Not Received
+        description: 'Problems where an NID verification OTP or verification code has been requested
+          but has not arrived.
+
+          '
+        includes:
+        - OTP did not arrive
+        - OTP SMS not received
+        - Verification code not received
+        - OTP is taking too long
+        - Repeated OTP requests produce no SMS
+        excludes:
+        - An OTP was received but is rejected
+        - Face or biometric verification
+      NID_ONLINE_OTP_VERIFICATION:
+        display_name: OTP Verification Problem
+        description: 'Problems where an OTP has been received but verification cannot be completed
+          successfully.
+
+          '
+        includes:
+        - Correct OTP is rejected
+        - OTP verification fails
+        - OTP expired
+        - Portal does nothing after OTP submission
+        - Account verification remains incomplete
+        excludes:
+        - OTP never arrived
+        - Face verification
+        - Fingerprint or other biometric verification
+      NID_ONLINE_FACE_VERIFICATION:
+        display_name: Face Verification Problem
+        description: 'Problems involving face detection or face verification during NID online-account
+          verification.
+
+          '
+        includes:
+        - Face verification fails
+        - Portal cannot detect face
+        - Face image is not accepted
+        - Repeated face-verification failure
+        - Error during face verification
+        excludes:
+        - Fingerprint verification
+        - General biometric issue with no face reference
+        - OTP verification
+      NID_ONLINE_BIOMETRIC_VERIFICATION:
+        display_name: Biometric Verification Problem
+        description: 'Problems involving fingerprint or other non-face biometric verification
+          for NID online services.
+
+          '
+        includes:
+        - Fingerprint is not recognized
+        - Biometric verification fails
+        - Biometric information does not match
+        - Fingerprint detection problem
+        - Cannot complete biometric verification
+        excludes:
+        - Face-specific verification
+        - OTP verification
+      NID_ONLINE_PORTAL_UNAVAILABLE:
+        display_name: NID Portal Not Working
+        description: 'Problems indicating that the NID portal or website itself is unavailable,
+          failing to load or returning general system-level errors.
+
+          '
+        includes:
+        - NID portal is down
+        - Website does not open
+        - Page does not load
+        - Portal repeatedly returns errors
+        - Online-service website appears unavailable
+        excludes:
+        - A login-only problem while the portal otherwise works
+        - A specific OTP or verification problem
+        - An unspecified problem with one online service
+      NID_ONLINE_ACCOUNT_INFORMATION_UPDATE:
+        display_name: Online Account Information Update
+        description: 'Questions about editing or updating information associated with the citizen''s
+          NID online-account profile.
+
+          '
+        includes:
+        - Update account information
+        - Change linked mobile number
+        - Update contact information
+        - Edit online profile
+        - Correct information entered in the online account
+        excludes:
+        - Correcting information printed or stored on the actual NID
+        - NID name, DOB, address or other official-record correction
+      NID_ONLINE_ACCOUNT_DEACTIVATION:
+        display_name: Online Account Deactivation
+        description: 'Questions about closing, deleting, deactivating or reactivating an NID online
+          account.
+
+          '
+        includes:
+        - Deactivate account
+        - Close old account
+        - Delete account
+        - Permanent account deactivation
+        - Whether a deactivated account can be reactivated
+        excludes:
+        - Recovering an account because access was lost
+      NID_ONLINE_GENERAL_PROBLEM:
+        display_name: General Online Service Problem
+        description: 'Online NID service problems where the citizen reports difficulty but does
+          not identify a sufficiently specific account, login, OTP, verification or portal issue.
+
+          '
+        includes:
+        - NID online service is not working
+        - Cannot complete an online service
+        - General online-service error
+        - Unspecified NID portal problem
+        - Where to get help for an online-service problem
+        excludes:
+        - A clearly identifiable login problem
+        - A clearly identifiable OTP problem
+        - Face or biometric verification
+        - The entire portal being unavailable
+  NID_SMART_CARD:
+    display_name: Smart NID Card
+    description: 'Smart NID eligibility, registration/application, issuance status, collection,
+      distribution, delay and general Smart Card service problems.
+
+      '
+    default_evidence_status: supported_by_current_dataset
+    covers:
+    - Smart NID Eligibility
+    - Smart NID Registration
+    - Smart NID Application
+    - Smart NID Status
+    - Smart NID Collection Location
+    - Smart NID Distribution Date
+    - Smart NID Delay
+    - General Smart NID Problems
+    query_topics:
+      NID_SMART_ELIGIBILITY:
+        display_name: Smart NID Eligibility
+        description: 'Questions about who is eligible to receive a Smart NID, what conditions
+          apply, or whether a particular citizen qualifies for one.
+
+          '
+        includes:
+        - Who can receive a Smart NID?
+        - Am I eligible for a Smart NID?
+        - Can a new voter receive a Smart NID?
+        - Can an existing NID holder receive one?
+        - Is there an age requirement?
+        - What are the eligibility conditions?
+        excludes:
+        - How to register for Smart NID
+        - How to apply after eligibility is known
+      NID_SMART_REGISTRATION:
+        display_name: Smart NID Registration
+        description: 'Questions specifically about whether Smart NID requires separate registration
+          and how or where that registration is performed.
+
+          '
+        includes:
+        - Do I need to register separately for Smart NID?
+        - How do I register?
+        - Where can I register?
+        - Can Smart NID registration be done online?
+        - Registration procedure
+        excludes:
+        - General Smart NID application procedure
+        - First-time voter/NID registration
+      NID_SMART_APPLICATION:
+        display_name: Smart NID Application
+        description: 'Questions about applying for a Smart NID, application procedure, application
+          requirements and submission.
+
+          '
+        includes:
+        - How do I apply for a Smart NID?
+        - Smart NID application process
+        - Where to apply for a Smart NID
+        - Can I apply online?
+        - Documents needed to apply
+        - What should I do to obtain a Smart NID?
+        excludes:
+        - Checking an already submitted application
+        - Generic Smart NID eligibility
+        - Smart NID fee questions
+      NID_SMART_STATUS:
+        display_name: Smart NID Status
+        description: 'Questions about checking whether a Smart NID has been issued, produced,
+          approved or is ready after an application or registration process.
+
+          '
+        includes:
+        - How do I check Smart NID status?
+        - Has my Smart NID been produced?
+        - Is my card ready?
+        - Where can I check status?
+        - Can status be checked online?
+        - Is the Smart NID ready for collection?
+        excludes:
+        - Where to collect the card
+        - When distribution will occur
+        - A card that is explicitly delayed
+      NID_SMART_COLLECTION_LOCATION:
+        display_name: Smart NID Collection Location
+        description: 'Questions about where and how a citizen should collect an issued Smart NID
+          card.
+
+          '
+        includes:
+        - Where can I collect my Smart NID?
+        - Where is my collection center?
+        - Which election office should I visit?
+        - How do I find my collection location?
+        - Can another person collect it for me?
+        - What is required when collecting the card?
+        excludes:
+        - Whether the card is ready
+        - When distribution starts
+      NID_SMART_DISTRIBUTION_DATE:
+        display_name: Smart NID Distribution Date
+        description: 'Questions about when Smart NID distribution starts, the announced or local
+          distribution date, and whether distribution has begun in an area.
+
+          '
+        includes:
+        - When will Smart NID cards be distributed?
+        - What is the distribution date?
+        - When will distribution start?
+        - Has distribution started?
+        - When will cards be distributed in my area?
+        - Where can I find the local distribution date?
+        excludes:
+        - Where the collection center is
+        - A citizen whose expected card is already delayed
+      NID_SMART_DELAY:
+        display_name: Smart NID Delay
+        description: 'Questions where Smart NID issuance, readiness, distribution or receipt is
+          taking longer than expected.
+
+          '
+        includes:
+        - My Smart NID is delayed
+        - Why have I not received my Smart NID?
+        - Distribution started but I did not receive mine
+        - Where should I contact about the delay?
+        - Why is my card taking so long?
+        - When will my delayed Smart NID arrive?
+        excludes:
+        - Normal status checking without an expressed delay
+        - General distribution-date questions
+      NID_SMART_GENERAL_PROBLEM:
+        display_name: General Smart NID Problem
+        description: 'Smart NID problems where the citizen identifies a Smart Card issue but does
+          not provide enough information to route it to eligibility, registration, application,
+          status, collection, distribution or delay.
+
+          '
+        includes:
+        - I have a problem with my Smart NID
+        - My Smart NID is not working
+        - Where can I get help with my Smart NID?
+        - Smart NID information is not displaying correctly
+        - General Smart Card service problem
+        excludes:
+        - Any problem clearly belonging to another Smart NID leaf
+        - Lost, stolen or damaged Smart NID replacement
+  NID_STATUS_AND_ACCESS:
+    display_name: NID Status and Document Access
+    description: 'Status tracking for NID-related applications and access to an existing citizen''s
+      NID document or NID number.
+
+      '
+    covers:
+    - NID Download
+    - NID Number Retrieval
+    - NID/Voter Registration Status
+    - NID Registration Application Delay
+    - NID Reissue / Replacement Status
+    query_topics:
+      NID_STATUS_REGISTRATION_APPLICATION:
+        display_name: New NID / Voter Registration Status
+        description: 'Questions about checking, tracking or understanding the current status of
+          a submitted first-time NID or voter registration application.
+
+          '
+        evidence_status: supported_by_current_dataset
+        includes:
+        - How can I check my NID application status?
+        - Where can I track my voter registration?
+        - Has my NID application been approved?
+        - Is my application still pending?
+        - What stage is my registration currently in?
+        - Can I check registration status online?
+        excludes:
+        - Normal expected registration processing time
+        - A clearly long-delayed or stuck registration
+        - Replacement/reissue application status
+        - Smart NID status
       NID_STATUS_REGISTRATION_DELAY:
-        display_name: "New NID / Registration Delay"
-        description: >
-          Questions where a submitted first-time NID or voter
-          registration application has remained pending, processing
-          or incomplete longer than expected.
-        evidence_status: "supported_by_current_dataset"
-        includes:
-          - "My NID application has been pending for a long time"
-          - "Why is my registration delayed?"
-          - "I applied but still have not received any update"
-          - "My voter registration is still incomplete"
-          - "Who should I contact about an application delay?"
-          - "Why has processing taken so long?"
-        excludes:
-          - "General status checking without an expressed delay"
-          - "Questions asking normal processing duration"
-          - "Late first-time registration by someone who never applied"
+        display_name: New NID / Registration Delay
+        description: 'Questions where a submitted first-time NID or voter registration application
+          has remained pending, processing or incomplete longer than expected.
 
+          '
+        evidence_status: supported_by_current_dataset
+        includes:
+        - My NID application has been pending for a long time
+        - Why is my registration delayed?
+        - I applied but still have not received any update
+        - My voter registration is still incomplete
+        - Who should I contact about an application delay?
+        - Why has processing taken so long?
+        excludes:
+        - General status checking without an expressed delay
+        - Questions asking normal processing duration
+        - Late first-time registration by someone who never applied
       NID_STATUS_REPLACEMENT_APPLICATION:
-        display_name: "NID Replacement / Reissue Status"
-        description: >
-          Questions about tracking or checking the status, progress,
-          approval or pending state of an already submitted NID
-          replacement or reissue application.
-        evidence_status: "supported_by_current_dataset"
-        includes:
-          - "How can I check my NID reissue status?"
-          - "Where can I track my replacement application?"
-          - "Is my reissue application still pending?"
-          - "What stage is my replacement application in?"
-          - "Can I check replacement status online?"
-          - "My replacement has not arrived; how do I check the status?"
-        excludes:
-          - "How to apply for replacement"
-          - "Normal replacement processing time"
-          - "Replacement fee or payment questions"
-          - "Smart NID issuance status"
+        display_name: NID Replacement / Reissue Status
+        description: 'Questions about tracking or checking the status, progress, approval or pending
+          state of an already submitted NID replacement or reissue application.
 
+          '
+        evidence_status: supported_by_current_dataset
+        includes:
+        - How can I check my NID reissue status?
+        - Where can I track my replacement application?
+        - Is my reissue application still pending?
+        - What stage is my replacement application in?
+        - Can I check replacement status online?
+        - My replacement has not arrived; how do I check the status?
+        excludes:
+        - How to apply for replacement
+        - Normal replacement processing time
+        - Replacement fee or payment questions
+        - Smart NID issuance status
       NID_ACCESS_DOWNLOAD:
-        display_name: "NID Download / Online Copy"
-        description: >
-          Questions about obtaining or downloading an available
-          digital or printable copy of the citizen's NID.
-        evidence_status: "needs_pilot_expansion"
-        includes:
-          - "How can I download my NID?"
-          - "Where can I get an online NID copy?"
-          - "Can I download a PDF copy of my NID?"
-          - "How do I obtain a digital NID copy?"
-        excludes:
-          - "Creating an NID online account"
-          - "First-time NID application"
-          - "Physical card collection"
-          - "Smart NID collection"
+        display_name: NID Download / Online Copy
+        description: 'Questions about obtaining or downloading an available digital or printable
+          copy of the citizen''s NID.
 
+          '
+        evidence_status: needs_pilot_expansion
+        includes:
+        - How can I download my NID?
+        - Where can I get an online NID copy?
+        - Can I download a PDF copy of my NID?
+        - How do I obtain a digital NID copy?
+        excludes:
+        - Creating an NID online account
+        - First-time NID application
+        - Physical card collection
+        - Smart NID collection
       NID_ACCESS_NUMBER_RETRIEVAL:
-        display_name: "NID Number Retrieval"
-        description: >
-          Questions about finding or recovering the citizen's
-          existing NID number when the number is unknown, forgotten
-          or unavailable.
-        evidence_status: "needs_pilot_expansion"
-        includes:
-          - "How can I find my NID number?"
-          - "I forgot my NID number"
-          - "Where can I retrieve my NID number?"
-          - "Can I find my NID number online?"
-        excludes:
-          - "Providing an actual NID number as sensitive information"
-          - "Recovering an online-account password"
-          - "Recovering a registration application/reference number"
+        display_name: NID Number Retrieval
+        description: 'Questions about finding or recovering the citizen''s existing NID number
+          when the number is unknown, forgotten or unavailable.
 
+          '
+        evidence_status: needs_pilot_expansion
+        includes:
+        - How can I find my NID number?
+        - I forgot my NID number
+        - Where can I retrieve my NID number?
+        - Can I find my NID number online?
+        excludes:
+        - Providing an actual NID number as sensitive information
+        - Recovering an online-account password
+        - Recovering a registration application/reference number
   NID_VOTER_SERVICES:
-    display_name: "Voter Record and Electoral Services"
-    description: >
-      Voter-record and electoral-service queries associated with
-      an existing voter record, including voter-area transfer,
-      vote-center information and deceased-voter record handling.
+    display_name: Voter Record and Electoral Services
+    description: 'Voter-record and electoral-service queries associated with an existing voter
+      record, including voter-area transfer, vote-center information and deceased-voter record
+      handling.
 
+      '
     covers:
-      - "Voter Area Migration"
-      - "Vote Center Information"
-      - "Deceased Voter / Voter Deletion"
-
+    - Voter Area Migration
+    - Vote Center Information
+    - Deceased Voter / Voter Deletion
     query_topics:
-
       NID_VOTER_AREA_TRANSFER:
-        display_name: "Voter Area Transfer"
-        description: >
-          Questions about moving or transferring an existing
-          voter's registered voter area from one geographic
-          location to another.
-        evidence_status: "supported_by_current_dataset"
-        includes:
-          - "How do I change my voter area?"
-          - "I moved to another area; how do I transfer my voter record?"
-          - "Can I transfer from one upazila to another?"
-          - "My voter area still shows my old location"
-          - "What documents are required for voter-area transfer?"
-          - "Do I need to visit the election office?"
-          - "How do I apply for voter-area migration?"
-        excludes:
-          - "Correcting an address without changing voter area"
-          - "Choosing a voter area during first-time registration"
-          - "Finding the citizen's assigned vote center"
+        display_name: Voter Area Transfer
+        description: 'Questions about moving or transferring an existing voter''s registered voter
+          area from one geographic location to another.
 
+          '
+        evidence_status: supported_by_current_dataset
+        includes:
+        - How do I change my voter area?
+        - I moved to another area; how do I transfer my voter record?
+        - Can I transfer from one upazila to another?
+        - My voter area still shows my old location
+        - What documents are required for voter-area transfer?
+        - Do I need to visit the election office?
+        - How do I apply for voter-area migration?
+        excludes:
+        - Correcting an address without changing voter area
+        - Choosing a voter area during first-time registration
+        - Finding the citizen's assigned vote center
       NID_VOTER_CENTER_INFORMATION:
-        display_name: "Vote Center Information"
-        description: >
-          Questions about finding or identifying the polling or
-          vote center assigned to an existing voter.
-        evidence_status: "needs_pilot_expansion"
-        includes:
-          - "Where is my vote center?"
-          - "How can I find my polling center?"
-          - "Which center am I assigned to?"
-          - "How can I check my vote-center information?"
-          - "Where do I go to vote?"
-        excludes:
-          - "Changing voter area"
-          - "Finding an election office for an NID application"
-          - "Selecting a voter area during first registration"
+        display_name: Vote Center Information
+        description: 'Questions about finding or identifying the polling or vote center assigned
+          to an existing voter.
 
+          '
+        evidence_status: needs_pilot_expansion
+        includes:
+        - Where is my vote center?
+        - How can I find my polling center?
+        - Which center am I assigned to?
+        - How can I check my vote-center information?
+        - Where do I go to vote?
+        excludes:
+        - Changing voter area
+        - Finding an election office for an NID application
+        - Selecting a voter area during first registration
       NID_VOTER_DECEASED_DELETION:
-        display_name: "Deceased Voter Record / Voter Deletion"
-        description: >
-          Questions concerning the voter record of a deceased
-          person, including reporting the death or requesting
-          appropriate removal or updating of the voter record.
-        evidence_status: "needs_pilot_expansion"
-        includes:
-          - "How do I report a deceased voter?"
-          - "How is a deceased person's voter record updated?"
-          - "How can a deceased voter be removed from the voter list?"
-          - "What documents are required for deceased-voter record handling?"
-          - "Where should a family member report the death?"
-        excludes:
-          - "Cancelling a living citizen's first-time NID application"
-          - "Deactivating an NID online account"
-          - "General NID correction"
+        display_name: Deceased Voter Record / Voter Deletion
+        description: 'Questions concerning the voter record of a deceased person, including reporting
+          the death or requesting appropriate removal or updating of the voter record.
 
+          '
+        evidence_status: needs_pilot_expansion
+        includes:
+        - How do I report a deceased voter?
+        - How is a deceased person's voter record updated?
+        - How can a deceased voter be removed from the voter list?
+        - What documents are required for deceased-voter record handling?
+        - Where should a family member report the death?
+        excludes:
+        - Cancelling a living citizen's first-time NID application
+        - Deactivating an NID online account
+        - General NID correction
   NID_FEES_AND_PAYMENT:
-    display_name: "NID Fees and Payment"
-    description: >
-      Questions concerning NID service fees, payment methods,
-      payment confirmation, receipts and refunds across supported
-      NID-related procedures.
+    display_name: NID Fees and Payment
+    description: 'Questions concerning NID service fees, payment methods, payment confirmation,
+      receipts and refunds across supported NID-related procedures.
 
+      '
     covers:
-      - "General NID Fee Information"
-      - "Service-Specific NID Fees"
-      - "NID Payment Methods"
-      - "NID Payment Status"
-      - "NID Refund and Receipts"
-
+    - General NID Fee Information
+    - Service-Specific NID Fees
+    - NID Payment Methods
+    - NID Payment Status
+    - NID Refund and Receipts
     query_topics:
-
       NID_FEES_GENERAL_INFORMATION:
-        display_name: "General NID Fee Information"
-        description: >
-          General questions about NID fees or charges where the
-          citizen does not identify a specific NID operation.
-        evidence_status: "needs_pilot_expansion"
-        includes:
-          - "Does NID service require a fee?"
-          - "What are the NID service fees?"
-          - "Where can I find the NID fee list?"
-          - "How much do NID services cost?"
-          - "Are all NID services free?"
-        excludes:
-          - "Fee for a clearly identified service such as registration or reissue"
-          - "How to make a payment"
-          - "Whether a completed payment succeeded"
+        display_name: General NID Fee Information
+        description: 'General questions about NID fees or charges where the citizen does not identify
+          a specific NID operation.
 
+          '
+        evidence_status: needs_pilot_expansion
+        includes:
+        - Does NID service require a fee?
+        - What are the NID service fees?
+        - Where can I find the NID fee list?
+        - How much do NID services cost?
+        - Are all NID services free?
+        excludes:
+        - Fee for a clearly identified service such as registration or reissue
+        - How to make a payment
+        - Whether a completed payment succeeded
       NID_FEES_SERVICE_SPECIFIC:
-        display_name: "Service-Specific NID Fee"
-        description: >
-          Questions asking whether a fee applies or how much must
-          be paid for a specifically identified NID procedure.
-        evidence_status: "supported_by_current_dataset"
-        includes:
-          - "How much is the new NID registration fee?"
-          - "Is first-time voter registration free?"
-          - "How much does NID replacement cost?"
-          - "What is the NID reissue fee?"
-          - "Is there a fee for correcting my NID name?"
-          - "How much does a particular NID service cost?"
-        excludes:
-          - "How or where to pay the fee"
-          - "Payment confirmation or status"
-          - "Refund or receipt requests"
+        display_name: Service-Specific NID Fee
+        description: 'Questions asking whether a fee applies or how much must be paid for a specifically
+          identified NID procedure.
 
+          '
+        evidence_status: supported_by_current_dataset
+        includes:
+        - How much is the new NID registration fee?
+        - Is first-time voter registration free?
+        - How much does NID replacement cost?
+        - What is the NID reissue fee?
+        - Is there a fee for correcting my NID name?
+        - How much does a particular NID service cost?
+        excludes:
+        - How or where to pay the fee
+        - Payment confirmation or status
+        - Refund or receipt requests
       NID_PAYMENT_METHOD:
-        display_name: "NID Payment Method"
-        description: >
-          Questions about how, where or through which payment
-          channel an NID-related fee should be paid.
-        evidence_status: "supported_by_current_dataset"
-        includes:
-          - "How do I pay the NID fee?"
-          - "Can I pay online?"
-          - "Can I use mobile banking?"
-          - "Can the fee be paid through a bank?"
-          - "Which payment methods are available?"
-          - "How do I pay a replacement or reissue fee?"
-        excludes:
-          - "How much the service costs"
-          - "Whether a previous payment succeeded"
-          - "Refund requests"
+        display_name: NID Payment Method
+        description: 'Questions about how, where or through which payment channel an NID-related
+          fee should be paid.
 
+          '
+        evidence_status: supported_by_current_dataset
+        includes:
+        - How do I pay the NID fee?
+        - Can I pay online?
+        - Can I use mobile banking?
+        - Can the fee be paid through a bank?
+        - Which payment methods are available?
+        - How do I pay a replacement or reissue fee?
+        excludes:
+        - How much the service costs
+        - Whether a previous payment succeeded
+        - Refund requests
       NID_PAYMENT_STATUS:
-        display_name: "NID Payment Status"
-        description: >
-          Questions about whether an NID-related payment was
-          successfully received, confirmed, verified or remains
-          pending or failed.
-        evidence_status: "needs_pilot_expansion"
-        includes:
-          - "How can I check my NID payment status?"
-          - "I paid the fee but it still shows unpaid"
-          - "Was my payment successful?"
-          - "My payment is pending"
-          - "Payment failed but money was deducted"
-          - "How do I confirm that the payment was received?"
-        excludes:
-          - "How to make the payment"
-          - "How much the fee is"
-          - "Requesting a refund or receipt"
+        display_name: NID Payment Status
+        description: 'Questions about whether an NID-related payment was successfully received,
+          confirmed, verified or remains pending or failed.
 
+          '
+        evidence_status: needs_pilot_expansion
+        includes:
+        - How can I check my NID payment status?
+        - I paid the fee but it still shows unpaid
+        - Was my payment successful?
+        - My payment is pending
+        - Payment failed but money was deducted
+        - How do I confirm that the payment was received?
+        excludes:
+        - How to make the payment
+        - How much the fee is
+        - Requesting a refund or receipt
       NID_PAYMENT_REFUND_RECEIPT:
-        display_name: "NID Refund and Receipt"
-        description: >
-          Questions about payment receipts, proof of payment,
-          duplicate payment, incorrect payment or requesting a
-          refund for an NID-related transaction.
-        evidence_status: "needs_pilot_expansion"
-        includes:
-          - "How can I get my payment receipt?"
-          - "Where can I download proof of payment?"
-          - "I paid twice; what should I do?"
-          - "Can I get a refund?"
-          - "I paid the wrong amount"
-          - "How can I obtain another copy of my receipt?"
-        excludes:
-          - "Checking whether the payment succeeded"
-          - "How to pay a fee"
-          - "Asking only for the required fee amount"
+        display_name: NID Refund and Receipt
+        description: 'Questions about payment receipts, proof of payment, duplicate payment, incorrect
+          payment or requesting a refund for an NID-related transaction.
 
+          '
+        evidence_status: needs_pilot_expansion
+        includes:
+        - How can I get my payment receipt?
+        - Where can I download proof of payment?
+        - I paid twice; what should I do?
+        - Can I get a refund?
+        - I paid the wrong amount
+        - How can I obtain another copy of my receipt?
+        excludes:
+        - Checking whether the payment succeeded
+        - How to pay a fee
+        - Asking only for the required fee amount
   NID_GENERAL_INFORMATION:
-    display_name: "General NID Information"
-    description: >
-      General informational and lifecycle questions about NID that
-      do not represent a specific correction, replacement, portal,
-      Smart Card, voter-service, fee or application workflow.
+    display_name: General NID Information
+    description: 'General informational and lifecycle questions about NID that do not represent
+      a specific correction, replacement, portal, Smart Card, voter-service, fee or application
+      workflow.
 
+      '
     covers:
-      - "General NID Information"
-      - "NID Validity / Re-registration"
-
+    - General NID Information
+    - NID Validity / Re-registration
     query_topics:
-
       NID_GENERAL_PURPOSE_AND_USE:
-        display_name: "NID Purpose and General Use"
-        description: >
-          General questions about what an NID is, why it is needed,
-          what it is used for or basic information about the NID
-          service.
-        evidence_status: "needs_pilot_expansion"
-        includes:
-          - "What is an NID?"
-          - "Why do I need an NID?"
-          - "What is an NID used for?"
-          - "What services require an NID?"
-          - "What is the purpose of the National Identity Card?"
-          - "Where is NID generally used?"
-        excludes:
-          - "Who is eligible to register for a new NID"
-          - "How to apply for an NID"
-          - "A specific NID procedure"
+        display_name: NID Purpose and General Use
+        description: 'General questions about what an NID is, why it is needed, what it is used
+          for or basic information about the NID service.
 
+          '
+        evidence_status: needs_pilot_expansion
+        includes:
+        - What is an NID?
+        - Why do I need an NID?
+        - What is an NID used for?
+        - What services require an NID?
+        - What is the purpose of the National Identity Card?
+        - Where is NID generally used?
+        excludes:
+        - Who is eligible to register for a new NID
+        - How to apply for an NID
+        - A specific NID procedure
       NID_GENERAL_VALIDITY_REREGISTRATION:
-        display_name: "NID Validity and Re-registration"
-        description: >
-          Questions about whether an existing NID remains valid,
-          expires, needs renewal or requires the citizen to register
-          again.
-        evidence_status: "needs_pilot_expansion"
+        display_name: NID Validity and Re-registration
+        description: 'Questions about whether an existing NID remains valid, expires, needs renewal
+          or requires the citizen to register again.
+
+          '
+        evidence_status: needs_pilot_expansion
         includes:
-          - "Does an NID expire?"
-          - "How long is my NID valid?"
-          - "Do I need to register again?"
-          - "Is my old NID still valid?"
-          - "Do I need a new registration after many years?"
-          - "Does NID require renewal?"
+        - Does an NID expire?
+        - How long is my NID valid?
+        - Do I need to register again?
+        - Is my old NID still valid?
+        - Do I need a new registration after many years?
+        - Does NID require renewal?
         excludes:
-          - "First-time NID registration"
-          - "Replacing a lost or damaged NID"
-          - "Smart NID distribution or replacement"
-          - "Correcting information on an existing NID"
-
-
+        - First-time NID registration
+        - Replacing a lost or damaged NID
+        - Smart NID distribution or replacement
+        - Correcting information on an existing NID
 design_rules:
+- 'Parent topics describe broad citizen-service areas. Specific information needs will be represented
+  as query-topic IDs beneath these parents.
 
-  - >
-    Parent topics describe broad citizen-service areas. Specific
-    information needs will be represented as query-topic IDs beneath
-    these parents.
+  '
+- 'The existing spreadsheet problem labels are source labels only and do not define the final
+  hierarchy.
 
-  - >
-    The existing spreadsheet problem labels are source labels only
-    and do not define the final hierarchy.
+  '
+- 'Voter Area Migration is separated from ordinary Address Correction because changing residential
+  information and transferring a voter area represent different citizen service needs.
 
-  - >
-    Voter Area Migration is separated from ordinary Address Correction
-    because changing residential information and transferring a voter
-    area represent different citizen service needs.
+  '
+- 'Status/document-access queries are separated from portal-account problems. For example, downloading
+  an NID and recovering a portal password should not be the same intent family.
 
-  - >
-    Status/document-access queries are separated from portal-account
-    problems. For example, downloading an NID and recovering a portal
-    password should not be the same intent family.
+  '
+- 'Generic fee/payment questions belong to NID_FEES_AND_PAYMENT. Operation-specific fee questions
+  may later be routed to a more specific query topic if the query clearly identifies the operation.
 
-  - >
-    Generic fee/payment questions belong to NID_FEES_AND_PAYMENT.
-    Operation-specific fee questions may later be routed to a more
-    specific query topic if the query clearly identifies the operation.
+  '
+- 'NID_GENERAL_INFORMATION must not become a catch-all class for ambiguous queries. Low-confidence
+  or unsupported queries will eventually use clarification/OOD handling instead.
 
-  - >
-    NID_GENERAL_INFORMATION must not become a catch-all class for
-    ambiguous queries. Low-confidence or unsupported queries will
-    eventually use clarification/OOD handling instead.
-
-
+  '
 source_dataset_mapping:
-
-  "NID Information Correction":
-    primary_parent: "NID_CORRECTION"
-
-  "New NID Registration":
-    primary_parent: "NID_REGISTRATION"
-
-  "Lost/Stolen NID":
-    primary_parent: "NID_REPLACEMENT"
-
-  "NID Online Problem":
-    primary_parent: "NID_ONLINE_SERVICES"
-
-  "Smart ID Card":
-    primary_parent: "NID_SMART_CARD"
-
-
+  NID Information Correction:
+    primary_parent: NID_CORRECTION
+  New NID Registration:
+    primary_parent: NID_REGISTRATION
+  Lost/Stolen NID:
+    primary_parent: NID_REPLACEMENT
+  NID Online Problem:
+    primary_parent: NID_ONLINE_SERVICES
+  Smart ID Card:
+    primary_parent: NID_SMART_CARD
 freeze_status:
-  shared_contract_frozen: false
+  shared_contract_frozen: true
   parent_topics_reviewed: true
-  query_topics_defined: false
-  inclusion_exclusion_rules_defined: false
+  query_topics_defined: true
+  inclusion_exclusion_rules_defined: true
+  semantic_audit_passed: true
+  pilot_dataset_created: true
+  taxonomy_ready_for_shared_contract: true

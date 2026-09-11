@@ -1,748 +1,671 @@
-taxonomy_version: "0.2.1"
-service_id: "BIRTH_REGISTRATION"
-status: "dataset_v0_2_validated"
-
-description: >
-  Working parent-topic taxonomy for Bangladesh Birth Registration
-  citizen queries. The structure is based on the Birth Registration
-  source/query-topic inventory. Query-topic / specific-intent IDs
-  will be defined only after the parent structure is reviewed.
-
-id_prefix: "BR"
-
+taxonomy_version: 0.2.1
+service_id: BIRTH_REGISTRATION
+status: contract_frozen
+description: Reviewed Birth Registration taxonomy with 8 parent topics, 30 query-topic intents
+  and validated pilot and expanded datasets.
+id_prefix: BR
 parent_topics:
-
   BR_REGISTRATION:
-    display_name: "Birth Registration Application"
-    description: >
-      New birth registration and the process of submitting a birth
-      registration application, including the overall procedure,
-      registration location, overseas application, required personal
-      and parent information, addresses, applicant/guardian handling,
-      supporting documents and OTP verification.
+    display_name: Birth Registration Application
+    description: 'New birth registration and the process of submitting a birth registration application,
+      including the overall procedure, registration location, overseas application, required personal
+      and parent information, addresses, applicant/guardian handling, supporting documents and
+      OTP verification.
 
-    default_evidence_status: "official_workflow_supported"
-
+      '
+    default_evidence_status: official_workflow_supported
     covers:
-      - "New Birth Registration"
-      - "Online Birth Registration Application"
-      - "Registration Office / Location"
-      - "Overseas / Embassy Registration"
-      - "Registered Person Information"
-      - "Father and Mother Information"
-      - "Address Information"
-      - "Applicant / Guardian Information"
-      - "Supporting Documents"
-      - "Application OTP / Verification"
-
+    - New Birth Registration
+    - Online Birth Registration Application
+    - Registration Office / Location
+    - Overseas / Embassy Registration
+    - Registered Person Information
+    - Father and Mother Information
+    - Address Information
+    - Applicant / Guardian Information
+    - Supporting Documents
+    - Application OTP / Verification
     query_topics:
-
       BR_REGISTRATION_PROCESS:
-        display_name: "New Birth Registration Process"
-        description: >
-          General or end-to-end questions about how to submit a new
-          birth registration application.
-        includes:
-          - "How do I apply for birth registration?"
-          - "What is the birth registration process?"
-          - "How do I register a child's birth?"
-          - "Where do I start a new birth registration application?"
-        excludes:
-          - "Questions only about choosing the registration office"
-          - "Questions specifically about overseas registration"
-          - "Questions only about documents or OTP"
-          - "Correction of an existing birth registration"
+        display_name: New Birth Registration Process
+        description: 'General or end-to-end questions about how to submit a new birth registration
+          application.
 
+          '
+        includes:
+        - How do I apply for birth registration?
+        - What is the birth registration process?
+        - How do I register a child's birth?
+        - Where do I start a new birth registration application?
+        excludes:
+        - Questions only about choosing the registration office
+        - Questions specifically about overseas registration
+        - Questions only about documents or OTP
+        - Correction of an existing birth registration
       BR_REGISTRATION_ONLINE_APPLICATION:
-        display_name: "Online Birth Registration Application"
-        description: >
-          Questions specifically about starting or completing the
-          new birth registration application through the BDRIS
-          online application system.
-        includes:
-          - "Can I apply for birth registration online?"
-          - "Where is the online birth registration application?"
-          - "How do I submit the application online?"
-          - "Can I start the application from home?"
-        excludes:
-          - "General registration process without an online focus"
-          - "Checking an already submitted application's status"
-          - "Printing an already submitted application"
+        display_name: Online Birth Registration Application
+        description: 'Questions specifically about starting or completing the new birth registration
+          application through the BDRIS online application system.
 
+          '
+        includes:
+        - Can I apply for birth registration online?
+        - Where is the online birth registration application?
+        - How do I submit the application online?
+        - Can I start the application from home?
+        excludes:
+        - General registration process without an online focus
+        - Checking an already submitted application's status
+        - Printing an already submitted application
       BR_REGISTRATION_LOCATION_SELECTION:
-        display_name: "Registration Office and Location Selection"
-        description: >
-          Questions about selecting the address basis or registration
-          office through which the birth registration application
-          should be submitted.
-        includes:
-          - "Which registration office should I select?"
-          - "Should I apply using birth place or permanent address?"
-          - "Which office handles my birth registration?"
-          - "How do I choose the registration location?"
-        excludes:
-          - "Entering the detailed birth-place address"
-          - "Entering permanent or present address information"
-          - "Applying specifically through a Bangladesh embassy"
+        display_name: Registration Office and Location Selection
+        description: 'Questions about selecting the address basis or registration office through
+          which the birth registration application should be submitted.
 
+          '
+        includes:
+        - Which registration office should I select?
+        - Should I apply using birth place or permanent address?
+        - Which office handles my birth registration?
+        - How do I choose the registration location?
+        excludes:
+        - Entering the detailed birth-place address
+        - Entering permanent or present address information
+        - Applying specifically through a Bangladesh embassy
       BR_REGISTRATION_OVERSEAS_EMBASSY:
-        display_name: "Overseas / Embassy Birth Registration"
-        description: >
-          Questions about submitting a birth registration application
-          through a Bangladesh embassy or mission while the applicant
-          is abroad.
-        includes:
-          - "Can I apply for birth registration from abroad?"
-          - "How do I apply through a Bangladesh embassy?"
-          - "Which embassy should I select for birth registration?"
-          - "How does overseas birth registration work?"
-        excludes:
-          - "Ordinary domestic registration-office selection"
-          - "Passport services"
-          - "Correction of an already registered birth record"
+        display_name: Overseas / Embassy Birth Registration
+        description: 'Questions about submitting a birth registration application through a Bangladesh
+          embassy or mission while the applicant is abroad.
 
+          '
+        includes:
+        - Can I apply for birth registration from abroad?
+        - How do I apply through a Bangladesh embassy?
+        - Which embassy should I select for birth registration?
+        - How does overseas birth registration work?
+        excludes:
+        - Ordinary domestic registration-office selection
+        - Passport services
+        - Correction of an already registered birth record
       BR_REGISTRATION_PERSON_INFORMATION:
-        display_name: "Registered Person Information"
-        description: >
-          Questions about the personal information that must be
-          supplied for the person whose birth is being registered.
-        includes:
-          - "What information about the child is required?"
-          - "Do I need the name in Bangla and English?"
-          - "What personal details are entered in the application?"
-          - "What information is required about the person being registered?"
-        excludes:
-          - "Father or mother information"
-          - "Address information"
-          - "Supporting-document requirements"
+        display_name: Registered Person Information
+        description: 'Questions about the personal information that must be supplied for the person
+          whose birth is being registered.
 
+          '
+        includes:
+        - What information about the child is required?
+        - Do I need the name in Bangla and English?
+        - What personal details are entered in the application?
+        - What information is required about the person being registered?
+        excludes:
+        - Father or mother information
+        - Address information
+        - Supporting-document requirements
       BR_REGISTRATION_PARENT_INFORMATION:
-        display_name: "Father and Mother Information"
-        description: >
-          Questions about information required for the registered
-          person's father or mother during a new birth registration
-          application.
-        includes:
-          - "What father information is required?"
-          - "What mother information is required?"
-          - "Do I need my parents' birth registration numbers?"
-          - "What parent information must be entered?"
-          - "Is parent nationality information required?"
-        excludes:
-          - "Correcting father or mother information on an existing record"
-          - "Applicant/guardian relationship questions"
-          - "General supporting-document questions"
+        display_name: Father and Mother Information
+        description: 'Questions about information required for the registered person''s father
+          or mother during a new birth registration application.
 
+          '
+        includes:
+        - What father information is required?
+        - What mother information is required?
+        - Do I need my parents' birth registration numbers?
+        - What parent information must be entered?
+        - Is parent nationality information required?
+        excludes:
+        - Correcting father or mother information on an existing record
+        - Applicant/guardian relationship questions
+        - General supporting-document questions
       BR_REGISTRATION_ADDRESS_INFORMATION:
-        display_name: "Birth, Permanent and Present Address Information"
-        description: >
-          Questions about entering the birth-place, permanent or
-          present address sections of a new birth registration
-          application.
-        includes:
-          - "How do I enter the birth-place address?"
-          - "What should I use as permanent address?"
-          - "How do I enter present address?"
-          - "My present and permanent addresses are the same"
-          - "Which address information is required?"
-        excludes:
-          - "Choosing the registration office or location basis"
-          - "Correcting an address on an existing birth record"
+        display_name: Birth, Permanent and Present Address Information
+        description: 'Questions about entering the birth-place, permanent or present address sections
+          of a new birth registration application.
 
+          '
+        includes:
+        - How do I enter the birth-place address?
+        - What should I use as permanent address?
+        - How do I enter present address?
+        - My present and permanent addresses are the same
+        - Which address information is required?
+        excludes:
+        - Choosing the registration office or location basis
+        - Correcting an address on an existing birth record
       BR_REGISTRATION_APPLICANT_RELATION:
-        display_name: "Applicant, Parent and Guardian Relationship"
-        description: >
-          Questions about who may submit or attest the application and
-          how the applicant's relationship to the person being
-          registered should be recorded.
-        includes:
-          - "Can the father submit the application?"
-          - "Can the mother apply?"
-          - "Can a legal guardian submit the application?"
-          - "Who can apply for a child?"
-          - "What relationship should I select as applicant?"
-          - "What if someone other than the parents submits the application?"
-        excludes:
-          - "Father or mother information fields themselves"
-          - "General personal information about the registered person"
+        display_name: Applicant, Parent and Guardian Relationship
+        description: 'Questions about who may submit or attest the application and how the applicant''s
+          relationship to the person being registered should be recorded.
 
+          '
+        includes:
+        - Can the father submit the application?
+        - Can the mother apply?
+        - Can a legal guardian submit the application?
+        - Who can apply for a child?
+        - What relationship should I select as applicant?
+        - What if someone other than the parents submits the application?
+        excludes:
+        - Father or mother information fields themselves
+        - General personal information about the registered person
       BR_REGISTRATION_REQUIRED_DOCUMENTS:
-        display_name: "Birth Registration Supporting Documents"
-        description: >
-          Questions about documentary evidence or attachments required
-          to support a new birth registration application.
-        includes:
-          - "What documents are required for birth registration?"
-          - "What supporting papers should I upload?"
-          - "Do I need proof for a legal guardian?"
-          - "What documents must be attached?"
-          - "What file types can be uploaded?"
-        excludes:
-          - "Information fields entered directly in the form"
-          - "Documents required for correction of an existing record"
-
-      BR_REGISTRATION_MISSING_DOCUMENTS:
-        display_name: "Missing or Unavailable Registration Documents"
-        description: >
-          Questions about what to do when a document expected for the
-          birth registration application is missing or unavailable.
-        evidence_status: "needs_query_pilot"
-        includes:
-          - "What if I do not have one of the required documents?"
-          - "Can I apply if a supporting document is missing?"
-          - "What can I use instead of a missing document?"
-          - "I cannot provide one of the requested papers"
-        excludes:
-          - "General questions asking which documents are required"
-          - "Missing information on an already issued birth certificate"
-
-      BR_REGISTRATION_OTP_NOT_RECEIVED:
-        display_name: "Registration OTP Not Received"
-        description: >
-          Problems where the applicant requested the verification OTP
-          for the birth registration application but the code did not
-          arrive by the expected phone or email channel.
-        includes:
-          - "I did not receive the birth registration OTP"
-          - "OTP SMS did not arrive"
-          - "No verification code came to my email"
-          - "I requested OTP but received nothing"
-        excludes:
-          - "OTP arrived but is rejected"
-          - "General application failure unrelated to OTP"
-
-      BR_REGISTRATION_OTP_VERIFICATION:
-        display_name: "Registration OTP Verification Problem"
-        description: >
-          Problems where an OTP has been received but the application
-          cannot complete OTP verification successfully.
-        evidence_status: "needs_query_pilot"
-        includes:
-          - "The OTP is not being accepted"
-          - "I entered the verification code but it fails"
-          - "OTP verification is not completing"
-          - "My verification code shows an error"
-        excludes:
-          - "OTP was never received"
-          - "Record verification after registration"
-
-      BR_REGISTRATION_SUBMISSION_RULES:
-        display_name: "Application Submission and Edit Rules"
-        description: >
-          Questions about reviewing or submitting a new application and
-          whether information can still be changed after submission.
-        includes:
-          - "Can I edit the application after submitting it?"
-          - "Should I check the information before submission?"
-          - "Can submitted birth registration information be changed from the application?"
-          - "Does submitting the application make the information final?"
-        excludes:
-          - "Correcting an already registered birth record"
-          - "Checking application status"
-          - "Printing a submitted application"
-
-  BR_CORRECTION:
-    display_name: "Birth Registration Information Correction"
-    description: >
-      Correction or updating of information already recorded in an
-      existing birth registration record, including personal
-      information, parent information and address information.
-
-    default_evidence_status: "official_workflow_supported"
-
-    covers:
-      - "General Birth Registration Correction"
-      - "Name Correction"
-      - "Date of Birth Correction"
-      - "Gender Information Correction"
-      - "Father / Mother Information Correction"
-      - "Parent Birth Registration Number Mapping"
-      - "Address Correction"
-
-    query_topics:
-
-      BR_CORRECTION_PROCESS:
-        display_name: "Birth Registration Correction Process"
-        description: >
-          General questions about how to request correction of
-          information in an existing birth registration record.
-        includes:
-          - "How do I correct my birth registration?"
-          - "What is the birth registration correction process?"
-          - "Where do I apply to change incorrect information?"
-          - "Can birth registration information be corrected online?"
-          - "How many times can I submit a correction request?"
-        excludes:
-          - "Questions clearly identifying a specific field to correct"
-          - "Correction application status"
-          - "Certificate reprint without changing information"
-
-      BR_CORRECTION_NAME:
-        display_name: "Registered Person Name Correction"
-        description: >
-          Correction of the registered person's own Bangla or
-          English name information.
-        includes:
-          - "My name is wrong on my birth certificate"
-          - "How do I correct the spelling of my name?"
-          - "My English name is incorrect"
-          - "My Bangla name needs correction"
-          - "Part of my name is missing"
-        excludes:
-          - "Father or mother's name correction"
-          - "Date of birth correction"
-          - "Name entry during a new registration"
-
-      BR_CORRECTION_DOB:
-        display_name: "Date of Birth Correction"
-        description: >
-          Correction of an incorrect date of birth recorded in
-          an existing birth registration.
-        includes:
-          - "My date of birth is wrong"
-          - "How can I correct my birth year?"
-          - "The day or month is incorrect"
-          - "My recorded birth date needs changing"
-        excludes:
-          - "Entering date of birth during a new registration"
-          - "Using date of birth to verify an existing record"
-
-      BR_CORRECTION_GENDER:
-        display_name: "Gender Information Correction"
-        description: >
-          Correction of gender information recorded incorrectly
-          in an existing birth registration.
-        includes:
-          - "Gender is incorrect on my birth registration"
-          - "How do I correct the gender field?"
-          - "Wrong gender was recorded"
-        excludes:
-          - "Entering gender during a new registration"
-          - "Correction of another personal-information field"
-
-      BR_CORRECTION_PARENT_INFORMATION:
-        display_name: "Father or Mother Information Correction"
-        description: >
-          Correction of the registered person's father or mother
-          information, particularly parent names and related
-          parent-record information.
-        includes:
-          - "My father's name is wrong"
-          - "My mother's name needs correction"
-          - "How do I correct my parent's name?"
-          - "My parent's English name is incorrect"
-          - "Parent information on my birth record is wrong"
-        excludes:
-          - "Registered person's own name correction"
-          - "Entering parent information during a new registration"
-          - "Only linking an existing parent's birth registration number"
-
-      BR_CORRECTION_PARENT_BRN_MAPPING:
-        display_name: "Parent Birth Registration Number Mapping"
-        description: >
-          Questions about linking or mapping a father or mother's
-          existing Birth Registration Number with the registered
-          person's birth record so that corrected parent information
-          can be reflected appropriately.
-        evidence_status: "needs_query_pilot"
-        includes:
-          - "How do I link my father's birth registration number?"
-          - "My mother's BRN was not added to my birth record"
-          - "How can I map my parent's birth registration number?"
-          - "Parent information was corrected but my certificate still shows the old name"
-        excludes:
-          - "Correcting the parent's own birth registration information"
-          - "General parent-name correction without a BRN linking issue"
-          - "Entering parent BRN during a new registration"
-
-      BR_CORRECTION_ADDRESS:
-        display_name: "Birth Registration Address Correction"
-        description: >
-          Correction of birth-place, permanent or present address
-          information recorded in an existing birth registration.
-        includes:
-          - "My birth-place address is wrong"
-          - "How do I correct my permanent address?"
-          - "My present address needs correction"
-          - "The village or area in my birth registration is incorrect"
-          - "How do I change incorrect address information?"
-        excludes:
-          - "Entering address during a new registration"
-          - "Choosing the registration office/location"
-          - "Correction of personal or parent information"
-
-
-  BR_APPLICATION_MANAGEMENT:
-    display_name: "Application Status and Management"
-    description: >
-      Post-submission questions about an existing birth registration
-      application, including status checking, unusually delayed
-      applications, expected processing duration and obtaining a
-      printable copy of a submitted application.
-
-    default_evidence_status: "official_service_supported"
-
-    covers:
-      - "Application Status"
-      - "Application Tracking"
-      - "Application Delay"
-      - "Application Processing Time"
-      - "Submitted Application Print"
-
-    query_topics:
-
-      BR_APPLICATION_STATUS:
-        display_name: "Birth Registration Application Status"
-        description: >
-          Questions about checking or understanding the current state,
-          progress or approval status of an already submitted birth
-          registration application.
-        includes:
-          - "How can I check my birth registration application status?"
-          - "Is my birth registration application approved?"
-          - "Where can I track my application?"
-          - "What is the current status of my application?"
-          - "Can I check my birth registration status online?"
-          - "Is my application still pending?"
-        excludes:
-          - "Questions asking only about normal expected processing time"
-          - "Applications explicitly described as unusually delayed"
-          - "Printing the submitted application"
-          - "Checking whether an already completed birth record exists"
-
-      BR_APPLICATION_DELAY:
-        display_name: "Birth Registration Application Delay"
-        description: >
-          Questions where an already submitted birth registration
-          application appears to have remained pending, incomplete or
-          unresolved longer than the citizen expected.
-        evidence_status: "needs_query_pilot"
-        includes:
-          - "My birth registration application has been pending for a long time"
-          - "Why is my birth registration application delayed?"
-          - "I applied a long time ago but there is still no update"
-          - "My application is stuck in pending"
-          - "What should I do if my application is taking too long?"
-          - "Who should I contact about a delayed application?"
-        excludes:
-          - "Ordinary status checking without an expressed delay"
-          - "General questions about expected processing duration"
-          - "Delay in receiving a reprinted certificate"
-
-      BR_APPLICATION_PROCESSING_TIME:
-        display_name: "Birth Registration Application Processing Time"
-        description: >
-          Questions about the normal expected duration for processing
+        display_name: Birth Registration Supporting Documents
+        description: 'Questions about documentary evidence or attachments required to support
           a new birth registration application.
-        evidence_status: "needs_source_review"
+
+          '
         includes:
-          - "How long does birth registration normally take?"
-          - "How many days does a birth registration application take?"
-          - "What is the normal processing time?"
-          - "When should I normally expect the application to be completed?"
+        - What documents are required for birth registration?
+        - What supporting papers should I upload?
+        - Do I need proof for a legal guardian?
+        - What documents must be attached?
+        - What file types can be uploaded?
         excludes:
-          - "An already submitted application that is unusually delayed"
-          - "Checking the current status of a particular application"
-          - "Time required for correction or certificate reprint"
+        - Information fields entered directly in the form
+        - Documents required for correction of an existing record
+      BR_REGISTRATION_MISSING_DOCUMENTS:
+        display_name: Missing or Unavailable Registration Documents
+        description: 'Questions about what to do when a document expected for the birth registration
+          application is missing or unavailable.
 
-      BR_APPLICATION_PRINT:
-        display_name: "Submitted Birth Registration Application Print"
-        description: >
-          Questions about obtaining or printing a copy of an already
-          submitted birth registration application form.
+          '
+        evidence_status: needs_query_pilot
         includes:
-          - "How can I print my submitted birth registration application?"
-          - "Where is the application print option?"
-          - "I need another copy of my submitted application"
-          - "Can I print my birth registration application online?"
-          - "How do I retrieve my application for printing?"
+        - What if I do not have one of the required documents?
+        - Can I apply if a supporting document is missing?
+        - What can I use instead of a missing document?
+        - I cannot provide one of the requested papers
         excludes:
-          - "Reprinting an issued birth certificate"
-          - "Printing before the application has been submitted"
-          - "Checking application status"
+        - General questions asking which documents are required
+        - Missing information on an already issued birth certificate
+      BR_REGISTRATION_OTP_NOT_RECEIVED:
+        display_name: Registration OTP Not Received
+        description: 'Problems where the applicant requested the verification OTP for the birth
+          registration application but the code did not arrive by the expected phone or email
+          channel.
 
-
-  BR_CERTIFICATE_ACCESS:
-    display_name: "Birth Certificate Access and Reprint"
-    description: >
-      Questions about obtaining another copy or reprint of an
-      already issued birth registration certificate without
-      changing the underlying registered information.
-
-    default_evidence_status: "official_service_supported"
-
-    covers:
-      - "Birth Registration Certificate Reprint"
-      - "Another Birth Certificate Copy"
-
-    query_topics:
-
-      BR_CERTIFICATE_REPRINT:
-        display_name: "Birth Registration Certificate Reprint"
-        description: >
-          Questions about obtaining or requesting another copy
-          or reprint of an already issued birth registration
-          certificate when the underlying registration record
-          does not need correction.
+          '
         includes:
-          - "How can I reprint my birth certificate?"
-          - "I need another copy of my birth registration certificate"
-          - "Can I get a new printed copy of my birth certificate?"
-          - "Where can I request a birth certificate reprint?"
-          - "How do I obtain another certificate copy?"
-          - "Can an existing birth certificate be reprinted?"
+        - I did not receive the birth registration OTP
+        - OTP SMS did not arrive
+        - No verification code came to my email
+        - I requested OTP but received nothing
         excludes:
-          - "Printing a submitted birth registration application form"
-          - "Correcting information on the birth registration"
-          - "Verifying whether a birth record is valid or exists"
-          - "Cancelling a birth registration record"
+        - OTP arrived but is rejected
+        - General application failure unrelated to OTP
+      BR_REGISTRATION_OTP_VERIFICATION:
+        display_name: Registration OTP Verification Problem
+        description: 'Problems where an OTP has been received but the application cannot complete
+          OTP verification successfully.
 
-
-  BR_VERIFICATION:
-    display_name: "Birth Registration Verification"
-    description: >
-      Questions about verifying an existing birth registration record
-      using the official verification service, and problems where an
-      expected record cannot be successfully verified.
-
-    default_evidence_status: "official_service_supported"
-
-    covers:
-      - "Birth Registration Verification"
-      - "Birth Record Verification"
-      - "Record Not Found"
-      - "Verification Failure"
-
-    query_topics:
-
-      BR_VERIFICATION_RECORD:
-        display_name: "Verify Birth Registration Record"
-        description: >
-          Questions about checking or verifying an existing birth
-          registration record using the Birth Registration Number
-          and date of birth through the official verification service.
+          '
+        evidence_status: needs_query_pilot
         includes:
-          - "How can I verify my birth registration?"
-          - "How do I check whether my birth certificate is valid?"
-          - "Where can I verify a birth registration online?"
-          - "How do I verify using my birth registration number?"
-          - "What information is needed to verify a birth record?"
-          - "Can I check my birth registration using BRN and date of birth?"
+        - The OTP is not being accepted
+        - I entered the verification code but it fails
+        - OTP verification is not completing
+        - My verification code shows an error
         excludes:
-          - "Checking the status of a submitted registration application"
-          - "Obtaining another copy of an issued certificate"
-          - "Correcting information in an existing birth record"
-          - "Recovering a forgotten Birth Registration Number"
+        - OTP was never received
+        - Record verification after registration
+      BR_REGISTRATION_SUBMISSION_RULES:
+        display_name: Application Submission and Edit Rules
+        description: 'Questions about reviewing or submitting a new application and whether information
+          can still be changed after submission.
 
-      BR_VERIFICATION_FAILURE:
-        display_name: "Birth Registration Verification Failure"
-        description: >
-          Problems where the citizen attempts to verify an expected
-          existing birth registration record but the verification
-          service does not return or accept the record as expected.
-        evidence_status: "needs_query_pilot"
+          '
         includes:
-          - "My birth registration cannot be verified"
-          - "The verification page cannot find my record"
-          - "I entered my BRN and date of birth but no record appears"
-          - "My information is correct but verification is failing"
-          - "Why is my birth registration showing no result?"
-          - "What should I do if my birth record cannot be verified?"
+        - Can I edit the application after submitting it?
+        - Should I check the information before submission?
+        - Can submitted birth registration information be changed from the application?
+        - Does submitting the application make the information final?
         excludes:
-          - "The citizen does not know the Birth Registration Number"
-          - "A new birth registration application is still pending"
-          - "The citizen wants to correct information already shown in the record"
-          - "The verification website itself is generally unavailable"
-
-
-  BR_CANCELLATION:
-    display_name: "Birth Registration Certificate Cancellation"
-    description: >
-      Questions about requesting cancellation through the official
-      Birth Registration certificate cancellation service.
-
-    default_evidence_status: "official_service_supported"
-
-    covers:
-      - "Birth Registration Certificate Cancellation"
-      - "Certificate Cancellation Application"
-
-    query_topics:
-
-      BR_CANCELLATION_PROCESS:
-        display_name: "Birth Registration Certificate Cancellation Process"
-        description: >
-          General questions about whether and how to submit an official
-          request to cancel a Birth Registration certificate through
-          the BDRIS cancellation service.
-        includes:
-          - "How do I apply to cancel a birth registration certificate?"
-          - "Can a birth registration certificate be cancelled?"
-          - "Where can I submit a birth certificate cancellation request?"
-          - "How do I start a certificate cancellation application?"
-          - "Is there an online birth registration cancellation service?"
-        excludes:
-          - "Correcting incorrect information on a birth registration"
-          - "Obtaining another copy of a birth certificate"
-          - "Checking the status of a new birth registration application"
-          - "Deleting or cancelling an NID or another government record"
-          - "Questions specifically about cancellation documents, eligibility, fees or request status when those details are not yet source-verified"
-
-
-  BR_FEES_AND_PAYMENT:
-    display_name: "Birth Registration Fees and Payment"
-    description: >
-      Questions about official fees or charges associated with Birth
-      Registration services. Detailed fee amounts and payment
-      procedures belong in the verified government knowledge corpus
-      rather than in the classifier taxonomy.
-
-    default_evidence_status: "official_fee_service_supported"
-
-    covers:
-      - "Birth Registration Fee Information"
-      - "Registration Fee"
-      - "Correction Fee"
-      - "Certificate Reprint Fee"
-
-    query_topics:
-
-      BR_FEES_INFORMATION:
-        display_name: "Birth Registration Fee Information"
-        description: >
-          Questions asking whether a Birth Registration service has a
-          fee or how much an official Birth Registration-related
-          service costs, including registration, correction and
-          certificate reprint charges.
-        includes:
-          - "Is birth registration free?"
-          - "How much does birth registration cost?"
-          - "What is the birth registration fee?"
-          - "Is there a fee for correcting birth registration information?"
-          - "How much is the birth certificate correction fee?"
-          - "Is there a fee to reprint a birth certificate?"
-          - "What are the official Birth Registration charges?"
-        excludes:
-          - "How to submit a new Birth Registration application"
-          - "How to correct information"
-          - "How to obtain a certificate reprint"
-          - "Questions specifically about payment method when the supported payment workflow has not yet been verified"
-          - "Payment failure or payment status questions when the supported payment workflow has not yet been verified"
-
-
-  BR_GENERAL_INFORMATION:
-    display_name: "General Birth Registration Information"
-    description: >
-      General informational questions about Birth Registration that
-      do not represent a specific application, correction, status,
-      certificate reprint, verification, cancellation or fee
-      workflow.
-
-    default_evidence_status: "needs_query_pilot"
-
-    covers:
-      - "General Birth Registration Information"
-      - "Purpose of Birth Registration"
-      - "Birth Registration Rules and Guidance"
-
-    query_topics:
-
-      BR_GENERAL_INFORMATION:
-        display_name: "General Birth Registration Information"
-        description: >
-          Broad informational questions about Birth Registration,
-          including what it is, why it is used and where citizens can
-          find official rules or general guidance, when the query does
-          not express a more specific service intent.
-        includes:
-          - "What is birth registration?"
-          - "Why is birth registration needed?"
-          - "What is a birth registration certificate?"
-          - "Where can I find general information about birth registration?"
-          - "Where can I find the official birth registration rules?"
-          - "Is there an official birth registration guideline?"
-        excludes:
-          - "How to submit a new birth registration application"
-          - "Eligibility or requirements for a specific application"
-          - "Correction of existing birth registration information"
-          - "Application status or delay"
-          - "Certificate reprint"
-          - "Birth record verification"
-          - "Certificate cancellation"
-          - "Birth Registration fee questions"
-          - "Unsupported or unrelated queries"
-
-
-design_rules:
-
-  - >
-    Parent topics represent broad citizen information needs. Specific
-    intents will be represented by query-topic IDs beneath each parent.
-
-  - >
-    The taxonomy should remain lighter than the NID taxonomy and should
-    not create a separate classifier class for every portal field or
-    procedural detail.
-
-  - >
-    Questions about required documents, online procedure or office
-    location should become separate classifier leaves only when they
-    represent consistently distinguishable citizen intents.
-
-  - >
-    Certificate reprint is different from information correction. A
-    citizen may require another certificate copy while all registered
-    information is already correct.
-
-  - >
-    Birth-registration verification is different from obtaining another
-    certificate copy. Verification asks whether a record or certificate
-    can be validated.
-
-  - >
-    Application processing time, application status and application
-    delay require a later semantic boundary review.
-
-  - >
-    General information must not become a fallback for low-confidence
-    or unsupported queries. OOD/confidence handling will handle
-    unsupported cases.
-
-
-evidence_notes:
-
-  BR_REGISTRATION:
-    evidence_status: "official_workflow_supported"
-
+        - Correcting an already registered birth record
+        - Checking application status
+        - Printing a submitted application
   BR_CORRECTION:
-    evidence_status: "official_workflow_supported"
+    display_name: Birth Registration Information Correction
+    description: 'Correction or updating of information already recorded in an existing birth
+      registration record, including personal information, parent information and address information.
 
+      '
+    default_evidence_status: official_workflow_supported
+    covers:
+    - General Birth Registration Correction
+    - Name Correction
+    - Date of Birth Correction
+    - Gender Information Correction
+    - Father / Mother Information Correction
+    - Parent Birth Registration Number Mapping
+    - Address Correction
+    query_topics:
+      BR_CORRECTION_PROCESS:
+        display_name: Birth Registration Correction Process
+        description: 'General questions about how to request correction of information in an existing
+          birth registration record.
+
+          '
+        includes:
+        - How do I correct my birth registration?
+        - What is the birth registration correction process?
+        - Where do I apply to change incorrect information?
+        - Can birth registration information be corrected online?
+        - How many times can I submit a correction request?
+        excludes:
+        - Questions clearly identifying a specific field to correct
+        - Correction application status
+        - Certificate reprint without changing information
+      BR_CORRECTION_NAME:
+        display_name: Registered Person Name Correction
+        description: 'Correction of the registered person''s own Bangla or English name information.
+
+          '
+        includes:
+        - My name is wrong on my birth certificate
+        - How do I correct the spelling of my name?
+        - My English name is incorrect
+        - My Bangla name needs correction
+        - Part of my name is missing
+        excludes:
+        - Father or mother's name correction
+        - Date of birth correction
+        - Name entry during a new registration
+      BR_CORRECTION_DOB:
+        display_name: Date of Birth Correction
+        description: 'Correction of an incorrect date of birth recorded in an existing birth registration.
+
+          '
+        includes:
+        - My date of birth is wrong
+        - How can I correct my birth year?
+        - The day or month is incorrect
+        - My recorded birth date needs changing
+        excludes:
+        - Entering date of birth during a new registration
+        - Using date of birth to verify an existing record
+      BR_CORRECTION_GENDER:
+        display_name: Gender Information Correction
+        description: 'Correction of gender information recorded incorrectly in an existing birth
+          registration.
+
+          '
+        includes:
+        - Gender is incorrect on my birth registration
+        - How do I correct the gender field?
+        - Wrong gender was recorded
+        excludes:
+        - Entering gender during a new registration
+        - Correction of another personal-information field
+      BR_CORRECTION_PARENT_INFORMATION:
+        display_name: Father or Mother Information Correction
+        description: 'Correction of the registered person''s father or mother information, particularly
+          parent names and related parent-record information.
+
+          '
+        includes:
+        - My father's name is wrong
+        - My mother's name needs correction
+        - How do I correct my parent's name?
+        - My parent's English name is incorrect
+        - Parent information on my birth record is wrong
+        excludes:
+        - Registered person's own name correction
+        - Entering parent information during a new registration
+        - Only linking an existing parent's birth registration number
+      BR_CORRECTION_PARENT_BRN_MAPPING:
+        display_name: Parent Birth Registration Number Mapping
+        description: 'Questions about linking or mapping a father or mother''s existing Birth
+          Registration Number with the registered person''s birth record so that corrected parent
+          information can be reflected appropriately.
+
+          '
+        evidence_status: needs_query_pilot
+        includes:
+        - How do I link my father's birth registration number?
+        - My mother's BRN was not added to my birth record
+        - How can I map my parent's birth registration number?
+        - Parent information was corrected but my certificate still shows the old name
+        excludes:
+        - Correcting the parent's own birth registration information
+        - General parent-name correction without a BRN linking issue
+        - Entering parent BRN during a new registration
+      BR_CORRECTION_ADDRESS:
+        display_name: Birth Registration Address Correction
+        description: 'Correction of birth-place, permanent or present address information recorded
+          in an existing birth registration.
+
+          '
+        includes:
+        - My birth-place address is wrong
+        - How do I correct my permanent address?
+        - My present address needs correction
+        - The village or area in my birth registration is incorrect
+        - How do I change incorrect address information?
+        excludes:
+        - Entering address during a new registration
+        - Choosing the registration office/location
+        - Correction of personal or parent information
   BR_APPLICATION_MANAGEMENT:
-    evidence_status: "official_service_supported"
+    display_name: Application Status and Management
+    description: 'Post-submission questions about an existing birth registration application,
+      including status checking, unusually delayed applications, expected processing duration
+      and obtaining a printable copy of a submitted application.
 
+      '
+    default_evidence_status: official_service_supported
+    covers:
+    - Application Status
+    - Application Tracking
+    - Application Delay
+    - Application Processing Time
+    - Submitted Application Print
+    query_topics:
+      BR_APPLICATION_STATUS:
+        display_name: Birth Registration Application Status
+        description: 'Questions about checking or understanding the current state, progress or
+          approval status of an already submitted birth registration application.
+
+          '
+        includes:
+        - How can I check my birth registration application status?
+        - Is my birth registration application approved?
+        - Where can I track my application?
+        - What is the current status of my application?
+        - Can I check my birth registration status online?
+        - Is my application still pending?
+        excludes:
+        - Questions asking only about normal expected processing time
+        - Applications explicitly described as unusually delayed
+        - Printing the submitted application
+        - Checking whether an already completed birth record exists
+      BR_APPLICATION_DELAY:
+        display_name: Birth Registration Application Delay
+        description: 'Questions where an already submitted birth registration application appears
+          to have remained pending, incomplete or unresolved longer than the citizen expected.
+
+          '
+        evidence_status: needs_query_pilot
+        includes:
+        - My birth registration application has been pending for a long time
+        - Why is my birth registration application delayed?
+        - I applied a long time ago but there is still no update
+        - My application is stuck in pending
+        - What should I do if my application is taking too long?
+        - Who should I contact about a delayed application?
+        excludes:
+        - Ordinary status checking without an expressed delay
+        - General questions about expected processing duration
+        - Delay in receiving a reprinted certificate
+      BR_APPLICATION_PROCESSING_TIME:
+        display_name: Birth Registration Application Processing Time
+        description: 'Questions about the normal expected duration for processing a new birth
+          registration application.
+
+          '
+        evidence_status: needs_source_review
+        includes:
+        - How long does birth registration normally take?
+        - How many days does a birth registration application take?
+        - What is the normal processing time?
+        - When should I normally expect the application to be completed?
+        excludes:
+        - An already submitted application that is unusually delayed
+        - Checking the current status of a particular application
+        - Time required for correction or certificate reprint
+      BR_APPLICATION_PRINT:
+        display_name: Submitted Birth Registration Application Print
+        description: 'Questions about obtaining or printing a copy of an already submitted birth
+          registration application form.
+
+          '
+        includes:
+        - How can I print my submitted birth registration application?
+        - Where is the application print option?
+        - I need another copy of my submitted application
+        - Can I print my birth registration application online?
+        - How do I retrieve my application for printing?
+        excludes:
+        - Reprinting an issued birth certificate
+        - Printing before the application has been submitted
+        - Checking application status
   BR_CERTIFICATE_ACCESS:
-    evidence_status: "official_service_supported"
+    display_name: Birth Certificate Access and Reprint
+    description: 'Questions about obtaining another copy or reprint of an already issued birth
+      registration certificate without changing the underlying registered information.
 
+      '
+    default_evidence_status: official_service_supported
+    covers:
+    - Birth Registration Certificate Reprint
+    - Another Birth Certificate Copy
+    query_topics:
+      BR_CERTIFICATE_REPRINT:
+        display_name: Birth Registration Certificate Reprint
+        description: 'Questions about obtaining or requesting another copy or reprint of an already
+          issued birth registration certificate when the underlying registration record does not
+          need correction.
+
+          '
+        includes:
+        - How can I reprint my birth certificate?
+        - I need another copy of my birth registration certificate
+        - Can I get a new printed copy of my birth certificate?
+        - Where can I request a birth certificate reprint?
+        - How do I obtain another certificate copy?
+        - Can an existing birth certificate be reprinted?
+        excludes:
+        - Printing a submitted birth registration application form
+        - Correcting information on the birth registration
+        - Verifying whether a birth record is valid or exists
+        - Cancelling a birth registration record
   BR_VERIFICATION:
-    evidence_status: "official_service_supported"
+    display_name: Birth Registration Verification
+    description: 'Questions about verifying an existing birth registration record using the official
+      verification service, and problems where an expected record cannot be successfully verified.
 
+      '
+    default_evidence_status: official_service_supported
+    covers:
+    - Birth Registration Verification
+    - Birth Record Verification
+    - Record Not Found
+    - Verification Failure
+    query_topics:
+      BR_VERIFICATION_RECORD:
+        display_name: Verify Birth Registration Record
+        description: 'Questions about checking or verifying an existing birth registration record
+          using the Birth Registration Number and date of birth through the official verification
+          service.
+
+          '
+        includes:
+        - How can I verify my birth registration?
+        - How do I check whether my birth certificate is valid?
+        - Where can I verify a birth registration online?
+        - How do I verify using my birth registration number?
+        - What information is needed to verify a birth record?
+        - Can I check my birth registration using BRN and date of birth?
+        excludes:
+        - Checking the status of a submitted registration application
+        - Obtaining another copy of an issued certificate
+        - Correcting information in an existing birth record
+        - Recovering a forgotten Birth Registration Number
+      BR_VERIFICATION_FAILURE:
+        display_name: Birth Registration Verification Failure
+        description: 'Problems where the citizen attempts to verify an expected existing birth
+          registration record but the verification service does not return or accept the record
+          as expected.
+
+          '
+        evidence_status: needs_query_pilot
+        includes:
+        - My birth registration cannot be verified
+        - The verification page cannot find my record
+        - I entered my BRN and date of birth but no record appears
+        - My information is correct but verification is failing
+        - Why is my birth registration showing no result?
+        - What should I do if my birth record cannot be verified?
+        excludes:
+        - The citizen does not know the Birth Registration Number
+        - A new birth registration application is still pending
+        - The citizen wants to correct information already shown in the record
+        - The verification website itself is generally unavailable
   BR_CANCELLATION:
-    evidence_status: "official_service_exists_needs_query_pilot"
+    display_name: Birth Registration Certificate Cancellation
+    description: 'Questions about requesting cancellation through the official Birth Registration
+      certificate cancellation service.
 
+      '
+    default_evidence_status: official_service_supported
+    covers:
+    - Birth Registration Certificate Cancellation
+    - Certificate Cancellation Application
+    query_topics:
+      BR_CANCELLATION_PROCESS:
+        display_name: Birth Registration Certificate Cancellation Process
+        description: 'General questions about whether and how to submit an official request to
+          cancel a Birth Registration certificate through the BDRIS cancellation service.
+
+          '
+        includes:
+        - How do I apply to cancel a birth registration certificate?
+        - Can a birth registration certificate be cancelled?
+        - Where can I submit a birth certificate cancellation request?
+        - How do I start a certificate cancellation application?
+        - Is there an online birth registration cancellation service?
+        excludes:
+        - Correcting incorrect information on a birth registration
+        - Obtaining another copy of a birth certificate
+        - Checking the status of a new birth registration application
+        - Deleting or cancelling an NID or another government record
+        - Questions specifically about cancellation documents, eligibility, fees or request status
+          when those details are not yet source-verified
   BR_FEES_AND_PAYMENT:
-    evidence_status: "needs_detailed_source_review"
+    display_name: Birth Registration Fees and Payment
+    description: 'Questions about official fees or charges associated with Birth Registration
+      services. Detailed fee amounts and payment procedures belong in the verified government
+      knowledge corpus rather than in the classifier taxonomy.
 
+      '
+    default_evidence_status: official_fee_service_supported
+    covers:
+    - Birth Registration Fee Information
+    - Registration Fee
+    - Correction Fee
+    - Certificate Reprint Fee
+    query_topics:
+      BR_FEES_INFORMATION:
+        display_name: Birth Registration Fee Information
+        description: 'Questions asking whether a Birth Registration service has a fee or how much
+          an official Birth Registration-related service costs, including registration, correction
+          and certificate reprint charges.
+
+          '
+        includes:
+        - Is birth registration free?
+        - How much does birth registration cost?
+        - What is the birth registration fee?
+        - Is there a fee for correcting birth registration information?
+        - How much is the birth certificate correction fee?
+        - Is there a fee to reprint a birth certificate?
+        - What are the official Birth Registration charges?
+        excludes:
+        - How to submit a new Birth Registration application
+        - How to correct information
+        - How to obtain a certificate reprint
+        - Questions specifically about payment method when the supported payment workflow has
+          not yet been verified
+        - Payment failure or payment status questions when the supported payment workflow has
+          not yet been verified
   BR_GENERAL_INFORMATION:
-    evidence_status: "needs_query_pilot"
+    display_name: General Birth Registration Information
+    description: 'General informational questions about Birth Registration that do not represent
+      a specific application, correction, status, certificate reprint, verification, cancellation
+      or fee workflow.
 
+      '
+    default_evidence_status: needs_query_pilot
+    covers:
+    - General Birth Registration Information
+    - Purpose of Birth Registration
+    - Birth Registration Rules and Guidance
+    query_topics:
+      BR_GENERAL_INFORMATION:
+        display_name: General Birth Registration Information
+        description: 'Broad informational questions about Birth Registration, including what it
+          is, why it is used and where citizens can find official rules or general guidance, when
+          the query does not express a more specific service intent.
 
+          '
+        includes:
+        - What is birth registration?
+        - Why is birth registration needed?
+        - What is a birth registration certificate?
+        - Where can I find general information about birth registration?
+        - Where can I find the official birth registration rules?
+        - Is there an official birth registration guideline?
+        excludes:
+        - How to submit a new birth registration application
+        - Eligibility or requirements for a specific application
+        - Correction of existing birth registration information
+        - Application status or delay
+        - Certificate reprint
+        - Birth record verification
+        - Certificate cancellation
+        - Birth Registration fee questions
+        - Unsupported or unrelated queries
+design_rules:
+- 'Parent topics represent broad citizen information needs. Specific intents will be represented
+  by query-topic IDs beneath each parent.
+
+  '
+- 'The taxonomy should remain lighter than the NID taxonomy and should not create a separate classifier
+  class for every portal field or procedural detail.
+
+  '
+- 'Questions about required documents, online procedure or office location should become separate
+  classifier leaves only when they represent consistently distinguishable citizen intents.
+
+  '
+- 'Certificate reprint is different from information correction. A citizen may require another
+  certificate copy while all registered information is already correct.
+
+  '
+- 'Birth-registration verification is different from obtaining another certificate copy. Verification
+  asks whether a record or certificate can be validated.
+
+  '
+- 'Application processing time, application status and application delay require a later semantic
+  boundary review.
+
+  '
+- 'General information must not become a fallback for low-confidence or unsupported queries. OOD/confidence
+  handling will handle unsupported cases.
+
+  '
+evidence_notes:
+  BR_REGISTRATION:
+    evidence_status: official_workflow_supported
+  BR_CORRECTION:
+    evidence_status: official_workflow_supported
+  BR_APPLICATION_MANAGEMENT:
+    evidence_status: official_service_supported
+  BR_CERTIFICATE_ACCESS:
+    evidence_status: official_service_supported
+  BR_VERIFICATION:
+    evidence_status: official_service_supported
+  BR_CANCELLATION:
+    evidence_status: official_service_exists_needs_query_pilot
+  BR_FEES_AND_PAYMENT:
+    evidence_status: needs_detailed_source_review
+  BR_GENERAL_INFORMATION:
+    evidence_status: needs_query_pilot
 freeze_status:
-  shared_contract_frozen: false
-
+  shared_contract_frozen: true
   parent_topics_reviewed: true
   query_topics_defined: true
   inclusion_exclusion_rules_defined: true
   semantic_audit_passed: true
-
   pilot_dataset_created: true
-  taxonomy_ready_for_shared_contract: false
+  taxonomy_ready_for_shared_contract: true

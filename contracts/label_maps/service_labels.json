@@ -1,0 +1,18 @@
+{
+  "id_to_label": {
+    "0": "BIRTH_REGISTRATION",
+    "1": "DRIVING_LICENCE",
+    "2": "NID",
+    "3": "PASSPORT",
+    "4": "POLICE_GD",
+    "5": "TAX"
+  },
+  "label_to_id": {
+    "BIRTH_REGISTRATION": 0,
+    "DRIVING_LICENCE": 1,
+    "NID": 2,
+    "PASSPORT": 3,
+    "POLICE_GD": 4,
+    "TAX": 5
+  }
+}

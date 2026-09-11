@@ -1,31 +1,709 @@
-contract_version: "1.0.0"
-
+contract_version: 2.0.0
+status: frozen
 services:
   NID:
-    display_name: "NID"
-    description: "National Identity Card and voter-related services."
-
+    display_name: NID
+    taxonomy_version: 0.3.0
+    parent_topics:
+      NID_REGISTRATION:
+        display_name: NID / Voter Registration
+        query_topics:
+          NID_REGISTRATION_ELIGIBILITY:
+            display_name: Registration Eligibility
+          NID_REGISTRATION_AGE_ELIGIBILITY:
+            display_name: Registration Age Requirement
+          NID_REGISTRATION_PROCESS:
+            display_name: First-Time Registration Process
+          NID_REGISTRATION_ONLINE_APPLICATION:
+            display_name: Online Registration Application
+          NID_REGISTRATION_REQUIRED_DOCUMENTS:
+            display_name: Required Registration Documents
+          NID_REGISTRATION_APPLICATION_FORM:
+            display_name: Registration Application Form
+          NID_REGISTRATION_APPLICATION_LOCATION:
+            display_name: Registration Office or Application Location
+          NID_REGISTRATION_BIOMETRIC:
+            display_name: Registration Biometric Process
+          NID_REGISTRATION_AREA_SELECTION:
+            display_name: Voter Registration Area Selection
+          NID_REGISTRATION_APPOINTMENT:
+            display_name: Registration Appointment
+          NID_REGISTRATION_ADDRESS_FIELDS:
+            display_name: Present and Permanent Address in Registration
+          NID_REGISTRATION_VERIFICATION:
+            display_name: Registration Verification
+          NID_REGISTRATION_PHYSICAL_CARD_COLLECTION:
+            display_name: First NID Card Collection
+          NID_REGISTRATION_REQUIRED_INFORMATION:
+            display_name: Required Registration Information
+          NID_REGISTRATION_MISSING_DOCUMENTS:
+            display_name: Missing or Incomplete Registration Documents
+          NID_REGISTRATION_REFERENCE_RECOVERY:
+            display_name: Registration Reference Recovery
+          NID_REGISTRATION_LATE_REGISTRATION:
+            display_name: Late First-Time Registration
+          NID_REGISTRATION_CANCELLATION:
+            display_name: Registration Application Cancellation
+          NID_REGISTRATION_PROCESSING_TIME:
+            display_name: Normal Registration Processing Time
+          NID_REGISTRATION_EXPATRIATE:
+            display_name: Expatriate / Overseas NID Registration
+      NID_CORRECTION:
+        display_name: NID Information Correction
+        query_topics:
+          NID_CORRECTION_NAME:
+            display_name: Own Name Correction
+          NID_CORRECTION_PARENT_NAME:
+            display_name: Father or Mother Name Correction
+          NID_CORRECTION_DOB:
+            display_name: Date of Birth Correction
+          NID_CORRECTION_GENDER:
+            display_name: Gender Information Correction
+          NID_CORRECTION_BLOOD_GROUP:
+            display_name: Blood Group Correction
+          NID_CORRECTION_MARITAL_STATUS:
+            display_name: Marital Status Correction
+          NID_CORRECTION_SPOUSE_NAME:
+            display_name: Spouse Name Correction
+          NID_CORRECTION_ADDRESS:
+            display_name: Address Correction
+          NID_CORRECTION_PHOTO:
+            display_name: Photo Change or Correction
+          NID_CORRECTION_SIGNATURE:
+            display_name: Signature Change or Correction
+      NID_REPLACEMENT:
+        display_name: Lost, Stolen, Damaged or Duplicate NID
+        query_topics:
+          NID_REPLACEMENT_PROCESS:
+            display_name: NID Replacement or Reissue Process
+          NID_REPLACEMENT_ELIGIBILITY:
+            display_name: Replacement Eligibility
+          NID_REPLACEMENT_REQUIRED_DOCUMENTS:
+            display_name: Replacement Required Documents
+          NID_REPLACEMENT_GD_REPORTING:
+            display_name: Lost NID GD and Police Reporting
+          NID_REPLACEMENT_APPLICATION_LOCATION:
+            display_name: Replacement Application Location
+          NID_REPLACEMENT_ONLINE_APPLICATION:
+            display_name: Online Replacement Application
+          NID_REPLACEMENT_PROCESSING_TIME:
+            display_name: Normal Replacement Processing Time
+      NID_ONLINE_SERVICES:
+        display_name: NID Online Account and Portal
+        query_topics:
+          NID_ONLINE_ACCOUNT_REGISTRATION:
+            display_name: Online Account Registration
+          NID_ONLINE_LOGIN:
+            display_name: Online Account Login
+          NID_ONLINE_LOGIN_PROBLEM:
+            display_name: Online Account Login Problem
+          NID_ONLINE_PASSWORD_RESET:
+            display_name: Forgotten Password and Password Reset
+          NID_ONLINE_ACCOUNT_RECOVERY:
+            display_name: Online Account Recovery
+          NID_ONLINE_OTP_NOT_RECEIVED:
+            display_name: OTP Not Received
+          NID_ONLINE_OTP_VERIFICATION:
+            display_name: OTP Verification Problem
+          NID_ONLINE_FACE_VERIFICATION:
+            display_name: Face Verification Problem
+          NID_ONLINE_BIOMETRIC_VERIFICATION:
+            display_name: Biometric Verification Problem
+          NID_ONLINE_PORTAL_UNAVAILABLE:
+            display_name: NID Portal Not Working
+          NID_ONLINE_ACCOUNT_INFORMATION_UPDATE:
+            display_name: Online Account Information Update
+          NID_ONLINE_ACCOUNT_DEACTIVATION:
+            display_name: Online Account Deactivation
+          NID_ONLINE_GENERAL_PROBLEM:
+            display_name: General Online Service Problem
+      NID_SMART_CARD:
+        display_name: Smart NID Card
+        query_topics:
+          NID_SMART_ELIGIBILITY:
+            display_name: Smart NID Eligibility
+          NID_SMART_REGISTRATION:
+            display_name: Smart NID Registration
+          NID_SMART_APPLICATION:
+            display_name: Smart NID Application
+          NID_SMART_STATUS:
+            display_name: Smart NID Status
+          NID_SMART_COLLECTION_LOCATION:
+            display_name: Smart NID Collection Location
+          NID_SMART_DISTRIBUTION_DATE:
+            display_name: Smart NID Distribution Date
+          NID_SMART_DELAY:
+            display_name: Smart NID Delay
+          NID_SMART_GENERAL_PROBLEM:
+            display_name: General Smart NID Problem
+      NID_STATUS_AND_ACCESS:
+        display_name: NID Status and Document Access
+        query_topics:
+          NID_STATUS_REGISTRATION_APPLICATION:
+            display_name: New NID / Voter Registration Status
+          NID_STATUS_REGISTRATION_DELAY:
+            display_name: New NID / Registration Delay
+          NID_STATUS_REPLACEMENT_APPLICATION:
+            display_name: NID Replacement / Reissue Status
+          NID_ACCESS_DOWNLOAD:
+            display_name: NID Download / Online Copy
+          NID_ACCESS_NUMBER_RETRIEVAL:
+            display_name: NID Number Retrieval
+      NID_VOTER_SERVICES:
+        display_name: Voter Record and Electoral Services
+        query_topics:
+          NID_VOTER_AREA_TRANSFER:
+            display_name: Voter Area Transfer
+          NID_VOTER_CENTER_INFORMATION:
+            display_name: Vote Center Information
+          NID_VOTER_DECEASED_DELETION:
+            display_name: Deceased Voter Record / Voter Deletion
+      NID_FEES_AND_PAYMENT:
+        display_name: NID Fees and Payment
+        query_topics:
+          NID_FEES_GENERAL_INFORMATION:
+            display_name: General NID Fee Information
+          NID_FEES_SERVICE_SPECIFIC:
+            display_name: Service-Specific NID Fee
+          NID_PAYMENT_METHOD:
+            display_name: NID Payment Method
+          NID_PAYMENT_STATUS:
+            display_name: NID Payment Status
+          NID_PAYMENT_REFUND_RECEIPT:
+            display_name: NID Refund and Receipt
+      NID_GENERAL_INFORMATION:
+        display_name: General NID Information
+        query_topics:
+          NID_GENERAL_PURPOSE_AND_USE:
+            display_name: NID Purpose and General Use
+          NID_GENERAL_VALIDITY_REREGISTRATION:
+            display_name: NID Validity and Re-registration
   BIRTH_REGISTRATION:
-    display_name: "Birth Registration"
-    description: "Birth registration certificate and related services."
-
+    display_name: Birth Registration
+    taxonomy_version: 0.2.1
+    parent_topics:
+      BR_REGISTRATION:
+        display_name: Birth Registration Application
+        query_topics:
+          BR_REGISTRATION_PROCESS:
+            display_name: New Birth Registration Process
+          BR_REGISTRATION_ONLINE_APPLICATION:
+            display_name: Online Birth Registration Application
+          BR_REGISTRATION_LOCATION_SELECTION:
+            display_name: Registration Office and Location Selection
+          BR_REGISTRATION_OVERSEAS_EMBASSY:
+            display_name: Overseas / Embassy Birth Registration
+          BR_REGISTRATION_PERSON_INFORMATION:
+            display_name: Registered Person Information
+          BR_REGISTRATION_PARENT_INFORMATION:
+            display_name: Father and Mother Information
+          BR_REGISTRATION_ADDRESS_INFORMATION:
+            display_name: Birth, Permanent and Present Address Information
+          BR_REGISTRATION_APPLICANT_RELATION:
+            display_name: Applicant, Parent and Guardian Relationship
+          BR_REGISTRATION_REQUIRED_DOCUMENTS:
+            display_name: Birth Registration Supporting Documents
+          BR_REGISTRATION_MISSING_DOCUMENTS:
+            display_name: Missing or Unavailable Registration Documents
+          BR_REGISTRATION_OTP_NOT_RECEIVED:
+            display_name: Registration OTP Not Received
+          BR_REGISTRATION_OTP_VERIFICATION:
+            display_name: Registration OTP Verification Problem
+          BR_REGISTRATION_SUBMISSION_RULES:
+            display_name: Application Submission and Edit Rules
+      BR_CORRECTION:
+        display_name: Birth Registration Information Correction
+        query_topics:
+          BR_CORRECTION_PROCESS:
+            display_name: Birth Registration Correction Process
+          BR_CORRECTION_NAME:
+            display_name: Registered Person Name Correction
+          BR_CORRECTION_DOB:
+            display_name: Date of Birth Correction
+          BR_CORRECTION_GENDER:
+            display_name: Gender Information Correction
+          BR_CORRECTION_PARENT_INFORMATION:
+            display_name: Father or Mother Information Correction
+          BR_CORRECTION_PARENT_BRN_MAPPING:
+            display_name: Parent Birth Registration Number Mapping
+          BR_CORRECTION_ADDRESS:
+            display_name: Birth Registration Address Correction
+      BR_APPLICATION_MANAGEMENT:
+        display_name: Application Status and Management
+        query_topics:
+          BR_APPLICATION_STATUS:
+            display_name: Birth Registration Application Status
+          BR_APPLICATION_DELAY:
+            display_name: Birth Registration Application Delay
+          BR_APPLICATION_PROCESSING_TIME:
+            display_name: Birth Registration Application Processing Time
+          BR_APPLICATION_PRINT:
+            display_name: Submitted Birth Registration Application Print
+      BR_CERTIFICATE_ACCESS:
+        display_name: Birth Certificate Access and Reprint
+        query_topics:
+          BR_CERTIFICATE_REPRINT:
+            display_name: Birth Registration Certificate Reprint
+      BR_VERIFICATION:
+        display_name: Birth Registration Verification
+        query_topics:
+          BR_VERIFICATION_RECORD:
+            display_name: Verify Birth Registration Record
+          BR_VERIFICATION_FAILURE:
+            display_name: Birth Registration Verification Failure
+      BR_CANCELLATION:
+        display_name: Birth Registration Certificate Cancellation
+        query_topics:
+          BR_CANCELLATION_PROCESS:
+            display_name: Birth Registration Certificate Cancellation Process
+      BR_FEES_AND_PAYMENT:
+        display_name: Birth Registration Fees and Payment
+        query_topics:
+          BR_FEES_INFORMATION:
+            display_name: Birth Registration Fee Information
+      BR_GENERAL_INFORMATION:
+        display_name: General Birth Registration Information
+        query_topics:
+          BR_GENERAL_INFORMATION:
+            display_name: General Birth Registration Information
   PASSPORT:
-    display_name: "Passport"
-    description: "Bangladesh passport application and related services."
-
+    display_name: Passport
+    taxonomy_version: 0.2.0
+    parent_topics:
+      PASSPORT_APPLICATION:
+        display_name: New Passport Application
+        query_topics:
+          PASSPORT_APPLICATION_PROCESS:
+            display_name: New Passport Application Process
+          PASSPORT_APPLICATION_ONLINE:
+            display_name: Online Passport Application
+          PASSPORT_APPLICATION_OFFICE_SELECTION:
+            display_name: Passport Office Selection
+          PASSPORT_APPLICATION_INFORMATION:
+            display_name: Passport Application Information
+          PASSPORT_APPLICATION_PASSPORT_OPTIONS:
+            display_name: Passport Type, Validity and Page Options
+          PASSPORT_APPLICATION_OVERSEAS:
+            display_name: New Passport Application From Abroad
+          PASSPORT_APPLICATION_OFFICIAL_DIPLOMATIC:
+            display_name: Official or Diplomatic Passport Application
+      PASSPORT_DOCUMENTS:
+        display_name: Passport Documents and Requirements
+        query_topics:
+          PASSPORT_DOCUMENTS_REQUIRED:
+            display_name: General Passport Required Documents
+          PASSPORT_DOCUMENTS_NID_REQUIREMENT:
+            display_name: NID Requirement for Passport
+          PASSPORT_DOCUMENTS_BIRTH_REGISTRATION_REQUIREMENT:
+            display_name: Birth Registration Requirement for Passport
+          PASSPORT_DOCUMENTS_PREVIOUS_PASSPORT:
+            display_name: Previous Passport Document Requirement
+          PASSPORT_DOCUMENTS_MINOR_APPLICANT:
+            display_name: Documents for Minor Passport Applicant
+          PASSPORT_DOCUMENTS_ENROLMENT:
+            display_name: Documents Required for Passport Enrolment
+          PASSPORT_DOCUMENTS_MISSING:
+            display_name: Missing or Unavailable Passport Document
+          PASSPORT_DOCUMENTS_OFFICIAL_DIPLOMATIC:
+            display_name: Official or Diplomatic Passport Documents
+      PASSPORT_ONLINE_ACCOUNT:
+        display_name: Passport Online Account
+        query_topics:
+          PASSPORT_ONLINE_ACCOUNT_REGISTRATION:
+            display_name: Passport Online Account Registration
+          PASSPORT_ONLINE_ACCOUNT_LOGIN:
+            display_name: Passport Online Account Login
+          PASSPORT_ONLINE_ACCOUNT_PASSWORD_RESET:
+            display_name: Forgotten Password and Password Reset
+          PASSPORT_ONLINE_ACCOUNT_ACTIVATION:
+            display_name: Passport Account Activation
+          PASSPORT_ONLINE_ACCOUNT_ACTIVATION_EMAIL_NOT_RECEIVED:
+            display_name: Passport Account Activation Email Not Received
+          PASSPORT_ONLINE_ACCOUNT_EMAIL_CHANGE:
+            display_name: Change Registered Passport Account Email
+          PASSPORT_ONLINE_ACCOUNT_MOBILE_CHANGE:
+            display_name: Change Registered Passport Account Mobile Number
+          PASSPORT_ONLINE_ACCOUNT_ACCESS_PROBLEM:
+            display_name: Passport Online Account Access Problem
+      PASSPORT_APPOINTMENT_AND_ENROLMENT:
+        display_name: Passport Appointment and Enrolment
+        query_topics:
+          PASSPORT_APPOINTMENT_SCHEDULING:
+            display_name: Passport Appointment Scheduling
+          PASSPORT_APPOINTMENT_DATE:
+            display_name: Passport Appointment Date
+          PASSPORT_APPOINTMENT_PROBLEM:
+            display_name: Passport Appointment Problem
+          PASSPORT_APPOINTMENT_REQUIREMENTS:
+            display_name: Passport Appointment Attendance Requirements
+          PASSPORT_ENROLMENT_PROCESS:
+            display_name: Passport Enrolment Process
+          PASSPORT_ENROLMENT_LOCATION:
+            display_name: Passport Enrolment Location
+          PASSPORT_ENROLMENT_BIOMETRICS:
+            display_name: Passport Biometric Enrolment
+      PASSPORT_REISSUE:
+        display_name: Passport Re-Issue and Replacement
+        query_topics:
+          PASSPORT_REISSUE_PROCESS:
+            display_name: General Passport Re-Issue Process
+          PASSPORT_REISSUE_EXPIRY:
+            display_name: Expired or Expiring Passport Re-Issue
+          PASSPORT_REISSUE_WITH_INFORMATION_CHANGE:
+            display_name: Passport Re-Issue With Information Change
+          PASSPORT_REISSUE_LOST:
+            display_name: Lost Passport Re-Issue
+          PASSPORT_REISSUE_STOLEN:
+            display_name: Stolen Passport Re-Issue
+          PASSPORT_REISSUE_DAMAGED:
+            display_name: Damaged Passport Re-Issue
+          PASSPORT_REISSUE_WITHOUT_INFORMATION_CHANGE:
+            display_name: Passport Re-Issue Without Information Change
+          PASSPORT_REISSUE_OVERSEAS:
+            display_name: Passport Re-Issue From Abroad
+      PASSPORT_FEES_AND_PAYMENT:
+        display_name: Passport Fees and Payment
+        query_topics:
+          PASSPORT_FEES_INFORMATION:
+            display_name: Passport Fee Information
+          PASSPORT_PAYMENT_METHOD:
+            display_name: Passport Payment Method
+          PASSPORT_PAYMENT_CONFIRMATION:
+            display_name: Passport Payment Confirmation
+          PASSPORT_PAYMENT_FAILURE:
+            display_name: Passport Payment Failure
+          PASSPORT_PAYMENT_DEDUCTED_BUT_FAILED:
+            display_name: Passport Payment Deducted but Transaction Failed
+          PASSPORT_PAYMENT_REFUND:
+            display_name: Passport Payment Refund
+          PASSPORT_PAYMENT_RECEIPT:
+            display_name: Passport Payment Receipt or Slip
+          PASSPORT_FEES_DELIVERY_CATEGORY:
+            display_name: Passport Delivery Category Fee
+      PASSPORT_STATUS_AND_DELIVERY:
+        display_name: Passport Application Status and Delivery
+        query_topics:
+          PASSPORT_APPLICATION_STATUS:
+            display_name: Passport Application Status
+          PASSPORT_APPLICATION_DELAY:
+            display_name: Passport Application Delay
+          PASSPORT_PROCESSING_TIME:
+            display_name: Passport Processing Time
+          PASSPORT_DELIVERY_CATEGORY:
+            display_name: Passport Delivery or Processing Category
+          PASSPORT_READY_FOR_COLLECTION:
+            display_name: Passport Ready for Collection
+          PASSPORT_COLLECTION:
+            display_name: Passport Collection
+          PASSPORT_DELIVERY_SLIP_LOST:
+            display_name: Lost Passport Delivery Slip
+      PASSPORT_GENERAL_INFORMATION:
+        display_name: General Passport Information
+        query_topics:
+          PASSPORT_GENERAL_EPASSPORT_INFORMATION:
+            display_name: General e-Passport Information
+          PASSPORT_GENERAL_NEW_VS_REISSUE:
+            display_name: New Passport vs Re-Issue Guidance
+          PASSPORT_GENERAL_SERVICE_GUIDANCE:
+            display_name: General Passport Service Guidance
   TAX:
-    display_name: "Tax"
-    description: "Income tax, return filing, TIN and related tax services."
-
+    display_name: Tax
+    taxonomy_version: 0.2.0
+    parent_topics:
+      TAX_TIN_REGISTRATION:
+        display_name: Taxpayer Registration and TIN
+        query_topics:
+          TAX_TIN_REGISTRATION_PROCESS:
+            display_name: TIN Registration Process
+          TAX_TIN_ELIGIBILITY:
+            display_name: TIN Registration Eligibility
+          TAX_TIN_ONLINE_REGISTRATION:
+            display_name: Online e-TIN Registration
+          TAX_TIN_REQUIRED_INFORMATION:
+            display_name: TIN Registration Information and Documents
+          TAX_TIN_CERTIFICATE_DOWNLOAD:
+            display_name: e-TIN Certificate Download
+          TAX_TIN_INFORMATION_UPDATE:
+            display_name: TIN Information Correction or Update
+          TAX_TIN_CANCELLATION:
+            display_name: TIN Cancellation or Inactivation
+      TAX_RETURN_FILING:
+        display_name: Income Tax Return Filing
+        query_topics:
+          TAX_RETURN_OBLIGATION:
+            display_name: Tax Return Filing Obligation
+          TAX_RETURN_PROCESS:
+            display_name: Income Tax Return Filing Process
+          TAX_RETURN_ONLINE_SUBMISSION:
+            display_name: Online Tax Return Submission
+          TAX_RETURN_REQUIRED_DOCUMENTS:
+            display_name: Tax Return Information and Documents
+          TAX_RETURN_INCOME_INFORMATION:
+            display_name: Income Information in Tax Return
+          TAX_RETURN_ASSET_LIABILITY:
+            display_name: Assets and Liabilities in Tax Return
+          TAX_RETURN_AMENDMENT:
+            display_name: Submitted Tax Return Amendment
+          TAX_RETURN_DEADLINE:
+            display_name: Tax Return Filing Deadline
+      TAX_ONLINE_ACCOUNT:
+        display_name: e-Return Online Account
+        query_topics:
+          TAX_ACCOUNT_REGISTRATION:
+            display_name: e-Return Account Registration
+          TAX_ACCOUNT_LOGIN:
+            display_name: e-Return Account Login
+          TAX_ACCOUNT_PASSWORD_RESET:
+            display_name: e-Return Password Reset
+          TAX_ACCOUNT_MOBILE_UPDATE:
+            display_name: e-Return Registered Mobile Update
+          TAX_ACCOUNT_OTP_PROBLEM:
+            display_name: e-Return OTP Problem
+          TAX_ACCOUNT_ACCESS_PROBLEM:
+            display_name: General e-Return Account Access Problem
+      TAX_PAYMENT:
+        display_name: Tax Payment and Ledger
+        query_topics:
+          TAX_PAYMENT_AMOUNT_CALCULATION:
+            display_name: Tax Amount and Calculation Guidance
+          TAX_PAYMENT_METHOD:
+            display_name: Tax Payment Method
+          TAX_PAYMENT_CONFIRMATION:
+            display_name: Tax Payment Confirmation
+          TAX_PAYMENT_FAILURE:
+            display_name: Tax Payment Failure
+          TAX_PAYMENT_LEDGER_UPDATE:
+            display_name: Tax Payment Ledger Update
+      TAX_STATUS_AND_DOCUMENTS:
+        display_name: Return Status and Tax Documents
+        query_topics:
+          TAX_RETURN_STATUS_VERIFICATION:
+            display_name: Submitted Return Status and Verification
+          TAX_RETURN_ACKNOWLEDGEMENT:
+            display_name: Return Acknowledgement or Submission Receipt
+          TAX_RETURN_COPY_DOWNLOAD:
+            display_name: Submitted Tax Return Copy
+          TAX_CERTIFICATE_ACCESS:
+            display_name: Income Tax Certificate Access
+      TAX_GENERAL_AND_SUPPORT:
+        display_name: General Tax Information and Support
+        query_topics:
+          TAX_GENERAL_SERVICE_GUIDANCE:
+            display_name: General Income Tax Service Guidance
+          TAX_RECORD_INFORMATION:
+            display_name: Tax Record Information
+          TAX_SUPPORT_REQUEST:
+            display_name: e-Return Support Request
   POLICE_GD:
-    display_name: "Police GD"
-    description: "General Diary and related police reporting services."
-
+    display_name: Police GD
+    taxonomy_version: 0.2.0
+    parent_topics:
+      POLICE_GD_GUIDANCE:
+        display_name: GD Purpose and Routing Guidance
+        query_topics:
+          POLICE_GD_PURPOSE:
+            display_name: General Diary Purpose
+          POLICE_GD_APPROPRIATE_USE:
+            display_name: Whether a Matter Is Appropriate for GD
+          POLICE_GD_EMERGENCY_ROUTING:
+            display_name: Emergency or Immediate-Danger Routing
+          POLICE_GD_CASE_VS_GD_GUIDANCE:
+            display_name: GD Versus Case/Complaint Guidance
+      POLICE_GD_FILING:
+        display_name: GD Filing and Submission
+        query_topics:
+          POLICE_GD_FILING_PROCESS:
+            display_name: General Diary Filing Process
+          POLICE_GD_ONLINE_SUBMISSION:
+            display_name: Online GD Submission
+          POLICE_GD_REQUIRED_INFORMATION:
+            display_name: Information Required for GD
+          POLICE_GD_ATTACHMENTS:
+            display_name: GD Supporting Documents and Attachments
+          POLICE_GD_INCIDENT_DETAILS:
+            display_name: Incident Time, Place and Description
+          POLICE_GD_JURISDICTION:
+            display_name: Police Station and Jurisdiction Selection
+          POLICE_GD_IDENTITY_REQUIREMENTS:
+            display_name: Online GD Identity and Registration Requirements
+      POLICE_GD_INCIDENT_TYPE:
+        display_name: GD Incident and Item Type
+        query_topics:
+          POLICE_GD_LOST_DOCUMENT:
+            display_name: Lost Document GD
+          POLICE_GD_LOST_ITEM_DEVICE:
+            display_name: Lost Item or Device GD
+          POLICE_GD_STOLEN_ITEM:
+            display_name: Stolen Item GD/Complaint
+          POLICE_GD_FOUND_ITEM:
+            display_name: Found Item Report
+          POLICE_GD_OTHER_INCIDENT:
+            display_name: Other Non-Emergency GD Complaint
+      POLICE_GD_ONLINE_ACCOUNT:
+        display_name: Online GD Account and Access
+        query_topics:
+          POLICE_GD_ACCOUNT_REGISTRATION:
+            display_name: Online GD Account Registration
+          POLICE_GD_ACCOUNT_LOGIN:
+            display_name: Online GD Account Login
+          POLICE_GD_PASSWORD_RESET:
+            display_name: Online GD Password Reset
+          POLICE_GD_OTP_PROBLEM:
+            display_name: Online GD OTP Problem
+          POLICE_GD_IDENTITY_VERIFICATION_PROBLEM:
+            display_name: Online GD Identity Verification Problem
+          POLICE_GD_ACCOUNT_ACCESS_PROBLEM:
+            display_name: General Online GD Account Access Problem
+      POLICE_GD_STATUS_FOLLOWUP:
+        display_name: GD Status and Follow-Up
+        query_topics:
+          POLICE_GD_STATUS:
+            display_name: GD Application Status
+          POLICE_GD_DELAY:
+            display_name: GD Review or Processing Delay
+          POLICE_GD_OFFICER_CONTACT:
+            display_name: Investigating Officer Contact
+          POLICE_GD_STATION_FOLLOWUP:
+            display_name: Police Station Follow-Up
+      POLICE_GD_COPY_REFERENCE:
+        display_name: GD Copy, Receipt and Reference
+        query_topics:
+          POLICE_GD_COPY_DOWNLOAD:
+            display_name: Digital GD Copy Download
+          POLICE_GD_SUBMISSION_RECEIPT:
+            display_name: GD Submission Acknowledgement
+          POLICE_GD_REFERENCE_RECOVERY:
+            display_name: GD Complaint Reference Recovery
+      POLICE_GD_TECHNICAL_PROBLEMS:
+        display_name: Online GD Technical Problems
+        query_topics:
+          POLICE_GD_SUBMISSION_FAILURE:
+            display_name: Online GD Submission Failure
+          POLICE_GD_PORTAL_UNAVAILABLE:
+            display_name: Online GD Portal Unavailable
+      POLICE_GD_GENERAL_INFORMATION:
+        display_name: General Online GD Service Information
+        query_topics:
+          POLICE_GD_GENERAL_SERVICE_GUIDANCE:
+            display_name: General Online GD Service Guidance
   DRIVING_LICENCE:
-    display_name: "Driving Licence"
-    description: "Driving licence application, renewal and related services."
-
+    display_name: Driving Licence
+    taxonomy_version: 0.2.0
+    parent_topics:
+      DRIVING_LICENCE_LEARNER:
+        display_name: Learner Driving Licence
+        query_topics:
+          DRIVING_LICENCE_LEARNER_ELIGIBILITY:
+            display_name: Learner Licence Eligibility
+          DRIVING_LICENCE_LEARNER_PROCESS:
+            display_name: Learner Licence Application Process
+          DRIVING_LICENCE_LEARNER_DOCUMENTS:
+            display_name: Learner Licence Required Documents
+          DRIVING_LICENCE_LEARNER_MEDICAL:
+            display_name: Learner Licence Medical Certificate
+          DRIVING_LICENCE_LEARNER_COPY:
+            display_name: Learner Licence Copy or Download
+      DRIVING_LICENCE_APPLICATION:
+        display_name: New Driving Licence Application
+        query_topics:
+          DRIVING_LICENCE_NEW_PROCESS:
+            display_name: New Driving Licence Application Process
+          DRIVING_LICENCE_ONLINE_APPLICATION:
+            display_name: Online Driving Licence Application
+          DRIVING_LICENCE_TYPE_SELECTION:
+            display_name: Professional or Non-Professional Licence Type
+          DRIVING_LICENCE_VEHICLE_CLASS:
+            display_name: Driving Licence Vehicle Class Selection
+      DRIVING_LICENCE_TEST:
+        display_name: Driving Competency Test
+        query_topics:
+          DRIVING_LICENCE_TEST_PROCESS:
+            display_name: Driving Test Process
+          DRIVING_LICENCE_TEST_SCHEDULE:
+            display_name: Driving Test Schedule or Appointment
+          DRIVING_LICENCE_TEST_REQUIREMENTS:
+            display_name: Driving Test Requirements and Preparation
+          DRIVING_LICENCE_TEST_RESULT:
+            display_name: Driving Test Result
+          DRIVING_LICENCE_TEST_RETAKE:
+            display_name: Driving Test Retake Guidance
+      DRIVING_LICENCE_ONLINE_ACCOUNT:
+        display_name: BRTA Service Portal Account
+        query_topics:
+          DRIVING_LICENCE_ACCOUNT_REGISTRATION:
+            display_name: BRTA Portal Account Registration
+          DRIVING_LICENCE_ACCOUNT_LOGIN:
+            display_name: BRTA Portal Account Login
+          DRIVING_LICENCE_PASSWORD_RESET:
+            display_name: BRTA Portal Password Reset
+          DRIVING_LICENCE_ACCOUNT_OTP:
+            display_name: BRTA Portal OTP Problem
+          DRIVING_LICENCE_ACCOUNT_ACCESS_PROBLEM:
+            display_name: General BRTA Portal Access Problem
+      DRIVING_LICENCE_PAYMENT:
+        display_name: Driving Licence Fees and Payment
+        query_topics:
+          DRIVING_LICENCE_FEE_INFORMATION:
+            display_name: Driving Licence Fee Information
+          DRIVING_LICENCE_PAYMENT_METHOD:
+            display_name: Driving Licence Payment Method
+          DRIVING_LICENCE_PAYMENT_VERIFICATION:
+            display_name: Driving Licence Payment Verification
+          DRIVING_LICENCE_PAYMENT_FAILURE:
+            display_name: Driving Licence Payment Failure
+      DRIVING_LICENCE_STATUS_DELIVERY:
+        display_name: Licence Status, Issuance and Delivery
+        query_topics:
+          DRIVING_LICENCE_APPLICATION_STATUS:
+            display_name: Driving Licence Application Status
+          DRIVING_LICENCE_APPLICATION_DELAY:
+            display_name: Driving Licence Application Delay
+          DRIVING_LICENCE_READY:
+            display_name: Driving Licence Ready for Collection
+          DRIVING_LICENCE_COLLECTION_DELIVERY:
+            display_name: Driving Licence Collection or Delivery
+          DRIVING_LICENCE_VERIFICATION:
+            display_name: Driving Licence Verification
+      DRIVING_LICENCE_RENEWAL:
+        display_name: Driving Licence Renewal
+        query_topics:
+          DRIVING_LICENCE_RENEWAL_PROCESS:
+            display_name: Driving Licence Renewal Process
+          DRIVING_LICENCE_RENEWAL_DOCUMENTS:
+            display_name: Driving Licence Renewal Documents
+          DRIVING_LICENCE_EXPIRED_RENEWAL:
+            display_name: Expired Driving Licence Renewal
+      DRIVING_LICENCE_REPLACEMENT:
+        display_name: Duplicate or Replacement Driving Licence
+        query_topics:
+          DRIVING_LICENCE_DUPLICATE_PROCESS:
+            display_name: Duplicate Driving Licence Process
+          DRIVING_LICENCE_LOST_REPLACEMENT:
+            display_name: Lost Driving Licence Replacement
+          DRIVING_LICENCE_DAMAGED_REPLACEMENT:
+            display_name: Damaged Driving Licence Replacement
+      DRIVING_LICENCE_CHANGES:
+        display_name: Driving Licence Information and Class Changes
+        query_topics:
+          DRIVING_LICENCE_INFORMATION_CORRECTION:
+            display_name: Driving Licence Information Correction
+          DRIVING_LICENCE_ADDRESS_CHANGE:
+            display_name: Driving Licence Address Change
+          DRIVING_LICENCE_VEHICLE_CLASS_CHANGE:
+            display_name: Vehicle Class Addition or Change
+          DRIVING_LICENCE_TYPE_CHANGE:
+            display_name: Professional/Non-Professional Licence Type Change
+      DRIVING_LICENCE_GENERAL:
+        display_name: General Driving Licence Information
+        query_topics:
+          DRIVING_LICENCE_GENERAL_GUIDANCE:
+            display_name: General Driving Licence Service Guidance
+          DRIVING_LICENCE_PORTAL_UNAVAILABLE:
+            display_name: BRTA Service Portal Unavailable
 priority_labels:
-  - Low
-  - Medium
-  - High
+- Low
+- Medium
+- High
+freeze:
+  shared_contract_frozen: true
+  source: Generated deterministically from six reviewed taxonomy YAML files.
