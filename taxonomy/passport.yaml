@@ -1,4 +1,4 @@
-taxonomy_version: "0.1.5"
+taxonomy_version: "0.1.6"
 service_id: "PASSPORT"
 status: "query_topics_in_progress"
 
@@ -789,7 +789,182 @@ parent_topics:
       - "Changed Personal Information"
       - "Overseas Passport Re-Issue"
 
-    query_topics: {}
+    query_topics:
+
+      PASSPORT_REISSUE_PROCESS:
+        display_name: "General Passport Re-Issue Process"
+        description: >
+          General or end-to-end questions about obtaining a re-issued
+          passport when a passport has previously been issued and the
+          user does not identify a more specific reason such as loss,
+          theft, damage, expiry or information change.
+
+        evidence_status: "official_workflow_supported"
+
+        includes:
+          - "How do I reissue my passport?"
+          - "What is the passport re-issue process?"
+          - "How can I apply for another passport when I already have one?"
+          - "Where do I start a passport re-issue application?"
+
+        excludes:
+          - "First-time passport applications"
+          - "Questions specifically about an expired passport"
+          - "Lost, stolen or damaged passport cases"
+          - "Re-issue specifically because passport information has changed"
+          - "Re-issue specifically while living abroad"
+
+
+      PASSPORT_REISSUE_EXPIRY:
+        display_name: "Expired or Expiring Passport Re-Issue"
+        description: >
+          Questions specifically about re-issuing or renewing a passport
+          because it has expired or is approaching expiry.
+
+        evidence_status: "official_workflow_supported"
+
+        includes:
+          - "My passport has expired; how do I reissue it?"
+          - "How do I renew an expiring passport?"
+          - "My passport is about to expire. What should I do?"
+          - "How can I get a new passport after my old one expires?"
+
+        excludes:
+          - "General re-issue questions without an expiry reason"
+          - "Lost passport cases"
+          - "Damaged passport cases"
+          - "Re-issue specifically for changing information"
+
+
+      PASSPORT_REISSUE_WITH_INFORMATION_CHANGE:
+        display_name: "Passport Re-Issue With Information Change"
+        description: >
+          Questions about re-issuing a passport because personal or
+          passport-record information needs to be changed or updated.
+
+        evidence_status: "official_workflow_supported"
+
+        includes:
+          - "How do I change information while reissuing my passport?"
+          - "My personal information has changed; how do I reissue my passport?"
+          - "I need a new passport with corrected information."
+          - "How can I update my passport information during re-issue?"
+
+        excludes:
+          - "Correcting an online-account email or mobile number"
+          - "Questions only about what information to enter in a new application"
+          - "General re-issue without an information change"
+          - "NID or Birth Registration correction services themselves"
+
+
+      PASSPORT_REISSUE_LOST:
+        display_name: "Lost Passport Re-Issue"
+        description: >
+          Questions specifically about obtaining a replacement or
+          re-issued passport after the previously issued passport has
+          been lost.
+
+        evidence_status: "official_workflow_supported"
+
+        includes:
+          - "I lost my passport. How do I get another one?"
+          - "How do I reissue a lost passport?"
+          - "My passport is missing; what should I do to replace it?"
+          - "What is the process for getting a replacement for a lost passport?"
+
+        excludes:
+          - "Passport stolen by another person"
+          - "Passport physically damaged but still available"
+          - "Lost passport delivery slip"
+          - "General re-issue without a loss reason"
+
+
+      PASSPORT_REISSUE_STOLEN:
+        display_name: "Stolen Passport Re-Issue"
+        description: >
+          Questions specifically about replacement or re-issue after a
+          passport has been stolen.
+
+        evidence_status: "official_workflow_supported"
+
+        includes:
+          - "My passport was stolen. How do I replace it?"
+          - "How do I reissue a stolen passport?"
+          - "Someone stole my passport; what should I do?"
+          - "What is the replacement process for a stolen passport?"
+
+        excludes:
+          - "Passport that was simply lost"
+          - "Damaged passport"
+          - "Lost delivery slip"
+          - "General re-issue without a theft reason"
+
+
+      PASSPORT_REISSUE_DAMAGED:
+        display_name: "Damaged Passport Re-Issue"
+        description: >
+          Questions specifically about obtaining another passport because
+          the previously issued passport has been physically damaged or
+          is no longer usable.
+
+        evidence_status: "official_workflow_supported"
+
+        includes:
+          - "My passport is damaged. How do I replace it?"
+          - "How do I reissue a damaged passport?"
+          - "My passport is torn; what should I do?"
+          - "How can I get another passport because mine is damaged?"
+
+        excludes:
+          - "Lost passport"
+          - "Stolen passport"
+          - "Expired passport without physical damage"
+          - "General re-issue questions"
+
+
+      PASSPORT_REISSUE_WITHOUT_INFORMATION_CHANGE:
+        display_name: "Passport Re-Issue Without Information Change"
+        description: >
+          Questions specifically indicating that the applicant wants a
+          passport re-issued while keeping the existing passport
+          information unchanged.
+
+        evidence_status: "official_workflow_supported"
+
+        includes:
+          - "How do I reissue my passport without changing any information?"
+          - "My passport details are unchanged; how do I apply for re-issue?"
+          - "Can I reissue my passport with the same information?"
+          - "I need a re-issued passport but no personal details have changed."
+
+        excludes:
+          - "Re-issue specifically because information must be changed"
+          - "Lost, stolen or damaged passport cases"
+          - "First-time passport application"
+          - "Questions only about required documents for re-issue"
+
+
+      PASSPORT_REISSUE_OVERSEAS:
+        display_name: "Passport Re-Issue From Abroad"
+        description: >
+          Questions specifically about re-issuing an already existing or
+          previously issued Bangladesh passport while the applicant is
+          living outside Bangladesh through an appropriate Bangladesh
+          embassy or mission.
+
+        evidence_status: "official_workflow_supported"
+
+        includes:
+          - "How do I reissue my passport from abroad?"
+          - "Can I renew my Bangladesh passport through an embassy?"
+          - "How can I replace my existing passport while living overseas?"
+          - "Which Bangladesh mission handles my passport re-issue abroad?"
+
+        excludes:
+          - "First-time passport application from abroad"
+          - "Domestic passport re-issue"
+          - "Visa or immigration-service questions"
+          - "Questions only about embassy location without a passport re-issue intent"
 
 
   PASSPORT_FEES_AND_PAYMENT:
@@ -872,14 +1047,39 @@ design_rules:
 
   - >
     Lost, stolen and damaged passport cases remain inside
-    PASSPORT_REISSUE because each normally concerns obtaining another
-    passport after a previous passport existed. They may later become
-    distinct query-topic leaves.
+    PASSPORT_REISSUE because each concerns obtaining another passport
+    after a previously issued passport becomes unavailable or unusable.
+
+  - >
+    Lost, stolen and damaged passport cases are represented by separate
+    query-topic IDs because the stated reason for replacement differs
+    and may lead to different supporting guidance.
 
   - >
     Information change connected to an already issued passport remains
-    inside PASSPORT_REISSUE unless semantic review shows that a separate
-    parent is required.
+    inside PASSPORT_REISSUE and is represented separately from re-issue
+    without information change.
+
+  - >
+    General PASSPORT_REISSUE_PROCESS should be used only when the user
+    asks broadly about re-issue and does not state a more specific reason
+    such as expiry, loss, theft, damage, information change or overseas
+    processing.
+
+  - >
+    Expiry is represented separately because it expresses a clear reason
+    for obtaining a re-issued passport and is semantically distinct from
+    loss, theft, damage and information correction.
+
+  - >
+    Overseas re-issue is represented as a leaf under PASSPORT_REISSUE
+    rather than as a first-level parent because overseas location is a
+    contextual attribute of the re-issue intent.
+
+  - >
+    A previous passport being required as supporting evidence belongs
+    under PASSPORT_DOCUMENTS_PREVIOUS_PASSPORT, while asking how to obtain
+    the replacement or re-issued passport belongs under PASSPORT_REISSUE.
 
   - >
     Passport collection remains inside PASSPORT_STATUS_AND_DELIVERY
@@ -895,11 +1095,6 @@ design_rules:
     NID requirement and Birth Registration requirement are represented
     separately because citizens frequently ask specifically whether one
     identity document can or must be used for passport processing.
-
-  - >
-    Questions about a previous passport as a required supporting
-    document remain under PASSPORT_DOCUMENTS, while the actual process
-    of obtaining another passport remains under PASSPORT_REISSUE.
 
   - >
     Documents required at physical enrolment remain under
@@ -975,8 +1170,7 @@ design_rules:
     Overseas status is a contextual attribute rather than a first-level
     intent parent. New-passport questions from abroad belong under
     PASSPORT_APPLICATION, while re-issue questions from abroad belong
-    under PASSPORT_REISSUE. Overseas-specific leaves may be created
-    only where semantic evidence justifies them.
+    under PASSPORT_REISSUE.
 
   - >
     Official or diplomatic passport status is a contextual/application
