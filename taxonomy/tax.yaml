@@ -1,0 +1,418 @@
+taxonomy_version: 0.2.0
+service_id: TAX
+status: pilot_reviewed
+description: Working intent taxonomy for Bangladesh NBR taxpayer, e-TIN, e-Return, payment, document
+  and support queries.
+id_prefix: TAX
+parent_topics:
+  TAX_TIN_REGISTRATION:
+    display_name: Taxpayer Registration and TIN
+    description: Taxpayer registration, e-TIN lifecycle and access to the taxpayer certificate.
+    default_evidence_status: official_service_supported
+    covers:
+    - TIN registration
+    - e-TIN certificate
+    - TIN correction
+    - TIN cancellation
+    query_topics:
+      TAX_TIN_REGISTRATION_PROCESS:
+        display_name: TIN Registration Process
+        description: How to register as a taxpayer and obtain a TIN.
+        evidence_status: official_service_supported
+        includes:
+        - How to register for TIN
+        - New taxpayer registration process
+        excludes:
+        - Whether a person needs a TIN
+        - Registering only for an e-Return account
+      TAX_TIN_ELIGIBILITY:
+        display_name: TIN Registration Eligibility
+        description: Whether a citizen or organization needs or may obtain a TIN.
+        evidence_status: official_service_supported
+        includes:
+        - Who should obtain a TIN
+        - Whether TIN registration applies
+        excludes:
+        - How to register
+        - Whether an income-tax return must be filed
+      TAX_TIN_ONLINE_REGISTRATION:
+        display_name: Online e-TIN Registration
+        description: Starting or completing taxpayer registration through the online e-TIN service.
+        evidence_status: official_service_supported
+        includes:
+        - Apply for e-TIN online
+        - Online taxpayer registration
+        excludes:
+        - General TIN process without online focus
+        - e-Return account registration
+      TAX_TIN_REQUIRED_INFORMATION:
+        display_name: TIN Registration Information and Documents
+        description: Information or supporting records needed for taxpayer registration.
+        evidence_status: official_service_supported
+        includes:
+        - Information needed for TIN
+        - TIN registration documents
+        excludes:
+        - Return-filing documents
+        - A missing e-Return password
+      TAX_TIN_CERTIFICATE_DOWNLOAD:
+        display_name: e-TIN Certificate Download
+        description: Obtaining or downloading an existing e-TIN certificate.
+        evidence_status: official_service_supported
+        includes:
+        - Download TIN certificate
+        - Get another e-TIN certificate copy
+        excludes:
+        - Tax certificate after return filing
+        - Return acknowledgement
+      TAX_TIN_INFORMATION_UPDATE:
+        display_name: TIN Information Correction or Update
+        description: Correcting or updating information associated with an existing TIN.
+        evidence_status: official_service_supported
+        includes:
+        - Correct TIN information
+        - Update taxpayer profile data
+        excludes:
+        - Correcting a submitted return
+        - Changing only e-Return login credentials
+      TAX_TIN_CANCELLATION:
+        display_name: TIN Cancellation or Inactivation
+        description: Questions about requesting cancellation or inactivation of an existing TIN.
+        evidence_status: needs_pilot_validation
+        includes:
+        - Cancel a TIN
+        - TIN no longer required
+        excludes:
+        - Closing an online account
+        - Amending a tax return
+  TAX_RETURN_FILING:
+    display_name: Income Tax Return Filing
+    description: Return obligation, preparation, online submission, information entry, amendment
+      and deadlines.
+    default_evidence_status: official_service_supported
+    covers:
+    - Return obligation
+    - Return filing
+    - Online return
+    - Return amendment
+    - Deadline
+    query_topics:
+      TAX_RETURN_OBLIGATION:
+        display_name: Tax Return Filing Obligation
+        description: Whether the citizen is required or expected to file an income-tax return.
+        evidence_status: official_service_supported
+        includes:
+        - Who must file a return
+        - Whether return filing applies
+        excludes:
+        - Whether a TIN is needed
+        - How to file a return
+      TAX_RETURN_PROCESS:
+        display_name: Income Tax Return Filing Process
+        description: General end-to-end questions about preparing and filing a return.
+        evidence_status: official_service_supported
+        includes:
+        - How to file a return
+        - Return submission process
+        excludes:
+        - Online-account registration
+        - Checking a submitted return
+      TAX_RETURN_ONLINE_SUBMISSION:
+        display_name: Online Tax Return Submission
+        description: Submitting an income-tax return through the official e-Return system.
+        evidence_status: official_service_supported
+        includes:
+        - File return online
+        - Submit e-Return
+        excludes:
+        - Registering an e-Return account
+        - Offline/general filing without online focus
+      TAX_RETURN_REQUIRED_DOCUMENTS:
+        display_name: Tax Return Information and Documents
+        description: Records and supporting information needed to prepare a tax return.
+        evidence_status: official_service_supported
+        includes:
+        - Documents for return filing
+        - Information needed for return
+        excludes:
+        - TIN registration documents
+        - Payment receipt only
+      TAX_RETURN_INCOME_INFORMATION:
+        display_name: Income Information in Tax Return
+        description: How income categories or income details are entered in a return.
+        evidence_status: official_service_supported
+        includes:
+        - Enter salary income
+        - Report different income sources
+        excludes:
+        - Asset and liability statement
+        - Current tax rate answers
+      TAX_RETURN_ASSET_LIABILITY:
+        display_name: Assets and Liabilities in Tax Return
+        description: Questions about declaring assets, liabilities or expenses in a return.
+        evidence_status: official_service_supported
+        includes:
+        - Enter assets in return
+        - Report liabilities
+        excludes:
+        - Income-only information
+        - Payment method
+      TAX_RETURN_AMENDMENT:
+        display_name: Submitted Tax Return Amendment
+        description: Correcting or revising an already submitted return when supported.
+        evidence_status: needs_source_review
+        includes:
+        - Correct submitted return
+        - Amend return information
+        excludes:
+        - Editing before submission
+        - TIN profile correction
+      TAX_RETURN_DEADLINE:
+        display_name: Tax Return Filing Deadline
+        description: Questions asking when a return must be submitted, without encoding a date.
+        evidence_status: needs_source_review
+        includes:
+        - When is return due
+        - Return submission deadline
+        excludes:
+        - Application processing delay
+        - Penalty amount
+  TAX_ONLINE_ACCOUNT:
+    display_name: e-Return Online Account
+    description: Registration, login, credential recovery and access problems for the e-Return
+      account.
+    default_evidence_status: official_service_supported
+    covers:
+    - Account registration
+    - Login
+    - Password reset
+    - Mobile update
+    - OTP
+    - Access problem
+    query_topics:
+      TAX_ACCOUNT_REGISTRATION:
+        display_name: e-Return Account Registration
+        description: Creating an account for the e-Return service.
+        evidence_status: official_service_supported
+        includes:
+        - Create e-Return account
+        - Register for online return service
+        excludes:
+        - Registering for a TIN
+        - Submitting a return
+      TAX_ACCOUNT_LOGIN:
+        display_name: e-Return Account Login
+        description: How or where to sign in to an existing e-Return account.
+        evidence_status: official_service_supported
+        includes:
+        - Sign in to e-Return
+        - Find login page
+        excludes:
+        - Login failure
+        - Password reset
+      TAX_ACCOUNT_PASSWORD_RESET:
+        display_name: e-Return Password Reset
+        description: Recovering or resetting a forgotten e-Return password.
+        evidence_status: official_service_supported
+        includes:
+        - Forgot e-Return password
+        - Reset password
+        excludes:
+        - Generic login failure
+        - Changing registered mobile
+      TAX_ACCOUNT_MOBILE_UPDATE:
+        display_name: e-Return Registered Mobile Update
+        description: Changing the mobile number linked to an e-Return account.
+        evidence_status: official_service_supported
+        includes:
+        - Change registered mobile
+        - Old mobile unavailable
+        excludes:
+        - TIN information update
+        - OTP not received on an active number
+      TAX_ACCOUNT_OTP_PROBLEM:
+        display_name: e-Return OTP Problem
+        description: OTP delivery or acceptance problems during account access or registration.
+        evidence_status: official_service_supported
+        includes:
+        - e-Return OTP not received
+        - OTP rejected
+        excludes:
+        - Forgotten password without OTP issue
+        - Return verification failure
+      TAX_ACCOUNT_ACCESS_PROBLEM:
+        display_name: General e-Return Account Access Problem
+        description: An existing account cannot be accessed and no more specific cause is known.
+        evidence_status: official_service_supported
+        includes:
+        - Cannot access e-Return account
+        - Unknown sign-in problem
+        excludes:
+        - Forgotten password
+        - OTP-specific problem
+  TAX_PAYMENT:
+    display_name: Tax Payment and Ledger
+    description: Tax amount guidance, payment channels, transaction outcomes and payment-record
+      updates.
+    default_evidence_status: official_service_supported
+    covers:
+    - Tax calculation
+    - Payment method
+    - Payment confirmation
+    - Payment failure
+    - Ledger
+    query_topics:
+      TAX_PAYMENT_AMOUNT_CALCULATION:
+        display_name: Tax Amount and Calculation Guidance
+        description: How payable tax is determined without encoding rates or thresholds.
+        evidence_status: needs_source_review
+        includes:
+        - How tax amount is calculated
+        - Where payable tax is shown
+        excludes:
+        - Exact current tax answer
+        - Payment method
+      TAX_PAYMENT_METHOD:
+        display_name: Tax Payment Method
+        description: How or through which supported channel tax is paid.
+        evidence_status: official_service_supported
+        includes:
+        - How to pay tax
+        - Available payment channels
+        excludes:
+        - How much tax is due
+        - Whether payment succeeded
+      TAX_PAYMENT_CONFIRMATION:
+        display_name: Tax Payment Confirmation
+        description: Checking whether an attempted tax payment was recorded successfully.
+        evidence_status: official_service_supported
+        includes:
+        - Confirm tax payment
+        - Payment status
+        excludes:
+        - How to pay
+        - Money deducted but failed
+      TAX_PAYMENT_FAILURE:
+        display_name: Tax Payment Failure
+        description: A tax-payment attempt fails or cannot be completed.
+        evidence_status: official_service_supported
+        includes:
+        - Tax payment failed
+        - Cannot complete payment
+        excludes:
+        - Payment method
+        - Payment successfully made
+      TAX_PAYMENT_LEDGER_UPDATE:
+        display_name: Tax Payment Ledger Update
+        description: Updating or resolving missing tax-payment information in the e-Return ledger.
+        evidence_status: official_service_supported
+        includes:
+        - Update payment ledger
+        - Payment missing from tax record
+        excludes:
+        - Making a new payment
+        - Downloading acknowledgement
+  TAX_STATUS_AND_DOCUMENTS:
+    display_name: Return Status and Tax Documents
+    description: Verification of submitted returns and access to acknowledgements, copies and
+      certificates.
+    default_evidence_status: official_service_supported
+    covers:
+    - Return verification
+    - Acknowledgement
+    - Return copy
+    - Tax certificate
+    query_topics:
+      TAX_RETURN_STATUS_VERIFICATION:
+        display_name: Submitted Return Status and Verification
+        description: Checking or verifying whether a submitted return is recorded.
+        evidence_status: official_service_supported
+        includes:
+        - Verify submitted return
+        - Check return status
+        excludes:
+        - Return filing process
+        - Payment confirmation
+      TAX_RETURN_ACKNOWLEDGEMENT:
+        display_name: Return Acknowledgement or Submission Receipt
+        description: Obtaining proof or acknowledgement of return submission.
+        evidence_status: official_service_supported
+        includes:
+        - Download return acknowledgement
+        - Get submission receipt
+        excludes:
+        - Tax payment receipt
+        - Tax certificate
+      TAX_RETURN_COPY_DOWNLOAD:
+        display_name: Submitted Tax Return Copy
+        description: Accessing or downloading a copy of the submitted return.
+        evidence_status: official_service_supported
+        includes:
+        - Download filed return
+        - Get return copy
+        excludes:
+        - Acknowledgement only
+        - e-TIN certificate
+      TAX_CERTIFICATE_ACCESS:
+        display_name: Income Tax Certificate Access
+        description: Obtaining an available income-tax certificate after the relevant tax workflow.
+        evidence_status: official_service_supported
+        includes:
+        - Download tax certificate
+        - Get income-tax certificate
+        excludes:
+        - e-TIN registration certificate
+        - Return acknowledgement
+  TAX_GENERAL_AND_SUPPORT:
+    display_name: General Tax Information and Support
+    description: General service orientation, tax records and official support requests.
+    default_evidence_status: official_service_supported
+    covers:
+    - General tax guidance
+    - Tax record
+    - Online support
+    query_topics:
+      TAX_GENERAL_SERVICE_GUIDANCE:
+        display_name: General Income Tax Service Guidance
+        description: Broad orientation about available income-tax services without a specific
+          transaction.
+        evidence_status: needs_pilot_validation
+        includes:
+        - What tax services exist
+        - Where to start with tax services
+        excludes:
+        - A specific return or payment question
+        - OOD queries
+      TAX_RECORD_INFORMATION:
+        display_name: Tax Record Information
+        description: Viewing or understanding the taxpayer's available tax record/history.
+        evidence_status: official_service_supported
+        includes:
+        - View tax record
+        - Find previous return history
+        excludes:
+        - Verify a single new submission
+        - Payment ledger only
+      TAX_SUPPORT_REQUEST:
+        display_name: e-Return Support Request
+        description: Seeking official help or submitting a support request for an e-Return issue.
+        evidence_status: official_service_supported
+        includes:
+        - Get e-Return support
+        - Submit tax-service ticket
+        excludes:
+        - A clearly classifiable account problem
+        - General tax definition
+design_rules:
+- Classify the citizen's primary information need, not a changing tax answer.
+- Do not encode current rates, thresholds, dates, payment providers or legal conclusions.
+- General guidance is a real orientation intent and never an OOD fallback.
+- Specific account, filing, payment and document intents take precedence over broad labels.
+freeze_status:
+  shared_contract_frozen: false
+  parent_topics_reviewed: true
+  query_topics_defined: true
+  inclusion_exclusion_rules_defined: true
+  semantic_audit_passed: true
+  pilot_dataset_created: true
+  taxonomy_ready_for_shared_contract: true
