@@ -1,0 +1,48 @@
+{
+  "service_unweighted_v1": {
+    "backbone": "xlm-roberta-base",
+    "dev_accuracy": 0.827020202020202,
+    "dev_macro_f1": 0.8101131142837175,
+    "test_accuracy": 0.8775252525252525,
+    "test_macro_f1": 0.8459668714656333,
+    "status": "baseline"
+  },
+  "service_balanced_v2": {
+    "backbone": "xlm-roberta-base",
+    "dev_accuracy": 0.8876262626262627,
+    "dev_macro_f1": 0.8820744425063953,
+    "test_accuracy": 0.8838383838383839,
+    "test_macro_f1": 0.8544916033297262,
+    "status": "selected"
+  },
+  "parent_global_49": {
+    "dev_accuracy": 0.39141414141414144,
+    "dev_macro_f1": 0.19167183896739687,
+    "status": "research_baseline_not_selected"
+  },
+  "parent_nid_unweighted": {
+    "dev_accuracy": 0.6575342465753424,
+    "dev_macro_f1": 0.49527283105984093,
+    "status": "baseline"
+  },
+  "parent_nid_balanced": {
+    "dev_accuracy": 0.684931506849315,
+    "dev_macro_f1": 0.667306471064641,
+    "status": "selected"
+  },
+  "parent_birth_balanced_5epoch": {
+    "dev_accuracy": 0.17777777777777778,
+    "dev_macro_f1": 0.08129370629370627,
+    "status": "failed_short_schedule"
+  },
+  "parent_birth_unweighted_5epoch": {
+    "dev_accuracy": 0.43333333333333335,
+    "dev_macro_f1": 0.0755813953488372,
+    "status": "majority_class_collapse"
+  },
+  "parent_birth_small_balanced_12epoch": {
+    "dev_accuracy": 0.6555555555555556,
+    "dev_macro_f1": 0.5805607522877136,
+    "status": "selected"
+  }
+}

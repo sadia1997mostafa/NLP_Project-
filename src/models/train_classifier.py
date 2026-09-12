@@ -102,6 +102,8 @@ def main() -> None:
         warmup_ratio=float(config["warmup_ratio"]),
         eval_strategy="epoch",
         save_strategy="epoch",
+        save_total_limit=int(config.get("save_total_limit", 2)),
+        save_only_model=bool(config.get("save_only_model", True)),
         load_best_model_at_end=True,
         metric_for_best_model="eval_macro_f1",
         greater_is_better=True,

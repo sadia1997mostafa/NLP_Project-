@@ -5,3 +5,6 @@ venv/
 .env
 .vscode/
 .idea/
+# Local Transformer model artifacts
+models/checkpoints/
+models/final/
