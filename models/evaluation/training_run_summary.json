@@ -69,5 +69,10 @@
     "dev_accuracy": 0.6770833333333334,
     "dev_macro_f1": 0.6109016865278136,
     "status": "selected"
+  },
+  "parent_driving_licence_small_balanced": {
+    "dev_accuracy": 0.6833333333333333,
+    "dev_macro_f1": 0.6806167262689001,
+    "status": "selected"
   }
 }

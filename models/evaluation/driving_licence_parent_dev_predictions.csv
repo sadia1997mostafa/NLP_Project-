@@ -1,0 +1,121 @@
+id,text,gold_label,predicted_label
+DLX_0007,ami learner driving licence er jonno eligible kina?,DRIVING_LICENCE_LEARNER,DRIVING_LICENCE_APPLICATION
+DLX_0008,I am trying to understand this: ami learner driving licence er jonno eligible kina?,DRIVING_LICENCE_LEARNER,DRIVING_LICENCE_APPLICATION
+DLX_0009,I need guidance on this: ami learner driving licence er jonno eligible kina?,DRIVING_LICENCE_LEARNER,DRIVING_LICENCE_APPLICATION
+DLX_0019,learner driving licence application process ta ki?,DRIVING_LICENCE_LEARNER,DRIVING_LICENCE_APPLICATION
+DLX_0020,I am trying to understand this: learner driving licence application process ta ki?,DRIVING_LICENCE_LEARNER,DRIVING_LICENCE_APPLICATION
+DLX_0021,I need guidance on this: learner driving licence application process ta ki?,DRIVING_LICENCE_LEARNER,DRIVING_LICENCE_APPLICATION
+DLX_0031,learner licence er required papers ki ki?,DRIVING_LICENCE_LEARNER,DRIVING_LICENCE_LEARNER
+DLX_0032,I am trying to understand this: learner licence er required papers kon kon jinis?,DRIVING_LICENCE_LEARNER,DRIVING_LICENCE_LEARNER
+DLX_0033,I need guidance on this: learner licence er required papers kon kon jinis?,DRIVING_LICENCE_LEARNER,DRIVING_LICENCE_LEARNER
+DLX_0043,driving licence medical certificate er process ki?,DRIVING_LICENCE_LEARNER,DRIVING_LICENCE_APPLICATION
+DLX_0044,I am trying to understand this: driving licence medical certificate er process ki?,DRIVING_LICENCE_LEARNER,DRIVING_LICENCE_APPLICATION
+DLX_0045,I need guidance on this: driving licence medical certificate er process ki?,DRIVING_LICENCE_LEARNER,DRIVING_LICENCE_APPLICATION
+DLX_0055,learner licence download korar option kothay?,DRIVING_LICENCE_LEARNER,DRIVING_LICENCE_LEARNER
+DLX_0056,I am trying to understand this: learner licence download korar option kon jaygay?,DRIVING_LICENCE_LEARNER,DRIVING_LICENCE_LEARNER
+DLX_0057,I need guidance on this: learner licence download korar option kon jaygay?,DRIVING_LICENCE_LEARNER,DRIVING_LICENCE_LEARNER
+DLX_0067,new smart card driving licence process ta ki?,DRIVING_LICENCE_APPLICATION,DRIVING_LICENCE_APPLICATION
+DLX_0068,I am trying to understand this: new smart card driving licence process ta ki?,DRIVING_LICENCE_APPLICATION,DRIVING_LICENCE_APPLICATION
+DLX_0069,I need guidance on this: new smart card driving licence process ta ki?,DRIVING_LICENCE_APPLICATION,DRIVING_LICENCE_APPLICATION
+DLX_0079,BSP diye licence application submit korbo kivabe?,DRIVING_LICENCE_APPLICATION,DRIVING_LICENCE_ONLINE_ACCOUNT
+DLX_0080,I am trying to understand this: BSP diye licence application submit korbo kon process e?,DRIVING_LICENCE_APPLICATION,DRIVING_LICENCE_PAYMENT
+DLX_0081,I need guidance on this: BSP diye licence application submit korbo kon process e?,DRIVING_LICENCE_APPLICATION,DRIVING_LICENCE_PAYMENT
+DLX_0091,driving licence type selection ta bujhbo kivabe?,DRIVING_LICENCE_APPLICATION,DRIVING_LICENCE_APPLICATION
+DLX_0092,I am trying to understand this: driving licence type selection ta bujhbo kon process e?,DRIVING_LICENCE_APPLICATION,DRIVING_LICENCE_APPLICATION
+DLX_0093,I need guidance on this: driving licence type selection ta bujhbo kon process e?,DRIVING_LICENCE_APPLICATION,DRIVING_LICENCE_APPLICATION
+DLX_0103,licence vehicle class choose korar niyom ki?,DRIVING_LICENCE_APPLICATION,DRIVING_LICENCE_APPLICATION
+DLX_0104,I am trying to understand this: licence vehicle class choose korar niyom ki?,DRIVING_LICENCE_APPLICATION,DRIVING_LICENCE_APPLICATION
+DLX_0105,I need guidance on this: licence vehicle class choose korar niyom ki?,DRIVING_LICENCE_APPLICATION,DRIVING_LICENCE_APPLICATION
+DLX_0115,DCTC test process ta kivabe hoy?,DRIVING_LICENCE_TEST,DRIVING_LICENCE_TEST
+DLX_0116,I am trying to understand this: DCTC test process ta kon process e hoy?,DRIVING_LICENCE_TEST,DRIVING_LICENCE_TEST
+DLX_0117,I need guidance on this: DCTC test process ta kon process e hoy?,DRIVING_LICENCE_TEST,DRIVING_LICENCE_TEST
+DLX_0127,driving test schedule online e kivabe dekhbo?,DRIVING_LICENCE_TEST,DRIVING_LICENCE_TEST
+DLX_0128,I am trying to understand this: driving test schedule online e kon process e dekhbo?,DRIVING_LICENCE_TEST,DRIVING_LICENCE_TEST
+DLX_0129,I need guidance on this: driving test schedule online e kon process e dekhbo?,DRIVING_LICENCE_TEST,DRIVING_LICENCE_TEST
+DLX_0139,driving test day er requirements ki ki?,DRIVING_LICENCE_TEST,DRIVING_LICENCE_TEST
+DLX_0140,I am trying to understand this: driving test day er requirements kon kon jinis?,DRIVING_LICENCE_TEST,DRIVING_LICENCE_TEST
+DLX_0141,I need guidance on this: driving test day er requirements kon kon jinis?,DRIVING_LICENCE_TEST,DRIVING_LICENCE_TEST
+DLX_0151,DCTC result online e kivabe dekhbo?,DRIVING_LICENCE_TEST,DRIVING_LICENCE_TEST
+DLX_0152,I am trying to understand this: DCTC result online e kon process e dekhbo?,DRIVING_LICENCE_TEST,DRIVING_LICENCE_TEST
+DLX_0153,I need guidance on this: DCTC result online e kon process e dekhbo?,DRIVING_LICENCE_TEST,DRIVING_LICENCE_TEST
+DLX_0163,driving test retake er jonno ki korte hobe?,DRIVING_LICENCE_TEST,DRIVING_LICENCE_TEST
+DLX_0164,I am trying to understand this: driving test retake er jonno ki korte hobe?,DRIVING_LICENCE_TEST,DRIVING_LICENCE_TEST
+DLX_0165,I need guidance on this: driving test retake er jonno ki korte hobe?,DRIVING_LICENCE_TEST,DRIVING_LICENCE_TEST
+DLX_0175,BRTA portal account create korbo kivabe?,DRIVING_LICENCE_ONLINE_ACCOUNT,DRIVING_LICENCE_ONLINE_ACCOUNT
+DLX_0176,I am trying to understand this: BRTA portal account create korbo kon process e?,DRIVING_LICENCE_ONLINE_ACCOUNT,DRIVING_LICENCE_ONLINE_ACCOUNT
+DLX_0177,I need guidance on this: BRTA portal account create korbo kon process e?,DRIVING_LICENCE_ONLINE_ACCOUNT,DRIVING_LICENCE_ONLINE_ACCOUNT
+DLX_0187,BRTA account e sign in korbo kivabe?,DRIVING_LICENCE_ONLINE_ACCOUNT,DRIVING_LICENCE_ONLINE_ACCOUNT
+DLX_0188,I am trying to understand this: BRTA account e sign in korbo kon process e?,DRIVING_LICENCE_ONLINE_ACCOUNT,DRIVING_LICENCE_ONLINE_ACCOUNT
+DLX_0189,I need guidance on this: BRTA account e sign in korbo kon process e?,DRIVING_LICENCE_ONLINE_ACCOUNT,DRIVING_LICENCE_PAYMENT
+DLX_0199,BRTA portal password reset korbo kivabe?,DRIVING_LICENCE_ONLINE_ACCOUNT,DRIVING_LICENCE_ONLINE_ACCOUNT
+DLX_0200,I am trying to understand this: BRTA portal password reset korte hobe kivabe?,DRIVING_LICENCE_ONLINE_ACCOUNT,DRIVING_LICENCE_ONLINE_ACCOUNT
+DLX_0201,I need guidance on this: BRTA portal password reset korte hobe kivabe?,DRIVING_LICENCE_ONLINE_ACCOUNT,DRIVING_LICENCE_ONLINE_ACCOUNT
+DLX_0211,BRTA verification code ashtese na.,DRIVING_LICENCE_ONLINE_ACCOUNT,DRIVING_LICENCE_ONLINE_ACCOUNT
+DLX_0212,I am trying to understand this: BRTA verification code ashtese na?,DRIVING_LICENCE_ONLINE_ACCOUNT,DRIVING_LICENCE_ONLINE_ACCOUNT
+DLX_0213,I need guidance on this: BRTA verification code ashtese na?,DRIVING_LICENCE_ONLINE_ACCOUNT,DRIVING_LICENCE_ONLINE_ACCOUNT
+DLX_0223,"BRTA account access hocche na, ki korbo?",DRIVING_LICENCE_ONLINE_ACCOUNT,DRIVING_LICENCE_ONLINE_ACCOUNT
+DLX_0224,"I am trying to understand this: BRTA account access hocche na, ki korte hobe?",DRIVING_LICENCE_ONLINE_ACCOUNT,DRIVING_LICENCE_ONLINE_ACCOUNT
+DLX_0225,"I need guidance on this: BRTA account access hocche na, ki korte hobe?",DRIVING_LICENCE_ONLINE_ACCOUNT,DRIVING_LICENCE_ONLINE_ACCOUNT
+DLX_0235,driving licence fee calculator use korbo kivabe?,DRIVING_LICENCE_PAYMENT,DRIVING_LICENCE_PAYMENT
+DLX_0236,I am trying to understand this: driving licence fee calculator use korbo kon process e?,DRIVING_LICENCE_PAYMENT,DRIVING_LICENCE_PAYMENT
+DLX_0237,I need guidance on this: driving licence fee calculator use korbo kon process e?,DRIVING_LICENCE_PAYMENT,DRIVING_LICENCE_PAYMENT
+DLX_0247,driving licence fee online e pay korbo kivabe?,DRIVING_LICENCE_PAYMENT,DRIVING_LICENCE_PAYMENT
+DLX_0248,I am trying to understand this: driving licence fee online e pay korte hobe kivabe?,DRIVING_LICENCE_PAYMENT,DRIVING_LICENCE_PAYMENT
+DLX_0249,I need guidance on this: driving licence fee online e pay korbo kon process e?,DRIVING_LICENCE_PAYMENT,DRIVING_LICENCE_PAYMENT
+DLX_0259,licence payment verify korar option kothay?,DRIVING_LICENCE_PAYMENT,DRIVING_LICENCE_PAYMENT
+DLX_0260,I am trying to understand this: licence payment verify korar option kon jaygay?,DRIVING_LICENCE_PAYMENT,DRIVING_LICENCE_PAYMENT
+DLX_0261,I need guidance on this: licence payment verify korar option kon jaygay?,DRIVING_LICENCE_PAYMENT,DRIVING_LICENCE_PAYMENT
+DLX_0271,licence fee transaction complete hocche na.,DRIVING_LICENCE_PAYMENT,DRIVING_LICENCE_PAYMENT
+DLX_0272,I am trying to understand this: licence fee transaction complete hocche na?,DRIVING_LICENCE_PAYMENT,DRIVING_LICENCE_PAYMENT
+DLX_0273,I need guidance on this: licence fee transaction complete hocche na?,DRIVING_LICENCE_PAYMENT,DRIVING_LICENCE_PAYMENT
+DLX_0283,driving licence status check korbo kivabe?,DRIVING_LICENCE_STATUS_DELIVERY,DRIVING_LICENCE_TEST
+DLX_0284,I am trying to understand this: driving licence status check korbo kon process e?,DRIVING_LICENCE_STATUS_DELIVERY,DRIVING_LICENCE_TEST
+DLX_0285,I need guidance on this: driving licence status check korbo kon process e?,DRIVING_LICENCE_STATUS_DELIVERY,DRIVING_LICENCE_TEST
+DLX_0295,amar driving licence application atke ache.,DRIVING_LICENCE_STATUS_DELIVERY,DRIVING_LICENCE_APPLICATION
+DLX_0296,I am trying to understand this: amar driving licence application atke ache?,DRIVING_LICENCE_STATUS_DELIVERY,DRIVING_LICENCE_APPLICATION
+DLX_0297,I need guidance on this: amar driving licence application atke ache?,DRIVING_LICENCE_STATUS_DELIVERY,DRIVING_LICENCE_APPLICATION
+DLX_0307,licence collect korar jonno ready kina janbo kivabe?,DRIVING_LICENCE_STATUS_DELIVERY,DRIVING_LICENCE_STATUS_DELIVERY
+DLX_0308,I am trying to understand this: licence collect korar jonno ready kina janbo kon process e?,DRIVING_LICENCE_STATUS_DELIVERY,DRIVING_LICENCE_STATUS_DELIVERY
+DLX_0309,I need guidance on this: licence collect korar jonno ready kina janbo kon process e?,DRIVING_LICENCE_STATUS_DELIVERY,DRIVING_LICENCE_STATUS_DELIVERY
+DLX_0319,driving licence collection process ta ki?,DRIVING_LICENCE_STATUS_DELIVERY,DRIVING_LICENCE_APPLICATION
+DLX_0320,I am trying to understand this: driving licence collection process ta ki?,DRIVING_LICENCE_STATUS_DELIVERY,DRIVING_LICENCE_APPLICATION
+DLX_0321,I need guidance on this: driving licence collection process ta ki?,DRIVING_LICENCE_STATUS_DELIVERY,DRIVING_LICENCE_APPLICATION
+DLX_0331,driving licence verification korbo kivabe?,DRIVING_LICENCE_STATUS_DELIVERY,DRIVING_LICENCE_APPLICATION
+DLX_0332,I am trying to understand this: driving licence verification korbo kon process e?,DRIVING_LICENCE_STATUS_DELIVERY,DRIVING_LICENCE_APPLICATION
+DLX_0333,I need guidance on this: driving licence verification korte hobe kivabe?,DRIVING_LICENCE_STATUS_DELIVERY,DRIVING_LICENCE_APPLICATION
+DLX_0343,driving licence renewal process ta ki?,DRIVING_LICENCE_RENEWAL,DRIVING_LICENCE_RENEWAL
+DLX_0344,I am trying to understand this: driving licence renewal process ta ki?,DRIVING_LICENCE_RENEWAL,DRIVING_LICENCE_RENEWAL
+DLX_0345,I need guidance on this: driving licence renewal process ta ki?,DRIVING_LICENCE_RENEWAL,DRIVING_LICENCE_RENEWAL
+DLX_0355,licence renew er required documents ki ki?,DRIVING_LICENCE_RENEWAL,DRIVING_LICENCE_RENEWAL
+DLX_0356,I am trying to understand this: licence renew er required documents kon kon jinis?,DRIVING_LICENCE_RENEWAL,DRIVING_LICENCE_RENEWAL
+DLX_0357,I need guidance on this: licence renew er required documents kon kon jinis?,DRIVING_LICENCE_RENEWAL,DRIVING_LICENCE_RENEWAL
+DLX_0367,expired driving licence renew korbo kivabe?,DRIVING_LICENCE_RENEWAL,DRIVING_LICENCE_RENEWAL
+DLX_0368,I am trying to understand this: expired driving licence renew korbo kon process e?,DRIVING_LICENCE_RENEWAL,DRIVING_LICENCE_RENEWAL
+DLX_0369,I need guidance on this: expired driving licence renew korbo kon process e?,DRIVING_LICENCE_RENEWAL,DRIVING_LICENCE_RENEWAL
+DLX_0379,duplicate driving licence application ta ki?,DRIVING_LICENCE_REPLACEMENT,DRIVING_LICENCE_REPLACEMENT
+DLX_0380,I am trying to understand this: duplicate driving licence application ta ki?,DRIVING_LICENCE_REPLACEMENT,DRIVING_LICENCE_REPLACEMENT
+DLX_0381,I need guidance on this: duplicate driving licence application ta ki?,DRIVING_LICENCE_REPLACEMENT,DRIVING_LICENCE_REPLACEMENT
+DLX_0391,lost driving licence reissue korbo kivabe?,DRIVING_LICENCE_REPLACEMENT,DRIVING_LICENCE_REPLACEMENT
+DLX_0392,I am trying to understand this: lost driving licence reissue korbo kon process e?,DRIVING_LICENCE_REPLACEMENT,DRIVING_LICENCE_REPLACEMENT
+DLX_0393,I need guidance on this: lost driving licence reissue korbo kon process e?,DRIVING_LICENCE_REPLACEMENT,DRIVING_LICENCE_REPLACEMENT
+DLX_0403,damaged driving licence replace korbo kivabe?,DRIVING_LICENCE_REPLACEMENT,DRIVING_LICENCE_REPLACEMENT
+DLX_0404,I am trying to understand this: damaged driving licence replace korbo kon process e?,DRIVING_LICENCE_REPLACEMENT,DRIVING_LICENCE_REPLACEMENT
+DLX_0405,I need guidance on this: damaged driving licence replace korbo kon process e?,DRIVING_LICENCE_REPLACEMENT,DRIVING_LICENCE_REPLACEMENT
+DLX_0415,driving licence information correction er process ki?,DRIVING_LICENCE_CHANGES,DRIVING_LICENCE_LEARNER
+DLX_0416,I am trying to understand this: driving licence information correction er process ki?,DRIVING_LICENCE_CHANGES,DRIVING_LICENCE_REPLACEMENT
+DLX_0417,I need guidance on this: driving licence information correction er process ki?,DRIVING_LICENCE_CHANGES,DRIVING_LICENCE_REPLACEMENT
+DLX_0427,driving licence address change korbo kivabe?,DRIVING_LICENCE_CHANGES,DRIVING_LICENCE_CHANGES
+DLX_0428,I am trying to understand this: driving licence address change korte hobe kivabe?,DRIVING_LICENCE_CHANGES,DRIVING_LICENCE_CHANGES
+DLX_0429,I need guidance on this: driving licence address change korbo kon process e?,DRIVING_LICENCE_CHANGES,DRIVING_LICENCE_APPLICATION
+DLX_0439,driving licence vehicle class change korbo kivabe?,DRIVING_LICENCE_CHANGES,DRIVING_LICENCE_APPLICATION
+DLX_0440,I am trying to understand this: driving licence vehicle class change korbo kon process e?,DRIVING_LICENCE_CHANGES,DRIVING_LICENCE_APPLICATION
+DLX_0441,I need guidance on this: driving licence vehicle class change korbo kon process e?,DRIVING_LICENCE_CHANGES,DRIVING_LICENCE_APPLICATION
+DLX_0451,licence type conversion process ta ki?,DRIVING_LICENCE_CHANGES,DRIVING_LICENCE_STATUS_DELIVERY
+DLX_0452,I am trying to understand this: licence type conversion process ta ki?,DRIVING_LICENCE_CHANGES,DRIVING_LICENCE_STATUS_DELIVERY
+DLX_0453,I need guidance on this: licence type conversion process ta ki?,DRIVING_LICENCE_CHANGES,DRIVING_LICENCE_STATUS_DELIVERY
+DLX_0463,driving licence services somporke general guidance chai.,DRIVING_LICENCE_GENERAL,DRIVING_LICENCE_APPLICATION
+DLX_0464,I am trying to understand this: driving licence services somporke general guidance chai?,DRIVING_LICENCE_GENERAL,DRIVING_LICENCE_APPLICATION
+DLX_0465,I need guidance on this: driving licence services somporke general guidance chai?,DRIVING_LICENCE_GENERAL,DRIVING_LICENCE_APPLICATION
+DLX_0475,BRTA portal down dekhacche.,DRIVING_LICENCE_GENERAL,DRIVING_LICENCE_GENERAL
+DLX_0476,I am trying to understand this: BRTA portal down dekhacche?,DRIVING_LICENCE_GENERAL,DRIVING_LICENCE_GENERAL
+DLX_0477,I need guidance on this: BRTA portal down dekhacche?,DRIVING_LICENCE_GENERAL,DRIVING_LICENCE_GENERAL
