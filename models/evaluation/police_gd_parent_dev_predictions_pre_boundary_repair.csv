@@ -1,0 +1,97 @@
+id,text,gold_label,predicted_label
+PGDX_0007,general diary keno kora hoy?,POLICE_GD_GUIDANCE,POLICE_GD_FILING
+PGDX_0008,I am trying to understand this: general diary keno kora hoy?,POLICE_GD_GUIDANCE,POLICE_GD_STATUS_FOLLOWUP
+PGDX_0009,I need guidance on this: general diary keno kora hoy?,POLICE_GD_GUIDANCE,POLICE_GD_FILING
+PGDX_0019,ei ghotonar jonno GD kora appropriate hobe kina?,POLICE_GD_GUIDANCE,POLICE_GD_FILING
+PGDX_0020,I am trying to understand this: ei ghotonar jonno GD kora appropriate hobe kina?,POLICE_GD_GUIDANCE,POLICE_GD_STATUS_FOLLOWUP
+PGDX_0021,I need guidance on this: ei ghotonar jonno GD kora appropriate hobe kina?,POLICE_GD_GUIDANCE,POLICE_GD_GUIDANCE
+PGDX_0031,immediate safety risk hole GD na emergency help konta lagbe?,POLICE_GD_GUIDANCE,POLICE_GD_INCIDENT_TYPE
+PGDX_0032,I am trying to understand this: immediate safety risk hole GD na emergency help konta lagbe?,POLICE_GD_GUIDANCE,POLICE_GD_GUIDANCE
+PGDX_0033,I need guidance on this: immediate safety risk hole GD na emergency help konta lagbe?,POLICE_GD_GUIDANCE,POLICE_GD_GUIDANCE
+PGDX_0043,GD ar case process er moddhe amar report ta kothay pore?,POLICE_GD_GUIDANCE,POLICE_GD_FILING
+PGDX_0044,I am trying to understand this: GD ar case process er moddhe amar report ta kon jaygay pore?,POLICE_GD_GUIDANCE,POLICE_GD_STATUS_FOLLOWUP
+PGDX_0045,I need guidance on this: GD ar case process er moddhe amar report ta kon jaygay pore?,POLICE_GD_GUIDANCE,POLICE_GD_STATUS_FOLLOWUP
+PGDX_0055,general diary file korar steps ki?,POLICE_GD_FILING,POLICE_GD_ONLINE_ACCOUNT
+PGDX_0056,I am trying to understand this: general diary file korar steps ki?,POLICE_GD_FILING,POLICE_GD_FILING
+PGDX_0057,I need guidance on this: general diary file korar steps ki?,POLICE_GD_FILING,POLICE_GD_FILING
+PGDX_0067,online e GD file korar process ta ki?,POLICE_GD_FILING,POLICE_GD_TECHNICAL_PROBLEMS
+PGDX_0068,I am trying to understand this: online e GD file korar process ta ki?,POLICE_GD_FILING,POLICE_GD_FILING
+PGDX_0069,I need guidance on this: online e GD file korar process ta ki?,POLICE_GD_FILING,POLICE_GD_COPY_REFERENCE
+PGDX_0079,online GD er required information ki ki?,POLICE_GD_FILING,POLICE_GD_FILING
+PGDX_0080,I am trying to understand this: online GD er required information kon kon jinis?,POLICE_GD_FILING,POLICE_GD_STATUS_FOLLOWUP
+PGDX_0081,I need guidance on this: online GD er required information kon kon jinis?,POLICE_GD_FILING,POLICE_GD_FILING
+PGDX_0091,online GD te supporting document attach korbo kivabe?,POLICE_GD_FILING,POLICE_GD_COPY_REFERENCE
+PGDX_0092,I am trying to understand this: online GD te supporting document attach korbo kon process e?,POLICE_GD_FILING,POLICE_GD_FILING
+PGDX_0093,I need guidance on this: online GD te supporting document attach korbo kon process e?,POLICE_GD_FILING,POLICE_GD_FILING
+PGDX_0103,GD te ghotonar jayga o shomoy kivabe mention korbo?,POLICE_GD_FILING,POLICE_GD_STATUS_FOLLOWUP
+PGDX_0104,I am trying to understand this: GD te ghotonar jayga o shomoy kon process e mention korbo?,POLICE_GD_FILING,POLICE_GD_STATUS_FOLLOWUP
+PGDX_0105,I need guidance on this: GD te ghotonar jayga o shomoy kon process e mention korbo?,POLICE_GD_FILING,POLICE_GD_STATUS_FOLLOWUP
+PGDX_0115,online GD te district thana choose korbo kivabe?,POLICE_GD_FILING,POLICE_GD_FILING
+PGDX_0116,I am trying to understand this: online GD te district thana choose korbo kon process e?,POLICE_GD_FILING,POLICE_GD_FILING
+PGDX_0117,I need guidance on this: online GD te district thana choose korbo kon process e?,POLICE_GD_FILING,POLICE_GD_FILING
+PGDX_0127,GD account registration er requirements ki ki?,POLICE_GD_FILING,POLICE_GD_ONLINE_ACCOUNT
+PGDX_0128,I am trying to understand this: GD account registration er requirements kon kon jinis?,POLICE_GD_FILING,POLICE_GD_COPY_REFERENCE
+PGDX_0129,I need guidance on this: GD account registration er requirements kon kon jinis?,POLICE_GD_FILING,POLICE_GD_COPY_REFERENCE
+PGDX_0139,lost document er jonno online GD file korbo kivabe?,POLICE_GD_INCIDENT_TYPE,POLICE_GD_INCIDENT_TYPE
+PGDX_0140,I am trying to understand this: lost document er jonno online GD file korbo kon process e?,POLICE_GD_INCIDENT_TYPE,POLICE_GD_INCIDENT_TYPE
+PGDX_0141,I need guidance on this: lost document er jonno online GD file korbo kon process e?,POLICE_GD_INCIDENT_TYPE,POLICE_GD_INCIDENT_TYPE
+PGDX_0151,lost device er GD category konta?,POLICE_GD_INCIDENT_TYPE,POLICE_GD_INCIDENT_TYPE
+PGDX_0152,I am trying to understand this: lost device er GD category konta?,POLICE_GD_INCIDENT_TYPE,POLICE_GD_INCIDENT_TYPE
+PGDX_0153,I need guidance on this: lost device er GD category konta?,POLICE_GD_INCIDENT_TYPE,POLICE_GD_INCIDENT_TYPE
+PGDX_0163,churi jawa item er complaint kivabe submit korbo?,POLICE_GD_INCIDENT_TYPE,POLICE_GD_COPY_REFERENCE
+PGDX_0164,I am trying to understand this: churi jawa item er complaint kon process e submit korbo?,POLICE_GD_INCIDENT_TYPE,POLICE_GD_GUIDANCE
+PGDX_0165,I need guidance on this: churi jawa item er complaint kon process e submit korbo?,POLICE_GD_INCIDENT_TYPE,POLICE_GD_FILING
+PGDX_0175,found item report online e kivabe dibo?,POLICE_GD_INCIDENT_TYPE,POLICE_GD_FILING
+PGDX_0176,I am trying to understand this: found item report online e kon process e dibo?,POLICE_GD_INCIDENT_TYPE,POLICE_GD_GUIDANCE
+PGDX_0177,I need guidance on this: found item report online e kon process e dibo?,POLICE_GD_INCIDENT_TYPE,POLICE_GD_FILING
+PGDX_0187,other complaint category diye GD submit korbo kivabe?,POLICE_GD_INCIDENT_TYPE,POLICE_GD_FILING
+PGDX_0188,I am trying to understand this: other complaint category diye GD submit korbo kon process e?,POLICE_GD_INCIDENT_TYPE,POLICE_GD_STATUS_FOLLOWUP
+PGDX_0189,I need guidance on this: other complaint category diye GD submit korbo kon process e?,POLICE_GD_INCIDENT_TYPE,POLICE_GD_STATUS_FOLLOWUP
+PGDX_0199,online GD account create korbo kivabe?,POLICE_GD_ONLINE_ACCOUNT,POLICE_GD_ONLINE_ACCOUNT
+PGDX_0200,I am trying to understand this: online GD account create korte hobe kivabe?,POLICE_GD_ONLINE_ACCOUNT,POLICE_GD_ONLINE_ACCOUNT
+PGDX_0201,I need guidance on this: online GD account create korte hobe kivabe?,POLICE_GD_ONLINE_ACCOUNT,POLICE_GD_ONLINE_ACCOUNT
+PGDX_0211,online GD account e sign in korbo kivabe?,POLICE_GD_ONLINE_ACCOUNT,POLICE_GD_ONLINE_ACCOUNT
+PGDX_0212,I am trying to understand this: online GD account e sign in korbo kon process e?,POLICE_GD_ONLINE_ACCOUNT,POLICE_GD_ONLINE_ACCOUNT
+PGDX_0213,I need guidance on this: online GD account e sign in korbo kon process e?,POLICE_GD_ONLINE_ACCOUNT,POLICE_GD_ONLINE_ACCOUNT
+PGDX_0223,online GD password recover korbo kivabe?,POLICE_GD_ONLINE_ACCOUNT,POLICE_GD_ONLINE_ACCOUNT
+PGDX_0224,I am trying to understand this: online GD password recover korbo kon process e?,POLICE_GD_ONLINE_ACCOUNT,POLICE_GD_ONLINE_ACCOUNT
+PGDX_0225,I need guidance on this: online GD password recover korbo kon process e?,POLICE_GD_ONLINE_ACCOUNT,POLICE_GD_ONLINE_ACCOUNT
+PGDX_0235,"GD registration code ashtese na, ki korbo?",POLICE_GD_ONLINE_ACCOUNT,POLICE_GD_COPY_REFERENCE
+PGDX_0236,"I am trying to understand this: GD registration code ashtese na, ki korte hobe?",POLICE_GD_ONLINE_ACCOUNT,POLICE_GD_ONLINE_ACCOUNT
+PGDX_0237,"I need guidance on this: GD registration code ashtese na, ki korte hobe?",POLICE_GD_ONLINE_ACCOUNT,POLICE_GD_COPY_REFERENCE
+PGDX_0247,GD identity verification fail hocche kivabe solve korbo?,POLICE_GD_ONLINE_ACCOUNT,POLICE_GD_ONLINE_ACCOUNT
+PGDX_0248,I am trying to understand this: GD identity verification fail hocche kivabe solve korte hobe?,POLICE_GD_ONLINE_ACCOUNT,POLICE_GD_TECHNICAL_PROBLEMS
+PGDX_0249,I need guidance on this: GD identity verification fail hocche kon process e solve korbo?,POLICE_GD_ONLINE_ACCOUNT,POLICE_GD_INCIDENT_TYPE
+PGDX_0259,"online GD access hocche na, reason bujhte parchi na.",POLICE_GD_ONLINE_ACCOUNT,POLICE_GD_TECHNICAL_PROBLEMS
+PGDX_0260,"I am trying to understand this: online GD access hocche na, reason bujhte parchi na?",POLICE_GD_ONLINE_ACCOUNT,POLICE_GD_TECHNICAL_PROBLEMS
+PGDX_0261,"I need guidance on this: online GD access hocche na, reason bujhte parchi na?",POLICE_GD_ONLINE_ACCOUNT,POLICE_GD_TECHNICAL_PROBLEMS
+PGDX_0271,online GD status check korbo kivabe?,POLICE_GD_STATUS_FOLLOWUP,POLICE_GD_FILING
+PGDX_0272,I am trying to understand this: online GD status check korbo kon process e?,POLICE_GD_STATUS_FOLLOWUP,POLICE_GD_STATUS_FOLLOWUP
+PGDX_0273,I need guidance on this: online GD status check korbo kon process e?,POLICE_GD_STATUS_FOLLOWUP,POLICE_GD_STATUS_FOLLOWUP
+PGDX_0283,amar GD review onekdin dhore atke ache.,POLICE_GD_STATUS_FOLLOWUP,POLICE_GD_STATUS_FOLLOWUP
+PGDX_0284,I am trying to understand this: amar GD review onekdin dhore atke ache?,POLICE_GD_STATUS_FOLLOWUP,POLICE_GD_STATUS_FOLLOWUP
+PGDX_0285,I need guidance on this: amar GD review onekdin dhore atke ache?,POLICE_GD_STATUS_FOLLOWUP,POLICE_GD_STATUS_FOLLOWUP
+PGDX_0295,investigating officer er sathe online e contact korbo kivabe?,POLICE_GD_STATUS_FOLLOWUP,POLICE_GD_STATUS_FOLLOWUP
+PGDX_0296,I am trying to understand this: investigating officer er sathe online e contact korbo kon process e?,POLICE_GD_STATUS_FOLLOWUP,POLICE_GD_STATUS_FOLLOWUP
+PGDX_0297,I need guidance on this: investigating officer er sathe online e contact korbo kon process e?,POLICE_GD_STATUS_FOLLOWUP,POLICE_GD_STATUS_FOLLOWUP
+PGDX_0307,online complaint er por thana follow-up process ki?,POLICE_GD_STATUS_FOLLOWUP,POLICE_GD_STATUS_FOLLOWUP
+PGDX_0308,I am trying to understand this: online complaint er por thana follow-up process ki?,POLICE_GD_STATUS_FOLLOWUP,POLICE_GD_GUIDANCE
+PGDX_0309,I need guidance on this: online complaint er por thana follow-up process ki?,POLICE_GD_STATUS_FOLLOWUP,POLICE_GD_GUIDANCE
+PGDX_0319,online GD copy download korar option kothay?,POLICE_GD_COPY_REFERENCE,POLICE_GD_COPY_REFERENCE
+PGDX_0320,I am trying to understand this: online GD copy download korar option kon jaygay?,POLICE_GD_COPY_REFERENCE,POLICE_GD_COPY_REFERENCE
+PGDX_0321,I need guidance on this: online GD copy download korar option kon jaygay?,POLICE_GD_COPY_REFERENCE,POLICE_GD_COPY_REFERENCE
+PGDX_0331,online GD acknowledgement kivabe pabo?,POLICE_GD_COPY_REFERENCE,POLICE_GD_COPY_REFERENCE
+PGDX_0332,I am trying to understand this: online GD acknowledgement kon process e pabo?,POLICE_GD_COPY_REFERENCE,POLICE_GD_FILING
+PGDX_0333,I need guidance on this: online GD acknowledgement kon process e pabo?,POLICE_GD_COPY_REFERENCE,POLICE_GD_FILING
+PGDX_0343,complaint reference recover korbo kivabe?,POLICE_GD_COPY_REFERENCE,POLICE_GD_FILING
+PGDX_0344,I am trying to understand this: complaint reference recover korbo kon process e?,POLICE_GD_COPY_REFERENCE,POLICE_GD_STATUS_FOLLOWUP
+PGDX_0345,I need guidance on this: complaint reference recover korbo kon process e?,POLICE_GD_COPY_REFERENCE,POLICE_GD_STATUS_FOLLOWUP
+PGDX_0355,"online GD submission fail hocche, ki korbo?",POLICE_GD_TECHNICAL_PROBLEMS,POLICE_GD_TECHNICAL_PROBLEMS
+PGDX_0356,"I am trying to understand this: online GD submission fail hocche, ki korte hobe?",POLICE_GD_TECHNICAL_PROBLEMS,POLICE_GD_INCIDENT_TYPE
+PGDX_0357,"I need guidance on this: online GD submission fail hocche, ki korte hobe?",POLICE_GD_TECHNICAL_PROBLEMS,POLICE_GD_INCIDENT_TYPE
+PGDX_0367,online GD portal down dekhacche.,POLICE_GD_TECHNICAL_PROBLEMS,POLICE_GD_ONLINE_ACCOUNT
+PGDX_0368,I am trying to understand this: online GD portal down dekhacche?,POLICE_GD_TECHNICAL_PROBLEMS,POLICE_GD_TECHNICAL_PROBLEMS
+PGDX_0369,I need guidance on this: online GD portal down dekhacche?,POLICE_GD_TECHNICAL_PROBLEMS,POLICE_GD_GENERAL_INFORMATION
+PGDX_0379,online GD service gulo somporke general guidance chai.,POLICE_GD_GENERAL_INFORMATION,POLICE_GD_FILING
+PGDX_0380,I am trying to understand this: online GD service gulo somporke general guidance chai?,POLICE_GD_GENERAL_INFORMATION,POLICE_GD_STATUS_FOLLOWUP
+PGDX_0381,I need guidance on this: online GD service gulo somporke general guidance chai?,POLICE_GD_GENERAL_INFORMATION,POLICE_GD_STATUS_FOLLOWUP

@@ -5,7 +5,7 @@
     "dev_macro_f1": 0.8101131142837175,
     "test_accuracy": 0.8775252525252525,
     "test_macro_f1": 0.8459668714656333,
-    "status": "baseline"
+    "status": "historical_baseline_pre_police_boundary_repair"
   },
   "service_balanced_v2": {
     "backbone": "xlm-roberta-base",
@@ -13,7 +13,7 @@
     "dev_macro_f1": 0.8820744425063953,
     "test_accuracy": 0.8838383838383839,
     "test_macro_f1": 0.8544916033297262,
-    "status": "selected"
+    "status": "historical_selected_pre_police_boundary_repair_retrain_required"
   },
   "parent_global_49": {
     "dev_accuracy": 0.39141414141414144,
@@ -43,6 +43,31 @@
   "parent_birth_small_balanced_12epoch": {
     "dev_accuracy": 0.6555555555555556,
     "dev_macro_f1": 0.5805607522877136,
+    "status": "selected"
+  },
+  "parent_passport_balanced_5epoch": {
+    "dev_accuracy": 0.5595238095238095,
+    "dev_macro_f1": 0.4714833495,
+    "status": "baseline_short_schedule"
+  },
+  "parent_passport_small_balanced": {
+    "dev_accuracy": 0.8630952380952381,
+    "dev_macro_f1": 0.8387069372587665,
+    "status": "selected"
+  },
+  "parent_tax_small_balanced": {
+    "dev_accuracy": 0.7575757575757576,
+    "dev_macro_f1": 0.7172454451866216,
+    "status": "selected"
+  },
+  "parent_police_gd_small_balanced_pre_boundary_repair": {
+    "dev_accuracy": 0.46875,
+    "dev_macro_f1": 0.3949766187759609,
+    "status": "diagnostic_pre_boundary_repair"
+  },
+  "parent_police_gd_small_balanced_post_boundary_repair": {
+    "dev_accuracy": 0.6770833333333334,
+    "dev_macro_f1": 0.6109016865278136,
     "status": "selected"
   }
 }
