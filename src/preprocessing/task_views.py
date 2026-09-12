@@ -17,8 +17,14 @@ TASK_TARGETS = {
 }
 
 
-def project_task(frame: pd.DataFrame, task: str) -> pd.DataFrame:
+def project_task(frame: pd.DataFrame, task: str, service: str | None = None) -> pd.DataFrame:
     """Return stable row/family/text/label columns for one classification task."""
+    if service is not None:
+        if "service" not in frame.columns:
+            raise ValueError("Dataset is missing service column")
+        frame = frame[frame["service"] == service].copy()
+        if frame.empty:
+            raise ValueError(f"No rows found for service {service!r}")
     if task not in TASK_TARGETS:
         raise ValueError(f"Unknown task {task!r}; choose from {sorted(TASK_TARGETS)}")
     target = TASK_TARGETS[task]
@@ -31,6 +37,6 @@ def project_task(frame: pd.DataFrame, task: str) -> pd.DataFrame:
     return result.rename(columns={target: "label"})
 
 
-def load_task_view(path: str | Path, task: str) -> pd.DataFrame:
+def load_task_view(path: str | Path, task: str, service: str | None = None) -> pd.DataFrame:
     frame = pd.read_csv(path, dtype=str, keep_default_na=False, encoding="utf-8-sig")
-    return project_task(frame, task)
+    return project_task(frame, task, service=service)

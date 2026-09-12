@@ -35,8 +35,8 @@ class EncodedTextDataset:
         return encoded
 
 
-def load_dataset(path: str | Path, task: str, tokenizer, label_to_id, max_length=128):
-    view = load_task_view(path, task)
+def load_dataset(path: str | Path, task: str, tokenizer, label_to_id, max_length=128, service: str | None = None):
+    view = load_task_view(path, task, service=service)
     return EncodedTextDataset(
         view["text"], view["label"], tokenizer, label_to_id, max_length
     )
