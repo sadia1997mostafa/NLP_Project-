@@ -1,4 +1,4 @@
-"""Load-test compact Partner A models and record their frozen-label counts."""
+"""Load-test compact Prothom models and record their frozen-label counts."""
 
 from __future__ import annotations
 

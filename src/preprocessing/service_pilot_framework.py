@@ -1,4 +1,4 @@
-"""Shared builders for reviewed four-seed Partner A service pilots."""
+"""Shared builders for reviewed four-seed Prothom service pilots."""
 
 from __future__ import annotations
 
@@ -200,7 +200,7 @@ def _write_protocol(spec: dict) -> None:
     rows = leaves * 4
     text = f"""# {spec['service_name']} Pilot Dataset Protocol
 
-Owner: Prothom / Partner A
+Owner: Prothom / Prothom
 
 Service: `{spec['service_id']}`
 

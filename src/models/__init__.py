@@ -1,1 +1,1 @@
-"""Training and inference scaffolding for Partner A classifiers."""
+"""Training and inference scaffolding for Prothom classifiers."""

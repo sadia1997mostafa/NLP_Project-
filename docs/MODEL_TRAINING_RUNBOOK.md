@@ -1,4 +1,4 @@
-# Partner A Model Training Runbook
+# Prothom Model Training Runbook
 
 The repository is prepared for the next phase, but no model has been trained.
 Run all commands from the repository root with the project virtual environment.

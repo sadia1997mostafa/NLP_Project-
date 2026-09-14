@@ -1,6 +1,6 @@
 # Tax Pilot Dataset Protocol
 
-Owner: Prothom / Partner A
+Owner: Prothom / Prothom
 
 Service: `TAX`
 

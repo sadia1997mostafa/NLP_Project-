@@ -1,6 +1,6 @@
 # Passport Pilot Semantic Review Audit
 
-Owner: Prothom / Partner A
+Owner: Prothom / Prothom
 
 Service: `PASSPORT`
 

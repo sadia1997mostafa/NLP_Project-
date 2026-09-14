@@ -1,4 +1,4 @@
-# NagorikSheba Partner A Codex Handoff
+# NagorikSheba Prothom Codex Handoff
 
 ## 1. Repository State
 
@@ -11,7 +11,7 @@
 - Historical service artifact `models/final/service_pre_police_boundary_repair/` was preserved.
 - Historical evaluation artifacts were preserved. No TEST artifact was opened or overwritten during this continuation.
 
-Tracked files modified by Partner A automation, excluding the pre-existing ownership change:
+Tracked files modified by Prothom automation, excluding the pre-existing ownership change:
 
 - `models/evaluation/training_run_summary.json`
 - `src/models/dataset.py`
@@ -37,7 +37,7 @@ New source/config/document files:
 - `src/models/summarize_hierarchy_dev.py`
 - `src/models/validate_inference_api.py`
 - `src/models/verify_final_models.py`
-- `docs/PARTNER_A_CODEX_HANDOFF.md`
+- `docs/Prothom_CODEX_HANDOFF.md`
 
 New evaluation artifacts are listed in Section 12.
 
@@ -56,7 +56,7 @@ New evaluation artifacts are listed in Section 12.
 
 ## 3. Final Architecture
 
-The implemented Partner A flow is:
+The implemented Prothom flow is:
 
 ```text
 query
@@ -321,7 +321,7 @@ Historical TEST-named artifacts that predated this continuation remain untouched
 
 ## 16. Exact Remaining Work
 
-Partner A manual work:
+Prothom manual work:
 
 - Review and commit selected artifacts only after inspecting `git diff` and preserving `docs/OWNERSHIP.md` as unrelated work.
 - Lock the final TEST protocol; run it once later only with explicit authorization.

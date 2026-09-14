@@ -1,4 +1,4 @@
-"""DEV-only oracle- and predicted-routing evaluation for Partner A models."""
+"""DEV-only oracle- and predicted-routing evaluation for Prothom models."""
 
 from __future__ import annotations
 

@@ -1,4 +1,4 @@
-"""Cached Partner A inference API for the hierarchical understanding system."""
+"""Cached Prothom inference API for the hierarchical understanding system."""
 
 from __future__ import annotations
 
@@ -366,6 +366,6 @@ def predict_understanding(
     text: str,
     pipeline: UnderstandingPipeline | LocalUnderstandingPipeline | None = None,
 ) -> dict:
-    """Return Partner A's structured understanding result for one query."""
+    """Return Prothom's structured understanding result for one query."""
     selected = pipeline if pipeline is not None else load_default_pipeline()
     return selected.predict_understanding(text)

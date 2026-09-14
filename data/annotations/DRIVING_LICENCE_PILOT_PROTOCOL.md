@@ -1,6 +1,6 @@
 # Driving Licence Pilot Dataset Protocol
 
-Owner: Prothom / Partner A
+Owner: Prothom / Prothom
 
 Service: `DRIVING_LICENCE`
 

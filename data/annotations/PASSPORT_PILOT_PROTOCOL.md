@@ -2,7 +2,7 @@
 
 ## NagorikSheba AI
 
-**Owner:** Prothom / Partner A  
+**Owner:** Prothom / Prothom
 **Service:** PASSPORT  
 **Taxonomy version:** 0.2.0  
 **Taxonomy parents:** 8  

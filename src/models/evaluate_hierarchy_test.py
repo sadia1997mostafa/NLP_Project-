@@ -1,4 +1,4 @@
-"""One-time held-out TEST evaluation for the frozen Partner A runtime."""
+"""One-time held-out TEST evaluation for the frozen Prothom runtime."""
 
 from __future__ import annotations
 

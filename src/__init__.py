@@ -1,1 +1,1 @@
-"""NagorikSheba Partner A NLP package."""
+"""NagorikSheba Prothom NLP package."""
