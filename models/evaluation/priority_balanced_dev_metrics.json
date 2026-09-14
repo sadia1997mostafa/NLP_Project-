@@ -1,0 +1,36 @@
+{
+  "accuracy": 0.8623737373737373,
+  "macro_precision": 0.560755527937445,
+  "macro_recall": 0.528138851536431,
+  "macro_f1": 0.5407780327162831,
+  "weighted_f1": 0.8552425302230385,
+  "confusion_matrix": [
+    [
+      0,
+      2,
+      1
+    ],
+    [
+      0,
+      551,
+      31
+    ],
+    [
+      0,
+      75,
+      132
+    ]
+  ],
+  "task": "priority",
+  "service": null,
+  "parent_topic_id": null,
+  "checkpoint": "models\\final\\priority_candidates\\balanced",
+  "device": "cuda",
+  "rows": 792,
+  "label_order": [
+    "High",
+    "Low",
+    "Medium"
+  ],
+  "routing": "scope_only"
+}

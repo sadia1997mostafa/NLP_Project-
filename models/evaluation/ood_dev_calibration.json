@@ -1,0 +1,856 @@
+{
+  "method": "anchor_aware_service_routing_confidence",
+  "calibration_status": "provisional_synthetic_dev_only",
+  "selection_rule": "maximize DEV balanced accuracy; tie-break by lower false acceptance, then lower threshold",
+  "test_data_used": false,
+  "data": {
+    "in_domain": "data/splits/dev.csv",
+    "in_domain_rows": 792,
+    "ood": "data/splits/ood_dev.csv",
+    "ood_rows": 180
+  },
+  "confidence_threshold": 0.95,
+  "ood_score_definition": "1 - routing_confidence; routing_confidence=1.0 for unique non-TAX trusted anchors, otherwise service-model maximum softmax",
+  "selected_metrics": {
+    "confidence_threshold": 0.95,
+    "balanced_accuracy": 0.7137626262626262,
+    "ood_f1": 0.5694915254237288,
+    "in_domain_acceptance_rate": 0.9608585858585859,
+    "ood_rejection_rate": 0.4666666666666667,
+    "false_rejection_rate": 0.039141414141414144,
+    "false_acceptance_rate": 0.5333333333333333
+  },
+  "discrimination": {
+    "auroc": 0.9186588103254769,
+    "aupr": 0.6871781399810578,
+    "fpr95": 0.23737373737373738
+  },
+  "threshold_candidates": [
+    {
+      "confidence_threshold": 0.05,
+      "balanced_accuracy": 0.5,
+      "ood_f1": 0.0,
+      "in_domain_acceptance_rate": 1.0,
+      "ood_rejection_rate": 0.0,
+      "false_rejection_rate": 0.0,
+      "false_acceptance_rate": 1.0
+    },
+    {
+      "confidence_threshold": 0.06,
+      "balanced_accuracy": 0.5,
+      "ood_f1": 0.0,
+      "in_domain_acceptance_rate": 1.0,
+      "ood_rejection_rate": 0.0,
+      "false_rejection_rate": 0.0,
+      "false_acceptance_rate": 1.0
+    },
+    {
+      "confidence_threshold": 0.07,
+      "balanced_accuracy": 0.5,
+      "ood_f1": 0.0,
+      "in_domain_acceptance_rate": 1.0,
+      "ood_rejection_rate": 0.0,
+      "false_rejection_rate": 0.0,
+      "false_acceptance_rate": 1.0
+    },
+    {
+      "confidence_threshold": 0.08,
+      "balanced_accuracy": 0.5,
+      "ood_f1": 0.0,
+      "in_domain_acceptance_rate": 1.0,
+      "ood_rejection_rate": 0.0,
+      "false_rejection_rate": 0.0,
+      "false_acceptance_rate": 1.0
+    },
+    {
+      "confidence_threshold": 0.09,
+      "balanced_accuracy": 0.5,
+      "ood_f1": 0.0,
+      "in_domain_acceptance_rate": 1.0,
+      "ood_rejection_rate": 0.0,
+      "false_rejection_rate": 0.0,
+      "false_acceptance_rate": 1.0
+    },
+    {
+      "confidence_threshold": 0.1,
+      "balanced_accuracy": 0.5,
+      "ood_f1": 0.0,
+      "in_domain_acceptance_rate": 1.0,
+      "ood_rejection_rate": 0.0,
+      "false_rejection_rate": 0.0,
+      "false_acceptance_rate": 1.0
+    },
+    {
+      "confidence_threshold": 0.11,
+      "balanced_accuracy": 0.5,
+      "ood_f1": 0.0,
+      "in_domain_acceptance_rate": 1.0,
+      "ood_rejection_rate": 0.0,
+      "false_rejection_rate": 0.0,
+      "false_acceptance_rate": 1.0
+    },
+    {
+      "confidence_threshold": 0.12,
+      "balanced_accuracy": 0.5,
+      "ood_f1": 0.0,
+      "in_domain_acceptance_rate": 1.0,
+      "ood_rejection_rate": 0.0,
+      "false_rejection_rate": 0.0,
+      "false_acceptance_rate": 1.0
+    },
+    {
+      "confidence_threshold": 0.13,
+      "balanced_accuracy": 0.5,
+      "ood_f1": 0.0,
+      "in_domain_acceptance_rate": 1.0,
+      "ood_rejection_rate": 0.0,
+      "false_rejection_rate": 0.0,
+      "false_acceptance_rate": 1.0
+    },
+    {
+      "confidence_threshold": 0.14,
+      "balanced_accuracy": 0.5,
+      "ood_f1": 0.0,
+      "in_domain_acceptance_rate": 1.0,
+      "ood_rejection_rate": 0.0,
+      "false_rejection_rate": 0.0,
+      "false_acceptance_rate": 1.0
+    },
+    {
+      "confidence_threshold": 0.15,
+      "balanced_accuracy": 0.5,
+      "ood_f1": 0.0,
+      "in_domain_acceptance_rate": 1.0,
+      "ood_rejection_rate": 0.0,
+      "false_rejection_rate": 0.0,
+      "false_acceptance_rate": 1.0
+    },
+    {
+      "confidence_threshold": 0.16,
+      "balanced_accuracy": 0.5,
+      "ood_f1": 0.0,
+      "in_domain_acceptance_rate": 1.0,
+      "ood_rejection_rate": 0.0,
+      "false_rejection_rate": 0.0,
+      "false_acceptance_rate": 1.0
+    },
+    {
+      "confidence_threshold": 0.17,
+      "balanced_accuracy": 0.5,
+      "ood_f1": 0.0,
+      "in_domain_acceptance_rate": 1.0,
+      "ood_rejection_rate": 0.0,
+      "false_rejection_rate": 0.0,
+      "false_acceptance_rate": 1.0
+    },
+    {
+      "confidence_threshold": 0.18,
+      "balanced_accuracy": 0.5,
+      "ood_f1": 0.0,
+      "in_domain_acceptance_rate": 1.0,
+      "ood_rejection_rate": 0.0,
+      "false_rejection_rate": 0.0,
+      "false_acceptance_rate": 1.0
+    },
+    {
+      "confidence_threshold": 0.19,
+      "balanced_accuracy": 0.5,
+      "ood_f1": 0.0,
+      "in_domain_acceptance_rate": 1.0,
+      "ood_rejection_rate": 0.0,
+      "false_rejection_rate": 0.0,
+      "false_acceptance_rate": 1.0
+    },
+    {
+      "confidence_threshold": 0.2,
+      "balanced_accuracy": 0.5,
+      "ood_f1": 0.0,
+      "in_domain_acceptance_rate": 1.0,
+      "ood_rejection_rate": 0.0,
+      "false_rejection_rate": 0.0,
+      "false_acceptance_rate": 1.0
+    },
+    {
+      "confidence_threshold": 0.21,
+      "balanced_accuracy": 0.5,
+      "ood_f1": 0.0,
+      "in_domain_acceptance_rate": 1.0,
+      "ood_rejection_rate": 0.0,
+      "false_rejection_rate": 0.0,
+      "false_acceptance_rate": 1.0
+    },
+    {
+      "confidence_threshold": 0.22,
+      "balanced_accuracy": 0.5,
+      "ood_f1": 0.0,
+      "in_domain_acceptance_rate": 1.0,
+      "ood_rejection_rate": 0.0,
+      "false_rejection_rate": 0.0,
+      "false_acceptance_rate": 1.0
+    },
+    {
+      "confidence_threshold": 0.23,
+      "balanced_accuracy": 0.5,
+      "ood_f1": 0.0,
+      "in_domain_acceptance_rate": 1.0,
+      "ood_rejection_rate": 0.0,
+      "false_rejection_rate": 0.0,
+      "false_acceptance_rate": 1.0
+    },
+    {
+      "confidence_threshold": 0.24,
+      "balanced_accuracy": 0.5,
+      "ood_f1": 0.0,
+      "in_domain_acceptance_rate": 1.0,
+      "ood_rejection_rate": 0.0,
+      "false_rejection_rate": 0.0,
+      "false_acceptance_rate": 1.0
+    },
+    {
+      "confidence_threshold": 0.25,
+      "balanced_accuracy": 0.5,
+      "ood_f1": 0.0,
+      "in_domain_acceptance_rate": 1.0,
+      "ood_rejection_rate": 0.0,
+      "false_rejection_rate": 0.0,
+      "false_acceptance_rate": 1.0
+    },
+    {
+      "confidence_threshold": 0.26,
+      "balanced_accuracy": 0.5,
+      "ood_f1": 0.0,
+      "in_domain_acceptance_rate": 1.0,
+      "ood_rejection_rate": 0.0,
+      "false_rejection_rate": 0.0,
+      "false_acceptance_rate": 1.0
+    },
+    {
+      "confidence_threshold": 0.27,
+      "balanced_accuracy": 0.5,
+      "ood_f1": 0.0,
+      "in_domain_acceptance_rate": 1.0,
+      "ood_rejection_rate": 0.0,
+      "false_rejection_rate": 0.0,
+      "false_acceptance_rate": 1.0
+    },
+    {
+      "confidence_threshold": 0.28,
+      "balanced_accuracy": 0.5,
+      "ood_f1": 0.0,
+      "in_domain_acceptance_rate": 1.0,
+      "ood_rejection_rate": 0.0,
+      "false_rejection_rate": 0.0,
+      "false_acceptance_rate": 1.0
+    },
+    {
+      "confidence_threshold": 0.29,
+      "balanced_accuracy": 0.5,
+      "ood_f1": 0.0,
+      "in_domain_acceptance_rate": 1.0,
+      "ood_rejection_rate": 0.0,
+      "false_rejection_rate": 0.0,
+      "false_acceptance_rate": 1.0
+    },
+    {
+      "confidence_threshold": 0.3,
+      "balanced_accuracy": 0.5,
+      "ood_f1": 0.0,
+      "in_domain_acceptance_rate": 1.0,
+      "ood_rejection_rate": 0.0,
+      "false_rejection_rate": 0.0,
+      "false_acceptance_rate": 1.0
+    },
+    {
+      "confidence_threshold": 0.31,
+      "balanced_accuracy": 0.5,
+      "ood_f1": 0.0,
+      "in_domain_acceptance_rate": 1.0,
+      "ood_rejection_rate": 0.0,
+      "false_rejection_rate": 0.0,
+      "false_acceptance_rate": 1.0
+    },
+    {
+      "confidence_threshold": 0.32,
+      "balanced_accuracy": 0.5,
+      "ood_f1": 0.0,
+      "in_domain_acceptance_rate": 1.0,
+      "ood_rejection_rate": 0.0,
+      "false_rejection_rate": 0.0,
+      "false_acceptance_rate": 1.0
+    },
+    {
+      "confidence_threshold": 0.33,
+      "balanced_accuracy": 0.5,
+      "ood_f1": 0.0,
+      "in_domain_acceptance_rate": 1.0,
+      "ood_rejection_rate": 0.0,
+      "false_rejection_rate": 0.0,
+      "false_acceptance_rate": 1.0
+    },
+    {
+      "confidence_threshold": 0.34,
+      "balanced_accuracy": 0.5,
+      "ood_f1": 0.0,
+      "in_domain_acceptance_rate": 1.0,
+      "ood_rejection_rate": 0.0,
+      "false_rejection_rate": 0.0,
+      "false_acceptance_rate": 1.0
+    },
+    {
+      "confidence_threshold": 0.35,
+      "balanced_accuracy": 0.5,
+      "ood_f1": 0.0,
+      "in_domain_acceptance_rate": 1.0,
+      "ood_rejection_rate": 0.0,
+      "false_rejection_rate": 0.0,
+      "false_acceptance_rate": 1.0
+    },
+    {
+      "confidence_threshold": 0.36,
+      "balanced_accuracy": 0.5027777777777778,
+      "ood_f1": 0.011049723756906077,
+      "in_domain_acceptance_rate": 1.0,
+      "ood_rejection_rate": 0.005555555555555556,
+      "false_rejection_rate": 0.0,
+      "false_acceptance_rate": 0.9944444444444445
+    },
+    {
+      "confidence_threshold": 0.37,
+      "balanced_accuracy": 0.5027777777777778,
+      "ood_f1": 0.011049723756906077,
+      "in_domain_acceptance_rate": 1.0,
+      "ood_rejection_rate": 0.005555555555555556,
+      "false_rejection_rate": 0.0,
+      "false_acceptance_rate": 0.9944444444444445
+    },
+    {
+      "confidence_threshold": 0.38,
+      "balanced_accuracy": 0.5055555555555555,
+      "ood_f1": 0.02197802197802198,
+      "in_domain_acceptance_rate": 1.0,
+      "ood_rejection_rate": 0.011111111111111112,
+      "false_rejection_rate": 0.0,
+      "false_acceptance_rate": 0.9888888888888889
+    },
+    {
+      "confidence_threshold": 0.39,
+      "balanced_accuracy": 0.5138888888888888,
+      "ood_f1": 0.05405405405405406,
+      "in_domain_acceptance_rate": 1.0,
+      "ood_rejection_rate": 0.027777777777777776,
+      "false_rejection_rate": 0.0,
+      "false_acceptance_rate": 0.9722222222222222
+    },
+    {
+      "confidence_threshold": 0.4,
+      "balanced_accuracy": 0.5138888888888888,
+      "ood_f1": 0.05405405405405406,
+      "in_domain_acceptance_rate": 1.0,
+      "ood_rejection_rate": 0.027777777777777776,
+      "false_rejection_rate": 0.0,
+      "false_acceptance_rate": 0.9722222222222222
+    },
+    {
+      "confidence_threshold": 0.41,
+      "balanced_accuracy": 0.5138888888888888,
+      "ood_f1": 0.05405405405405406,
+      "in_domain_acceptance_rate": 1.0,
+      "ood_rejection_rate": 0.027777777777777776,
+      "false_rejection_rate": 0.0,
+      "false_acceptance_rate": 0.9722222222222222
+    },
+    {
+      "confidence_threshold": 0.42,
+      "balanced_accuracy": 0.5138888888888888,
+      "ood_f1": 0.05405405405405406,
+      "in_domain_acceptance_rate": 1.0,
+      "ood_rejection_rate": 0.027777777777777776,
+      "false_rejection_rate": 0.0,
+      "false_acceptance_rate": 0.9722222222222222
+    },
+    {
+      "confidence_threshold": 0.43,
+      "balanced_accuracy": 0.5138888888888888,
+      "ood_f1": 0.05405405405405406,
+      "in_domain_acceptance_rate": 1.0,
+      "ood_rejection_rate": 0.027777777777777776,
+      "false_rejection_rate": 0.0,
+      "false_acceptance_rate": 0.9722222222222222
+    },
+    {
+      "confidence_threshold": 0.44,
+      "balanced_accuracy": 0.5138888888888888,
+      "ood_f1": 0.05405405405405406,
+      "in_domain_acceptance_rate": 1.0,
+      "ood_rejection_rate": 0.027777777777777776,
+      "false_rejection_rate": 0.0,
+      "false_acceptance_rate": 0.9722222222222222
+    },
+    {
+      "confidence_threshold": 0.45,
+      "balanced_accuracy": 0.5194444444444445,
+      "ood_f1": 0.0748663101604278,
+      "in_domain_acceptance_rate": 1.0,
+      "ood_rejection_rate": 0.03888888888888889,
+      "false_rejection_rate": 0.0,
+      "false_acceptance_rate": 0.9611111111111111
+    },
+    {
+      "confidence_threshold": 0.46,
+      "balanced_accuracy": 0.5194444444444445,
+      "ood_f1": 0.0748663101604278,
+      "in_domain_acceptance_rate": 1.0,
+      "ood_rejection_rate": 0.03888888888888889,
+      "false_rejection_rate": 0.0,
+      "false_acceptance_rate": 0.9611111111111111
+    },
+    {
+      "confidence_threshold": 0.47,
+      "balanced_accuracy": 0.525,
+      "ood_f1": 0.09523809523809523,
+      "in_domain_acceptance_rate": 1.0,
+      "ood_rejection_rate": 0.05,
+      "false_rejection_rate": 0.0,
+      "false_acceptance_rate": 0.95
+    },
+    {
+      "confidence_threshold": 0.48,
+      "balanced_accuracy": 0.5305555555555556,
+      "ood_f1": 0.11518324607329843,
+      "in_domain_acceptance_rate": 1.0,
+      "ood_rejection_rate": 0.06111111111111111,
+      "false_rejection_rate": 0.0,
+      "false_acceptance_rate": 0.9388888888888889
+    },
+    {
+      "confidence_threshold": 0.49,
+      "balanced_accuracy": 0.5305555555555556,
+      "ood_f1": 0.11518324607329843,
+      "in_domain_acceptance_rate": 1.0,
+      "ood_rejection_rate": 0.06111111111111111,
+      "false_rejection_rate": 0.0,
+      "false_acceptance_rate": 0.9388888888888889
+    },
+    {
+      "confidence_threshold": 0.5,
+      "balanced_accuracy": 0.5361111111111111,
+      "ood_f1": 0.13471502590673576,
+      "in_domain_acceptance_rate": 1.0,
+      "ood_rejection_rate": 0.07222222222222222,
+      "false_rejection_rate": 0.0,
+      "false_acceptance_rate": 0.9277777777777778
+    },
+    {
+      "confidence_threshold": 0.51,
+      "balanced_accuracy": 0.5410353535353535,
+      "ood_f1": 0.15306122448979592,
+      "in_domain_acceptance_rate": 0.9987373737373737,
+      "ood_rejection_rate": 0.08333333333333333,
+      "false_rejection_rate": 0.0012626262626262627,
+      "false_acceptance_rate": 0.9166666666666666
+    },
+    {
+      "confidence_threshold": 0.52,
+      "balanced_accuracy": 0.5431818181818182,
+      "ood_f1": 0.16161616161616163,
+      "in_domain_acceptance_rate": 0.9974747474747475,
+      "ood_rejection_rate": 0.08888888888888889,
+      "false_rejection_rate": 0.0025252525252525255,
+      "false_acceptance_rate": 0.9111111111111111
+    },
+    {
+      "confidence_threshold": 0.53,
+      "balanced_accuracy": 0.5431818181818182,
+      "ood_f1": 0.16161616161616163,
+      "in_domain_acceptance_rate": 0.9974747474747475,
+      "ood_rejection_rate": 0.08888888888888889,
+      "false_rejection_rate": 0.0025252525252525255,
+      "false_acceptance_rate": 0.9111111111111111
+    },
+    {
+      "confidence_threshold": 0.54,
+      "balanced_accuracy": 0.5487373737373737,
+      "ood_f1": 0.18,
+      "in_domain_acceptance_rate": 0.9974747474747475,
+      "ood_rejection_rate": 0.1,
+      "false_rejection_rate": 0.0025252525252525255,
+      "false_acceptance_rate": 0.9
+    },
+    {
+      "confidence_threshold": 0.55,
+      "balanced_accuracy": 0.5508838383838384,
+      "ood_f1": 0.18811881188118812,
+      "in_domain_acceptance_rate": 0.9962121212121212,
+      "ood_rejection_rate": 0.10555555555555556,
+      "false_rejection_rate": 0.003787878787878788,
+      "false_acceptance_rate": 0.8944444444444445
+    },
+    {
+      "confidence_threshold": 0.56,
+      "balanced_accuracy": 0.5558080808080808,
+      "ood_f1": 0.2048780487804878,
+      "in_domain_acceptance_rate": 0.9949494949494949,
+      "ood_rejection_rate": 0.11666666666666667,
+      "false_rejection_rate": 0.005050505050505051,
+      "false_acceptance_rate": 0.8833333333333333
+    },
+    {
+      "confidence_threshold": 0.57,
+      "balanced_accuracy": 0.5585858585858585,
+      "ood_f1": 0.21359223300970873,
+      "in_domain_acceptance_rate": 0.9949494949494949,
+      "ood_rejection_rate": 0.12222222222222222,
+      "false_rejection_rate": 0.005050505050505051,
+      "false_acceptance_rate": 0.8777777777777778
+    },
+    {
+      "confidence_threshold": 0.58,
+      "balanced_accuracy": 0.5573232323232323,
+      "ood_f1": 0.21153846153846154,
+      "in_domain_acceptance_rate": 0.9924242424242424,
+      "ood_rejection_rate": 0.12222222222222222,
+      "false_rejection_rate": 0.007575757575757576,
+      "false_acceptance_rate": 0.8777777777777778
+    },
+    {
+      "confidence_threshold": 0.59,
+      "balanced_accuracy": 0.5566919191919192,
+      "ood_f1": 0.21052631578947367,
+      "in_domain_acceptance_rate": 0.9911616161616161,
+      "ood_rejection_rate": 0.12222222222222222,
+      "false_rejection_rate": 0.008838383838383838,
+      "false_acceptance_rate": 0.8777777777777778
+    },
+    {
+      "confidence_threshold": 0.6,
+      "balanced_accuracy": 0.559469696969697,
+      "ood_f1": 0.21904761904761905,
+      "in_domain_acceptance_rate": 0.9911616161616161,
+      "ood_rejection_rate": 0.12777777777777777,
+      "false_rejection_rate": 0.008838383838383838,
+      "false_acceptance_rate": 0.8722222222222222
+    },
+    {
+      "confidence_threshold": 0.61,
+      "balanced_accuracy": 0.5622474747474747,
+      "ood_f1": 0.22748815165876776,
+      "in_domain_acceptance_rate": 0.9911616161616161,
+      "ood_rejection_rate": 0.13333333333333333,
+      "false_rejection_rate": 0.008838383838383838,
+      "false_acceptance_rate": 0.8666666666666667
+    },
+    {
+      "confidence_threshold": 0.62,
+      "balanced_accuracy": 0.5733585858585859,
+      "ood_f1": 0.26046511627906976,
+      "in_domain_acceptance_rate": 0.9911616161616161,
+      "ood_rejection_rate": 0.15555555555555556,
+      "false_rejection_rate": 0.008838383838383838,
+      "false_acceptance_rate": 0.8444444444444444
+    },
+    {
+      "confidence_threshold": 0.63,
+      "balanced_accuracy": 0.5761363636363637,
+      "ood_f1": 0.26851851851851855,
+      "in_domain_acceptance_rate": 0.9911616161616161,
+      "ood_rejection_rate": 0.16111111111111112,
+      "false_rejection_rate": 0.008838383838383838,
+      "false_acceptance_rate": 0.8388888888888889
+    },
+    {
+      "confidence_threshold": 0.64,
+      "balanced_accuracy": 0.5755050505050505,
+      "ood_f1": 0.2672811059907834,
+      "in_domain_acceptance_rate": 0.98989898989899,
+      "ood_rejection_rate": 0.16111111111111112,
+      "false_rejection_rate": 0.010101010101010102,
+      "false_acceptance_rate": 0.8388888888888889
+    },
+    {
+      "confidence_threshold": 0.65,
+      "balanced_accuracy": 0.5782828282828283,
+      "ood_f1": 0.27522935779816515,
+      "in_domain_acceptance_rate": 0.98989898989899,
+      "ood_rejection_rate": 0.16666666666666666,
+      "false_rejection_rate": 0.010101010101010102,
+      "false_acceptance_rate": 0.8333333333333334
+    },
+    {
+      "confidence_threshold": 0.66,
+      "balanced_accuracy": 0.581060606060606,
+      "ood_f1": 0.2831050228310502,
+      "in_domain_acceptance_rate": 0.98989898989899,
+      "ood_rejection_rate": 0.17222222222222222,
+      "false_rejection_rate": 0.010101010101010102,
+      "false_acceptance_rate": 0.8277777777777777
+    },
+    {
+      "confidence_threshold": 0.67,
+      "balanced_accuracy": 0.5797979797979798,
+      "ood_f1": 0.28054298642533937,
+      "in_domain_acceptance_rate": 0.9873737373737373,
+      "ood_rejection_rate": 0.17222222222222222,
+      "false_rejection_rate": 0.012626262626262626,
+      "false_acceptance_rate": 0.8277777777777777
+    },
+    {
+      "confidence_threshold": 0.68,
+      "balanced_accuracy": 0.5881313131313131,
+      "ood_f1": 0.30357142857142855,
+      "in_domain_acceptance_rate": 0.9873737373737373,
+      "ood_rejection_rate": 0.18888888888888888,
+      "false_rejection_rate": 0.012626262626262626,
+      "false_acceptance_rate": 0.8111111111111111
+    },
+    {
+      "confidence_threshold": 0.69,
+      "balanced_accuracy": 0.5875,
+      "ood_f1": 0.3022222222222222,
+      "in_domain_acceptance_rate": 0.9861111111111112,
+      "ood_rejection_rate": 0.18888888888888888,
+      "false_rejection_rate": 0.013888888888888888,
+      "false_acceptance_rate": 0.8111111111111111
+    },
+    {
+      "confidence_threshold": 0.7,
+      "balanced_accuracy": 0.5868686868686869,
+      "ood_f1": 0.3008849557522124,
+      "in_domain_acceptance_rate": 0.9848484848484849,
+      "ood_rejection_rate": 0.18888888888888888,
+      "false_rejection_rate": 0.015151515151515152,
+      "false_acceptance_rate": 0.8111111111111111
+    },
+    {
+      "confidence_threshold": 0.71,
+      "balanced_accuracy": 0.5896464646464646,
+      "ood_f1": 0.30837004405286345,
+      "in_domain_acceptance_rate": 0.9848484848484849,
+      "ood_rejection_rate": 0.19444444444444445,
+      "false_rejection_rate": 0.015151515151515152,
+      "false_acceptance_rate": 0.8055555555555556
+    },
+    {
+      "confidence_threshold": 0.72,
+      "balanced_accuracy": 0.5896464646464646,
+      "ood_f1": 0.30837004405286345,
+      "in_domain_acceptance_rate": 0.9848484848484849,
+      "ood_rejection_rate": 0.19444444444444445,
+      "false_rejection_rate": 0.015151515151515152,
+      "false_acceptance_rate": 0.8055555555555556
+    },
+    {
+      "confidence_threshold": 0.73,
+      "balanced_accuracy": 0.5933080808080808,
+      "ood_f1": 0.31896551724137934,
+      "in_domain_acceptance_rate": 0.9810606060606061,
+      "ood_rejection_rate": 0.20555555555555555,
+      "false_rejection_rate": 0.01893939393939394,
+      "false_acceptance_rate": 0.7944444444444444
+    },
+    {
+      "confidence_threshold": 0.74,
+      "balanced_accuracy": 0.5988636363636364,
+      "ood_f1": 0.3333333333333333,
+      "in_domain_acceptance_rate": 0.9810606060606061,
+      "ood_rejection_rate": 0.21666666666666667,
+      "false_rejection_rate": 0.01893939393939394,
+      "false_acceptance_rate": 0.7833333333333333
+    },
+    {
+      "confidence_threshold": 0.75,
+      "balanced_accuracy": 0.6016414141414141,
+      "ood_f1": 0.3404255319148936,
+      "in_domain_acceptance_rate": 0.9810606060606061,
+      "ood_rejection_rate": 0.2222222222222222,
+      "false_rejection_rate": 0.01893939393939394,
+      "false_acceptance_rate": 0.7777777777777778
+    },
+    {
+      "confidence_threshold": 0.76,
+      "balanced_accuracy": 0.6093434343434343,
+      "ood_f1": 0.3598326359832636,
+      "in_domain_acceptance_rate": 0.9797979797979798,
+      "ood_rejection_rate": 0.2388888888888889,
+      "false_rejection_rate": 0.020202020202020204,
+      "false_acceptance_rate": 0.7611111111111111
+    },
+    {
+      "confidence_threshold": 0.77,
+      "balanced_accuracy": 0.6093434343434343,
+      "ood_f1": 0.3598326359832636,
+      "in_domain_acceptance_rate": 0.9797979797979798,
+      "ood_rejection_rate": 0.2388888888888889,
+      "false_rejection_rate": 0.020202020202020204,
+      "false_acceptance_rate": 0.7611111111111111
+    },
+    {
+      "confidence_threshold": 0.78,
+      "balanced_accuracy": 0.6148989898989898,
+      "ood_f1": 0.37344398340248963,
+      "in_domain_acceptance_rate": 0.9797979797979798,
+      "ood_rejection_rate": 0.25,
+      "false_rejection_rate": 0.020202020202020204,
+      "false_acceptance_rate": 0.75
+    },
+    {
+      "confidence_threshold": 0.79,
+      "balanced_accuracy": 0.6232323232323232,
+      "ood_f1": 0.39344262295081966,
+      "in_domain_acceptance_rate": 0.9797979797979798,
+      "ood_rejection_rate": 0.26666666666666666,
+      "false_rejection_rate": 0.020202020202020204,
+      "false_acceptance_rate": 0.7333333333333333
+    },
+    {
+      "confidence_threshold": 0.8,
+      "balanced_accuracy": 0.6287878787878788,
+      "ood_f1": 0.4065040650406504,
+      "in_domain_acceptance_rate": 0.9797979797979798,
+      "ood_rejection_rate": 0.2777777777777778,
+      "false_rejection_rate": 0.020202020202020204,
+      "false_acceptance_rate": 0.7222222222222222
+    },
+    {
+      "confidence_threshold": 0.81,
+      "balanced_accuracy": 0.6343434343434343,
+      "ood_f1": 0.41935483870967744,
+      "in_domain_acceptance_rate": 0.9797979797979798,
+      "ood_rejection_rate": 0.28888888888888886,
+      "false_rejection_rate": 0.020202020202020204,
+      "false_acceptance_rate": 0.7111111111111111
+    },
+    {
+      "confidence_threshold": 0.82,
+      "balanced_accuracy": 0.6337121212121212,
+      "ood_f1": 0.41767068273092367,
+      "in_domain_acceptance_rate": 0.9785353535353535,
+      "ood_rejection_rate": 0.28888888888888886,
+      "false_rejection_rate": 0.021464646464646464,
+      "false_acceptance_rate": 0.7111111111111111
+    },
+    {
+      "confidence_threshold": 0.83,
+      "balanced_accuracy": 0.6364898989898989,
+      "ood_f1": 0.424,
+      "in_domain_acceptance_rate": 0.9785353535353535,
+      "ood_rejection_rate": 0.29444444444444445,
+      "false_rejection_rate": 0.021464646464646464,
+      "false_acceptance_rate": 0.7055555555555556
+    },
+    {
+      "confidence_threshold": 0.84,
+      "balanced_accuracy": 0.6420454545454546,
+      "ood_f1": 0.4365079365079365,
+      "in_domain_acceptance_rate": 0.9785353535353535,
+      "ood_rejection_rate": 0.3055555555555556,
+      "false_rejection_rate": 0.021464646464646464,
+      "false_acceptance_rate": 0.6944444444444444
+    },
+    {
+      "confidence_threshold": 0.85,
+      "balanced_accuracy": 0.6441919191919192,
+      "ood_f1": 0.4409448818897638,
+      "in_domain_acceptance_rate": 0.9772727272727273,
+      "ood_rejection_rate": 0.3111111111111111,
+      "false_rejection_rate": 0.022727272727272728,
+      "false_acceptance_rate": 0.6888888888888889
+    },
+    {
+      "confidence_threshold": 0.86,
+      "balanced_accuracy": 0.6518939393939394,
+      "ood_f1": 0.4573643410852713,
+      "in_domain_acceptance_rate": 0.976010101010101,
+      "ood_rejection_rate": 0.3277777777777778,
+      "false_rejection_rate": 0.023989898989898988,
+      "false_acceptance_rate": 0.6722222222222223
+    },
+    {
+      "confidence_threshold": 0.87,
+      "balanced_accuracy": 0.6546717171717171,
+      "ood_f1": 0.46332046332046334,
+      "in_domain_acceptance_rate": 0.976010101010101,
+      "ood_rejection_rate": 0.3333333333333333,
+      "false_rejection_rate": 0.023989898989898988,
+      "false_acceptance_rate": 0.6666666666666666
+    },
+    {
+      "confidence_threshold": 0.88,
+      "balanced_accuracy": 0.6602272727272727,
+      "ood_f1": 0.47509578544061304,
+      "in_domain_acceptance_rate": 0.976010101010101,
+      "ood_rejection_rate": 0.34444444444444444,
+      "false_rejection_rate": 0.023989898989898988,
+      "false_acceptance_rate": 0.6555555555555556
+    },
+    {
+      "confidence_threshold": 0.89,
+      "balanced_accuracy": 0.6617424242424242,
+      "ood_f1": 0.4772727272727273,
+      "in_domain_acceptance_rate": 0.9734848484848485,
+      "ood_rejection_rate": 0.35,
+      "false_rejection_rate": 0.026515151515151516,
+      "false_acceptance_rate": 0.65
+    },
+    {
+      "confidence_threshold": 0.9,
+      "balanced_accuracy": 0.6626262626262627,
+      "ood_f1": 0.47761194029850745,
+      "in_domain_acceptance_rate": 0.9696969696969697,
+      "ood_rejection_rate": 0.35555555555555557,
+      "false_rejection_rate": 0.030303030303030304,
+      "false_acceptance_rate": 0.6444444444444445
+    },
+    {
+      "confidence_threshold": 0.91,
+      "balanced_accuracy": 0.6765151515151515,
+      "ood_f1": 0.5054945054945055,
+      "in_domain_acceptance_rate": 0.9696969696969697,
+      "ood_rejection_rate": 0.38333333333333336,
+      "false_rejection_rate": 0.030303030303030304,
+      "false_acceptance_rate": 0.6166666666666667
+    },
+    {
+      "confidence_threshold": 0.92,
+      "balanced_accuracy": 0.6904040404040404,
+      "ood_f1": 0.5323741007194245,
+      "in_domain_acceptance_rate": 0.9696969696969697,
+      "ood_rejection_rate": 0.4111111111111111,
+      "false_rejection_rate": 0.030303030303030304,
+      "false_acceptance_rate": 0.5888888888888889
+    },
+    {
+      "confidence_threshold": 0.93,
+      "balanced_accuracy": 0.695959595959596,
+      "ood_f1": 0.5428571428571428,
+      "in_domain_acceptance_rate": 0.9696969696969697,
+      "ood_rejection_rate": 0.4222222222222222,
+      "false_rejection_rate": 0.030303030303030304,
+      "false_acceptance_rate": 0.5777777777777777
+    },
+    {
+      "confidence_threshold": 0.94,
+      "balanced_accuracy": 0.7002525252525252,
+      "ood_f1": 0.5492957746478874,
+      "in_domain_acceptance_rate": 0.9671717171717171,
+      "ood_rejection_rate": 0.43333333333333335,
+      "false_rejection_rate": 0.03282828282828283,
+      "false_acceptance_rate": 0.5666666666666667
+    },
+    {
+      "confidence_threshold": 0.95,
+      "balanced_accuracy": 0.7137626262626262,
+      "ood_f1": 0.5694915254237288,
+      "in_domain_acceptance_rate": 0.9608585858585859,
+      "ood_rejection_rate": 0.4666666666666667,
+      "false_rejection_rate": 0.039141414141414144,
+      "false_acceptance_rate": 0.5333333333333333
+    }
+  ],
+  "limitations": [
+    "Threshold is calibrated on synthetic DEV data only.",
+    "The service-model maximum softmax score is a simple baseline, not a safety guarantee.",
+    "Unique TAX anchors are not auto-accepted for OOD because DEV OOD contains holding-tax collisions.",
+    "Trusted lexical anchors were selected/calibrated on DEV only and require later real-world validation.",
+    "No test or OOD-test data was used."
+  ]
+}

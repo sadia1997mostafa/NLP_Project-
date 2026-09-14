@@ -1,0 +1,26 @@
+{
+  "evaluation_scope": "DEV only",
+  "test_data_used": false,
+  "rows": 792,
+  "error_propagation": {
+    "service_routing_errors": 69,
+    "parent_errors_with_oracle_service": 216,
+    "parent_errors_after_correct_predicted_service": 196,
+    "intent_errors_with_oracle_service_and_parent": 365,
+    "intent_errors_after_correct_predicted_service_and_parent": 239,
+    "priority_errors": 104,
+    "ood_false_rejections_on_in_domain_dev": 114
+  },
+  "conditional_counts": {
+    "correct_service": 723,
+    "correct_service_and_parent": 527,
+    "correct_service_parent_and_intent": 288,
+    "correct_service_parent_intent_and_priority": 251,
+    "full_match_including_in_domain_ood_acceptance": 234
+  },
+  "full_match_including_in_domain_ood_acceptance_accuracy": 0.29545454545454547,
+  "source_artifacts": {
+    "metrics": "models/evaluation/hierarchical_dev_metrics.json",
+    "predictions": "models/evaluation/hierarchical_dev_predictions.csv"
+  }
+}

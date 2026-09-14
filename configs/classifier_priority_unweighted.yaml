@@ -1,0 +1,20 @@
+training:
+  model_name: "xlm-roberta-base"
+  tokenizer_name: "models/final/tokenizer_xlm_roberta_base"
+  seed: 42
+  max_length: 128
+  train_batch_size: 16
+  evaluation_batch_size: 32
+  learning_rate: 0.00002
+  epochs: 5
+  weight_decay: 0.01
+  warmup_ratio: 0.1
+  early_stopping_patience: 2
+  save_total_limit: 2
+  save_only_model: true
+  output_path: "models/checkpoints/priority_unweighted"
+  class_weighting: "optional_not_enabled"
+
+tasks:
+  priority:
+    num_labels: 3

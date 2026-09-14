@@ -1,0 +1,237 @@
+{
+  "status": "active_partner_a_runtime_verified",
+  "test_data_used": false,
+  "active_neural_model_count": 13,
+  "active_neural_models": [
+    {
+      "path": "models\\final\\service",
+      "expected_labels": 6,
+      "actual_labels": 6,
+      "selection": {
+        "task": "service",
+        "service": null,
+        "parent_topic_id": null,
+        "source_checkpoint": "models\\checkpoints\\service_balanced\\checkpoint-297",
+        "selection_metric": "dev_macro_f1",
+        "dev_macro_f1": 0.9035931903363533,
+        "dev_accuracy": 0.9128787878787878,
+        "best_epoch": 3.0
+      },
+      "load_verified": true
+    },
+    {
+      "path": "models\\final\\parent\\NID",
+      "expected_labels": 9,
+      "actual_labels": 9,
+      "selection": {
+        "task": "parent",
+        "service": "NID",
+        "source_checkpoint": "parent_balanced/NID/checkpoint-140",
+        "selection_metric": "dev_macro_f1",
+        "dev_macro_f1": 0.667306471064641
+      },
+      "load_verified": true
+    },
+    {
+      "path": "models\\final\\parent\\BIRTH_REGISTRATION",
+      "expected_labels": 8,
+      "actual_labels": 8,
+      "selection": {
+        "task": "parent",
+        "service": "BIRTH_REGISTRATION",
+        "source_checkpoint": "parent_small_balanced/BIRTH_REGISTRATION/checkpoint-276",
+        "selection_metric": "dev_macro_f1",
+        "dev_macro_f1": 0.5805607522877136
+      },
+      "load_verified": true
+    },
+    {
+      "path": "models\\final\\parent\\PASSPORT",
+      "expected_labels": 8,
+      "actual_labels": 8,
+      "selection": {
+        "task": "parent",
+        "service": "PASSPORT",
+        "source_checkpoint": "parent_small_balanced/PASSPORT/checkpoint-294",
+        "selection_metric": "dev_macro_f1",
+        "dev_macro_f1": 0.8387069372587665,
+        "dev_accuracy": 0.8630952380952381
+      },
+      "load_verified": true
+    },
+    {
+      "path": "models\\final\\parent\\TAX",
+      "expected_labels": 6,
+      "actual_labels": 6,
+      "selection": {
+        "task": "parent",
+        "service": "TAX",
+        "source_checkpoint": "parent_small_balanced/TAX/checkpoint-200",
+        "selection_metric": "dev_macro_f1",
+        "dev_macro_f1": 0.7172454451866216,
+        "dev_accuracy": 0.7575757575757576
+      },
+      "load_verified": true
+    },
+    {
+      "path": "models\\final\\parent\\POLICE_GD",
+      "expected_labels": 8,
+      "actual_labels": 8,
+      "selection": {
+        "task": "parent",
+        "service": "POLICE_GD",
+        "source_checkpoint": "parent_small_balanced/POLICE_GD/checkpoint-168",
+        "selection_metric": "dev_macro_f1",
+        "dev_macro_f1": 0.6109016865278136,
+        "dev_accuracy": 0.6770833333333334
+      },
+      "load_verified": true
+    },
+    {
+      "path": "models\\final\\parent\\DRIVING_LICENCE",
+      "expected_labels": 10,
+      "actual_labels": 10,
+      "selection": {
+        "task": "parent",
+        "service": "DRIVING_LICENCE",
+        "source_checkpoint": "parent_small_balanced/DRIVING_LICENCE/checkpoint-180",
+        "selection_metric": "dev_macro_f1",
+        "dev_macro_f1": 0.6806167262689001,
+        "dev_accuracy": 0.6833333333333333
+      },
+      "load_verified": true
+    },
+    {
+      "path": "models\\final\\intent\\NID",
+      "expected_labels": 73,
+      "actual_labels": 73,
+      "selection": {
+        "task": "intent",
+        "service": "NID",
+        "parent_topic_id": null,
+        "source_checkpoint": "models\\checkpoints\\intent_parent_masked\\NID\\checkpoint-385",
+        "selection_metric": "dev_macro_f1",
+        "dev_macro_f1": 0.5844748858447488,
+        "dev_accuracy": 0.6575342465753424,
+        "best_epoch": 7.0
+      },
+      "load_verified": true
+    },
+    {
+      "path": "models\\final\\intent\\BIRTH_REGISTRATION",
+      "expected_labels": 30,
+      "actual_labels": 30,
+      "selection": {
+        "task": "intent",
+        "service": "BIRTH_REGISTRATION",
+        "parent_topic_id": null,
+        "source_checkpoint": "models\\checkpoints\\intent_parent_masked\\BIRTH_REGISTRATION\\checkpoint-276",
+        "selection_metric": "dev_macro_f1",
+        "dev_macro_f1": 0.6365029415029415,
+        "dev_accuracy": 0.6777777777777778,
+        "best_epoch": 12.0
+      },
+      "load_verified": true
+    },
+    {
+      "path": "models\\final\\intent\\PASSPORT",
+      "expected_labels": 56,
+      "actual_labels": 56,
+      "selection": {
+        "task": "intent",
+        "service": "PASSPORT",
+        "parent_topic_id": null,
+        "source_checkpoint": "models\\checkpoints\\intent\\PASSPORT\\checkpoint-420",
+        "selection_metric": "dev_macro_f1",
+        "dev_macro_f1": 0.562275615988022,
+        "dev_accuracy": 0.625,
+        "best_epoch": 10.0
+      },
+      "load_verified": true
+    },
+    {
+      "path": "models\\final\\intent\\TAX",
+      "expected_labels": 33,
+      "actual_labels": 33,
+      "selection": {
+        "task": "intent",
+        "service": "TAX",
+        "parent_topic_id": null,
+        "source_checkpoint": "models\\checkpoints\\intent\\TAX\\checkpoint-275",
+        "selection_metric": "dev_macro_f1",
+        "dev_macro_f1": 0.30518824609733697,
+        "dev_accuracy": 0.3838383838383838,
+        "best_epoch": 11.0
+      },
+      "load_verified": true
+    },
+    {
+      "path": "models\\final\\intent\\POLICE_GD",
+      "expected_labels": 32,
+      "actual_labels": 32,
+      "selection": {
+        "task": "intent",
+        "service": "POLICE_GD",
+        "parent_topic_id": null,
+        "source_checkpoint": "models\\checkpoints\\intent_parent_masked\\POLICE_GD\\checkpoint-288",
+        "selection_metric": "dev_macro_f1",
+        "dev_macro_f1": 0.5423735119047619,
+        "dev_accuracy": 0.6145833333333334,
+        "best_epoch": 12.0
+      },
+      "load_verified": true
+    },
+    {
+      "path": "models\\final\\intent\\DRIVING_LICENCE",
+      "expected_labels": 40,
+      "actual_labels": 40,
+      "selection": {
+        "task": "intent",
+        "service": "DRIVING_LICENCE",
+        "parent_topic_id": null,
+        "source_checkpoint": "models\\checkpoints\\intent\\DRIVING_LICENCE\\checkpoint-300",
+        "selection_metric": "dev_macro_f1",
+        "dev_macro_f1": 0.3016720779220779,
+        "dev_accuracy": 0.35,
+        "best_epoch": 10.0
+      },
+      "load_verified": true
+    }
+  ],
+  "priority": {
+    "method": "deterministic_from_intent",
+    "contract": "configs\\priority_by_intent.json",
+    "intent_count": 264,
+    "high_intents": [
+      "POLICE_GD_EMERGENCY_ROUTING"
+    ]
+  },
+  "historical_experiments": {
+    "learned_priority_model": {
+      "path": "models\\final\\priority",
+      "active": false,
+      "role": "historical_learned_priority_baseline",
+      "selection": {
+        "task": "priority",
+        "service": null,
+        "parent_topic_id": null,
+        "source_checkpoint": "models\\checkpoints\\priority_unweighted\\checkpoint-297",
+        "selection_metric": "dev_macro_f1",
+        "dev_macro_f1": 0.5436215552012863,
+        "dev_accuracy": 0.8686868686868687,
+        "best_epoch": 3.0,
+        "experiment": "unweighted",
+        "comparison": {
+          "unweighted": {
+            "dev_accuracy": 0.8686868686868687,
+            "dev_macro_f1": 0.5436215552012863
+          },
+          "balanced": {
+            "dev_accuracy": 0.8623737373737373,
+            "dev_macro_f1": 0.5407780327162831
+          }
+        }
+      }
+    }
+  }
+}

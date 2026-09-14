@@ -1,0 +1,71 @@
+{
+  "accuracy": 0.9128787878787878,
+  "macro_precision": 0.9267597603560915,
+  "macro_recall": 0.8949385200669449,
+  "macro_f1": 0.9035931903363533,
+  "weighted_f1": 0.9111166377320565,
+  "confusion_matrix": [
+    [
+      87,
+      0,
+      0,
+      0,
+      0,
+      3
+    ],
+    [
+      0,
+      93,
+      12,
+      0,
+      0,
+      15
+    ],
+    [
+      0,
+      0,
+      218,
+      0,
+      1,
+      0
+    ],
+    [
+      2,
+      0,
+      4,
+      162,
+      0,
+      0
+    ],
+    [
+      6,
+      2,
+      18,
+      0,
+      69,
+      1
+    ],
+    [
+      0,
+      0,
+      5,
+      0,
+      0,
+      94
+    ]
+  ],
+  "task": "service",
+  "service": null,
+  "parent_topic_id": null,
+  "checkpoint": "models\\checkpoints\\service_balanced\\checkpoint-297",
+  "device": "cuda",
+  "rows": 792,
+  "label_order": [
+    "BIRTH_REGISTRATION",
+    "DRIVING_LICENCE",
+    "NID",
+    "PASSPORT",
+    "POLICE_GD",
+    "TAX"
+  ]
+}

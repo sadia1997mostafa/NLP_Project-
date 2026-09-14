@@ -1,0 +1,94 @@
+{
+  "scope": "manual DEV-safe smoke queries; no TEST data",
+  "device": "cuda",
+  "dependency_import_seconds": 3.0990846999993664,
+  "tokenizer_load_seconds": 2.979926100000739,
+  "representative_component_load_seconds": {
+    "service": 7.048518300001888,
+    "parent_nid": 10.616509600000427,
+    "intent_nid": 6.583837700000004,
+    "priority": 9.411735199999384
+  },
+  "component_cache": {
+    "max_size": 4,
+    "size": 4,
+    "hits": 0,
+    "misses": 4,
+    "evictions": 0,
+    "paths": [
+      "D:\\Files\\Academic\\4-1\\NLP\\NLP Project\\NLP_Project-\\models\\final\\service",
+      "D:\\Files\\Academic\\4-1\\NLP\\NLP Project\\NLP_Project-\\models\\final\\parent\\NID",
+      "D:\\Files\\Academic\\4-1\\NLP\\NLP Project\\NLP_Project-\\models\\final\\intent\\NID",
+      "D:\\Files\\Academic\\4-1\\NLP\\NLP Project\\NLP_Project-\\models\\final\\priority"
+    ]
+  },
+  "component_gpu_memory_mib": 4243.1787109375,
+  "first_call": {
+    "seconds": 36.89126919999762,
+    "service": "DRIVING_LICENCE",
+    "parent_topic_id": "DRIVING_LICENCE_REPLACEMENT",
+    "query_topic_id": "DRIVING_LICENCE_DAMAGED_REPLACEMENT",
+    "is_ood": true,
+    "cache": {
+      "max_size": 4,
+      "size": 4,
+      "hits": 0,
+      "misses": 8,
+      "evictions": 0,
+      "paths": [
+        "D:\\Files\\Academic\\4-1\\NLP\\NLP Project\\NLP_Project-\\models\\final\\service",
+        "D:\\Files\\Academic\\4-1\\NLP\\NLP Project\\NLP_Project-\\models\\final\\parent\\DRIVING_LICENCE",
+        "D:\\Files\\Academic\\4-1\\NLP\\NLP Project\\NLP_Project-\\models\\final\\intent\\DRIVING_LICENCE",
+        "D:\\Files\\Academic\\4-1\\NLP\\NLP Project\\NLP_Project-\\models\\final\\priority"
+      ]
+    },
+    "gpu_memory_mib": 4251.8349609375
+  },
+  "same_route_warm_call": {
+    "seconds": 0.3381994000010309,
+    "service": "DRIVING_LICENCE",
+    "parent_topic_id": "DRIVING_LICENCE_REPLACEMENT",
+    "query_topic_id": "DRIVING_LICENCE_DAMAGED_REPLACEMENT",
+    "is_ood": true,
+    "cache": {
+      "max_size": 4,
+      "size": 4,
+      "hits": 4,
+      "misses": 8,
+      "evictions": 0,
+      "paths": [
+        "D:\\Files\\Academic\\4-1\\NLP\\NLP Project\\NLP_Project-\\models\\final\\service",
+        "D:\\Files\\Academic\\4-1\\NLP\\NLP Project\\NLP_Project-\\models\\final\\parent\\DRIVING_LICENCE",
+        "D:\\Files\\Academic\\4-1\\NLP\\NLP Project\\NLP_Project-\\models\\final\\intent\\DRIVING_LICENCE",
+        "D:\\Files\\Academic\\4-1\\NLP\\NLP Project\\NLP_Project-\\models\\final\\priority"
+      ]
+    }
+  },
+  "different_route_call": {
+    "seconds": 19.797160899997834,
+    "service": "PASSPORT",
+    "parent_topic_id": "PASSPORT_REISSUE",
+    "query_topic_id": "PASSPORT_REISSUE_EXPIRY",
+    "is_ood": false,
+    "cache": {
+      "max_size": 4,
+      "size": 4,
+      "hits": 6,
+      "misses": 10,
+      "evictions": 2,
+      "paths": [
+        "D:\\Files\\Academic\\4-1\\NLP\\NLP Project\\NLP_Project-\\models\\final\\service",
+        "D:\\Files\\Academic\\4-1\\NLP\\NLP Project\\NLP_Project-\\models\\final\\parent\\PASSPORT",
+        "D:\\Files\\Academic\\4-1\\NLP\\NLP Project\\NLP_Project-\\models\\final\\intent\\PASSPORT",
+        "D:\\Files\\Academic\\4-1\\NLP\\NLP Project\\NLP_Project-\\models\\final\\priority"
+      ]
+    }
+  },
+  "peak_gpu_memory_mib": 5312.72119140625,
+  "cache_policy": {
+    "shared_tokenizer": true,
+    "model_lru_max_size": 4,
+    "all_14_models_loaded_together": false
+  },
+  "warning": "Latency is an engineering measurement on one Windows/RTX 3060 machine, not a production benchmark."
+}

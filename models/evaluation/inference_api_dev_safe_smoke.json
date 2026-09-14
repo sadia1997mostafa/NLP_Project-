@@ -1,0 +1,70 @@
+{
+  "scope": "manually written DEV-safe examples; no TEST data",
+  "status": "passed",
+  "examples": [
+    {
+      "input": "\u099c\u09a8\u09cd\u09ae \u09a8\u09bf\u09ac\u09a8\u09cd\u09a7\u09a8 \u09b8\u09a8\u09a6 \u09ac\u09be\u09a4\u09bf\u09b2\u09c7\u09b0 \u0986\u09ac\u09c7\u09a6\u09a8 \u0995\u09c0\u09ad\u09be\u09ac\u09c7 \u0995\u09b0\u09ac?",
+      "seconds": 59.75680640000064,
+      "service": "BIRTH_REGISTRATION",
+      "service_confidence": 0.9959677457809448,
+      "parent_topic_id": "BR_APPLICATION_MANAGEMENT",
+      "query_topic_id": "BR_APPLICATION_STATUS",
+      "intent_routing": "service_model_parent_masked",
+      "priority": "Medium",
+      "is_ood": false,
+      "overall_confidence": 0.27751368284225464
+    },
+    {
+      "input": "\u099c\u09a8\u09cd\u09ae \u09a8\u09bf\u09ac\u09a8\u09cd\u09a7\u09a8 certificate-\u098f\u09b0 \u0986\u09b0\u09c7\u0995\u099f\u09bf copy \u0995\u09c0\u09ad\u09be\u09ac\u09c7 \u09aa\u09be\u09ac?",
+      "seconds": 0.25238679999893066,
+      "service": "BIRTH_REGISTRATION",
+      "service_confidence": 0.9957418441772461,
+      "parent_topic_id": "BR_CERTIFICATE_ACCESS",
+      "query_topic_id": "BR_CERTIFICATE_REPRINT",
+      "intent_routing": "deterministic_single_leaf",
+      "priority": "Low",
+      "is_ood": false,
+      "overall_confidence": 0.30126112699508667
+    },
+    {
+      "input": "\u099c\u09a8\u09cd\u09ae \u09a8\u09bf\u09ac\u09a8\u09cd\u09a7\u09a8\u09c7\u09b0 official fee \u0995\u09a4?",
+      "seconds": 0.23025409999900148,
+      "service": "BIRTH_REGISTRATION",
+      "service_confidence": 0.9960137605667114,
+      "parent_topic_id": "BR_FEES_AND_PAYMENT",
+      "query_topic_id": "BR_FEES_INFORMATION",
+      "intent_routing": "deterministic_single_leaf",
+      "priority": "Low",
+      "is_ood": false,
+      "overall_confidence": 0.24083688855171204
+    },
+    {
+      "input": "\u0986\u09ae\u09be\u09b0 \u09ac\u09be\u0982\u09b2\u09be\u09a6\u09c7\u09b6\u09bf passport-\u098f\u09b0 \u09ae\u09c7\u09df\u09be\u09a6 \u09b6\u09c7\u09b7, reissue \u0995\u09c0\u09ad\u09be\u09ac\u09c7 \u0995\u09b0\u09ac?",
+      "seconds": 20.020654400002968,
+      "service": "PASSPORT",
+      "service_confidence": 0.994392454624176,
+      "parent_topic_id": "PASSPORT_REISSUE",
+      "query_topic_id": "PASSPORT_REISSUE_EXPIRY",
+      "intent_routing": "service_model_parent_masked",
+      "priority": "Low",
+      "is_ood": false,
+      "overall_confidence": 0.23707634210586548
+    }
+  ],
+  "deterministic_routes_exercised": 2,
+  "repeat_cache_hits_added": 4,
+  "final_cache": {
+    "max_size": 4,
+    "size": 4,
+    "hits": 12,
+    "misses": 6,
+    "evictions": 2,
+    "paths": [
+      "D:\\Files\\Academic\\4-1\\NLP\\NLP Project\\NLP_Project-\\models\\final\\service",
+      "D:\\Files\\Academic\\4-1\\NLP\\NLP Project\\NLP_Project-\\models\\final\\parent\\PASSPORT",
+      "D:\\Files\\Academic\\4-1\\NLP\\NLP Project\\NLP_Project-\\models\\final\\intent\\PASSPORT",
+      "D:\\Files\\Academic\\4-1\\NLP\\NLP Project\\NLP_Project-\\models\\final\\priority"
+    ]
+  },
+  "warning": "Semantic predictions are observations, not expected-label tests."
+}

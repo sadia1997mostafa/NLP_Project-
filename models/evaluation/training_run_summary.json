@@ -74,5 +74,54 @@
     "dev_accuracy": 0.6833333333333333,
     "dev_macro_f1": 0.6806167262689001,
     "status": "selected"
+  },
+  "service_balanced_post_police_boundary_repair": {
+    "backbone": "xlm-roberta-base",
+    "dev_accuracy": 0.9128787878787878,
+    "dev_macro_f1": 0.9035931903363533,
+    "status": "selected"
+  },
+  "intent_hierarchical_service_parent_conditioned": {
+    "backbone": "xlm-roberta-base",
+    "architecture": "six service-level intent classifiers with parent-constrained logits",
+    "service_models": 6,
+    "deterministic_single_leaf_parents": 5,
+    "multi_leaf_parents": 44,
+    "covered_intents": 264,
+    "oracle_parent_dev_accuracy": 0.5391414141414141,
+    "oracle_parent_dev_macro_f1": 0.47280854543555073,
+    "weak_parents_below_0_5_macro_f1": 24,
+    "authoritative_summary": "models/evaluation/intent_training_summary.json",
+    "status": "selected_research_baseline_manual_review_required"
+  },
+  "priority_unweighted_selected": {
+    "backbone": "xlm-roberta-base",
+    "dev_accuracy": 0.8686868686868687,
+    "dev_macro_f1": 0.5436215552012863,
+    "balanced_comparison_dev_macro_f1": 0.5407780327162831,
+    "high_dev_examples_correct": 0,
+    "authoritative_summary": "models/evaluation/priority_training_summary.json",
+    "status": "selected_manual_review_required"
+  },
+  "ood_service_msp_dev_calibration": {
+    "signal": "maximum service softmax probability",
+    "threshold": 0.95,
+    "balanced_accuracy": 0.6613636363636364,
+    "ood_f1": 0.4444444444444444,
+    "in_domain_acceptance_rate": 0.8560606060606061,
+    "ood_rejection_rate": 0.4666666666666667,
+    "false_acceptance_rate": 0.5333333333333333,
+    "auroc": 0.7634645061728395,
+    "authoritative_summary": "models/evaluation/ood_dev_calibration.json",
+    "status": "provisional_synthetic_dev_only"
+  },
+  "hierarchical_understanding_dev_only": {
+    "service_parent_path_accuracy": 0.6654040404040404,
+    "service_parent_intent_path_accuracy": 0.36363636363636365,
+    "exact_understanding_path_accuracy": 0.31691919191919193,
+    "full_match_including_ood_acceptance_accuracy": 0.29545454545454547,
+    "test_data_used": false,
+    "authoritative_summary": "models/evaluation/hierarchical_dev_metrics.json",
+    "status": "dev_evaluation_complete_manual_review_required"
   }
 }

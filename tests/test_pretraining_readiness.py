@@ -2,14 +2,23 @@ from __future__ import annotations
 
 import json
 from pathlib import Path
+import subprocess
+import sys
 import tempfile
 import unittest
+from unittest.mock import patch
 
 import pandas as pd
 import yaml
 
 from src.models.dataset import load_dataset
-from src.models.inference import UnderstandingPipeline, predict_understanding
+from src.models.calibrate_ood import select_threshold
+from src.models.inference import (
+    LocalUnderstandingPipeline,
+    UnderstandingPipeline,
+    predict_understanding,
+)
+from src.models.hierarchy import conditioned_label_map, hierarchy_index, only_intent
 from src.models.metrics import classification_metrics, ood_metrics
 from src.preprocessing.build_label_maps import build
 from src.preprocessing.task_views import load_task_view
@@ -45,7 +54,7 @@ class ReadinessTests(unittest.TestCase):
         cls.all_data = pd.read_csv(ROOT / "data/processed/all_services_canonical_v0_1.csv", dtype=str, keep_default_na=False, encoding="utf-8-sig")
         cls.splits = {
             name: pd.read_csv(ROOT / f"data/splits/{name}.csv", dtype=str, keep_default_na=False, encoding="utf-8-sig")
-            for name in ("train", "dev", "test")
+            for name in ("train", "dev")
         }
 
     def test_taxonomy_contract_consistency(self):
@@ -85,10 +94,10 @@ class ReadinessTests(unittest.TestCase):
         self.assertEqual(len(nid), 876)
         self.assertNotIn("REAL", set(nid.source_type))
 
-    def test_family_and_exact_text_leakage(self):
+    def test_train_dev_family_and_exact_text_leakage(self):
         family_sets = {name: set(frame.parent_query_id) for name, frame in self.splits.items()}
         text_sets = {name: set(frame.text.map(normalize_text)) for name, frame in self.splits.items()}
-        for left, right in (("train", "dev"), ("train", "test"), ("dev", "test")):
+        for left, right in (("train", "dev"),):
             self.assertFalse(family_sets[left] & family_sets[right])
             self.assertFalse(text_sets[left] & text_sets[right])
 
@@ -106,6 +115,101 @@ class ReadinessTests(unittest.TestCase):
         self.assertEqual(set(dataset[0]), {"input_ids", "attention_mask", "labels"})
         self.assertEqual(len(dataset[0]["input_ids"]), 16)
 
+    def test_parent_conditioned_intent_maps_and_filtering(self):
+        services, parent_intents, parent_service = hierarchy_index()
+        self.assertEqual(sum(len(parents) for parents in services.values()), 49)
+        self.assertEqual(sum(len(intents) for intents in parent_intents.values()), 264)
+        for parent, intents in parent_intents.items():
+            service = parent_service[parent]
+            first = conditioned_label_map("intent", service, parent)
+            second = conditioned_label_map("intent", service, parent)
+            self.assertEqual(first, second)
+            self.assertEqual(set(first), set(intents))
+            with self.assertRaises(ValueError):
+                conditioned_label_map("intent", next(x for x in services if x != service), parent)
+            view = load_task_view(ROOT / "data/splits/train.csv", "intent", service, parent)
+            self.assertEqual(set(view.label), set(intents))
+            self.assertTrue(view.text.str.startswith(f"[SERVICE={service}] [PARENT={parent}]").all())
+        for service, parents in services.items():
+            mapping = conditioned_label_map("intent", service)
+            self.assertEqual(set(mapping), {intent for parent in parents for intent in parent_intents[parent]})
+
+    def test_single_leaf_routing_and_cli_dry_run(self):
+        _, parent_intents, parent_service = hierarchy_index()
+        singles = [parent for parent, intents in parent_intents.items() if len(intents) == 1]
+        self.assertEqual(len(singles), 5)
+        parent = singles[0]
+        service = parent_service[parent]
+        self.assertEqual(only_intent(service, parent), parent_intents[parent][0])
+        completed = subprocess.run(
+            [
+                sys.executable,
+                "-m",
+                "src.models.train_classifier",
+                "--task",
+                "intent",
+                "--service",
+                service,
+                "--parent",
+                parent,
+                "--config",
+                str(ROOT / "configs/classifier_intent_small_balanced.yaml"),
+            ],
+            cwd=ROOT,
+            check=True,
+            capture_output=True,
+            text=True,
+        )
+        self.assertIn("DETERMINISTIC ROUTE", completed.stdout)
+
+    def test_ood_threshold_selection_is_deterministic(self):
+        import numpy as np
+
+        labels = np.array([0, 0, 1, 1])
+        maximum = np.array([0.9, 0.8, 0.4, 0.3])
+        first, candidates = select_threshold(labels, maximum)
+        second, _ = select_threshold(labels, maximum)
+        self.assertEqual(first, second)
+        selected = next(row for row in candidates if row["confidence_threshold"] == first)
+        self.assertEqual(selected["balanced_accuracy"], 1.0)
+
+    def test_local_hierarchical_pipeline_schema_with_mocked_models(self):
+        def fake_predict(path, text, allowed_labels=None, top_k=3):
+            path = str(path)
+            if path.endswith("service"):
+                label = "NID"
+            elif "parent" in path:
+                label = "NID_REGISTRATION"
+            elif "intent" in path:
+                label = allowed_labels[0]
+            else:
+                label = "Low"
+            return {"label": label, "confidence": 0.9, "alternatives": []}
+
+        with patch("src.models.inference._predict_local", side_effect=fake_predict):
+            result = LocalUnderstandingPipeline(0.5).predict_understanding(
+                "NID registration কীভাবে করব?"
+            )
+        required = {
+            "text", "service", "service_confidence", "service_routing",
+            "service_anchor", "service_model_label", "service_model_confidence",
+            "parent_topic_id", "parent_topic", "parent_confidence",
+            "query_topic_id", "query_topic", "intent_confidence", "intent_routing",
+            "priority", "priority_confidence", "priority_routing",
+            "is_ood", "ood_score", "overall_confidence", "calibration_status",
+            "warnings", "alternatives",
+        }
+        self.assertEqual(set(result), required)
+        self.assertEqual(result["service"], "NID")
+        self.assertEqual(result["parent_topic_id"], "NID_REGISTRATION")
+
+    def test_single_leaf_deterministic_routing(self):
+        _, parent_intents, parent_service = hierarchy_index()
+        singles = [parent for parent, intents in parent_intents.items() if len(intents) == 1]
+        self.assertEqual(len(singles), 5)
+        for parent in singles:
+            self.assertEqual(only_intent(parent_service[parent], parent), parent_intents[parent][0])
+
     def test_metrics(self):
         result = classification_metrics([0, 0, 1, 1], [0, 1, 1, 1], labels=[0, 1])
         self.assertEqual(result["accuracy"], 0.75)
@@ -114,8 +218,9 @@ class ReadinessTests(unittest.TestCase):
         self.assertEqual(ood["auroc"], 1.0)
 
     def test_inference_schema_and_checkpoint_guard(self):
-        with self.assertRaises(RuntimeError):
-            predict_understanding("test")
+        with patch("src.models.inference.load_default_pipeline", side_effect=RuntimeError):
+            with self.assertRaises(RuntimeError):
+                predict_understanding("test")
         pipeline = UnderstandingPipeline(
             MockPredictor("NID", 0.9), MockPredictor("NID_REGISTRATION", 0.8),
             MockPredictor("NID_REGISTRATION_PROCESS", 0.7), MockPredictor("Low", 0.6),

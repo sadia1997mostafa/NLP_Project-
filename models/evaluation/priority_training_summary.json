@@ -1,0 +1,101 @@
+{
+  "selection_basis": "DEV macro F1 only",
+  "test_data_used": false,
+  "class_distribution": {
+    "train": {
+      "High": 6,
+      "Low": 1164,
+      "Medium": 414
+    },
+    "dev": {
+      "High": 3,
+      "Low": 582,
+      "Medium": 207
+    },
+    "train_by_service": {
+      "BIRTH_REGISTRATION": {
+        "Low": 102,
+        "Medium": 78
+      },
+      "DRIVING_LICENCE": {
+        "Low": 174,
+        "Medium": 66
+      },
+      "NID": {
+        "Low": 396,
+        "Medium": 42
+      },
+      "PASSPORT": {
+        "Low": 258,
+        "Medium": 78
+      },
+      "POLICE_GD": {
+        "High": 6,
+        "Low": 96,
+        "Medium": 90
+      },
+      "TAX": {
+        "Low": 138,
+        "Medium": 60
+      }
+    }
+  },
+  "experiments": [
+    {
+      "experiment": "unweighted",
+      "dev_accuracy": 0.8686868686868687,
+      "dev_macro_f1": 0.5436215552012863,
+      "confusion_matrix": [
+        [
+          0,
+          2,
+          1
+        ],
+        [
+          0,
+          560,
+          22
+        ],
+        [
+          0,
+          79,
+          128
+        ]
+      ],
+      "label_order": [
+        "High",
+        "Low",
+        "Medium"
+      ]
+    },
+    {
+      "experiment": "balanced",
+      "dev_accuracy": 0.8623737373737373,
+      "dev_macro_f1": 0.5407780327162831,
+      "confusion_matrix": [
+        [
+          0,
+          2,
+          1
+        ],
+        [
+          0,
+          551,
+          31
+        ],
+        [
+          0,
+          75,
+          132
+        ]
+      ],
+      "label_order": [
+        "High",
+        "Low",
+        "Medium"
+      ]
+    }
+  ],
+  "selected": "unweighted",
+  "final_model": "models\\final\\priority"
+}
