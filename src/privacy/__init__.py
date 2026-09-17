@@ -1,0 +1,1 @@
+"""Partner B privacy handling."""
