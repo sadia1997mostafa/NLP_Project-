@@ -52,7 +52,14 @@ class PipelineTests(unittest.TestCase):
         self.assertEqual(response.status_code, 200)
         self.assertEqual(response.json()["privacy_types"], ["nid"])
         self.assertNotIn("1234567890", response.text)
+        self.assertEqual(response.headers["cache-control"], "no-store")
         self.assertEqual(client.post("/api/analyze", json={"text": " "}).status_code, 400)
+
+    def test_serves_interface_and_assets(self):
+        client = TestClient(create_app(QueryPipeline(fake_predictor)))
+        self.assertIn("NagorikSheba", client.get("/").text)
+        self.assertEqual(client.get("/static/styles.css").status_code, 200)
+        self.assertEqual(client.get("/static/main.js").status_code, 200)
 
 
 if __name__ == "__main__":

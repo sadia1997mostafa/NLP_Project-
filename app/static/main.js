@@ -1,0 +1,124 @@
+const form = document.getElementById("query-form");
+const query = document.getElementById("query");
+const submit = document.getElementById("submit-button");
+const clear = document.getElementById("clear-button");
+const count = document.getElementById("character-count");
+const status = document.getElementById("service-status");
+const result = document.getElementById("result");
+
+const serviceNames = {
+  NID: "National ID",
+  BIRTH_REGISTRATION: "Birth registration",
+  PASSPORT: "Passport",
+  TAX: "Tax",
+  POLICE_GD: "Police general diary",
+  DRIVING_LICENCE: "Driving licence",
+};
+
+function setText(id, value) {
+  document.getElementById(id).textContent = value || "";
+}
+
+function setVisible(id, visible) {
+  document.getElementById(id).hidden = !visible;
+}
+
+function showResult(state, title, body, kicker) {
+  result.hidden = false;
+  result.className = `result ${state}`;
+  setText("result-title", title);
+  setText("result-body", body);
+  setText("result-kicker", kicker);
+  setVisible("scope-note", false);
+  setVisible("privacy-notice", false);
+  setVisible("result-source", false);
+  setVisible("result-meta", false);
+}
+
+function showPayload(payload) {
+  const answer = payload.response;
+  const labels = {
+    answer: "Guidance",
+    clarification: "Needs clarification",
+    unavailable: "Guidance unavailable",
+  };
+  showResult(answer.state, answer.title, answer.body, labels[answer.state] || "Result");
+  if (answer.scope_note) {
+    setText("scope-note", answer.scope_note);
+    setVisible("scope-note", true);
+  }
+  if (payload.privacy_present) {
+    setText("privacy-message", payload.warnings.join(" "));
+    setVisible("privacy-notice", true);
+  }
+  if (answer.source) {
+    const link = document.getElementById("source-link");
+    const url = new URL(answer.source.url);
+    if (url.protocol === "https:" && url.hostname.endsWith(".gov.bd")) {
+      link.href = url.href;
+      link.textContent = answer.source.name;
+      setText("source-date", `Reviewed ${answer.source.last_verified}`);
+      setVisible("result-source", true);
+    }
+  }
+  if (payload.understanding && answer.state === "answer") {
+    const understanding = payload.understanding;
+    setText("service-name", serviceNames[understanding.service] || understanding.service);
+    setText("topic-name", understanding.query_topic || "");
+    setText("priority-name", understanding.priority ? `Priority: ${understanding.priority}` : "");
+    setVisible("result-meta", true);
+  }
+}
+
+query.addEventListener("input", () => {
+  count.textContent = `${query.value.length} / 4000`;
+});
+
+clear.addEventListener("click", () => {
+  query.value = "";
+  count.textContent = "0 / 4000";
+  result.hidden = true;
+  query.focus();
+});
+
+form.addEventListener("submit", async (event) => {
+  event.preventDefault();
+  const text = query.value.trim();
+  if (!text) return;
+  submit.disabled = true;
+  submit.textContent = "Working...";
+  showResult("loading", "Checking your request", "", "In progress");
+  try {
+    const response = await fetch("/api/analyze", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ text }),
+      cache: "no-store",
+    });
+    if (!response.ok) {
+      throw new Error("Service unavailable");
+    }
+    const payload = await response.json();
+    if (payload.privacy_present && payload.safe_text) {
+      query.value = payload.safe_text;
+      count.textContent = `${query.value.length} / 4000`;
+    }
+    showPayload(payload);
+  } catch (_) {
+    showResult("error", "Service unavailable", "We could not process this request right now. Please try again later.", "System error");
+  } finally {
+    submit.disabled = false;
+    submit.textContent = "Get guidance";
+  }
+});
+
+fetch("/api/status", { cache: "no-store" })
+  .then((response) => response.json())
+  .then((body) => {
+    status.textContent = body.model_ready ? "Service available" : "Service unavailable";
+    status.className = body.model_ready ? "service-status ready" : "service-status unavailable";
+  })
+  .catch(() => {
+    status.textContent = "Service unavailable";
+    status.className = "service-status unavailable";
+  });
