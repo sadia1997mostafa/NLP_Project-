@@ -7,6 +7,7 @@ from collections.abc import Callable
 from src.models.inference import FINAL, predict_understanding
 from src.privacy.detection import detect_privacy
 from src.retrieval.lookup import GuidanceLookup
+from src.response.controller import construct_response
 
 
 class ModelUnavailableError(RuntimeError):
@@ -35,11 +36,13 @@ class QueryPipeline:
         # The original text is kept in memory only for this classifier call.
         understanding = dict(self.predictor(text))
         understanding["text"] = privacy.safe_text
+        retrieval = self.lookup.retrieve(understanding)
         return {
             "privacy_present": privacy.privacy_present,
             "privacy_types": privacy.privacy_types,
             "safe_text": privacy.safe_text,
             "warnings": privacy.warnings,
             "understanding": understanding,
-            "retrieval": self.lookup.retrieve(understanding),
+            "retrieval": retrieval,
+            "response": construct_response(understanding, retrieval, privacy.warnings),
         }
