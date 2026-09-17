@@ -2,6 +2,9 @@
 
 from __future__ import annotations
 
+import os
+import subprocess
+from functools import lru_cache
 from pathlib import Path
 
 from fastapi import FastAPI, HTTPException, Request
@@ -9,6 +12,25 @@ from fastapi.responses import FileResponse, JSONResponse
 from fastapi.staticfiles import StaticFiles
 
 from src.pipeline.service import QueryPipeline, model_ready
+
+
+@lru_cache(maxsize=1)
+def app_commit() -> str:
+    configured = os.environ.get("NAGORIKSHEBA_APP_COMMIT")
+    if configured:
+        return configured
+    try:
+        result = subprocess.run(
+            ["git", "rev-parse", "--short", "HEAD"],
+            cwd=Path(__file__).resolve().parents[1],
+            capture_output=True,
+            text=True,
+            timeout=2,
+            check=True,
+        )
+        return result.stdout.strip()
+    except (OSError, subprocess.SubprocessError):
+        return "unknown"
 
 
 def create_app(pipeline: QueryPipeline | None = None) -> FastAPI:
@@ -22,8 +44,13 @@ def create_app(pipeline: QueryPipeline | None = None) -> FastAPI:
         return FileResponse(static_dir / "index.html")
 
     @app.get("/api/status")
-    def status() -> dict:
-        return {"model_ready": model_ready()}
+    def status() -> JSONResponse:
+        return JSONResponse({
+            "model_ready": model_ready(),
+            "runtime_freeze_commit": "38a343d",
+            "results_commit": "f2f4e3e",
+            "app_commit": app_commit(),
+        }, headers={"Cache-Control": "no-store"})
 
     @app.post("/api/analyze")
     async def analyze(request: Request) -> dict:

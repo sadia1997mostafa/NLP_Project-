@@ -32,6 +32,11 @@ class PrivacyTests(unittest.TestCase):
         self.assertFalse(result.privacy_present)
         self.assertEqual(result.safe_text, "How do I apply for a passport?")
 
+    def test_masks_country_code_and_bangla_numerals(self):
+        result = detect_privacy("Call +8801712345678 or ০১৭১২৩৪৫৬৭৮")
+        self.assertEqual(result.safe_text, "Call [PHONE] or [PHONE]")
+        self.assertEqual(result.privacy_types, ["phone"])
+
 
 class PipelineTests(unittest.TestCase):
     def test_classifier_receives_original_but_response_is_masked(self):
