@@ -6,6 +6,7 @@ from collections.abc import Callable
 
 from src.models.inference import FINAL, predict_understanding
 from src.privacy.detection import detect_privacy
+from src.retrieval.lookup import GuidanceLookup
 
 
 class ModelUnavailableError(RuntimeError):
@@ -21,8 +22,13 @@ def model_ready() -> bool:
 
 
 class QueryPipeline:
-    def __init__(self, predictor: Callable[[str], dict] = predict_understanding):
+    def __init__(
+        self,
+        predictor: Callable[[str], dict] = predict_understanding,
+        lookup: GuidanceLookup | None = None,
+    ):
         self.predictor = predictor
+        self.lookup = lookup or GuidanceLookup()
 
     def analyze(self, text: str) -> dict:
         privacy = detect_privacy(text)
@@ -35,4 +41,5 @@ class QueryPipeline:
             "safe_text": privacy.safe_text,
             "warnings": privacy.warnings,
             "understanding": understanding,
+            "retrieval": self.lookup.retrieve(understanding),
         }
