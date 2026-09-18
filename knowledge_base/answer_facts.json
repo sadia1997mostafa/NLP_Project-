@@ -1,0 +1,300 @@
+{
+  "NID": [
+    {"kind":"action","verb":"use","target":{"en":"the official NID Services portal for identity-card services","bn":"পরিচয়পত্র-সংক্রান্ত কাজের জন্য সরকারি NID Services পোর্টাল"}},
+    {"kind":"notice","text":{"en":"The portal lists smart-card status, amendments and duplicate-card services; choose the one that matches your request.","bn":"সেখানে স্মার্ট কার্ডের অবস্থা, সংশোধন ও ডুপ্লিকেট কার্ডের সেবা আছে; আপনার প্রয়োজন অনুযায়ী সেবাটি বেছে নিন।"}}
+  ],
+  "BIRTH_REGISTRATION": [
+    {"kind":"action","verb":"use","target":{"en":"BDRIS for birth-registration services","bn":"জন্ম নিবন্ধন-সংক্রান্ত কাজের জন্য BDRIS"}},
+    {"kind":"notice","text":{"en":"Registration, correction, application tracking, certificate reprint and issued-record verification are separate options.","bn":"নতুন নিবন্ধন, সংশোধন, আবেদনের অবস্থা, সনদ পুনর্মুদ্রণ ও নিবন্ধন যাচাই আলাদা সেবা।"}}
+  ],
+  "PASSPORT": [
+    {"kind":"action","verb":"open","target":{"en":"the official e-Passport portal","bn":"সরকারি ই-পাসপোর্ট পোর্টাল"}},
+    {"kind":"notice","text":{"en":"It provides application and reissue instructions and the current-fee link; check the relevant option before applying.","bn":"সেখানে আবেদন ও পুনঃইস্যুর নির্দেশনা এবং বর্তমান ফির লিংক আছে; আবেদনের আগে প্রযোজ্য অংশ দেখুন।"}}
+  ],
+  "TAX": [
+    {"kind":"action","verb":"open","target":{"en":"the National Board of Revenue e-Tax portal","bn":"জাতীয় রাজস্ব বোর্ডের e-Tax পোর্টাল"}},
+    {"kind":"notice","text":{"en":"e-TIN registration, e-Return filing, return verification and tax payment have separate links there.","bn":"e-TIN নিবন্ধন, e-Return জমা, রিটার্ন যাচাই ও কর পরিশোধের আলাদা লিংক সেখানে আছে।"}}
+  ],
+  "POLICE_GD": [
+    {"kind":"action","verb":"use","target":{"en":"the official Online GD service for complaints and follow-up","bn":"অভিযোগ ও অগ্রগতি দেখার জন্য সরকারি Online GD সেবা"}},
+    {"kind":"notice","text":{"en":"In an emergency, seek immediate help instead of waiting for online processing.","bn":"জরুরি অবস্থায় অনলাইন প্রক্রিয়ার জন্য অপেক্ষা না করে তাৎক্ষণিক সাহায্য নিন।"}}
+  ],
+  "DRIVING_LICENCE": [
+    {"kind":"action","verb":"open","target":{"en":"the BRTA Service Portal","bn":"BRTA Service Portal"}},
+    {"kind":"notice","text":{"en":"It lists learner licences, driving licences, renewals and duplicates; sign in or register for the current options.","bn":"সেখানে লার্নার, ড্রাইভিং লাইসেন্স, নবায়ন ও ডুপ্লিকেট সেবা আছে; বর্তমান বিকল্প দেখতে সাইন ইন বা নিবন্ধন করুন।"}}
+  ],
+  "BR_REGISTRATION": [
+    {"kind":"action","verb":"choose","target":{"en":"the appropriate registration office","bn":"প্রযোজ্য নিবন্ধন অফিস"},"place":{"en":"in BDRIS","bn":"BDRIS-এ"}},
+    {"kind":"action","verb":"enter","target":{"en":"the applicant, parent and address details","bn":"আবেদনকারী, অভিভাবক ও ঠিকানার তথ্য"}},
+    {"kind":"action","verb":"review","target":{"en":"the completed form before submission","bn":"জমা দেওয়ার আগে পূরণ করা ফর্ম"}}
+  ],
+  "DRIVING_LICENCE_LEARNER": [
+    {"kind":"action","verb":"use","target":{"en":"BSP to start with a learner licence","bn":"লার্নার লাইসেন্সের আবেদন শুরু করতে BSP"}},
+    {"kind":"notice","text":{"en":"A learner licence comes before the driving licence; confirm current eligibility and document rules on BSP.","bn":"ড্রাইভিং লাইসেন্সের আগে লার্নার লাইসেন্স লাগে; BSP-তে বর্তমান যোগ্যতা ও নথির নিয়ম দেখুন।"}}
+  ],
+  "NID_REPLACEMENT_ONLINE_APPLICATION": [
+    {"kind":"action","verb":"sign_in","target":{"en":"NID Services","bn":"NID Services-এ"}},
+    {"kind":"action","verb":"choose","target":{"en":"the duplicate or reissue application","bn":"ডুপ্লিকেট বা পুনঃইস্যুর আবেদন"},"when":{"en":"your card is lost or damaged","bn":"কার্ড হারিয়ে গেলে বা নষ্ট হলে"}},
+    {"kind":"action","verb":"follow","target":{"en":"the requirements shown for that application","bn":"ওই আবেদনে দেখানো শর্তগুলো"}}
+  ],
+  "BR_REGISTRATION_ONLINE_APPLICATION": [
+    {"kind":"action","verb":"complete","target":{"en":"the birth-registration form","bn":"জন্ম নিবন্ধনের ফর্ম"},"place":{"en":"in BDRIS","bn":"BDRIS-এ"}},
+    {"kind":"action","verb":"provide","target":{"en":"the requested evidence and contact verification","bn":"চাওয়া প্রমাণপত্র ও যোগাযোগের যাচাই"}},
+    {"kind":"notice","text":{"en":"Submitting the form starts an application; it does not issue a certificate immediately.","bn":"ফর্ম জমা দিলে আবেদন শুরু হয়; তখনই সনদ ইস্যু হয় না।"}}
+  ],
+  "PASSPORT_APPLICATION_ONLINE": [
+    {"kind":"action","verb":"open","target":{"en":"the new-passport or reissue application","bn":"নতুন পাসপোর্ট বা পুনঃইস্যুর আবেদন"},"place":{"en":"on the official e-Passport portal","bn":"সরকারি ই-পাসপোর্ট পোর্টালে"}},
+    {"kind":"action","verb":"check","target":{"en":"the instructions and regional availability before starting","bn":"শুরুর আগে নির্দেশনা ও আপনার অঞ্চলে সেবার প্রাপ্যতা"}}
+  ],
+  "TAX_RETURN_ONLINE_SUBMISSION": [
+    {"kind":"action","verb":"sign_in","target":{"en":"e-Return","bn":"e-Return-এ"}},
+    {"kind":"action","verb":"complete","target":{"en":"the relevant Return submission sections","bn":"Return submission-এর প্রযোজ্য অংশগুলো"}},
+    {"kind":"action","verb":"review","target":{"en":"the return before submitting it","bn":"জমার আগে রিটার্নটি"}},
+    {"kind":"action","verb":"keep","target":{"en":"the submission acknowledgement","bn":"জমার স্বীকারোক্তি"}}
+  ],
+  "POLICE_GD_ONLINE_SUBMISSION": [
+    {"kind":"action","verb":"sign_in","target":{"en":"Online GD","bn":"Online GD-তে"}},
+    {"kind":"action","verb":"choose","target":{"en":"the complaint type and police station","bn":"অভিযোগের ধরন ও থানা"}},
+    {"kind":"action","verb":"enter","target":{"en":"the incident time, location and details","bn":"ঘটনার সময়, স্থান ও বিবরণ"}},
+    {"kind":"action","verb":"upload","target":{"en":"relevant supporting evidence before submission","bn":"জমার আগে প্রাসঙ্গিক প্রমাণপত্র"}}
+  ],
+  "DRIVING_LICENCE_LEARNER_PROCESS": [
+    {"kind":"action","verb":"register","target":{"en":"BSP with your NID","bn":"NID দিয়ে BSP-তে"}},
+    {"kind":"action","verb":"complete","target":{"en":"your profile and learner application","bn":"প্রোফাইল ও লার্নার আবেদন"}},
+    {"kind":"action","verb":"upload","target":{"en":"the requested evidence","bn":"চাওয়া প্রমাণপত্র"}},
+    {"kind":"action","verb":"pay","target":{"en":"the fee displayed for your request","bn":"আপনার আবেদনে দেখানো ফি"}}
+  ],
+  "NID_REGISTRATION_ONLINE_APPLICATION": [
+    {"kind":"action","verb":"choose","target":{"en":"new NID registration","bn":"নতুন NID নিবন্ধন"},"when":{"en":"you are not already registered","bn":"আগে নিবন্ধিত না থাকলে"}},
+    {"kind":"action","verb":"review","target":{"en":"the completed application form","bn":"পূরণ করা আবেদনপত্র"}},
+    {"kind":"action","verb":"print","target":{"en":"the form for submission with supporting papers to the election office","bn":"সহায়ক কাগজসহ নির্বাচন অফিসে জমার জন্য ফর্মটি"}}
+  ],
+  "NID_ONLINE_ACCOUNT_REGISTRATION": [
+    {"kind":"action","verb":"choose","target":{"en":"Register on the NID portal","bn":"NID পোর্টালের Register বিকল্প"},"when":{"en":"you already have an NID","bn":"আপনার NID থাকলে"}},
+    {"kind":"notice","text":{"en":"Account registration is not the same as new voter enrolment.","bn":"অনলাইন অ্যাকাউন্ট নিবন্ধন আর নতুন ভোটার নিবন্ধন এক জিনিস নয়।"}}
+  ],
+  "NID_ONLINE_LOGIN": [
+    {"kind":"action","verb":"open","target":{"en":"the official NID login page","bn":"সরকারি NID লগইন পৃষ্ঠা"}},
+    {"kind":"action","verb":"enter","target":{"en":"your NID number or username, password and displayed security code","bn":"NID নম্বর বা ব্যবহারকারীর নাম, পাসওয়ার্ড ও দেখানো নিরাপত্তা কোড"}},
+    {"kind":"notice","text":{"en":"Keep your password out of this chat.","bn":"এই চ্যাটে পাসওয়ার্ড লিখবেন না।"}}
+  ],
+  "NID_ONLINE_PASSWORD_RESET": [
+    {"kind":"action","verb":"choose","target":{"en":"Forgot Password on the NID portal","bn":"NID পোর্টালের Forgot Password বিকল্প"}},
+    {"kind":"action","verb":"follow","target":{"en":"the identity checks shown there","bn":"সেখানে দেখানো পরিচয় যাচাইয়ের ধাপ"}},
+    {"kind":"notice","text":{"en":"Do not share a password or verification code with this app.","bn":"এই অ্যাপে পাসওয়ার্ড বা যাচাই কোড দেবেন না।"}}
+  ],
+  "NID_ACCESS_DOWNLOAD": [
+    {"kind":"action","verb":"register","target":{"en":"NID Services for an online account","bn":"অনলাইন অ্যাকাউন্টের জন্য NID Services-এ"},"when":{"en":"you are already registered and waiting for a card copy","bn":"নিবন্ধিত হলেও কার্ডের কপির অপেক্ষায় থাকলে"}},
+    {"kind":"action","verb":"use","target":{"en":"the account's download option","bn":"অ্যাকাউন্টের ডাউনলোড বিকল্প"}},
+    {"kind":"notice","text":{"en":"Downloading an existing NID is different from new voter enrolment.","bn":"বিদ্যমান NID ডাউনলোড করা নতুন ভোটার নিবন্ধন নয়।"}}
+  ],
+  "NID_FEES_SERVICE_SPECIFIC": [
+    {"kind":"action","verb":"use","target":{"en":"the official NID fee calculator","bn":"সরকারি NID ফি ক্যালকুলেটর"}},
+    {"kind":"action","verb":"enter","target":{"en":"your NID, application type, delivery type and security code","bn":"NID, আবেদনের ধরন, ডেলিভারির ধরন ও নিরাপত্তা কোড"}},
+    {"kind":"action","verb":"check","target":{"en":"the charge calculated for your own request before paying","bn":"টাকা দেওয়ার আগে আপনার আবেদনের হিসাব করা ফি"}}
+  ],
+  "NID_CORRECTION": [
+    {"kind":"action","verb":"use","target":{"en":"NID Services or the election office for a correction request","bn":"সংশোধনের আবেদনের জন্য NID Services বা নির্বাচন অফিস"}},
+    {"kind":"action","verb":"prepare","target":{"en":"evidence for the field you want to change","bn":"যে তথ্য বদলাতে চান তার সমর্থনকারী প্রমাণ"}},
+    {"kind":"notice","text":{"en":"Required evidence varies by the field being corrected.","bn":"কোন তথ্য সংশোধন করবেন তার ওপর প্রয়োজনীয় প্রমাণ বদলায়।"}}
+  ],
+  "NID_CORRECTION_DOB": [
+    {"kind":"action","verb":"prepare","target":{"en":"evidence of the correct birth date","bn":"সঠিক জন্মতারিখের প্রমাণ"}},
+    {"kind":"notice","text":{"en":"SSC-qualified applicants use the SSC or equivalent certificate. Others must follow the FAQ's employment and alternative-evidence conditions.","bn":"SSC-যোগ্য আবেদনকারীর SSC বা সমমানের সনদ লাগে। অন্যদের জন্য FAQ-তে দেওয়া চাকরি ও বিকল্প প্রমাণের শর্ত প্রযোজ্য।"}}
+  ],
+  "NID_CORRECTION_ADDRESS": [
+    {"kind":"action","verb":"submit","target":{"en":"an address-correction request with attested address evidence","bn":"সত্যায়িত ঠিকানার প্রমাণসহ ঠিকানা সংশোধনের আবেদন"}},
+    {"kind":"notice","text":{"en":"Moving your voter area is a separate request.","bn":"ভোটার এলাকা পরিবর্তন আলাদা আবেদন।"}}
+  ],
+  "NID_CORRECTION_BLOOD_GROUP": [
+    {"kind":"action","verb":"submit","target":{"en":"the NID correction request with a medical certificate supporting your blood group","bn":"রক্তের গ্রুপের মেডিকেল সনদসহ NID সংশোধনের আবেদন"}}
+  ],
+  "BR_REGISTRATION_LOCATION_SELECTION": [
+    {"kind":"action","verb":"choose","target":{"en":"the applicable birthplace, permanent-address or Bangladesh-mission route","bn":"প্রযোজ্য জন্মস্থান, স্থায়ী ঠিকানা বা বাংলাদেশ মিশনের বিকল্প"},"place":{"en":"in BDRIS","bn":"BDRIS-এ"}},
+    {"kind":"action","verb":"choose","target":{"en":"the relevant registration office before filling in the application","bn":"আবেদন পূরণের আগে সংশ্লিষ্ট নিবন্ধন অফিস"}}
+  ],
+  "BR_REGISTRATION_SUBMISSION_RULES": [
+    {"kind":"action","verb":"review","target":{"en":"every birth-registration field with the applicant before submission","bn":"জমার আগে আবেদনকারীর সঙ্গে জন্ম নিবন্ধনের সব তথ্য"}},
+    {"kind":"notice","text":{"en":"BDRIS says a submitted application cannot be edited in that form afterwards.","bn":"BDRIS অনুযায়ী ফর্মটি জমা দেওয়ার পর ওই ফর্মে আর সম্পাদনা করা যায় না।"}}
+  ],
+  "BR_REGISTRATION_OTP_VERIFICATION": [
+    {"kind":"action","verb":"enter","target":{"en":"the verification code only on BDRIS","bn":"যাচাই কোড শুধু BDRIS-এ"}},
+    {"kind":"notice","text":{"en":"Bangladesh applications use mobile verification; Bangladesh missions abroad use email verification.","bn":"বাংলাদেশে করা আবেদনে মোবাইল, বিদেশে বাংলাদেশ মিশনের আবেদনে ইমেইল যাচাই ব্যবহৃত হয়।"}}
+  ],
+  "BR_CORRECTION": [
+    {"kind":"action","verb":"use","target":{"en":"BDRIS correction for an existing birth record","bn":"বিদ্যমান জন্ম নিবন্ধন সংশোধনে BDRIS correction সেবা"}},
+    {"kind":"notice","text":{"en":"A parent's name has separate mapping rules; read those instructions before submitting.","bn":"পিতা বা মাতার নাম সংশোধনে আলাদা mapping নিয়ম আছে; জমার আগে সেই নির্দেশনা পড়ুন।"}}
+  ],
+  "BR_CORRECTION_PROCESS": [
+    {"kind":"action","verb":"find","target":{"en":"the existing record with its birth registration number and birth date","bn":"জন্ম নিবন্ধন নম্বর ও জন্মতারিখ দিয়ে বিদ্যমান রেকর্ড"}},
+    {"kind":"action","verb":"choose","target":{"en":"the correction and state its reason","bn":"সংশোধনের বিষয় ও কারণ"}},
+    {"kind":"notice","text":{"en":"A linked mobile number is needed, or email for mission applications. Contact the office if the link is missing.","bn":"যুক্ত মোবাইল নম্বর লাগে; মিশনের আবেদনে ইমেইল লাগে। যুক্ত না থাকলে অফিসে যোগাযোগ করুন।"}}
+  ],
+  "BR_CORRECTION_PARENT_BRN_MAPPING": [
+    {"kind":"action","verb":"check","target":{"en":"whether the parent has a birth registration number","bn":"পিতা বা মাতার জন্ম নিবন্ধন নম্বর আছে কি না"}},
+    {"kind":"action","verb":"correct","target":{"en":"the parent's own record first","bn":"আগে পিতা বা মাতার নিজস্ব রেকর্ড"},"when":{"en":"the parent has a birth registration number","bn":"তাঁর জন্ম নিবন্ধন নম্বর থাকলে"}},
+    {"kind":"action","verb":"arrange","target":{"en":"the BRN mapping before reprinting your certificate","bn":"আপনার সনদ পুনর্মুদ্রণের আগে BRN mapping"},"when":{"en":"the parent's record is not linked to yours","bn":"তাঁর রেকর্ড আপনারটির সঙ্গে যুক্ত না থাকলে"}},
+    {"kind":"notice","text":{"en":"If a parent has no BRN, follow the source page's separate birth-date and death-evidence rules.","bn":"পিতা বা মাতার BRN না থাকলে উৎস পাতার আলাদা জন্মতারিখ ও মৃত্যুর প্রমাণের নিয়ম অনুসরণ করুন।"}}
+  ],
+  "BR_VERIFICATION_RECORD": [
+    {"kind":"action","verb":"open","target":{"en":"the official birth-record verification page","bn":"সরকারি জন্ম নিবন্ধন যাচাই পৃষ্ঠা"}},
+    {"kind":"action","verb":"enter","target":{"en":"the 17-digit birth registration number, birth date in YYYY-MM-DD format and displayed challenge answer","bn":"১৭ সংখ্যার জন্ম নিবন্ধন নম্বর, YYYY-MM-DD আকারে জন্মতারিখ ও দেখানো যাচাই উত্তর"}},
+    {"kind":"notice","text":{"en":"Enter those personal details on the official page, not in this chat.","bn":"ব্যক্তিগত তথ্যগুলো এই চ্যাটে নয়, শুধু সরকারি পাতায় দিন।"}}
+  ],
+  "BR_APPLICATION_STATUS": [
+    {"kind":"action","verb":"choose","target":{"en":"birth-registration application status","bn":"জন্ম নিবন্ধন আবেদনের অবস্থা"},"place":{"en":"in BDRIS","bn":"BDRIS-এ"}},
+    {"kind":"action","verb":"enter","target":{"en":"the tracking details requested on that page","bn":"ওই পাতায় চাওয়া ট্র্যাকিং তথ্য"}},
+    {"kind":"notice","text":{"en":"Tracking a pending application is different from verifying an issued certificate.","bn":"চলমান আবেদন ট্র্যাক করা আর ইস্যু করা সনদ যাচাই করা আলাদা কাজ।"}}
+  ],
+  "BR_APPLICATION_PRINT": [
+    {"kind":"action","verb":"choose","target":{"en":"birth-registration application print","bn":"জন্ম নিবন্ধন আবেদন প্রিন্ট"},"place":{"en":"from BDRIS","bn":"BDRIS-এ"}},
+    {"kind":"notice","text":{"en":"The printout is an application copy, not an approved birth certificate.","bn":"এটি আবেদনপত্রের কপি, অনুমোদিত জন্মসনদ নয়।"}}
+  ],
+  "BR_CERTIFICATE_REPRINT": [
+    {"kind":"action","verb":"choose","target":{"en":"birth-certificate reprint","bn":"জন্মসনদ পুনর্মুদ্রণ"},"place":{"en":"in BDRIS","bn":"BDRIS-এ"}},
+    {"kind":"notice","text":{"en":"Application print is the wrong option when you need the issued certificate.","bn":"ইস্যু করা সনদ লাগলে আবেদন প্রিন্ট বিকল্প ব্যবহার করবেন না।"}}
+  ],
+  "PASSPORT_APPLICATION_OFFICE_SELECTION": [
+    {"kind":"action","verb":"choose","target":{"en":"whether the application is from Bangladesh","bn":"বাংলাদেশ থেকে আবেদন করছেন কি না"},"place":{"en":"during e-Passport onboarding","bn":"ই-পাসপোর্ট আবেদনের শুরুতে"}},
+    {"kind":"action","verb":"enter","target":{"en":"your present-address district and nearest police station to see the assigned regional office","bn":"নির্ধারিত আঞ্চলিক অফিস দেখতে বর্তমান ঠিকানার জেলা ও নিকটস্থ থানা"},"when":{"en":"you are applying within Bangladesh","bn":"বাংলাদেশ থেকে আবেদন করলে"}}
+  ],
+  "PASSPORT_APPLICATION_INFORMATION": [
+    {"kind":"action","verb":"complete","target":{"en":"the identity section using your NID or online English birth registration certificate","bn":"NID বা অনলাইন ইংরেজি জন্মসনদ অনুযায়ী পরিচয় অংশ"}},
+    {"kind":"action","verb":"provide","target":{"en":"a parent's NID number","bn":"পিতা বা মাতার NID নম্বর"},"when":{"en":"the applicant is under 18 and has no NID","bn":"আবেদনকারীর বয়স ১৮-এর কম এবং নিজস্ব NID না থাকলে"}}
+  ],
+  "PASSPORT_DOCUMENTS": [
+    {"kind":"action","verb":"check","target":{"en":"the official e-Passport enrolment checklist","bn":"সরকারি ই-পাসপোর্ট নিবন্ধনের নথির তালিকা"}},
+    {"kind":"notice","text":{"en":"Papers vary with identity evidence, previous passports, government employment and requested corrections.","bn":"পরিচয়ের প্রমাণ, আগের পাসপোর্ট, সরকারি চাকরি ও চাওয়া সংশোধন অনুযায়ী নথি বদলায়।"}}
+  ],
+  "PASSPORT_DOCUMENTS_REQUIRED": [
+    {"kind":"action","verb":"prepare","target":{"en":"the documents applicable to your e-Passport enrolment, listed below","bn":"নিচের তালিকা থেকে আপনার ই-পাসপোর্ট নিবন্ধনে প্রযোজ্য নথি"}},
+    {"kind":"notice","text":{"en":"Your category or a requested correction may require further evidence; this checklist is not a universal eligibility decision.","bn":"আবেদনের ধরন বা সংশোধনের জন্য আরও প্রমাণ লাগতে পারে; এই তালিকা সবার যোগ্যতার চূড়ান্ত সিদ্ধান্ত নয়।"}}
+  ],
+  "PASSPORT_DOCUMENTS_MINOR_APPLICANT": [
+    {"kind":"action","verb":"prepare","target":{"en":"the online English birth registration evidence","bn":"অনলাইন ইংরেজি জন্মসনদের প্রমাণ"}},
+    {"kind":"action","verb":"provide","target":{"en":"a parent's NID number","bn":"পিতা বা মাতার NID নম্বর"},"when":{"en":"the applicant is under 18 and has no NID","bn":"আবেদনকারীর বয়স ১৮-এর কম এবং নিজস্ব NID না থাকলে"}},
+    {"kind":"notice","text":{"en":"For children under six, the official instructions also specify a 3R photograph; check the full instructions.","bn":"ছয় বছরের কম বয়সী শিশুর জন্য সরকারি নির্দেশনায় 3R ছবি নির্ধারিত আছে; পূর্ণ নির্দেশনা দেখুন।"}}
+  ],
+  "PASSPORT_DOCUMENTS_PREVIOUS_PASSPORT": [
+    {"kind":"action","verb":"bring","target":{"en":"the original previous passport for a reissue","bn":"পুনঃইস্যুর জন্য আগের পাসপোর্টের মূল কপি"}},
+    {"kind":"notice","text":{"en":"If the old passport is lost, use the lost-passport procedure instead.","bn":"আগের পাসপোর্ট হারালে হারানো পাসপোর্টের আলাদা প্রক্রিয়া অনুসরণ করুন।"}}
+  ],
+  "PASSPORT_REISSUE_LOST": [
+    {"kind":"action","verb":"report","target":{"en":"the passport loss promptly to the nearest police station","bn":"পাসপোর্ট হারানোর বিষয়টি দ্রুত নিকটস্থ থানায়"}},
+    {"kind":"action","verb":"submit","target":{"en":"the GD copy and photocopy of the old passport with the replacement application","bn":"প্রতিস্থাপন আবেদনের সঙ্গে জিডির কপি ও আগের পাসপোর্টের ফটোকপি"}},
+    {"kind":"action","verb":"bring","target":{"en":"the original GD copy","bn":"জিডির মূল কপি"}}
+  ],
+  "PASSPORT_APPLICATION_STATUS": [
+    {"kind":"action","verb":"open","target":{"en":"Status Check","bn":"Status Check"},"place":{"en":"on the e-Passport portal","bn":"ই-পাসপোর্ট পোর্টালে"}},
+    {"kind":"action","verb":"enter","target":{"en":"your application ID or online registration ID and birth date","bn":"application ID বা online registration ID এবং জন্মতারিখ"}},
+    {"kind":"notice","text":{"en":"The application ID appears on the enrolment delivery slip; signed-in accounts also show status.","bn":"application ID নিবন্ধনের delivery slip-এ থাকে; লগইন করা অ্যাকাউন্টেও অবস্থা দেখা যায়।"}}
+  ],
+  "PASSPORT_FEES_INFORMATION": [
+    {"kind":"action","verb":"check","target":{"en":"the official e-Passport fee table for your location, page count, validity and delivery category","bn":"অবস্থান, পৃষ্ঠা সংখ্যা, মেয়াদ ও ডেলিভারির ধরন অনুযায়ী সরকারি ই-পাসপোর্ট ফির তালিকা"}},
+    {"kind":"notice","text":{"en":"Fees differ between domestic applications and missions abroad; confirm the available category before payment.","bn":"দেশের ভেতর ও বিদেশের মিশনে ফি আলাদা হতে পারে; পরিশোধের আগে প্রযোজ্য ধরন নিশ্চিত করুন।"}}
+  ],
+  "PASSPORT_PAYMENT_RECEIPT": [
+    {"kind":"action","verb":"open","target":{"en":"the official passport-fees page","bn":"সরকারি পাসপোর্ট ফি পৃষ্ঠা"}},
+    {"kind":"action","verb":"choose","target":{"en":"the receipt link for the payment method you used","bn":"যে পদ্ধতিতে টাকা দিয়েছেন তার রসিদের লিংক"}},
+    {"kind":"action","verb":"keep","target":{"en":"the receipt, especially for offline-payment enrolment","bn":"রসিদটি, বিশেষত অফলাইনে টাকা দিয়ে নিবন্ধনের জন্য"}}
+  ],
+  "PASSPORT_ONLINE_ACCOUNT_LOGIN": [
+    {"kind":"action","verb":"sign_in","target":{"en":"the e-Passport portal with your registered email and password","bn":"নিবন্ধিত ইমেইল ও পাসওয়ার্ড দিয়ে ই-পাসপোর্ট পোর্টালে"}},
+    {"kind":"action","verb":"complete","target":{"en":"the displayed security challenge","bn":"দেখানো নিরাপত্তা যাচাই"}},
+    {"kind":"notice","text":{"en":"Use Forgot Password on the portal if needed, and keep credentials private.","bn":"প্রয়োজনে পোর্টালের Forgot Password ব্যবহার করুন; লগইন তথ্য গোপন রাখুন।"}}
+  ],
+  "TAX_ACCOUNT_REGISTRATION": [
+    {"kind":"action","verb":"register","target":{"en":"e-Return using your TIN and an NID-biometrically registered mobile number","bn":"TIN ও NID-র সঙ্গে বায়োমেট্রিক নিবন্ধিত মোবাইল নম্বর দিয়ে e-Return-এ"}},
+    {"kind":"action","verb":"enter","target":{"en":"the OTP on the official portal","bn":"সরকারি পোর্টালে OTP"}},
+    {"kind":"action","verb":"choose","target":{"en":"a password for the account","bn":"অ্যাকাউন্টের পাসওয়ার্ড"}}
+  ],
+  "TAX_ACCOUNT_LOGIN": [
+    {"kind":"action","verb":"sign_in","target":{"en":"e-Return with your TIN and password","bn":"TIN ও পাসওয়ার্ড দিয়ে e-Return-এ"}},
+    {"kind":"notice","text":{"en":"Enter those credentials only on the official e-Return portal.","bn":"লগইন তথ্য শুধু সরকারি e-Return পোর্টালেই দিন।"}}
+  ],
+  "TAX_RETURN_REQUIRED_DOCUMENTS": [
+    {"kind":"action","verb":"prepare","target":{"en":"the applicable income, investment, expenditure, asset/liability and tax-payment records","bn":"প্রযোজ্য আয়, বিনিয়োগ, ব্যয়, সম্পদ-দায় ও কর পরিশোধের নথি"}},
+    {"kind":"notice","text":{"en":"Use the current assessment year's upload rules; an older year's exemption may not apply.","bn":"চলতি করবর্ষের আপলোডের নিয়ম দেখুন; আগের বছরের ছাড় এবার প্রযোজ্য নাও হতে পারে।"}}
+  ],
+  "TAX_RETURN_ACKNOWLEDGEMENT": [
+    {"kind":"action","verb":"open","target":{"en":"Tax record after submitting the return online","bn":"অনলাইনে রিটার্ন জমার পর Tax record"}},
+    {"kind":"action","verb":"print","target":{"en":"the acknowledgement slip as proof of submission","bn":"জমার প্রমাণ হিসেবে স্বীকারোক্তির স্লিপ"}}
+  ],
+  "TAX_RETURN_COPY_DOWNLOAD": [
+    {"kind":"action","verb":"open","target":{"en":"Tax record","bn":"Tax record"}},
+    {"kind":"action","verb":"print","target":{"en":"the submitted return","bn":"জমা দেওয়া রিটার্ন"}},
+    {"kind":"notice","text":{"en":"A saved draft does not prove filing.","bn":"সেভ করা খসড়া রিটার্ন জমার প্রমাণ নয়।"}}
+  ],
+  "TAX_CERTIFICATE_ACCESS": [
+    {"kind":"action","verb":"open","target":{"en":"Tax record after e-Return submission","bn":"e-Return জমার পর Tax record"}},
+    {"kind":"action","verb":"download","target":{"en":"the available income-tax certificate","bn":"পাওয়া গেলে আয়কর সনদ"}}
+  ],
+  "TAX_SUPPORT_REQUEST": [
+    {"kind":"action","verb":"open","target":{"en":"the e-Return support service linked from the e-Tax portal","bn":"e-Tax পোর্টালে যুক্ত e-Return সহায়তা সেবা"}},
+    {"kind":"notice","text":{"en":"Do not include a password or OTP in a support request.","bn":"সহায়তার অনুরোধে পাসওয়ার্ড বা OTP লিখবেন না।"}}
+  ],
+  "POLICE_GD_ACCOUNT_REGISTRATION": [
+    {"kind":"action","verb":"register","target":{"en":"Online GD using your NID, current address, live photo and active mobile","bn":"NID, বর্তমান ঠিকানা, সরাসরি তোলা ছবি ও চালু মোবাইল নম্বর দিয়ে Online GD-তে"}},
+    {"kind":"action","verb":"choose","target":{"en":"an account password","bn":"অ্যাকাউন্টের পাসওয়ার্ড"}},
+    {"kind":"action","verb":"enter","target":{"en":"the SMS verification code on the official portal","bn":"সরকারি পোর্টালে SMS যাচাই কোড"}}
+  ],
+  "POLICE_GD_IDENTITY_REQUIREMENTS": [
+    {"kind":"action","verb":"prepare","target":{"en":"your NID information, active mobile number and live photo","bn":"NID তথ্য, চালু মোবাইল নম্বর ও সরাসরি তোলা ছবি"}},
+    {"kind":"notice","text":{"en":"Provide those identifiers only on the official Online GD portal.","bn":"পরিচয় তথ্য শুধু সরকারি Online GD পোর্টালেই দিন।"}}
+  ],
+  "POLICE_GD_CASE_VS_GD_GUIDANCE": [
+    {"kind":"action","verb":"follow","target":{"en":"the police determination of your complaint type","bn":"আপনার অভিযোগের ধরন নিয়ে পুলিশের সিদ্ধান্ত"}},
+    {"kind":"action","verb":"attend","target":{"en":"the police station with the complaint printout or reference code","bn":"অভিযোগের প্রিন্ট কপি বা reference code নিয়ে থানায়"},"when":{"en":"the complaint concerns a cognizable offence","bn":"অভিযোগটি আমলযোগ্য অপরাধের হলে"}}
+  ],
+  "POLICE_GD_STATUS": [
+    {"kind":"action","verb":"sign_in","target":{"en":"Online GD after submitting the complaint","bn":"অভিযোগ জমার পর Online GD-তে"}},
+    {"kind":"action","verb":"check","target":{"en":"complaint progress and the investigating officer's details when assigned","bn":"অভিযোগের অগ্রগতি ও দায়িত্ব দেওয়া হলে তদন্তকারী কর্মকর্তার তথ্য"}}
+  ],
+  "POLICE_GD_ATTACHMENTS": [
+    {"kind":"action","verb":"upload","target":{"en":"relevant supporting documents while entering complaint details","bn":"অভিযোগের বিবরণ লেখার সময় প্রাসঙ্গিক সহায়ক নথি"}},
+    {"kind":"action","verb":"review","target":{"en":"the complaint form before submission","bn":"জমার আগে অভিযোগের ফর্ম"}}
+  ],
+  "POLICE_GD_COPY_DOWNLOAD": [
+    {"kind":"action","verb":"download","target":{"en":"the digital GD copy from Online GD","bn":"Online GD থেকে ডিজিটাল জিডির কপি"},"when":{"en":"the complaint has been accepted as a GD","bn":"অভিযোগটি জিডি হিসেবে গৃহীত হলে"}},
+    {"kind":"notice","text":{"en":"Submitting a complaint alone does not guarantee GD acceptance.","bn":"শুধু অভিযোগ জমা দিলেই জিডি গৃহীত হয়েছে এমন নয়।"}}
+  ],
+  "POLICE_GD_EMERGENCY_ROUTING": [
+    {"kind":"action","verb":"call","target":{"en":"Bangladesh's national emergency number 999","bn":"বাংলাদেশের জাতীয় জরুরি নম্বর ৯৯৯-এ"},"when":{"en":"there is an emergency in Bangladesh","bn":"বাংলাদেশে জরুরি বিপদ হলে"}},
+    {"kind":"notice","prominence":"lead","text":{"en":"Do not wait for an online GD response. This app cannot dispatch help.","bn":"অনলাইন জিডির উত্তরের জন্য অপেক্ষা করবেন না। এই অ্যাপ সাহায্য পাঠাতে পারে না।"}}
+  ],
+  "DRIVING_LICENCE_LEARNER_ELIGIBILITY": [
+    {"kind":"action","verb":"check","target":{"en":"BRTA's current eligibility rules for your licence category","bn":"আপনার লাইসেন্সের ধরনের জন্য BRTA-র বর্তমান যোগ্যতার নিয়ম"}},
+    {"kind":"notice","text":{"en":"BRTA lists class-eight education and physical/mental fitness. The stated minimum age is 18 for non-professional and 21 for professional licensing.","bn":"BRTA অষ্টম শ্রেণি পর্যন্ত শিক্ষা এবং শারীরিক-মানসিক সক্ষমতার কথা বলেছে। ন্যূনতম বয়স অপেশাদার লাইসেন্সে ১৮ এবং পেশাদার লাইসেন্সে ২১ বছর বলা আছে।"}}
+  ],
+  "DRIVING_LICENCE_LEARNER_DOCUMENTS": [
+    {"kind":"action","verb":"prepare","target":{"en":"the learner-licence evidence listed below for BSP upload","bn":"BSP-তে আপলোডের জন্য নিচে তালিকাভুক্ত লার্নার লাইসেন্সের প্রমাণপত্র"}},
+    {"kind":"notice","text":{"en":"A current-address utility bill applies when that address differs from the NID. Check BSP's current upload limits.","bn":"বর্তমান ঠিকানা NID-এর ঠিকানা থেকে আলাদা হলে সেই ঠিকানার utility bill লাগে। BSP-র বর্তমান ফাইল সীমা দেখুন।"}}
+  ],
+  "DRIVING_LICENCE_LEARNER_MEDICAL": [
+    {"kind":"action","verb":"use","target":{"en":"BRTA Form 2 for the driving-licence medical certificate","bn":"ড্রাইভিং লাইসেন্সের মেডিকেল সনদের জন্য BRTA Form 2"}},
+    {"kind":"action","verb":"follow","target":{"en":"the application instructions for completion by a registered doctor","bn":"নিবন্ধিত চিকিৎসক দিয়ে পূরণের বিষয়ে আবেদনের নির্দেশনা"}}
+  ],
+  "DRIVING_LICENCE_TEST_REQUIREMENTS": [
+    {"kind":"action","verb":"attend","target":{"en":"the driving test on its assigned date with your learner licence and instructed papers","bn":"নির্ধারিত দিনে লার্নার লাইসেন্স ও নির্দেশিত কাগজপত্রসহ ড্রাইভিং পরীক্ষায়"}},
+    {"kind":"notice","text":{"en":"BRTA also requires in-person biometrics and identity checks.","bn":"BRTA সশরীরে বায়োমেট্রিক ও পরিচয় যাচাইও চায়।"}}
+  ],
+  "DRIVING_LICENCE_TEST_RESULT": [
+    {"kind":"action","verb":"choose","target":{"en":"Driving Exam (DCTC) Result","bn":"Driving Exam (DCTC) Result"},"place":{"en":"on BSP","bn":"BSP-তে"}},
+    {"kind":"action","verb":"check","target":{"en":"the published result for your division and district","bn":"আপনার বিভাগ ও জেলার প্রকাশিত ফল"}}
+  ],
+  "DRIVING_LICENCE_FEE_INFORMATION": [
+    {"kind":"action","verb":"use","target":{"en":"BSP's Fee Calculator for your requested service","bn":"আপনার সেবার জন্য BSP-র Fee Calculator"}},
+    {"kind":"action","verb":"check","target":{"en":"the category and applicable charge before paying","bn":"টাকা দেওয়ার আগে প্রযোজ্য ধরন ও ফি"}},
+    {"kind":"notice","text":{"en":"A historical fee table may not match the current amount.","bn":"পুরোনো ফির তালিকার অঙ্ক বর্তমান ফির সঙ্গে নাও মিলতে পারে।"}}
+  ],
+  "DRIVING_LICENCE_PAYMENT_VERIFICATION": [
+    {"kind":"action","verb":"choose","target":{"en":"Payment Verification","bn":"Payment Verification"},"place":{"en":"from the official BSP homepage","bn":"সরকারি BSP-র মূল পাতায়"}},
+    {"kind":"action","verb":"enter","target":{"en":"the transaction details requested there","bn":"ওই পাতায় চাওয়া লেনদেনের তথ্য"}},
+    {"kind":"action","verb":"keep","target":{"en":"your payment receipt","bn":"টাকা দেওয়ার রসিদ"}}
+  ],
+  "DRIVING_LICENCE_VERIFICATION": [
+    {"kind":"action","verb":"choose","target":{"en":"Driving License Verification","bn":"Driving License Verification"},"place":{"en":"on BSP","bn":"BSP-তে"}},
+    {"kind":"action","verb":"enter","target":{"en":"the licence details requested by that official service","bn":"সেই সরকারি সেবায় চাওয়া লাইসেন্সের তথ্য"}},
+    {"kind":"notice","text":{"en":"Verification does not renew the licence.","bn":"যাচাই করলে লাইসেন্স নবায়ন হয় না।"}}
+  ]
+}

@@ -4,6 +4,8 @@ from __future__ import annotations
 
 import re
 
+from src.response.facts import facts_for, render_fact
+
 
 def response_language(text: str) -> str:
     if any("\u0980" <= char <= "\u09ff" for char in text):
@@ -25,6 +27,7 @@ def construct_response(
         "required_documents": [],
         "steps": [],
         "language_note": None,
+        "answer_basis": None,
     }
     if retrieval["status"] == "ood":
         return {
@@ -60,37 +63,19 @@ def construct_response(
             "scope_note": None,
         }
     record = retrieval["record"]
-    specific = retrieval["match_level"] == "query_topic"
-    steps = [sentence.strip() for sentence in re.split(r"(?<=[.!?])\s+", record["guidance"]) if sentence.strip()]
-    if bengali:
-        body = (
-            "আপনার প্রশ্নের বিষয়ে যাচাইকৃত তথ্য নিচে দেওয়া আছে। বর্তমান নিয়ম মূল সরকারি সাইটে মিলিয়ে নিন।"
-            if specific else
-            "সেবাটি শনাক্ত হয়েছে, কিন্তু নির্দিষ্ট উপবিষয় নিশ্চিত নয়। এটি সাধারণ নির্দেশনা; বিস্তারিত জানতে বিষয় বেছে নিন।"
-        )
-    else:
-        body = (
-            f"For {record['title'].lower()}, follow the verified guidance below. "
-            "Check the official source for current requirements."
-            if specific else
-            "I identified the service, but not the exact topic reliably. "
-            "This is general guidance; choose a topic for a more specific answer."
-        )
-    if record["query_topic_id"] == "POLICE_GD_EMERGENCY_ROUTING":
-        body = (
-            "জরুরি বিপদে বাংলাদেশে ৯৯৯-এ কল করুন। এই অ্যাপ সাহায্য পাঠাতে পারে না; অনলাইন জিডির জন্য অপেক্ষা করবেন না।"
-            if bengali else
-            "If there is immediate danger in Bangladesh, call 999 now. This app cannot dispatch help; do not wait for an online GD."
-        )
+    units = facts_for(record)
+    lead = [unit for unit in units[1:] if unit.get("prominence") == "lead"]
+    steps = [unit for unit in units[1:] if unit.get("prominence") != "lead"]
     return {
         **base,
         "state": "answer",
         "title": record["title"],
-        "body": body,
-        "steps": steps,
+        "body": " ".join(render_fact(unit, language) for unit in [units[0], *lead]),
+        "steps": [render_fact(unit, language) for unit in steps],
+        "answer_basis": "curated_source_facts",
         "language_note": (
-            "মূল উৎস থেকে যাচাইকৃত বিস্তারিত তথ্য নিচে ইংরেজিতে আছে।"
-            if bengali and record["language"] == "en" else None
+            "নথির নাম ও শর্তগুলো উৎস অনুযায়ী ইংরেজিতে দেখানো হয়েছে।"
+            if bengali and record["required_documents"] else None
         ),
         "scope_note": (
             ("এটি নির্বাচিত বিষয়ের সাধারণ নির্দেশনা।" if bengali else "This is general guidance for the selected topic.")

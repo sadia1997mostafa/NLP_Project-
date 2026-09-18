@@ -53,13 +53,14 @@ pointers for all six services. Document lists retain applicability conditions
 and appear with the answer. The other 208 specific intents do not have dedicated
 guidance; visitors can choose an overview or available parent record for
 general guidance. Exact retrieval means a matching record exists, not that
-the model understood the question correctly. The answer builder uses fixed
-wording, verified source points, document conditions and citations; it is not
-an open-ended generative model. Bengali questions get Bengali response framing,
-but most curated source details and topic titles remain in English and are
-labelled accordingly. Model confidence and the corpus matching gates are not
-validated on real citizen traffic. OOD, weak service evidence and missing
-records receive no fabricated specific answer.
+the model understood the question correctly. The answer builder composes
+English or Bengali guidance from a bilingual, source-scoped fact plan for each
+covered route, rather than copying the corpus paragraph. It keeps document
+conditions and official citations. This is controlled generation, not an
+open-ended model, and topic titles and document names may remain in English.
+Model confidence and the corpus matching gates are not validated on real
+citizen traffic. OOD, weak service evidence and missing records receive no
+fabricated specific answer.
 Recheck official links and mutable facts before a public demonstration.
 
 ## Verify

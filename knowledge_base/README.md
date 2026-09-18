@@ -6,6 +6,16 @@ query-topic records. The expansion covers registration, identity corrections,
 documents, verification, tracking, receipts, and emergency routing. It is not
 a complete guide to all 264 intents.
 
+`answer_facts.json` contains a bilingual answer plan for each of those 67
+records. The response builder combines localized actions and cautions from
+that plan instead of displaying the `guidance` paragraph as the answer.
+Document lists and official source links still come from `guidance.json`.
+This is controlled natural-language generation, not an open-ended language
+model: it can vary the response by route and language, but cannot answer
+questions outside the curated facts or guarantee that a source has not changed.
+Any new fact or translation must be checked against the corresponding official
+source and reviewed along with the corpus record.
+
 | Service | Exact Topics | Parent Records | Service Records |
 | --- | --- | --- | --- |
 | NID | 10 / 73 | 1 | 1 |
@@ -43,11 +53,13 @@ see all 208 topics without dedicated answers. Fees, deadlines, disputes,
 refunds and advanced cases remain candidates for separate source review.
 
 Retrieval uses the frozen IDs, exact topic first, then parent, then service.
-Fallback records are never counted as exact coverage. Model predictions are
-shown only as suggestions. The visitor explicitly selects one of these 67
-curated records before the app displays its guidance; there is no fallback
-when a selection does not exactly match a record. This prevents an incorrect
-model topic from automatically becoming an authoritative-looking answer.
-Frozen classifiers and thresholds are unchanged.
+Fallback records are never counted as exact coverage. The app checks model
+predictions against question text and curated titles before showing an answer;
+weak or conflicting evidence yields a general overview or clarification.
+Visitors can explicitly choose a curated topic instead. A selection must
+exactly match a record; it is never treated as evidence that the model made
+the right prediction. Frozen classifiers and thresholds are unchanged.
 
-Run `python -m unittest tests.test_guidance_corpus` to validate the corpus.
+Run `python -m unittest tests.test_guidance_corpus tests.test_answer_facts`
+to validate coverage, schema, and rendered answer invariants. These tests do
+not replace human source review or a citizen-facing quality evaluation.
