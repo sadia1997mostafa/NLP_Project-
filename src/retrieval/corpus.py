@@ -27,6 +27,10 @@ def load_records(path: Path = DEFAULT_CORPUS) -> list[dict]:
         if not isinstance(record, dict) or set(record) != REQUIRED_FIELDS:
             raise ValueError(f"Corpus record {number} has invalid fields")
         service, parent, topic = (record[key] for key in ("service", "parent_topic_id", "query_topic_id"))
+        if not isinstance(service, str) or any(
+            value is not None and not isinstance(value, str) for value in (parent, topic)
+        ):
+            raise ValueError(f"Corpus record {number} has invalid route types")
         if service not in services:
             raise ValueError(f"Corpus record {number} has unknown service")
         parents = services[service]["parent_topics"]
@@ -38,14 +42,25 @@ def load_records(path: Path = DEFAULT_CORPUS) -> list[dict]:
         if key in seen:
             raise ValueError(f"Duplicate guidance route: {key}")
         seen.add(key)
+        if not isinstance(record["source_url"], str):
+            raise ValueError(f"Corpus record {number} has invalid source URL")
         url = urlparse(record["source_url"])
-        if url.scheme != "https" or not url.hostname or not url.hostname.endswith(".gov.bd"):
+        if (url.scheme != "https" or not url.hostname or not url.hostname.endswith(".gov.bd")
+                or url.username is not None or url.password is not None):
             raise ValueError(f"Corpus record {number} lacks an official HTTPS source")
-        date.fromisoformat(record["last_verified"])
+        reviewed = record["last_verified"]
+        if (not isinstance(reviewed, str) or len(reviewed) != 10
+                or date.fromisoformat(reviewed).isoformat() != reviewed
+                or date.fromisoformat(reviewed) > date.today()):
+            raise ValueError(f"Corpus record {number} has invalid review date")
         if record["language"] not in {"en", "bn", "mixed"}:
             raise ValueError(f"Corpus record {number} has invalid language")
         if not all(isinstance(record[key], str) and record[key].strip() for key in ("title", "guidance", "official_source")):
             raise ValueError(f"Corpus record {number} has empty content")
-        if not isinstance(record["required_documents"], list) or not all(isinstance(item, str) for item in record["required_documents"]):
+        if not isinstance(record["required_documents"], list) or not all(
+            isinstance(item, str) and item.strip() for item in record["required_documents"]
+        ):
             raise ValueError(f"Corpus record {number} has invalid documents")
+        if not isinstance(record["notes"], str):
+            raise ValueError(f"Corpus record {number} has invalid notes")
     return records

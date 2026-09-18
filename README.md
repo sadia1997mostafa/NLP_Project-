@@ -1,7 +1,7 @@
 # NagorikSheba AI
 
 Partner B's citizen guidance app uses Prothom's frozen understanding API, a
-privacy warning layer, and a small curated government-information corpus.
+privacy warning layer, and a curated government-information corpus.
 It supports NID, birth registration, passport, tax, online GD, and driving
 licence queries. This is a showcase prototype, not a production or real-world
 validated service.
@@ -39,14 +39,17 @@ Privacy matching covers common identifiers and explicitly labelled names and
 addresses; it can miss free-form personal details, so users should still avoid
 sharing unnecessary sensitive information.
 
-The [guidance corpus](knowledge_base/README.md) currently has 14 reviewed
-records, with general pointers for all six services. Most of the 264 specific
-intents do not yet have dedicated guidance; those routes receive clearly
-marked general information. OOD and missing records receive no fabricated
-service-specific answer. If an unanchored model prediction finds only general
-service guidance, the app asks for clarification rather than showing a possibly
-unrelated service. Recheck official links and mutable facts before a public
-demonstration.
+The [guidance corpus](knowledge_base/README.md) has 67 reviewed records from
+22 official source URLs: 56 exact topics, five parent topics, and general
+pointers for all six services. Document lists retain applicability conditions
+and appear with the answer. The other 208 specific intents do not have dedicated
+guidance; fallback content is clearly labelled general. Exact retrieval means
+a matching record exists, not that the model understood the question correctly.
+OOD and missing records receive no fabricated service-specific answer.
+Unanchored model predictions ask for an explicit service name at every match
+level; expanding the corpus must not bypass that clarification guard. This
+conservative policy also asks some legitimate implicit requests to be rephrased.
+Recheck official links and mutable facts before a public demonstration.
 
 ## Verify
 
@@ -57,3 +60,7 @@ files. Real classifier inference and latency must be checked again after
 `python -m scripts.smoke_live` for a short real-model check across the six
 services, privacy masking, an unrelated query, and repeated warm inference.
 It uses manually written queries and does not rerun the frozen held-out TEST.
+
+Run `python -m scripts.audit_corpus` for coverage and review-age checks;
+add `--json` for the complete list of uncovered topic IDs. Run
+`node --test tests/test_guidance_ui.cjs` for checklist rendering-state tests.

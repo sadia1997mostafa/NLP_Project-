@@ -33,6 +33,8 @@ function showResult(state, title, body, kicker) {
   setVisible("privacy-notice", false);
   setVisible("result-source", false);
   setVisible("result-meta", false);
+  setVisible("result-documents", false);
+  document.getElementById("document-list").replaceChildren();
 }
 
 function showPayload(payload) {
@@ -43,6 +45,15 @@ function showPayload(payload) {
     unavailable: "Guidance unavailable",
   };
   showResult(answer.state, answer.title, answer.body, labels[answer.state] || "Result");
+  if (answer.state === "answer" && answer.required_documents?.length) {
+    const list = document.getElementById("document-list");
+    for (const documentText of answer.required_documents) {
+      const item = document.createElement("li");
+      item.textContent = documentText;
+      list.appendChild(item);
+    }
+    setVisible("result-documents", true);
+  }
   if (answer.scope_note) {
     setText("scope-note", answer.scope_note);
     setVisible("scope-note", true);

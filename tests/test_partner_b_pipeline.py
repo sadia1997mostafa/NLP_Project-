@@ -70,6 +70,26 @@ class PipelineTests(unittest.TestCase):
         self.assertEqual(client.get("/static/styles.css").status_code, 200)
         self.assertEqual(client.get("/static/main.js").status_code, 200)
 
+    def test_http_returns_sourced_document_checklist(self):
+        def predict(text):
+            return {
+                "text": text, "service": "PASSPORT", "parent_topic_id": "PASSPORT_DOCUMENTS",
+                "query_topic_id": "PASSPORT_DOCUMENTS_REQUIRED", "is_ood": False,
+                "service_routing": "lexical_anchor",
+            }
+
+        client = TestClient(create_app(QueryPipeline(predict)))
+        response = client.post("/api/analyze", json={"text": "Passport documents?"})
+        self.assertEqual(response.status_code, 200)
+        payload = response.json()
+        record = payload["retrieval"]["record"]
+        answer = payload["response"]
+        self.assertEqual(answer["state"], "answer")
+        self.assertEqual(answer["required_documents"], record["required_documents"])
+        self.assertGreater(len(answer["required_documents"]), 0)
+        self.assertEqual(answer["source"]["url"], record["source_url"])
+        self.assertIn('id="document-list"', client.get("/").text)
+
 
 class ServerResponsivenessTests(unittest.IsolatedAsyncioTestCase):
     async def test_status_responds_while_inference_runs(self):

@@ -37,6 +37,19 @@ def main() -> None:
             assert result["response"]["state"] == "answer", expected_service
             print(f"{expected_service}: {retrieval['match_level']}")
 
+        for query, expected_topic in (
+            ("NID date of birth correction documents ki lagbe?", "NID_CORRECTION_DOB"),
+            ("birth registration verify korbo kivabe?", "BR_VERIFICATION_RECORD"),
+        ):
+            response = client.post("/api/analyze", json={"text": query})
+            response.raise_for_status()
+            result = response.json()
+            assert result["understanding"]["query_topic_id"] == expected_topic
+            assert result["retrieval"]["match_level"] == "query_topic"
+            assert result["response"]["state"] == "answer"
+            assert result["response"]["source"]["url"] == result["retrieval"]["record"]["source_url"]
+            print(f"Expanded corpus exact route: {expected_topic}")
+
         sensitive = client.post(
             "/api/analyze", json={"text": "My NID 1234567890 is lost. What should I do?"}
         )
