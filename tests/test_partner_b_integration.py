@@ -14,10 +14,15 @@ class PartnerBIntegrationTests(unittest.TestCase):
     def setUp(self):
         self.calls = []
         self.services = load_contract()["services"]
+        self.queries = {
+            "NID": "NID help", "BIRTH_REGISTRATION": "birth registration help",
+            "PASSPORT": "passport help", "TAX": "tax help",
+            "POLICE_GD": "online GD help", "DRIVING_LICENCE": "driving licence help",
+        }
 
         def predict(text):
             self.calls.append(text)
-            service = text.split()[0]
+            service = next((key for key, term in self.queries.items() if term.lower() in text.lower()), text.split()[0])
             if service not in self.services:
                 return {"text": text, "service": service, "is_ood": service == "OOD", "priority": "Low"}
             parent_id, parent = next(iter(self.services[service]["parent_topics"].items()))
@@ -33,11 +38,12 @@ class PartnerBIntegrationTests(unittest.TestCase):
     def test_all_six_services_reach_their_own_corpus_namespace(self):
         for service in self.services:
             with self.subTest(service=service):
-                response = self.client.post("/api/analyze", json={"text": f"{service} help"})
+                response = self.client.post("/api/analyze", json={"text": self.queries[service]})
                 self.assertEqual(response.status_code, 200)
                 body = response.json()
-                self.assertEqual(body["response"]["state"], "clarification")
-                self.assertIsNone(body["response"]["source"])
+                self.assertEqual(body["response"]["state"], "answer")
+                self.assertEqual(body["response"]["match_level"], "service")
+                self.assertIsNotNone(body["response"]["source"])
                 self.assertIsNone(body["retrieval"]["record"])
                 chosen = self.client.post("/api/guidance", json={
                     "service": service, "parent_topic_id": None, "query_topic_id": None,
@@ -47,7 +53,7 @@ class PartnerBIntegrationTests(unittest.TestCase):
                 self.assertEqual(chosen.json()["retrieval"]["record"]["service"], service)
 
     def test_ood_and_missing_record_do_not_claim_a_source(self):
-        for query, expected in (("OOD help", "clarification"), ("UNKNOWN help", "unavailable")):
+        for query, expected in (("OOD help", "clarification"), ("UNKNOWN help", "clarification")):
             body = self.client.post("/api/analyze", json={"text": query}).json()
             self.assertEqual(body["response"]["state"], expected)
             self.assertIsNone(body["response"]["source"])

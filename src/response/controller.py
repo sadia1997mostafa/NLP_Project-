@@ -2,6 +2,8 @@
 
 from __future__ import annotations
 
+import re
+
 
 def construct_response(
     understanding: dict, retrieval: dict, privacy_warnings: list[str], *, confirmed: bool = False,
@@ -12,6 +14,7 @@ def construct_response(
         "match_level": retrieval["match_level"],
         "source": None,
         "required_documents": [],
+        "steps": [],
     }
     if retrieval["status"] == "ood":
         return {
@@ -39,11 +42,23 @@ def construct_response(
             "scope_note": None,
         }
     record = retrieval["record"]
+    specific = retrieval["match_level"] == "query_topic"
+    steps = [sentence.strip() for sentence in re.split(r"(?<=[.!?])\s+", record["guidance"]) if sentence.strip()]
+    body = (
+        f"For {record['title'].lower()}, follow the verified guidance below. "
+        "Check the official source for current requirements."
+        if specific else
+        "I identified the service, but not the exact topic reliably. "
+        "This is general guidance; choose a topic for a more specific answer."
+    )
+    if record["query_topic_id"] == "POLICE_GD_EMERGENCY_ROUTING":
+        body = "If there is immediate danger in Bangladesh, call 999 now. This app cannot dispatch help; do not wait for an online GD."
     return {
         **base,
         "state": "answer",
         "title": record["title"],
-        "body": record["guidance"],
+        "body": body,
+        "steps": steps,
         "scope_note": (
             "This is general guidance for the selected topic."
             if retrieval["match_level"] == "parent_topic"

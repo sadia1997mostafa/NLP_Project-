@@ -34,7 +34,7 @@ def main() -> None:
             assert understanding["service"] == expected_service, expected_service
             assert retrieval["status"] == "found", expected_service
             assert retrieval["record"] is None, expected_service
-            assert result["response"]["state"] == "clarification", expected_service
+            assert result["response"]["state"] == "answer", expected_service
             print(f"{expected_service}: {retrieval['match_level']}")
 
         for query, expected_topic in (
@@ -46,7 +46,7 @@ def main() -> None:
             result = response.json()
             assert result["understanding"]["query_topic_id"] == expected_topic
             assert result["retrieval"]["match_level"] == "query_topic"
-            assert result["response"]["state"] == "clarification"
+            assert result["response"]["state"] == "answer"
             assert result["retrieval"]["record"] is None
             chosen = client.post("/api/guidance", json={
                 "service": result["understanding"]["service"],
@@ -66,9 +66,9 @@ def main() -> None:
             response = client.post("/api/analyze", json={"text": query})
             response.raise_for_status()
             result = response.json()
-            assert result["response"]["state"] == "clarification"
-            assert result["response"]["source"] is None
-            print(f"Expected {expected_topic}; model chose {result['understanding']['query_topic_id']}")
+            assert result["understanding"]["resolved_topic_id"] == expected_topic
+            assert result["response"]["state"] == "answer"
+            print(f"Resolved {expected_topic}; model chose {result['understanding']['query_topic_id']}")
 
         sensitive = client.post(
             "/api/analyze", json={"text": "My NID 1234567890 is lost. What should I do?"}

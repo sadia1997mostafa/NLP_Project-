@@ -17,7 +17,12 @@ class PrivacyResult:
 PATTERNS = (
     ("email", re.compile(r"(?<![\w.+-])[\w.+-]+@[\w.-]+\.[A-Za-z]{2,}(?!\w)", re.I)),
     ("phone", re.compile(r"(?<!\d)(?:\+?880[- ]?1[3-9]|01[3-9])(?:[- ]?\d){8}(?!\d)")),
+    ("password", re.compile(r"\b(?:password|passcode|pin)\s*[:=]\s*([^\s,;.!?]{4,64})", re.I)),
+    ("otp", re.compile(r"\b(?:otp|verification code|one.time code)\s*(?:is|[:=])\s*(\d{4,8})(?!\d)", re.I)),
+    ("nid", re.compile(r"\b(?:nid|national id|voter id)\s*(?:number|no\.?|is|[:=#])?\s*[:=#]?\s*((?:\d[ -]?){9,16}\d)(?!\d)", re.I)),
     ("nid", re.compile(r"(?<!\d)(?:\d{17}|\d{13}|\d{10})(?!\d)")),
+    ("name", re.compile(r"\bamar nam\s*(?:is|:)\s*([^,.;\n!?]{2,60})", re.I)),
+    ("address", re.compile(r"\bamar thikana\s*(?:is|:)\s*([^;\n!?]{4,120})", re.I)),
     ("passport", re.compile(r"(?<![A-Za-z0-9])[A-Z]{2}\d{7}(?![A-Za-z0-9])", re.I)),
     ("date_of_birth", re.compile(r"\b(?:DOB|date of birth|জন্ম তারিখ)\s*[:：-]?\s*(\d{1,2}[-/]\d{1,2}[-/]\d{4})", re.I)),
     ("name", re.compile(r"(?:my name is|name\s*[:：]|আমার নাম|নাম\s*[:：])\s*([^,.;\n!?।]{2,60})", re.I)),
@@ -29,7 +34,7 @@ def detect_privacy(text: str) -> PrivacyResult:
     spans: list[tuple[int, int, str]] = []
     normalized_digits = text.translate(str.maketrans("০১২৩৪৫৬৭৮৯", "0123456789"))
     for kind, pattern in PATTERNS:
-        searchable = normalized_digits if kind in {"phone", "nid", "date_of_birth"} else text
+        searchable = normalized_digits if kind in {"phone", "nid", "otp", "passport", "date_of_birth"} else text
         for match in pattern.finditer(searchable):
             value = match.group(1) if match.lastindex else match.group(0)
             start, end = match.span(1) if match.lastindex else match.span()

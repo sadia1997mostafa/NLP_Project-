@@ -32,6 +32,17 @@ class PrivacyTests(unittest.TestCase):
         self.assertNotIn("Ayesha", result.safe_text)
         self.assertNotIn("Lake Road", result.safe_text)
 
+    def test_masks_credentials_and_formatted_id_without_masking_service_words(self):
+        result = detect_privacy("NID number: 123-456-7890, OTP is 123456, password: secret123; correct my NID")
+        self.assertEqual(result.safe_text, "NID number: [NID], OTP is [OTP], password: [PASSWORD]; correct my NID")
+        self.assertEqual(result.privacy_types, ["nid", "otp", "password"])
+
+    def test_masks_banglish_personal_fields(self):
+        result = detect_privacy("amar nam: Ayesha Rahman, amar thikana: 12 Lake Road; NID correction")
+        self.assertNotIn("Ayesha Rahman", result.safe_text)
+        self.assertNotIn("12 Lake Road", result.safe_text)
+        self.assertIn("NID correction", result.safe_text)
+
     def test_query_without_personal_data(self):
         result = detect_privacy("How do I apply for a passport?")
         self.assertFalse(result.privacy_present)
@@ -83,7 +94,8 @@ class PipelineTests(unittest.TestCase):
         response = client.post("/api/analyze", json={"text": "Passport documents?"})
         self.assertEqual(response.status_code, 200)
         payload = response.json()
-        self.assertEqual(payload["response"]["state"], "clarification")
+        self.assertEqual(payload["response"]["state"], "answer")
+        self.assertEqual(payload["understanding"]["resolved_topic_id"], "PASSPORT_DOCUMENTS_REQUIRED")
         self.assertIsNone(payload["retrieval"]["record"])
         response = client.post("/api/guidance", json={
             "service": "PASSPORT", "parent_topic_id": "PASSPORT_DOCUMENTS",
@@ -98,6 +110,26 @@ class PipelineTests(unittest.TestCase):
         self.assertGreater(len(answer["required_documents"]), 0)
         self.assertEqual(answer["source"]["url"], record["source_url"])
         self.assertIn('id="document-list"', client.get("/").text)
+
+    def test_unsupported_or_conflicting_service_does_not_get_an_answer(self):
+        client = TestClient(create_app(QueryPipeline(fake_predictor)))
+        for query in ("What is the weather on Mars?", "NID and passport help"):
+            with self.subTest(query=query):
+                result = client.post("/api/analyze", json={"text": query}).json()
+                self.assertEqual(result["response"]["state"], "clarification")
+                self.assertIsNone(result["response"]["source"])
+
+    def test_corpus_reranks_wrong_intent_with_explicit_topic_evidence(self):
+        def wrong_intent(text):
+            return {
+                "text": text, "service": "PASSPORT", "parent_topic_id": "PASSPORT_GENERAL_INFORMATION",
+                "query_topic_id": "PASSPORT_GENERAL_NEW_VS_REISSUE", "is_ood": False,
+            }
+
+        result = QueryPipeline(wrong_intent).analyze("passport status check korbo kivabe?")
+        self.assertEqual(result["understanding"]["resolved_topic_id"], "PASSPORT_APPLICATION_STATUS")
+        self.assertEqual(result["response"]["state"], "answer")
+        self.assertEqual(result["response"]["title"], "Track a passport application")
 
     def test_selection_must_match_a_curated_record(self):
         client = TestClient(create_app(QueryPipeline(fake_predictor)))

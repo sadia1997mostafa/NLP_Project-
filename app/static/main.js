@@ -9,8 +9,11 @@ const topicForm = document.getElementById("topic-form");
 const topicService = document.getElementById("topic-service");
 const topicChoice = document.getElementById("topic-choice");
 const topicSubmit = document.getElementById("topic-submit");
+const changeTopic = document.getElementById("change-topic");
 let catalog = [];
 let catalogError = false;
+let lastPrivacyWarnings = [];
+let suggestedService = "";
 
 const serviceNames = {
   NID: "National ID",
@@ -73,6 +76,9 @@ function showResult(state, title, body, kicker) {
   setVisible("result-source", false);
   setVisible("result-meta", false);
   topicForm.hidden = true;
+  changeTopic.hidden = true;
+  setVisible("result-steps", false);
+  document.getElementById("step-list").replaceChildren();
   setVisible("result-documents", false);
   document.getElementById("document-list").replaceChildren();
 }
@@ -85,7 +91,21 @@ function showPayload(payload) {
     unavailable: "Guidance unavailable",
   };
   showResult(answer.state, answer.title, answer.body, labels[answer.state] || "Result");
-  showTopics(payload.understanding?.service);
+  suggestedService = payload.understanding?.service || suggestedService;
+  if (answer.state !== "answer" || answer.match_level !== "query_topic") {
+    showTopics(suggestedService);
+  } else {
+    changeTopic.hidden = false;
+  }
+  if (answer.state === "answer" && answer.steps?.length) {
+    const list = document.getElementById("step-list");
+    for (const step of answer.steps) {
+      const item = document.createElement("li");
+      item.textContent = step;
+      list.appendChild(item);
+    }
+    setVisible("result-steps", true);
+  }
   if (answer.state === "answer" && answer.required_documents?.length) {
     const list = document.getElementById("document-list");
     for (const documentText of answer.required_documents) {
@@ -99,8 +119,9 @@ function showPayload(payload) {
     setText("scope-note", answer.scope_note);
     setVisible("scope-note", true);
   }
-  if (payload.privacy_present) {
-    setText("privacy-message", payload.warnings.join(" "));
+  if (payload.privacy_present) lastPrivacyWarnings = payload.warnings || [];
+  if (lastPrivacyWarnings.length) {
+    setText("privacy-message", lastPrivacyWarnings.join(" "));
     setVisible("privacy-notice", true);
   }
   if (answer.source) {
@@ -123,6 +144,10 @@ function showPayload(payload) {
 }
 
 topicService.addEventListener("change", updateTopicChoices);
+changeTopic.addEventListener("click", () => {
+  showTopics(suggestedService);
+  changeTopic.hidden = true;
+});
 topicChoice.addEventListener("change", () => {
   topicSubmit.disabled = !topicChoice.value;
 });
@@ -159,6 +184,8 @@ clear.addEventListener("click", () => {
   query.value = "";
   count.textContent = "0 / 4000";
   result.hidden = true;
+  lastPrivacyWarnings = [];
+  suggestedService = "";
   query.focus();
 });
 
@@ -168,6 +195,8 @@ form.addEventListener("submit", async (event) => {
   if (!text) return;
   submit.disabled = true;
   submit.textContent = "Working...";
+  lastPrivacyWarnings = [];
+  suggestedService = "";
   showResult("loading", "Checking your request", "", "In progress");
   try {
     const response = await fetch("/api/analyze", {

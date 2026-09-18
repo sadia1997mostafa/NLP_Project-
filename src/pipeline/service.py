@@ -6,8 +6,10 @@ from collections.abc import Callable
 from threading import Lock
 
 from src.models.inference import FINAL, predict_understanding
+from src.pipeline.service_evidence import supported_service
 from src.privacy.detection import detect_privacy
 from src.retrieval.lookup import GuidanceLookup
+from src.retrieval.topic_match import match_topic
 from src.response.controller import construct_response
 
 
@@ -40,7 +42,32 @@ class QueryPipeline:
             understanding = dict(self.predictor(text))
         understanding["text"] = privacy.safe_text
         retrieval = self.lookup.retrieve(understanding)
-        response = construct_response(understanding, retrieval, privacy.warnings)
+        effective = dict(understanding)
+        if not supported_service(privacy.safe_text, understanding.get("service")):
+            retrieval = {"status": "ood", "match_level": None, "record": None}
+        elif retrieval["status"] != "ood":
+            match = match_topic(
+                privacy.safe_text, understanding.get("service"),
+                understanding.get("query_topic_id"), self.lookup.records,
+            )
+            if match.record is not None:
+                record = match.record
+                retrieval = {"status": "found", "match_level": "query_topic", "record": record}
+                effective["parent_topic_id"] = record["parent_topic_id"]
+                effective["query_topic_id"] = record["query_topic_id"]
+                if record["query_topic_id"] != understanding.get("query_topic_id"):
+                    effective["priority"] = None
+                understanding["resolved_topic_id"] = record["query_topic_id"]
+                understanding["topic_resolution"] = "corpus_similarity"
+            else:
+                record = self.lookup.by_key.get((understanding.get("service"), None, None))
+                retrieval = (
+                    {"status": "found", "match_level": "service", "record": record}
+                    if record is not None else {"status": "miss", "match_level": None, "record": None}
+                )
+                effective["priority"] = None
+                understanding["topic_resolution"] = "unconfirmed"
+        response = construct_response(effective, retrieval, privacy.warnings, confirmed=True)
         # Do not leak an unconfirmed record as an authoritative alternate answer.
         public_retrieval = {**retrieval, "record": None}
         return {

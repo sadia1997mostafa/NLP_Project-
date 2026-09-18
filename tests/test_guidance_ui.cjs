@@ -10,6 +10,7 @@ function interfaceContext(fetchImpl) {
     return {
       hidden: false, textContent: "", value: "", children: [], listeners: {},
       addEventListener(name, handler) { this.listeners[name] = handler; },
+      focus() {},
       replaceChildren() { this.children = []; },
       appendChild(child) { this.children.push(child); },
     };
@@ -52,6 +53,40 @@ test("a new answer replaces the previous checklist", () => {
   show(context, "answer", ["New document"]);
   assert.equal(elements.get("document-list").children.length, 1);
   assert.equal(elements.get("document-list").children[0].textContent, "New document");
+});
+
+test("verified points render as text and clear on the next result", () => {
+  const { context, elements } = interfaceContext();
+  context.payload = {
+    response: { state: "answer", match_level: "query_topic", title: "Test", body: "Answer",
+      steps: ["Open the portal.", "<script>alert(1)</script>"] },
+    understanding: { service: "PASSPORT" }, privacy_present: false,
+  };
+  vm.runInContext("showPayload(payload)", context);
+  assert.equal(elements.get("result-steps").hidden, false);
+  assert.equal(elements.get("step-list").children[1].textContent, "<script>alert(1)</script>");
+  assert.equal(elements.get("topic-form").hidden, true);
+  assert.equal(elements.get("change-topic").hidden, false);
+  elements.get("change-topic").listeners.click();
+  assert.equal(elements.get("topic-form").hidden, false);
+  show(context, "clarification", []);
+  assert.equal(elements.get("result-steps").hidden, true);
+});
+
+test("privacy notice survives a topic change but clears for a new query", () => {
+  const { context, elements } = interfaceContext();
+  context.payload = {
+    response: { state: "clarification", title: "Clarify", body: "Choose a topic" },
+    understanding: { service: "NID" }, privacy_present: true,
+    warnings: ["Personal information was detected."],
+  };
+  vm.runInContext("showPayload(payload)", context);
+  assert.equal(elements.get("privacy-notice").hidden, false);
+  show(context, "answer", []);
+  assert.equal(elements.get("privacy-notice").hidden, false);
+  elements.get("clear-button").listeners.click();
+  show(context, "answer", []);
+  assert.equal(elements.get("privacy-notice").hidden, true);
 });
 
 test("empty, clarification and unavailable responses clear the checklist", () => {
