@@ -8,6 +8,7 @@ from functools import lru_cache
 from pathlib import Path
 
 from fastapi import FastAPI, HTTPException, Request
+from fastapi.concurrency import run_in_threadpool
 from fastapi.responses import FileResponse, JSONResponse
 from fastapi.staticfiles import StaticFiles
 
@@ -53,7 +54,7 @@ def create_app(pipeline: QueryPipeline | None = None) -> FastAPI:
         }, headers={"Cache-Control": "no-store"})
 
     @app.post("/api/analyze")
-    async def analyze(request: Request) -> dict:
+    async def analyze(request: Request) -> JSONResponse:
         try:
             body = await request.json()
         except (ValueError, UnicodeDecodeError):
@@ -66,7 +67,8 @@ def create_app(pipeline: QueryPipeline | None = None) -> FastAPI:
         if pipeline is None and not model_ready():
             raise HTTPException(503, "Classifier files are unavailable")
         try:
-            return JSONResponse(app.state.pipeline.analyze(query), headers={"Cache-Control": "no-store"})
+            result = await run_in_threadpool(app.state.pipeline.analyze, query)
+            return JSONResponse(result, headers={"Cache-Control": "no-store"})
         except Exception:
             # Never include raw query text or model exception details in a response or log.
             raise HTTPException(503, "Analysis is temporarily unavailable") from None

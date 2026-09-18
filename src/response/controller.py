@@ -27,6 +27,14 @@ def construct_response(understanding: dict, retrieval: dict, privacy_warnings: l
             "body": "I do not have verified guidance for this request yet. Please consult the relevant official government service.",
             "scope_note": None,
         }
+    if retrieval["match_level"] == "service" and understanding.get("service_routing") == "xlm_roberta_fallback":
+        return {
+            **base,
+            "state": "clarification",
+            "title": "Please confirm the service",
+            "body": "I found only general information for a possible service. Please name the government service and your specific question.",
+            "scope_note": None,
+        }
     record = retrieval["record"]
     return {
         **base,

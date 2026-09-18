@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 from collections.abc import Callable
+from threading import Lock
 
 from src.models.inference import FINAL, predict_understanding
 from src.privacy.detection import detect_privacy
@@ -30,11 +31,13 @@ class QueryPipeline:
     ):
         self.predictor = predictor
         self.lookup = lookup or GuidanceLookup()
+        self._predictor_lock = Lock()
 
     def analyze(self, text: str) -> dict:
         privacy = detect_privacy(text)
         # The original text is kept in memory only for this classifier call.
-        understanding = dict(self.predictor(text))
+        with self._predictor_lock:
+            understanding = dict(self.predictor(text))
         understanding["text"] = privacy.safe_text
         retrieval = self.lookup.retrieve(understanding)
         return {

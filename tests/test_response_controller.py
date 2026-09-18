@@ -42,6 +42,18 @@ class ResponseControllerTests(unittest.TestCase):
             self.assertIsNone(response["source"])
             self.assertEqual(response["required_documents"], [])
 
+    def test_unanchored_service_only_match_requests_clarification(self):
+        understanding = {
+            "service": "NID", "parent_topic_id": "NID_CORRECTION",
+            "query_topic_id": "NID_CORRECTION_DOB", "is_ood": False,
+            "service_routing": "xlm_roberta_fallback",
+        }
+        retrieval = self.lookup.retrieve(understanding)
+        self.assertEqual(retrieval["match_level"], "service")
+        response = construct_response(understanding, retrieval, [])
+        self.assertEqual(response["state"], "clarification")
+        self.assertIsNone(response["source"])
+
 
 if __name__ == "__main__":
     unittest.main()

@@ -1,8 +1,12 @@
 """Privacy and backend contract tests that do not require model artifacts."""
 
+import asyncio
+import time
 import unittest
+from threading import Event
 
 from fastapi.testclient import TestClient
+from httpx import ASGITransport, AsyncClient
 
 from app.server import create_app
 from src.pipeline.service import QueryPipeline
@@ -65,6 +69,31 @@ class PipelineTests(unittest.TestCase):
         self.assertIn("NagorikSheba", client.get("/").text)
         self.assertEqual(client.get("/static/styles.css").status_code, 200)
         self.assertEqual(client.get("/static/main.js").status_code, 200)
+
+
+class ServerResponsivenessTests(unittest.IsolatedAsyncioTestCase):
+    async def test_status_responds_while_inference_runs(self):
+        started, release = Event(), Event()
+
+        def slow_predictor(text):
+            started.set()
+            release.wait(timeout=3)
+            return fake_predictor(text)
+
+        async with AsyncClient(
+            transport=ASGITransport(app=create_app(QueryPipeline(slow_predictor))),
+            base_url="http://test",
+        ) as client:
+            request = asyncio.create_task(client.post("/api/analyze", json={"text": "NID help"}))
+            try:
+                self.assertTrue(await asyncio.to_thread(started.wait, 2))
+                start = time.perf_counter()
+                status = await asyncio.wait_for(client.get("/api/status"), timeout=1.5)
+                self.assertEqual(status.status_code, 200)
+                self.assertLess(time.perf_counter() - start, 1.5)
+            finally:
+                release.set()
+                await request
 
 
 if __name__ == "__main__":

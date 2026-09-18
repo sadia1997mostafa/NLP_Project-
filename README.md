@@ -43,12 +43,17 @@ The [guidance corpus](knowledge_base/README.md) currently has 14 reviewed
 records, with general pointers for all six services. Most of the 264 specific
 intents do not yet have dedicated guidance; those routes receive clearly
 marked general information. OOD and missing records receive no fabricated
-service-specific answer. Recheck official links and mutable facts before a
-public demonstration.
+service-specific answer. If an unanchored model prediction finds only general
+service guidance, the app asks for clarification rather than showing a possibly
+unrelated service. Recheck official links and mutable facts before a public
+demonstration.
 
 ## Verify
 
 Run `python -m unittest discover -s tests -p 'test_*.py'`. Tests cover the
 integration contract with an injected predictor, so they run without model
 files. Real classifier inference and latency must be checked again after
-`models/final/` is supplied.
+`models/final/` is supplied. With those files present, run
+`python -m scripts.smoke_live` for a short real-model check across the six
+services, privacy masking, an unrelated query, and repeated warm inference.
+It uses manually written queries and does not rerun the frozen held-out TEST.
