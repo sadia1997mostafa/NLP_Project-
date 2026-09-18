@@ -11,6 +11,7 @@ from src.privacy.detection import detect_privacy
 from src.retrieval.lookup import GuidanceLookup
 from src.retrieval.topic_match import match_parent, match_topic
 from src.response.controller import construct_response, response_language
+from src.response.local_generator import LocalAnswerGenerator, acceptable_answer, configured_model_path, local_generator_ready
 
 
 class ModelUnavailableError(RuntimeError):
@@ -30,10 +31,15 @@ class QueryPipeline:
         self,
         predictor: Callable[[str], dict] = predict_understanding,
         lookup: GuidanceLookup | None = None,
+        answer_generator: LocalAnswerGenerator | None = None,
     ):
         self.predictor = predictor
         self.lookup = lookup or GuidanceLookup()
         self._predictor_lock = Lock()
+        model_path = configured_model_path()
+        self.answer_generator = answer_generator or (
+            LocalAnswerGenerator(model_path) if local_generator_ready() and model_path else None
+        )
 
     def analyze(self, text: str) -> dict:
         privacy = detect_privacy(text)
@@ -95,6 +101,22 @@ class QueryPipeline:
                 effective["priority"] = None
                 understanding["topic_resolution"] = "unconfirmed"
         response = construct_response(effective, retrieval, privacy_warnings, confirmed=True)
+        if (self.answer_generator is not None and response["state"] == "answer"
+                and retrieval["match_level"] == "query_topic"
+                and retrieval["record"]["query_topic_id"] != "POLICE_GD_EMERGENCY_ROUTING"):
+            try:
+                generated = self.answer_generator.generate(privacy.safe_text, retrieval["record"], language)
+                if acceptable_answer(generated, retrieval["record"], language):
+                    response["body"] = generated
+                    response["steps"] = []
+                    response["answer_basis"] = "local_finetuned_model"
+                    response["scope_note"] = (
+                        "এটি মডেল-লেখা সারাংশ; সরকারি উৎসের সঙ্গে তথ্য মিলিয়ে নিন।" if language == "bn"
+                        else "This is a model-written summary; verify details with the official source."
+                    )
+            except Exception:
+                # A missing or failing optional model must not suppress verified guidance.
+                pass
         # Do not leak an unconfirmed record as an authoritative alternate answer.
         public_retrieval = {**retrieval, "record": None}
         return {

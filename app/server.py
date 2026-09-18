@@ -13,6 +13,7 @@ from fastapi.responses import FileResponse, JSONResponse
 from fastapi.staticfiles import StaticFiles
 
 from src.pipeline.service import QueryPipeline, model_ready
+from src.response.local_generator import configured_model_path, local_generator_ready
 
 
 @lru_cache(maxsize=1)
@@ -53,8 +54,11 @@ def create_app(pipeline: QueryPipeline | None = None) -> FastAPI:
 
     @app.get("/api/status")
     def status() -> JSONResponse:
+        generator_path = configured_model_path()
         return JSONResponse({
             "model_ready": model_ready(),
+            "answer_generator_configured": bool(generator_path and generator_path.is_file()),
+            "answer_generator_ready": local_generator_ready(),
             "runtime_freeze_commit": "38a343d",
             "results_commit": "f2f4e3e",
             "app_commit": app_commit(),

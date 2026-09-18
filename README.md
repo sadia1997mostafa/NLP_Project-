@@ -58,6 +58,11 @@ English or Bengali guidance from a bilingual, source-scoped fact plan for each
 covered route, rather than copying the corpus paragraph. It keeps document
 conditions and official citations. This is controlled generation, not an
 open-ended model, and topic titles and document names may remain in English.
+An optional local, fine-tuned GGUF can write the answer for a confirmed exact
+topic using its masked question and single corpus record. It is disabled until
+configured and keeps the controlled answer as fallback. See the
+[Colab answer-model runbook](docs/ANSWER_GENERATION_COLAB.md); the shipped app
+does not include trained generator weights or a hosted model dependency.
 Model confidence and the corpus matching gates are not validated on real
 citizen traffic. OOD, weak service evidence and missing records receive no
 fabricated specific answer.

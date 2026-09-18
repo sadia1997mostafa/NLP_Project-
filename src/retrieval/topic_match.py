@@ -18,6 +18,7 @@ class TopicMatch:
 GENERIC_WORDS = {
     "a", "an", "and", "about", "can", "check", "could", "do", "for", "get", "help", "how",
     "i", "in", "is", "ki", "kivabe", "korbo", "my", "need", "online", "please",
+    "amar", "hoye", "geche", "change",
     "the", "to", "want", "what", "where", "with", "koto", "জন্য", "কিভাবে", "কীভাবে", "আমি",
     "আমার", "অনলাইন", "সাহায্য", "করব", "করবো",
     "করতে", "করে", "পারি", "লাগবে", "দেব",
