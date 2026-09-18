@@ -16,9 +16,9 @@ class TopicMatch:
 
 
 GENERIC_WORDS = {
-    "a", "an", "and", "about", "can", "could", "do", "for", "get", "help", "how",
+    "a", "an", "and", "about", "can", "check", "could", "do", "for", "get", "help", "how",
     "i", "in", "is", "ki", "kivabe", "korbo", "my", "need", "online", "please",
-    "the", "to", "want", "what", "where", "with", "জন্য", "কিভাবে", "কীভাবে", "আমি",
+    "the", "to", "want", "what", "where", "with", "koto", "জন্য", "কিভাবে", "কীভাবে", "আমি",
     "আমার", "অনলাইন", "সাহায্য", "করব", "করবো",
     "করতে", "করে", "পারি", "লাগবে", "দেব",
 }
@@ -46,15 +46,16 @@ QUALIFIERS = {
     "BLOOD_GROUP": ("blood", "রক্ত"),
     "OTP": ("otp", "ওটিপি"),
 }
+FOCUS_TERMS = {"status", "fee", "document", "verification", "verify", "renewal", "duplicate", "correction"}
 
 
-def _has_topic_signal(text: str) -> bool:
-    words = re.split(r"[\s,.;!?():/\-_।]+", text.lower())
-    return any(
-        len(word) >= 4 and word not in GENERIC_WORDS
-        and not any(word.startswith(service_word) for service_word in SERVICE_WORDS)
-        for word in words
-    )
+def _content_tokens(text: str) -> list[str]:
+    words = re.findall(r"[a-z]+", text.lower())
+    singular = {"fees": "fee", "documents": "document", "requirements": "requirement", "forms": "form"}
+    return [
+        singular.get(word, word) for word in words
+        if len(word) >= 3 and word not in GENERIC_WORDS | SERVICE_WORDS | {"services", "br"}
+    ]
 
 
 def _qualifier_supported(record: dict, text: str) -> bool:
@@ -68,18 +69,27 @@ def _qualifier_supported(record: dict, text: str) -> bool:
 
 
 def _match(text: str, candidates: list[dict], label_key: str, predicted: str | None) -> TopicMatch:
-    if not candidates or not _has_topic_signal(text):
-        return TopicMatch(None, 0.0, 0.0)
     expanded = f"{text} {' '.join(english for bangla, english in BENGALI_HINTS.items() if bangla in text)}"
+    query_terms = _content_tokens(expanded)
+    if not candidates or not query_terms:
+        return TopicMatch(None, 0.0, 0.0)
     descriptions = [
-        f"{record['title']} {record[label_key].replace('_', ' ')}"
+        _content_tokens(f"{record['title']} {record[label_key].replace('_', ' ')}")
         for record in candidates
     ]
+    focus = set(query_terms) & FOCUS_TERMS
+    eligible = [
+        index for index, record in enumerate(candidates)
+        if _qualifier_supported(record, text) and set(query_terms) & set(descriptions[index])
+        and (not focus or focus & set(descriptions[index]))
+    ]
+    if not eligible:
+        return TopicMatch(None, 0.0, 0.0)
     vectorizer = TfidfVectorizer(analyzer="char_wb", ngram_range=(3, 5), sublinear_tf=True)
-    matrix = vectorizer.fit_transform([*descriptions, expanded])
+    matrix = vectorizer.fit_transform([*(" ".join(tokens) for tokens in descriptions), " ".join(query_terms)])
     scores = (matrix[:-1] @ matrix[-1].T).toarray().ravel()
     ranked = sorted(
-        (index for index in range(len(scores)) if _qualifier_supported(candidates[index], text)),
+        eligible,
         key=lambda index: scores[index], reverse=True,
     )
     if not ranked:
@@ -89,7 +99,8 @@ def _match(text: str, candidates: list[dict], label_key: str, predicted: str | N
     margin = score - (float(scores[runner_up]) if runner_up is not None else 0.0)
     agrees = candidates[best][label_key] == predicted
     # These gates are for answer display, not changes to Prothom's model/OOD policy.
-    accepted = ((score >= 0.28 and margin >= 0.06) or (agrees and score >= 0.28))
+    threshold = 0.25 if focus else 0.28
+    accepted = ((score >= threshold and margin >= 0.06) or (agrees and score >= threshold))
     return TopicMatch(candidates[best] if accepted else None, score, margin)
 
 

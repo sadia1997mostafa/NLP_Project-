@@ -189,6 +189,26 @@ class PipelineTests(unittest.TestCase):
         self.assertEqual(result["response"]["language"], "bn")
         self.assertIn("ব্যক্তিগত", result["warnings"][0])
 
+    def test_topic_specific_words_prevent_service_overlap_errors(self):
+        cases = (
+            ("BIRTH_REGISTRATION", "Birth certificate correction of mother's name", "BR_CORRECTION_PROCESS"),
+            ("PASSPORT", "passport fee koto?", "PASSPORT_FEES_INFORMATION"),
+            ("PASSPORT", "passport delivery status check", "PASSPORT_APPLICATION_STATUS"),
+            ("DRIVING_LICENCE", "Driving licence renewal fee koto?", "DRIVING_LICENCE_FEE_INFORMATION"),
+            ("BIRTH_REGISTRATION", "জন্ম নিবন্ধনের আবেদন অবস্থা দেখব কীভাবে?", "BR_APPLICATION_STATUS"),
+        )
+        for service, query, expected in cases:
+            with self.subTest(query=query):
+                def wrong_topic(text):
+                    return {
+                        "text": text, "service": service, "parent_topic_id": "WRONG",
+                        "query_topic_id": "WRONG", "is_ood": False,
+                    }
+
+                result = QueryPipeline(wrong_topic).analyze(query)
+                self.assertEqual(result["understanding"]["resolved_topic_id"], expected)
+                self.assertEqual(result["response"]["match_level"], "query_topic")
+
     def test_selection_must_match_a_curated_record(self):
         client = TestClient(create_app(QueryPipeline(fake_predictor)))
         catalog = client.get("/api/guidance")

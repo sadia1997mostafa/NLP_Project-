@@ -65,6 +65,11 @@ def main() -> None:
             ("পাসপোর্টের আবেদন কীভাবে করবো?", "PASSPORT_APPLICATION_ONLINE"),
             ("জন্ম নিবন্ধন যাচাই করতে চাই", "BR_VERIFICATION_RECORD"),
             ("ট্যাক্স রিটার্ন অনলাইনে জমা দেব কিভাবে?", "TAX_RETURN_ONLINE_SUBMISSION"),
+            ("Birth certificate correction of mother's name", "BR_CORRECTION_PROCESS"),
+            ("passport fee koto?", "PASSPORT_FEES_INFORMATION"),
+            ("passport delivery status check", "PASSPORT_APPLICATION_STATUS"),
+            ("Driving licence renewal fee koto?", "DRIVING_LICENCE_FEE_INFORMATION"),
+            ("জন্ম নিবন্ধনের আবেদন অবস্থা দেখব কীভাবে?", "BR_APPLICATION_STATUS"),
         ):
             response = client.post("/api/analyze", json={"text": query})
             response.raise_for_status()
