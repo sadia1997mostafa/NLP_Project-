@@ -37,6 +37,17 @@ class PrivacyTests(unittest.TestCase):
         self.assertEqual(result.safe_text, "NID number: [NID], OTP is [OTP], password: [PASSWORD]; correct my NID")
         self.assertEqual(result.privacy_types, ["nid", "otp", "password"])
 
+    def test_masks_unseparated_otp_and_bengali_digits(self):
+        for text, expected in (
+            ("OTP 123456", "OTP [OTP]"),
+            ("ওটিপি ১২৩৪৫৬", "ওটিপি [OTP]"),
+        ):
+            with self.subTest(text=text):
+                result = detect_privacy(text)
+                self.assertEqual(result.safe_text, expected)
+                self.assertEqual(result.privacy_types, ["otp"])
+        self.assertFalse(detect_privacy("OTP ashtese na").privacy_present)
+
     def test_masks_banglish_personal_fields(self):
         result = detect_privacy("amar nam: Ayesha Rahman, amar thikana: 12 Lake Road; NID correction")
         self.assertNotIn("Ayesha Rahman", result.safe_text)

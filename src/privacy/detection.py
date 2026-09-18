@@ -18,7 +18,7 @@ PATTERNS = (
     ("email", re.compile(r"(?<![\w.+-])[\w.+-]+@[\w.-]+\.[A-Za-z]{2,}(?!\w)", re.I)),
     ("phone", re.compile(r"(?<!\d)(?:\+?880[- ]?1[3-9]|01[3-9])(?:[- ]?\d){8}(?!\d)")),
     ("password", re.compile(r"\b(?:password|passcode|pin)\s*[:=]\s*([^\s,;.!?]{4,64})", re.I)),
-    ("otp", re.compile(r"\b(?:otp|verification code|one.time code)\s*(?:is|[:=])\s*(\d{4,8})(?!\d)", re.I)),
+    ("otp", re.compile(r"(?:\b(?:otp|verification code|one.time code)\b|ওটিপি)\s*(?:is|[:=])?\s*(\d{4,8})(?!\d)", re.I)),
     ("nid", re.compile(r"\b(?:nid|national id|voter id)\s*(?:number|no\.?|is|[:=#])?\s*[:=#]?\s*((?:\d[ -]?){9,16}\d)(?!\d)", re.I)),
     ("nid", re.compile(r"(?<!\d)(?:\d{17}|\d{13}|\d{10})(?!\d)")),
     ("name", re.compile(r"\bamar nam\s*(?:is|:)\s*([^,.;\n!?]{2,60})", re.I)),

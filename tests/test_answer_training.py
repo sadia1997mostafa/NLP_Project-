@@ -1,0 +1,42 @@
+"""The generator dataset must stay within reviewed routes and frozen splits."""
+
+import json
+import unittest
+
+from scripts.export_answer_training import examples_for_split
+from src.privacy.detection import detect_privacy
+from src.response.model_prompt import prompt_messages
+from src.retrieval.corpus import load_records
+
+
+class AnswerTrainingTests(unittest.TestCase):
+    def test_export_rejects_official_test_split(self):
+        with self.assertRaises(ValueError):
+            examples_for_split("test")
+
+    def test_examples_use_reviewed_exact_routes_and_no_identifiers(self):
+        records = {record["title"]: record for record in load_records() if record["query_topic_id"]}
+        for split in ("train", "dev"):
+            examples = examples_for_split(split)
+            self.assertGreater(len(examples), 100)
+            for example in examples:
+                with self.subTest(split=split, example=example["prompt"][1]["content"][:40]):
+                    self.assertEqual([m["role"] for m in example["prompt"]], ["system", "user"])
+                    self.assertEqual(example["completion"][0]["role"], "assistant")
+                    payload = json.loads(example["prompt"][1]["content"])
+                    record = records[payload["topic"]]
+                    self.assertEqual(payload["approved_guidance"], record["guidance"])
+                    self.assertFalse(detect_privacy(payload["question"]).privacy_present)
+                    self.assertTrue(example["completion"][0]["content"])
+
+    def test_runtime_prompt_matches_export_format(self):
+        record = next(r for r in load_records() if r["query_topic_id"] == "PASSPORT_APPLICATION_STATUS")
+        messages = prompt_messages("passport status check korbo kivabe?", record, "bn")
+        payload = json.loads(messages[1]["content"])
+        self.assertEqual(payload["language"], "Bengali")
+        self.assertEqual(payload["approved_guidance"], record["guidance"])
+        self.assertNotIn("source_url", payload)
+
+
+if __name__ == "__main__":
+    unittest.main()
