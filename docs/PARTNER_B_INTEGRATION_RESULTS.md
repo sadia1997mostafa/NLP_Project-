@@ -60,3 +60,21 @@ in this session.
 - No connected browser was available for screenshots. Checklist rendering,
   text-only insertion and clearing between states were tested with Node DOM
   doubles; these are not a substitute for browser visual QA.
+
+## Incorrect-answer mitigation
+
+The expanded corpus exposed a practical issue: on manually written Banglish
+queries, passport status was routed to `PASSPORT_GENERAL_NEW_VS_REISSUE`, while
+learner-licence documents was routed to `DRIVING_LICENCE_LEARNER_ELIGIBILITY`.
+The latter route had an exact record, so the previous app displayed the wrong
+answer despite valid source attribution. The general smoke check tested routing
+namespace and availability, not whether the chosen topic matched the question.
+
+The app now requires the visitor to select a service and a curated topic before
+showing an answer. It does not expose the guessed record or source as a ready
+answer. Selection bypasses the classifier and retrieves only the selected
+record, with no fallback to a different topic. All 67 choices remain available
+even if the classifier rejects the question. The classifier's accuracy remains
+unresolved; this is a user-controlled mitigation, not a model improvement.
+The updated checks pass with 44 Python tests, six UI state tests, and the
+manually written live-model smoke cases. Browser visual QA is still pending.

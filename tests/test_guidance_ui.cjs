@@ -4,12 +4,12 @@ const fs = require("node:fs");
 const path = require("node:path");
 const vm = require("node:vm");
 
-function interfaceContext() {
+function interfaceContext(fetchImpl) {
   const elements = new Map();
   function element() {
     return {
-      hidden: false, textContent: "", children: [],
-      addEventListener() {},
+      hidden: false, textContent: "", value: "", children: [], listeners: {},
+      addEventListener(name, handler) { this.listeners[name] = handler; },
       replaceChildren() { this.children = []; },
       appendChild(child) { this.children.push(child); },
     };
@@ -23,7 +23,7 @@ function interfaceContext() {
   };
   const context = vm.createContext({
     document, URL,
-    fetch: async () => ({ json: async () => ({ model_ready: true }) }),
+    fetch: fetchImpl || (async (url) => ({ json: async () => url === "/api/guidance" ? [] : { model_ready: true } })),
   });
   vm.runInContext(fs.readFileSync(path.join(__dirname, "../app/static/main.js"), "utf8"), context);
   return { context, elements };
@@ -73,4 +73,65 @@ test("loading and errors hide old documents and citations", () => {
     assert.equal(elements.get("document-list").children.length, 0);
     assert.equal(elements.get("result-source").hidden, true);
   }
+});
+
+test("a guessed topic shows no answer until the visitor selects one", async () => {
+  const selected = {
+    service: "DRIVING_LICENCE", parent_topic_id: "DRIVING_LICENCE_LEARNER",
+    query_topic_id: "DRIVING_LICENCE_LEARNER_DOCUMENTS", title: "Prepare learner licence documents",
+  };
+  const requests = [];
+  const { context, elements } = interfaceContext(async (url, options) => {
+    if (url === "/api/guidance" && options?.method === "POST") {
+      requests.push(JSON.parse(options.body));
+      return { ok: true, json: async () => ({
+        response: { state: "answer", title: selected.title, body: "Bring relevant documents.",
+          required_documents: ["Medical certificate"] },
+        understanding: { service: selected.service }, privacy_present: false,
+      }) };
+    }
+    return { ok: true, json: async () => url === "/api/guidance" ? [selected] : { model_ready: true } };
+  });
+  await new Promise(resolve => setImmediate(resolve));
+  context.payload = {
+    response: { state: "clarification", title: "Which topic did you mean?", body: "Select a topic." },
+    understanding: { service: "DRIVING_LICENCE", query_topic_id: "DRIVING_LICENCE_LEARNER_ELIGIBILITY" },
+    retrieval: { status: "found", match_level: "query_topic", record: null },
+    privacy_present: false,
+  };
+  vm.runInContext("showPayload(payload)", context);
+  assert.equal(elements.get("result-source").hidden, true);
+  assert.equal(elements.get("topic-form").hidden, false);
+  assert.equal(elements.get("topic-choice").value, "");
+  assert.equal(elements.get("topic-submit").disabled, true);
+  assert.equal(elements.get("topic-choice").children.length, 2);
+  elements.get("topic-choice").value = "0";
+  elements.get("topic-choice").listeners.change();
+  await elements.get("topic-form").listeners.submit({ preventDefault() {} });
+  assert.deepEqual(requests, [{
+    service: selected.service, parent_topic_id: selected.parent_topic_id,
+    query_topic_id: selected.query_topic_id,
+  }]);
+  assert.equal(elements.get("result-title").textContent, selected.title);
+  assert.equal(elements.get("document-list").children[0].textContent, "Medical certificate");
+});
+
+test("changing service clears the previous topic selection", () => {
+  const { context, elements } = interfaceContext();
+  vm.runInContext("catalog = [" + JSON.stringify({
+    service: "DRIVING_LICENCE", parent_topic_id: "DRIVING_LICENCE_LEARNER",
+    query_topic_id: "DRIVING_LICENCE_LEARNER_DOCUMENTS", title: "Learner documents",
+  }) + "," + JSON.stringify({
+    service: "PASSPORT", parent_topic_id: "PASSPORT_DOCUMENTS",
+    query_topic_id: "PASSPORT_DOCUMENTS_REQUIRED", title: "Passport documents",
+  }) + "]", context);
+  vm.runInContext("showTopics('DRIVING_LICENCE')", context);
+  elements.get("topic-choice").value = "0";
+  elements.get("topic-choice").listeners.change();
+  assert.equal(elements.get("topic-submit").disabled, false);
+  elements.get("topic-service").value = "PASSPORT";
+  elements.get("topic-service").listeners.change();
+  assert.equal(elements.get("topic-choice").value, "");
+  assert.equal(elements.get("topic-choice").children[1].textContent, "Passport documents");
+  assert.equal(elements.get("topic-submit").disabled, true);
 });

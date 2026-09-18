@@ -32,7 +32,11 @@ present and records the runtime, results, and app commit IDs. Set
 
 `POST /api/analyze` accepts JSON such as `{"text": "How do I apply for a passport?"}`.
 The response includes privacy detection, a masked `safe_text`, Prothom's
-understanding fields, retrieval details, and a controlled response. Raw query
+understanding fields, retrieval details, and a controlled response. Model
+predictions ask the visitor to select a service and topic before showing
+guidance. `GET /api/guidance` lists curated choices; `POST /api/guidance`
+accepts exactly `service`, `parent_topic_id`, and `query_topic_id` from one
+listed choice. Only that record is displayed. Raw query
 text is used only in memory for inference. The endpoint does not log request
 bodies and sends `Cache-Control: no-store`.
 Privacy matching covers common identifiers and explicitly labelled names and
@@ -43,12 +47,12 @@ The [guidance corpus](knowledge_base/README.md) has 67 reviewed records from
 22 official source URLs: 56 exact topics, five parent topics, and general
 pointers for all six services. Document lists retain applicability conditions
 and appear with the answer. The other 208 specific intents do not have dedicated
-guidance; fallback content is clearly labelled general. Exact retrieval means
-a matching record exists, not that the model understood the question correctly.
-OOD and missing records receive no fabricated service-specific answer.
-Unanchored model predictions ask for an explicit service name at every match
-level; expanding the corpus must not bypass that clarification guard. This
-conservative policy also asks some legitimate implicit requests to be rephrased.
+guidance; visitors can choose an overview or available parent record for
+general guidance. Exact retrieval means a matching record exists, not that
+the model understood the question correctly. Model guesses are never shown
+as answers without a topic selection. OOD and missing records receive no
+fabricated service-specific answer. The visitor can change the service if
+the model's suggestion is wrong.
 Recheck official links and mutable facts before a public demonstration.
 
 ## Verify
@@ -58,7 +62,8 @@ integration contract with an injected predictor, so they run without model
 files. Real classifier inference and latency must be checked again after
 `models/final/` is supplied. With those files present, run
 `python -m scripts.smoke_live` for a short real-model check across the six
-services, privacy masking, an unrelated query, and repeated warm inference.
+services, privacy masking, an unrelated query, two observed intent mistakes,
+explicit topic selection, and repeated warm inference.
 It uses manually written queries and does not rerun the frozen held-out TEST.
 
 Run `python -m scripts.audit_corpus` for coverage and review-age checks;

@@ -16,7 +16,7 @@ class ResponseControllerTests(unittest.TestCase):
             "query_topic_id": "TAX_RETURN_ONLINE_SUBMISSION", "priority": "Low", "is_ood": False,
         }
         retrieval = self.lookup.retrieve(understanding)
-        response = construct_response(understanding, retrieval, ["Sensitive details detected"])
+        response = construct_response(understanding, retrieval, ["Sensitive details detected"], confirmed=True)
         self.assertEqual(response["state"], "answer")
         self.assertIsNone(response["scope_note"])
         self.assertEqual(response["source"]["url"], retrieval["record"]["source_url"])
@@ -27,9 +27,9 @@ class ResponseControllerTests(unittest.TestCase):
             "service": "TAX", "parent_topic_id": "TAX_RETURN_FILING",
             "query_topic_id": "TAX_RETURN_DEADLINE", "is_ood": False,
         }
-        response = construct_response(understanding, self.lookup.retrieve(understanding), [])
+        response = construct_response(understanding, self.lookup.retrieve(understanding), [], confirmed=True)
         self.assertEqual(response["state"], "answer")
-        self.assertIn("general guidance", response["scope_note"])
+        self.assertIn("service overview", response["scope_note"])
         self.assertNotIn("deadline", response["body"].lower())
 
     def test_ood_and_miss_have_no_source_or_fabricated_guidance(self):
@@ -42,11 +42,11 @@ class ResponseControllerTests(unittest.TestCase):
             self.assertIsNone(response["source"])
             self.assertEqual(response["required_documents"], [])
 
-    def test_unanchored_prediction_requests_clarification_at_every_match_level(self):
+    def test_unconfirmed_prediction_requests_clarification_at_every_match_level(self):
         understanding = {
             "service": "NID", "parent_topic_id": "NID_CORRECTION",
             "query_topic_id": "NID_CORRECTION_DOB", "is_ood": False,
-            "service_routing": "xlm_roberta_fallback",
+            "service_routing": "lexical_anchor",
         }
         records = self.lookup.records
         for level, selected in (
@@ -69,7 +69,7 @@ class ResponseControllerTests(unittest.TestCase):
             "service_routing": "lexical_anchor",
         }
         retrieval = self.lookup.retrieve(understanding)
-        response = construct_response(understanding, retrieval, [])
+        response = construct_response(understanding, retrieval, [], confirmed=True)
         self.assertEqual(response["state"], "answer")
         self.assertEqual(response["required_documents"], retrieval["record"]["required_documents"])
         self.assertIn("if different from NID", response["required_documents"][-1])
@@ -80,7 +80,7 @@ class ResponseControllerTests(unittest.TestCase):
             "query_topic_id": "POLICE_GD_EMERGENCY_ROUTING", "is_ood": False,
             "service_routing": "lexical_anchor",
         }
-        response = construct_response(understanding, self.lookup.retrieve(understanding), [])
+        response = construct_response(understanding, self.lookup.retrieve(understanding), [], confirmed=True)
         self.assertIn("999", response["body"])
         self.assertIn("cannot dispatch", response["body"])
 

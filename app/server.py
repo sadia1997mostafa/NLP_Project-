@@ -73,6 +73,30 @@ def create_app(pipeline: QueryPipeline | None = None) -> FastAPI:
             # Never include raw query text or model exception details in a response or log.
             raise HTTPException(503, "Analysis is temporarily unavailable") from None
 
+    @app.get("/api/guidance")
+    def catalog() -> JSONResponse:
+        return JSONResponse(app.state.pipeline.guidance_catalog(), headers={"Cache-Control": "no-store"})
+
+    @app.post("/api/guidance")
+    async def selected_guidance(request: Request) -> JSONResponse:
+        try:
+            body = await request.json()
+        except (ValueError, UnicodeDecodeError):
+            raise HTTPException(400, "Expected a guidance selection") from None
+        fields = {"service", "parent_topic_id", "query_topic_id"}
+        if (not isinstance(body, dict) or set(body) != fields
+                or not isinstance(body.get("service"), str)
+                or any(body[key] is not None and not isinstance(body[key], str)
+                       for key in ("parent_topic_id", "query_topic_id"))):
+            raise HTTPException(400, "Invalid guidance selection")
+        try:
+            result = app.state.pipeline.selected_guidance(
+                body["service"], body["parent_topic_id"], body["query_topic_id"],
+            )
+        except KeyError:
+            raise HTTPException(404, "Guidance for that selection is unavailable") from None
+        return JSONResponse(result, headers={"Cache-Control": "no-store"})
+
     return app
 
 

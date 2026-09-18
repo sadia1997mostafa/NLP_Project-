@@ -49,6 +49,14 @@
               <ul id="document-list"></ul>
             </div>
             <p id="scope-note" class="scope-note" hidden></p>
+            <form id="topic-form" class="topic-form" hidden>
+              <label for="topic-service">Service</label>
+              <select id="topic-service" required></select>
+              <label for="topic-choice">Topic</label>
+              <select id="topic-choice" required></select>
+              <p id="topic-error" role="status" hidden></p>
+              <button id="topic-submit" type="submit" class="primary-button" disabled>Show selected guidance</button>
+            </form>
             <div id="privacy-notice" class="privacy-notice" hidden>
               <strong>Privacy notice</strong>
               <p id="privacy-message"></p>

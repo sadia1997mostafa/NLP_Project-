@@ -43,9 +43,11 @@ see all 208 topics without dedicated answers. Fees, deadlines, disputes,
 refunds and advanced cases remain candidates for separate source review.
 
 Retrieval uses the frozen IDs, exact topic first, then parent, then service.
-Fallback records are never counted as exact coverage. The response controller
-asks unanchored model predictions for clarification even if an exact record
-exists; otherwise unrelated requests could gain authoritative-looking answers
-simply because the corpus grew. Frozen classifiers and thresholds are untouched.
+Fallback records are never counted as exact coverage. Model predictions are
+shown only as suggestions. The visitor explicitly selects one of these 67
+curated records before the app displays its guidance; there is no fallback
+when a selection does not exactly match a record. This prevents an incorrect
+model topic from automatically becoming an authoritative-looking answer.
+Frozen classifiers and thresholds are unchanged.
 
 Run `python -m unittest tests.test_guidance_corpus` to validate the corpus.

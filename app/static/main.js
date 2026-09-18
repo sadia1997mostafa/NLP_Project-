@@ -5,6 +5,12 @@ const clear = document.getElementById("clear-button");
 const count = document.getElementById("character-count");
 const status = document.getElementById("service-status");
 const result = document.getElementById("result");
+const topicForm = document.getElementById("topic-form");
+const topicService = document.getElementById("topic-service");
+const topicChoice = document.getElementById("topic-choice");
+const topicSubmit = document.getElementById("topic-submit");
+let catalog = [];
+let catalogError = false;
 
 const serviceNames = {
   NID: "National ID",
@@ -23,6 +29,39 @@ function setVisible(id, visible) {
   document.getElementById(id).hidden = !visible;
 }
 
+function addOption(select, label, value) {
+  const option = document.createElement("option");
+  option.textContent = label;
+  option.value = value;
+  select.appendChild(option);
+}
+
+function showTopics(suggestedService = "") {
+  topicForm.hidden = false;
+  topicService.replaceChildren();
+  addOption(topicService, "Select a service", "");
+  for (const [service, name] of Object.entries(serviceNames)) {
+    addOption(topicService, name, service);
+  }
+  topicService.value = serviceNames[suggestedService] ? suggestedService : "";
+  updateTopicChoices();
+}
+
+function updateTopicChoices() {
+  topicChoice.replaceChildren();
+  addOption(topicChoice, "Select a topic", "");
+  for (const [index, item] of catalog.entries()) {
+    if (item.service === topicService.value) {
+      const prefix = item.query_topic_id ? "" : item.parent_topic_id ? "General: " : "Overview: ";
+      addOption(topicChoice, `${prefix}${item.title}`, String(index));
+    }
+  }
+  topicChoice.value = "";
+  topicSubmit.disabled = true;
+  setText("topic-error", catalogError ? "Topics are unavailable right now." : "");
+  setVisible("topic-error", catalogError);
+}
+
 function showResult(state, title, body, kicker) {
   result.hidden = false;
   result.className = `result ${state}`;
@@ -33,6 +72,7 @@ function showResult(state, title, body, kicker) {
   setVisible("privacy-notice", false);
   setVisible("result-source", false);
   setVisible("result-meta", false);
+  topicForm.hidden = true;
   setVisible("result-documents", false);
   document.getElementById("document-list").replaceChildren();
 }
@@ -45,6 +85,7 @@ function showPayload(payload) {
     unavailable: "Guidance unavailable",
   };
   showResult(answer.state, answer.title, answer.body, labels[answer.state] || "Result");
+  showTopics(payload.understanding?.service);
   if (answer.state === "answer" && answer.required_documents?.length) {
     const list = document.getElementById("document-list");
     for (const documentText of answer.required_documents) {
@@ -75,11 +116,40 @@ function showPayload(payload) {
   if (payload.understanding && answer.state === "answer") {
     const understanding = payload.understanding;
     setText("service-name", serviceNames[understanding.service] || understanding.service);
-    setText("topic-name", understanding.query_topic || "");
+    setText("topic-name", answer.title);
     setText("priority-name", understanding.priority ? `Priority: ${understanding.priority}` : "");
     setVisible("result-meta", true);
   }
 }
+
+topicService.addEventListener("change", updateTopicChoices);
+topicChoice.addEventListener("change", () => {
+  topicSubmit.disabled = !topicChoice.value;
+});
+
+topicForm.addEventListener("submit", async (event) => {
+  event.preventDefault();
+  const item = catalog[Number(topicChoice.value)];
+  if (!item || item.service !== topicService.value) return;
+  topicSubmit.disabled = true;
+  setVisible("topic-error", false);
+  try {
+    const response = await fetch("/api/guidance", {
+      method: "POST", headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        service: item.service, parent_topic_id: item.parent_topic_id,
+        query_topic_id: item.query_topic_id,
+      }), cache: "no-store",
+    });
+    if (!response.ok) throw new Error("Guidance unavailable");
+    showPayload(await response.json());
+  } catch (_) {
+    setText("topic-error", "Selected guidance is unavailable right now.");
+    setVisible("topic-error", true);
+  } finally {
+    topicSubmit.disabled = false;
+  }
+});
 
 query.addEventListener("input", () => {
   count.textContent = `${query.value.length} / 4000`;
@@ -132,4 +202,18 @@ fetch("/api/status", { cache: "no-store" })
   .catch(() => {
     status.textContent = "Service unavailable";
     status.className = "service-status unavailable";
+  });
+
+fetch("/api/guidance", { cache: "no-store" })
+  .then((response) => {
+    if (!response.ok) throw new Error("Topics unavailable");
+    return response.json();
+  })
+  .then((items) => {
+    catalog = items;
+    if (!topicForm.hidden) updateTopicChoices();
+  })
+  .catch(() => {
+    catalogError = true;
+    if (!topicForm.hidden) updateTopicChoices();
   });

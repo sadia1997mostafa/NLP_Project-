@@ -33,8 +33,8 @@ def main() -> None:
             retrieval = result["retrieval"]
             assert understanding["service"] == expected_service, expected_service
             assert retrieval["status"] == "found", expected_service
-            assert retrieval["record"]["service"] == expected_service, expected_service
-            assert result["response"]["state"] == "answer", expected_service
+            assert retrieval["record"] is None, expected_service
+            assert result["response"]["state"] == "clarification", expected_service
             print(f"{expected_service}: {retrieval['match_level']}")
 
         for query, expected_topic in (
@@ -46,9 +46,29 @@ def main() -> None:
             result = response.json()
             assert result["understanding"]["query_topic_id"] == expected_topic
             assert result["retrieval"]["match_level"] == "query_topic"
-            assert result["response"]["state"] == "answer"
-            assert result["response"]["source"]["url"] == result["retrieval"]["record"]["source_url"]
-            print(f"Expanded corpus exact route: {expected_topic}")
+            assert result["response"]["state"] == "clarification"
+            assert result["retrieval"]["record"] is None
+            chosen = client.post("/api/guidance", json={
+                "service": result["understanding"]["service"],
+                "parent_topic_id": result["understanding"]["parent_topic_id"],
+                "query_topic_id": expected_topic,
+            })
+            chosen.raise_for_status()
+            selected = chosen.json()
+            assert selected["response"]["state"] == "answer"
+            assert selected["response"]["source"]["url"] == selected["retrieval"]["record"]["source_url"]
+            print(f"Expanded corpus user-confirmed route: {expected_topic}")
+
+        for query, expected_topic in (
+            ("passport status check korbo kivabe?", "PASSPORT_APPLICATION_STATUS"),
+            ("driving licence learner documents ki lagbe?", "DRIVING_LICENCE_LEARNER_DOCUMENTS"),
+        ):
+            response = client.post("/api/analyze", json={"text": query})
+            response.raise_for_status()
+            result = response.json()
+            assert result["response"]["state"] == "clarification"
+            assert result["response"]["source"] is None
+            print(f"Expected {expected_topic}; model chose {result['understanding']['query_topic_id']}")
 
         sensitive = client.post(
             "/api/analyze", json={"text": "My NID 1234567890 is lost. What should I do?"}

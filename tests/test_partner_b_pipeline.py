@@ -11,6 +11,7 @@ from httpx import ASGITransport, AsyncClient
 from app.server import create_app
 from src.pipeline.service import QueryPipeline
 from src.privacy.detection import detect_privacy
+from src.retrieval.corpus import load_records
 
 
 def fake_predictor(text: str) -> dict:
@@ -82,6 +83,14 @@ class PipelineTests(unittest.TestCase):
         response = client.post("/api/analyze", json={"text": "Passport documents?"})
         self.assertEqual(response.status_code, 200)
         payload = response.json()
+        self.assertEqual(payload["response"]["state"], "clarification")
+        self.assertIsNone(payload["retrieval"]["record"])
+        response = client.post("/api/guidance", json={
+            "service": "PASSPORT", "parent_topic_id": "PASSPORT_DOCUMENTS",
+            "query_topic_id": "PASSPORT_DOCUMENTS_REQUIRED",
+        })
+        self.assertEqual(response.status_code, 200)
+        payload = response.json()
         record = payload["retrieval"]["record"]
         answer = payload["response"]
         self.assertEqual(answer["state"], "answer")
@@ -89,6 +98,26 @@ class PipelineTests(unittest.TestCase):
         self.assertGreater(len(answer["required_documents"]), 0)
         self.assertEqual(answer["source"]["url"], record["source_url"])
         self.assertIn('id="document-list"', client.get("/").text)
+
+    def test_selection_must_match_a_curated_record(self):
+        client = TestClient(create_app(QueryPipeline(fake_predictor)))
+        catalog = client.get("/api/guidance")
+        self.assertEqual(catalog.status_code, 200)
+        self.assertEqual(catalog.headers["cache-control"], "no-store")
+        self.assertEqual(len(catalog.json()), len(load_records()))
+        self.assertEqual(set(catalog.json()[0]), {
+            "service", "parent_topic_id", "query_topic_id", "title",
+        })
+        for body, status in (
+            ({"service": "PASSPORT", "parent_topic_id": None, "query_topic_id": "PASSPORT_DOCUMENTS_REQUIRED"}, 404),
+            ({"service": "PASSPORT", "parent_topic_id": "PASSPORT_DOCUMENTS", "query_topic_id": "UNKNOWN"}, 404),
+            ({"service": "PASSPORT", "parent_topic_id": "PASSPORT_DOCUMENTS", "query_topic_id": None, "text": "extra"}, 400),
+            ({"service": [], "parent_topic_id": None, "query_topic_id": None}, 400),
+        ):
+            with self.subTest(body=body):
+                response = client.post("/api/guidance", json=body)
+                self.assertEqual(response.status_code, status)
+                self.assertIsNone(response.json().get("response"))
 
 
 class ServerResponsivenessTests(unittest.IsolatedAsyncioTestCase):

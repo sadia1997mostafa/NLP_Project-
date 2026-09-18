@@ -36,8 +36,15 @@ class PartnerBIntegrationTests(unittest.TestCase):
                 response = self.client.post("/api/analyze", json={"text": f"{service} help"})
                 self.assertEqual(response.status_code, 200)
                 body = response.json()
-                self.assertEqual(body["response"]["state"], "answer")
-                self.assertEqual(body["retrieval"]["record"]["service"], service)
+                self.assertEqual(body["response"]["state"], "clarification")
+                self.assertIsNone(body["response"]["source"])
+                self.assertIsNone(body["retrieval"]["record"])
+                chosen = self.client.post("/api/guidance", json={
+                    "service": service, "parent_topic_id": None, "query_topic_id": None,
+                })
+                self.assertEqual(chosen.status_code, 200)
+                self.assertEqual(chosen.json()["response"]["state"], "answer")
+                self.assertEqual(chosen.json()["retrieval"]["record"]["service"], service)
 
     def test_ood_and_missing_record_do_not_claim_a_source(self):
         for query, expected in (("OOD help", "clarification"), ("UNKNOWN help", "unavailable")):

@@ -40,12 +40,39 @@ class QueryPipeline:
             understanding = dict(self.predictor(text))
         understanding["text"] = privacy.safe_text
         retrieval = self.lookup.retrieve(understanding)
+        response = construct_response(understanding, retrieval, privacy.warnings)
+        # Do not leak an unconfirmed record as an authoritative alternate answer.
+        public_retrieval = {**retrieval, "record": None}
         return {
             "privacy_present": privacy.privacy_present,
             "privacy_types": privacy.privacy_types,
             "safe_text": privacy.safe_text,
             "warnings": privacy.warnings,
             "understanding": understanding,
-            "retrieval": retrieval,
-            "response": construct_response(understanding, retrieval, privacy.warnings),
+            "retrieval": public_retrieval,
+            "response": response,
+        }
+
+    def guidance_catalog(self) -> list[dict]:
+        return [
+            {key: record[key] for key in ("service", "parent_topic_id", "query_topic_id", "title")}
+            for record in self.lookup.records
+        ]
+
+    def selected_guidance(self, service: str, parent: str | None, topic: str | None) -> dict:
+        # Explicit selection must resolve this precise record, never a fallback.
+        record = self.lookup.by_key.get((service, parent, topic))
+        if record is None:
+            raise KeyError("Unknown guidance selection")
+        level = "query_topic" if topic else "parent_topic" if parent else "service"
+        understanding = {
+            "service": service, "parent_topic_id": parent, "query_topic_id": topic,
+            "query_topic": record["title"] if topic else None,
+            "service_routing": "user_selected", "priority": None, "is_ood": False,
+        }
+        retrieval = {"status": "found", "match_level": level, "record": record}
+        return {
+            "privacy_present": False, "privacy_types": [], "safe_text": "", "warnings": [],
+            "understanding": understanding, "retrieval": retrieval,
+            "response": construct_response(understanding, retrieval, [], confirmed=True),
         }

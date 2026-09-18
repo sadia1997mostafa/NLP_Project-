@@ -3,9 +3,11 @@
 from __future__ import annotations
 
 
-def construct_response(understanding: dict, retrieval: dict, privacy_warnings: list[str]) -> dict:
+def construct_response(
+    understanding: dict, retrieval: dict, privacy_warnings: list[str], *, confirmed: bool = False,
+) -> dict:
     base = {
-        "priority": understanding.get("priority"),
+        "priority": understanding.get("priority") if confirmed else None,
         "privacy_warnings": privacy_warnings,
         "match_level": retrieval["match_level"],
         "source": None,
@@ -27,13 +29,13 @@ def construct_response(understanding: dict, retrieval: dict, privacy_warnings: l
             "body": "I do not have verified guidance for this request yet. Please consult the relevant official government service.",
             "scope_note": None,
         }
-    # More corpus coverage is not evidence that an unanchored prediction is correct.
-    if understanding.get("service_routing") == "xlm_roberta_fallback":
+    # Service anchors and exact retrieval do not establish correct intent classification.
+    if not confirmed:
         return {
             **base,
             "state": "clarification",
-            "title": "Please confirm the service",
-            "body": "Please name the government service and your specific question so I can confirm the intended service.",
+            "title": "Which topic did you mean?",
+            "body": "I could not reliably confirm the topic of your question.",
             "scope_note": None,
         }
     record = retrieval["record"]
@@ -43,8 +45,10 @@ def construct_response(understanding: dict, retrieval: dict, privacy_warnings: l
         "title": record["title"],
         "body": record["guidance"],
         "scope_note": (
-            "This is general guidance. Verified instructions for the specific topic are not available here."
-            if retrieval["match_level"] != "query_topic" else None
+            "This is general guidance for the selected topic."
+            if retrieval["match_level"] == "parent_topic"
+            else "This is a service overview, not a specific procedure."
+            if retrieval["match_level"] == "service" else None
         ),
         "required_documents": record["required_documents"],
         "source": {
