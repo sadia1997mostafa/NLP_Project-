@@ -62,6 +62,9 @@ def main() -> None:
         for query, expected_topic in (
             ("passport status check korbo kivabe?", "PASSPORT_APPLICATION_STATUS"),
             ("driving licence learner documents ki lagbe?", "DRIVING_LICENCE_LEARNER_DOCUMENTS"),
+            ("পাসপোর্টের আবেদন কীভাবে করবো?", "PASSPORT_APPLICATION_ONLINE"),
+            ("জন্ম নিবন্ধন যাচাই করতে চাই", "BR_VERIFICATION_RECORD"),
+            ("ট্যাক্স রিটার্ন অনলাইনে জমা দেব কিভাবে?", "TAX_RETURN_ONLINE_SUBMISSION"),
         ):
             response = client.post("/api/analyze", json={"text": query})
             response.raise_for_status()
@@ -69,6 +72,19 @@ def main() -> None:
             assert result["understanding"]["resolved_topic_id"] == expected_topic
             assert result["response"]["state"] == "answer"
             print(f"Resolved {expected_topic}; model chose {result['understanding']['query_topic_id']}")
+
+        broad = client.post("/api/analyze", json={"text": "আমার এনআইডি সংশোধন করবো কীভাবে?"})
+        broad.raise_for_status()
+        result = broad.json()
+        assert result["understanding"]["service"] == "NID"
+        assert result["understanding"]["resolved_parent_id"] == "NID_CORRECTION"
+        assert result["response"]["match_level"] == "parent_topic"
+        print("Bengali NID service correction and parent fallback: passed")
+
+        generic = client.post("/api/analyze", json={"text": "ড্রাইভিং লাইসেন্সের কাগজপত্র কী লাগবে?"})
+        generic.raise_for_status()
+        assert generic.json()["response"]["match_level"] != "query_topic"
+        print("Generic driving documents do not imply learner: passed")
 
         sensitive = client.post(
             "/api/analyze", json={"text": "My NID 1234567890 is lost. What should I do?"}

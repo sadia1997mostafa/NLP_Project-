@@ -14,6 +14,7 @@ let catalog = [];
 let catalogError = false;
 let lastPrivacyWarnings = [];
 let suggestedService = "";
+let responseLanguage = "en";
 
 const serviceNames = {
   NID: "National ID",
@@ -75,6 +76,7 @@ function showResult(state, title, body, kicker) {
   setVisible("privacy-notice", false);
   setVisible("result-source", false);
   setVisible("result-meta", false);
+  setVisible("language-note", false);
   topicForm.hidden = true;
   changeTopic.hidden = true;
   setVisible("result-steps", false);
@@ -85,12 +87,22 @@ function showResult(state, title, body, kicker) {
 
 function showPayload(payload) {
   const answer = payload.response;
+  responseLanguage = answer.language || responseLanguage;
+  const bengali = responseLanguage === "bn";
   const labels = {
-    answer: "Guidance",
-    clarification: "Needs clarification",
-    unavailable: "Guidance unavailable",
+    answer: bengali ? "নির্দেশনা" : "Guidance",
+    clarification: bengali ? "আরও তথ্য প্রয়োজন" : "Needs clarification",
+    unavailable: bengali ? "নির্দেশনা নেই" : "Guidance unavailable",
   };
   showResult(answer.state, answer.title, answer.body, labels[answer.state] || "Result");
+  document.documentElement.lang = responseLanguage;
+  setText("steps-heading", bengali ? "যাচাইকৃত তথ্য" : "Verified guidance");
+  setText("documents-heading", bengali ? "প্রয়োজনীয় নথি ও তথ্য" : "Documents and details");
+  setText("source-label", bengali ? "সরকারি উৎস" : "Official source");
+  if (answer.language_note) {
+    setText("language-note", answer.language_note);
+    setVisible("language-note", true);
+  }
   suggestedService = payload.understanding?.service || suggestedService;
   if (answer.state !== "answer" || answer.match_level !== "query_topic") {
     showTopics(suggestedService);
@@ -163,7 +175,7 @@ topicForm.addEventListener("submit", async (event) => {
       method: "POST", headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
         service: item.service, parent_topic_id: item.parent_topic_id,
-        query_topic_id: item.query_topic_id,
+        query_topic_id: item.query_topic_id, language: responseLanguage,
       }), cache: "no-store",
     });
     if (!response.ok) throw new Error("Guidance unavailable");
@@ -186,6 +198,7 @@ clear.addEventListener("click", () => {
   result.hidden = true;
   lastPrivacyWarnings = [];
   suggestedService = "";
+  responseLanguage = "en";
   query.focus();
 });
 
@@ -197,6 +210,7 @@ form.addEventListener("submit", async (event) => {
   submit.textContent = "Working...";
   lastPrivacyWarnings = [];
   suggestedService = "";
+  responseLanguage = "en";
   showResult("loading", "Checking your request", "", "In progress");
   try {
     const response = await fetch("/api/analyze", {

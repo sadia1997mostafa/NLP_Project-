@@ -43,6 +43,13 @@ class PrivacyTests(unittest.TestCase):
         self.assertNotIn("12 Lake Road", result.safe_text)
         self.assertIn("NID correction", result.safe_text)
 
+    def test_explicit_address_masks_contained_phone_as_well(self):
+        result = detect_privacy("address: 12 Lake Road phone 01712345678; passport renewal")
+        self.assertNotIn("Lake Road", result.safe_text)
+        self.assertNotIn("01712345678", result.safe_text)
+        self.assertIn("passport renewal", result.safe_text)
+        self.assertIn("address", result.privacy_types)
+
     def test_query_without_personal_data(self):
         result = detect_privacy("How do I apply for a passport?")
         self.assertFalse(result.privacy_present)
@@ -74,7 +81,9 @@ class PipelineTests(unittest.TestCase):
         self.assertEqual(response.json()["privacy_types"], ["nid"])
         self.assertNotIn("1234567890", response.text)
         self.assertEqual(response.headers["cache-control"], "no-store")
-        self.assertEqual(client.post("/api/analyze", json={"text": " "}).status_code, 400)
+        invalid = client.post("/api/analyze", json={"text": " "})
+        self.assertEqual(invalid.status_code, 400)
+        self.assertEqual(invalid.headers["cache-control"], "no-store")
 
     def test_serves_interface_and_assets(self):
         client = TestClient(create_app(QueryPipeline(fake_predictor)))
@@ -131,6 +140,55 @@ class PipelineTests(unittest.TestCase):
         self.assertEqual(result["response"]["state"], "answer")
         self.assertEqual(result["response"]["title"], "Track a passport application")
 
+    def test_bengali_service_correction_keeps_model_route_for_audit(self):
+        def wrong_service(text):
+            return {
+                "text": text, "service": "TAX", "parent_topic_id": "TAX_TIN_SERVICES",
+                "query_topic_id": "TAX_TIN_CANCELLATION", "is_ood": False,
+            }
+
+        result = QueryPipeline(wrong_service).analyze("আমার এনআইডি সংশোধন করবো কীভাবে?")
+        self.assertEqual(result["understanding"]["model_service"], "TAX")
+        self.assertEqual(result["understanding"]["service"], "NID")
+        self.assertEqual(result["understanding"]["resolved_parent_id"], "NID_CORRECTION")
+        self.assertNotIn("resolved_topic_id", result["understanding"])
+        self.assertEqual(result["response"]["match_level"], "parent_topic")
+
+    def test_bengali_topic_matching_and_qualifier_guard(self):
+        def predict(text):
+            return {
+                "text": text, "service": "BIRTH_REGISTRATION",
+                "parent_topic_id": "BR_REGISTRATION", "query_topic_id": "BR_REGISTRATION_PROCESS",
+                "is_ood": False,
+            }
+
+        result = QueryPipeline(predict).analyze("জন্ম নিবন্ধন যাচাই করতে চাই")
+        self.assertEqual(result["understanding"]["resolved_topic_id"], "BR_VERIFICATION_RECORD")
+        self.assertEqual(result["response"]["match_level"], "query_topic")
+
+        def learner_predict(text):
+            return {
+                "text": text, "service": "DRIVING_LICENCE",
+                "parent_topic_id": "DRIVING_LICENCE_LEARNER",
+                "query_topic_id": "DRIVING_LICENCE_LEARNER_DOCUMENTS", "is_ood": False,
+            }
+
+        generic = QueryPipeline(learner_predict).analyze("ড্রাইভিং লাইসেন্সের কাগজপত্র কী লাগবে?")
+        self.assertNotEqual(generic["response"]["match_level"], "query_topic")
+
+    def test_bengali_answer_and_privacy_notice(self):
+        def predict(text):
+            return {
+                "text": text, "service": "NID", "parent_topic_id": "NID_CORRECTION",
+                "query_topic_id": "NID_CORRECTION_DOB", "is_ood": False,
+            }
+
+        result = QueryPipeline(predict).analyze("এনআইডি সংশোধন করবো, ফোন 01712345678")
+        self.assertTrue(result["privacy_present"])
+        self.assertNotIn("01712345678", str(result))
+        self.assertEqual(result["response"]["language"], "bn")
+        self.assertIn("ব্যক্তিগত", result["warnings"][0])
+
     def test_selection_must_match_a_curated_record(self):
         client = TestClient(create_app(QueryPipeline(fake_predictor)))
         catalog = client.get("/api/guidance")
@@ -145,11 +203,19 @@ class PipelineTests(unittest.TestCase):
             ({"service": "PASSPORT", "parent_topic_id": "PASSPORT_DOCUMENTS", "query_topic_id": "UNKNOWN"}, 404),
             ({"service": "PASSPORT", "parent_topic_id": "PASSPORT_DOCUMENTS", "query_topic_id": None, "text": "extra"}, 400),
             ({"service": [], "parent_topic_id": None, "query_topic_id": None}, 400),
+            ({"service": "NID", "parent_topic_id": None, "query_topic_id": None, "language": "xx"}, 400),
         ):
             with self.subTest(body=body):
                 response = client.post("/api/guidance", json=body)
                 self.assertEqual(response.status_code, status)
                 self.assertIsNone(response.json().get("response"))
+
+        localized = client.post("/api/guidance", json={
+            "service": "NID", "parent_topic_id": None, "query_topic_id": None,
+            "language": "bn",
+        })
+        self.assertEqual(localized.status_code, 200)
+        self.assertEqual(localized.json()["response"]["language"], "bn")
 
 
 class ServerResponsivenessTests(unittest.IsolatedAsyncioTestCase):

@@ -31,15 +31,19 @@ PATTERNS = (
 
 
 def detect_privacy(text: str) -> PrivacyResult:
-    spans: list[tuple[int, int, str]] = []
+    detected: list[tuple[int, int, str]] = []
     normalized_digits = text.translate(str.maketrans("০১২৩৪৫৬৭৮৯", "0123456789"))
     for kind, pattern in PATTERNS:
         searchable = normalized_digits if kind in {"phone", "nid", "otp", "passport", "date_of_birth"} else text
         for match in pattern.finditer(searchable):
             value = match.group(1) if match.lastindex else match.group(0)
             start, end = match.span(1) if match.lastindex else match.span()
-            if value.strip() and not any(start < old_end and end > old_start for old_start, old_end, _ in spans):
-                spans.append((start, end, kind))
+            if value.strip():
+                detected.append((start, end, kind))
+    spans: list[tuple[int, int, str]] = []
+    for start, end, kind in sorted(detected, key=lambda span: (-(span[1] - span[0]), span[0])):
+        if not any(start < old_end and end > old_start for old_start, old_end, _ in spans):
+            spans.append((start, end, kind))
     spans.sort(key=lambda span: span[0])
     fragments, cursor = [], 0
     for start, end, kind in spans:

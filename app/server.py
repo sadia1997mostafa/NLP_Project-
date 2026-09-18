@@ -40,6 +40,13 @@ def create_app(pipeline: QueryPipeline | None = None) -> FastAPI:
     static_dir = Path(__file__).resolve().parent / "static"
     app.mount("/static", StaticFiles(directory=static_dir), name="static")
 
+    @app.middleware("http")
+    async def no_store_api(request: Request, call_next):
+        response = await call_next(request)
+        if request.url.path.startswith("/api/"):
+            response.headers["Cache-Control"] = "no-store"
+        return response
+
     @app.get("/", include_in_schema=False)
     def index() -> FileResponse:
         return FileResponse(static_dir / "index.html")
@@ -84,14 +91,16 @@ def create_app(pipeline: QueryPipeline | None = None) -> FastAPI:
         except (ValueError, UnicodeDecodeError):
             raise HTTPException(400, "Expected a guidance selection") from None
         fields = {"service", "parent_topic_id", "query_topic_id"}
-        if (not isinstance(body, dict) or set(body) != fields
+        if (not isinstance(body, dict) or set(body) not in (fields, fields | {"language"})
                 or not isinstance(body.get("service"), str)
+                or body.get("language", "en") not in ("en", "bn")
                 or any(body[key] is not None and not isinstance(body[key], str)
                        for key in ("parent_topic_id", "query_topic_id"))):
             raise HTTPException(400, "Invalid guidance selection")
         try:
             result = app.state.pipeline.selected_guidance(
                 body["service"], body["parent_topic_id"], body["query_topic_id"],
+                body.get("language", "en"),
             )
         except KeyError:
             raise HTTPException(404, "Guidance for that selection is unavailable") from None

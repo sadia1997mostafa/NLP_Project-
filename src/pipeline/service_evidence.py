@@ -15,13 +15,15 @@ BANGLA_SERVICE_TERMS = {
 }
 
 
-def supported_service(text: str, predicted: str | None) -> bool:
-    if not predicted:
-        return False
+def evidenced_services(text: str) -> set[str]:
     lowered = text.lower()
     evidence = set(service_anchors(text))
     evidence.update(
         service for service, terms in BANGLA_SERVICE_TERMS.items()
         if any(term in lowered for term in terms)
     )
-    return evidence == {predicted}
+    return evidence
+
+
+def supported_service(text: str, predicted: str | None) -> bool:
+    return bool(predicted) and evidenced_services(text) == {predicted}

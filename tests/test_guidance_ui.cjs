@@ -16,6 +16,7 @@ function interfaceContext(fetchImpl) {
     };
   }
   const document = {
+    documentElement: { lang: "en" },
     getElementById(id) {
       if (!elements.has(id)) elements.set(id, element());
       return elements.get(id);
@@ -89,6 +90,19 @@ test("privacy notice survives a topic change but clears for a new query", () => 
   assert.equal(elements.get("privacy-notice").hidden, true);
 });
 
+test("Bengali answer labels preserve source-language transparency", () => {
+  const { context, elements } = interfaceContext();
+  context.payload = {
+    response: { state: "answer", language: "bn", match_level: "query_topic",
+      title: "Passport application", body: "নির্দেশনা", language_note: "উৎসের তথ্য ইংরেজিতে।" },
+    understanding: { service: "PASSPORT" }, privacy_present: false,
+  };
+  vm.runInContext("showPayload(payload)", context);
+  assert.equal(elements.get("result-kicker").textContent, "নির্দেশনা");
+  assert.equal(elements.get("language-note").hidden, false);
+  assert.equal(elements.get("source-label").textContent, "সরকারি উৎস");
+});
+
 test("empty, clarification and unavailable responses clear the checklist", () => {
   const { context, elements } = interfaceContext();
   for (const [state, documents] of [["answer", []], ["clarification", ["ignored"]], ["unavailable", []]]) {
@@ -145,7 +159,7 @@ test("a guessed topic shows no answer until the visitor selects one", async () =
   await elements.get("topic-form").listeners.submit({ preventDefault() {} });
   assert.deepEqual(requests, [{
     service: selected.service, parent_topic_id: selected.parent_topic_id,
-    query_topic_id: selected.query_topic_id,
+    query_topic_id: selected.query_topic_id, language: "en",
   }]);
   assert.equal(elements.get("result-title").textContent, selected.title);
   assert.equal(elements.get("document-list").children[0].textContent, "Medical certificate");

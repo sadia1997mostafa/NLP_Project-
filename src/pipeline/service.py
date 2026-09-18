@@ -6,11 +6,11 @@ from collections.abc import Callable
 from threading import Lock
 
 from src.models.inference import FINAL, predict_understanding
-from src.pipeline.service_evidence import supported_service
+from src.pipeline.service_evidence import evidenced_services
 from src.privacy.detection import detect_privacy
 from src.retrieval.lookup import GuidanceLookup
-from src.retrieval.topic_match import match_topic
-from src.response.controller import construct_response
+from src.retrieval.topic_match import match_parent, match_topic
+from src.response.controller import construct_response, response_language
 
 
 class ModelUnavailableError(RuntimeError):
@@ -41,9 +41,27 @@ class QueryPipeline:
         with self._predictor_lock:
             understanding = dict(self.predictor(text))
         understanding["text"] = privacy.safe_text
+        language = response_language(privacy.safe_text)
+        understanding["response_language"] = language
+        privacy_warnings = (
+            ["ব্যক্তিগত তথ্য পাওয়া গেছে। সরকারি সেবায় প্রয়োজন না হলে পরিচয় নম্বর বা গোপন কোড শেয়ার করবেন না।"]
+            if privacy.privacy_present and language == "bn" else privacy.warnings
+        )
+        evidence = evidenced_services(privacy.safe_text)
+        if len(evidence) == 1:
+            resolved_service = next(iter(evidence))
+            if resolved_service != understanding.get("service"):
+                understanding["model_service"] = understanding.get("service")
+                understanding["model_parent_topic_id"] = understanding.get("parent_topic_id")
+                understanding["model_query_topic_id"] = understanding.get("query_topic_id")
+                understanding["service"] = resolved_service
+                understanding["parent_topic_id"] = None
+                understanding["query_topic_id"] = None
+                understanding["priority"] = None
+                understanding["service_resolution"] = "explicit_name_correction"
         retrieval = self.lookup.retrieve(understanding)
         effective = dict(understanding)
-        if not supported_service(privacy.safe_text, understanding.get("service")):
+        if len(evidence) != 1:
             retrieval = {"status": "ood", "match_level": None, "record": None}
         elif retrieval["status"] != "ood":
             match = match_topic(
@@ -60,21 +78,30 @@ class QueryPipeline:
                 understanding["resolved_topic_id"] = record["query_topic_id"]
                 understanding["topic_resolution"] = "corpus_similarity"
             else:
-                record = self.lookup.by_key.get((understanding.get("service"), None, None))
-                retrieval = (
-                    {"status": "found", "match_level": "service", "record": record}
-                    if record is not None else {"status": "miss", "match_level": None, "record": None}
+                parent = match_parent(
+                    privacy.safe_text, understanding.get("service"),
+                    understanding.get("parent_topic_id"), self.lookup.records,
                 )
+                if parent.record is not None:
+                    record = parent.record
+                    retrieval = {"status": "found", "match_level": "parent_topic", "record": record}
+                    understanding["resolved_parent_id"] = record["parent_topic_id"]
+                else:
+                    record = self.lookup.by_key.get((understanding.get("service"), None, None))
+                    retrieval = (
+                        {"status": "found", "match_level": "service", "record": record}
+                        if record is not None else {"status": "miss", "match_level": None, "record": None}
+                    )
                 effective["priority"] = None
                 understanding["topic_resolution"] = "unconfirmed"
-        response = construct_response(effective, retrieval, privacy.warnings, confirmed=True)
+        response = construct_response(effective, retrieval, privacy_warnings, confirmed=True)
         # Do not leak an unconfirmed record as an authoritative alternate answer.
         public_retrieval = {**retrieval, "record": None}
         return {
             "privacy_present": privacy.privacy_present,
             "privacy_types": privacy.privacy_types,
             "safe_text": privacy.safe_text,
-            "warnings": privacy.warnings,
+            "warnings": privacy_warnings,
             "understanding": understanding,
             "retrieval": public_retrieval,
             "response": response,
@@ -86,7 +113,7 @@ class QueryPipeline:
             for record in self.lookup.records
         ]
 
-    def selected_guidance(self, service: str, parent: str | None, topic: str | None) -> dict:
+    def selected_guidance(self, service: str, parent: str | None, topic: str | None, language: str = "en") -> dict:
         # Explicit selection must resolve this precise record, never a fallback.
         record = self.lookup.by_key.get((service, parent, topic))
         if record is None:
@@ -96,6 +123,7 @@ class QueryPipeline:
             "service": service, "parent_topic_id": parent, "query_topic_id": topic,
             "query_topic": record["title"] if topic else None,
             "service_routing": "user_selected", "priority": None, "is_ood": False,
+            "response_language": language,
         }
         retrieval = {"status": "found", "match_level": level, "record": record}
         return {
