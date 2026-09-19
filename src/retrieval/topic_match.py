@@ -37,7 +37,7 @@ BENGALI_HINTS = {
     "হারিয়ে": "lost replacement", "হারানো": "lost replacement",
     "জন্ম তারিখ": "date of birth dob", "পাসপোর্ট": "passport",
     "জন্ম নিবন্ধন": "birth registration", "ড্রাইভিং লাইসেন্স": "driving licence",
-    "এনআইডি": "nid", "জিডি": "gd", "ট্যাক্স": "tax",
+    "এনআইডি": "nid", "জিডি": "gd", "ট্যাক্স": "tax", "জরুরি": "emergency urgent",
 }
 QUALIFIERS = {
     "LEARNER": ("learner", "লার্নার", "শিক্ষানবিশ"),
@@ -47,7 +47,10 @@ QUALIFIERS = {
     "BLOOD_GROUP": ("blood", "রক্ত"),
     "OTP": ("otp", "ওটিপি"),
 }
-FOCUS_TERMS = {"status", "fee", "document", "verification", "verify", "renewal", "duplicate", "correction"}
+FOCUS_TERMS = {
+    "status", "fee", "document", "verification", "verify", "renewal", "duplicate",
+    "correction", "emergency", "urgent",
+}
 
 
 def _content_tokens(text: str) -> list[str]:
@@ -62,6 +65,8 @@ def _content_tokens(text: str) -> list[str]:
 def _qualifier_supported(record: dict, text: str) -> bool:
     topic_id = record["query_topic_id"] or record["parent_topic_id"]
     lowered = text.lower()
+    if "OTHER_INCIDENT" in topic_id and any(term in lowered for term in ("emergency", "urgent", "জরুরি")):
+        return False
     return all(
         not re.search(rf"(?:^|_){qualifier}(?:_|$)", topic_id)
         or any(term in lowered for term in terms)
@@ -109,6 +114,10 @@ def match_topic(text: str, service: str, predicted_topic: str | None, records: l
     candidates = [
         record for record in records
         if record["service"] == service and record["query_topic_id"] is not None
+        and (
+            "answer_plan" not in record
+            or record["answer_plan"]["grounding_level"] == "VERIFIED_SPECIFIC"
+        )
     ]
     return _match(text, candidates, "query_topic_id", predicted_topic)
 

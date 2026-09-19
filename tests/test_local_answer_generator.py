@@ -92,7 +92,7 @@ class LocalAnswerTests(unittest.TestCase):
                 result = QueryPipeline(
                     predictor=passport_predictor, answer_generator=FakeGenerator(answer),
                 ).analyze("How can I check my passport application status?")
-                self.assertEqual(result["response"]["answer_basis"], "curated_source_facts")
+                self.assertEqual(result["response"]["answer_basis"], "exact_intent_answer_plan")
                 self.assertIn("Status Check", result["response"]["body"])
 
     def test_generator_never_gets_unmasked_otp(self):
@@ -132,7 +132,7 @@ class LocalAnswerTests(unittest.TestCase):
         result = QueryPipeline(predictor=predictor, answer_generator=writer).analyze(
             "There is an emergency; should I file an online GD?"
         )
-        self.assertEqual(result["response"]["answer_basis"], "curated_source_facts")
+        self.assertEqual(result["response"]["answer_basis"], "exact_intent_answer_plan")
         self.assertIn("999", result["response"]["body"])
         self.assertEqual(writer.calls, [])
 

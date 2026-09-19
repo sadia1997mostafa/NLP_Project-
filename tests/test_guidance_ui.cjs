@@ -142,7 +142,8 @@ test("Bengali answer labels preserve source-language transparency", () => {
     understanding: { service: "PASSPORT" }, privacy_present: false,
   };
   vm.runInContext("showPayload(payload)", context);
-  assert.equal(elements.get("result-kicker").textContent, "নির্দেশনা");
+  assert.equal(elements.get("result-kicker").textContent, "");
+  assert.equal(elements.get("result-kicker").hidden, true);
   assert.equal(elements.get("language-note").hidden, false);
   assert.equal(elements.get("source-label").textContent, "সরকারি উৎস");
 });
@@ -205,7 +206,9 @@ test("a guessed topic shows no answer until the visitor selects one", async () =
     service: selected.service, parent_topic_id: selected.parent_topic_id,
     query_topic_id: selected.query_topic_id, language: "en",
   }]);
-  assert.equal(elements.get("result-title").textContent, selected.title);
+  assert.equal(elements.get("result-title").textContent, "");
+  assert.equal(elements.get("result-title").hidden, true);
+  assert.equal(elements.get("result-body").textContent, "Bring relevant documents.");
   assert.equal(elements.get("document-list").children[0].textContent, "Medical certificate");
 });
 

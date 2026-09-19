@@ -6,6 +6,14 @@ query-topic records. The expansion covers registration, identity corrections,
 documents, verification, tracking, receipts, and emergency routing. It is not
 a complete guide to all 264 intents.
 
+`answer_plans.json` provides an exact, bilingual response plan for every one of
+the 264 frozen query-topic IDs. It does not pretend that all 264 topics have
+detailed official facts. Plans are explicitly labelled `VERIFIED_SPECIFIC`,
+`VERIFIED_GENERAL`, or `SAFE_CLARIFICATION`. Specific plans reuse the 56 exact
+source-backed records. General and clarification plans inherit only the
+reviewed official service pointer and avoid unsupported fees, deadlines,
+documents, eligibility rules and processing times.
+
 `answer_facts.json` contains a bilingual answer plan for each of those 67
 records. The response builder combines localized actions and cautions from
 that plan instead of displaying the `guidance` paragraph as the answer.
@@ -15,6 +23,12 @@ model: it can vary the response by route and language, but cannot answer
 questions outside the curated facts or guarantee that a source has not changed.
 Any new fact or translation must be checked against the corresponding official
 source and reviewed along with the corpus record.
+
+When the optional local Qwen writer is available, it receives only the selected
+exact plan and writes a natural-language realization; it is not a government
+knowledge source. Runtime sampling is deliberately conservative but
+conversational: `temperature=0.45`, `top_p=0.9`, `repeat_penalty=1.08`, and
+`max_tokens=512`. Rejected output always falls back to the deterministic plan.
 
 | Service | Exact Topics | Parent Records | Service Records |
 | --- | --- | --- | --- |
@@ -60,6 +74,8 @@ Visitors can explicitly choose a curated topic instead. A selection must
 exactly match a record; it is never treated as evidence that the model made
 the right prediction. Frozen classifiers and thresholds are unchanged.
 
-Run `python -m unittest tests.test_guidance_corpus tests.test_answer_facts`
+Run `python -m scripts.audit_answer_plans` to require exactly one valid plan for
+every frozen intent. Run `python -m unittest tests.test_guidance_corpus
+tests.test_answer_facts tests.test_answer_plans`
 to validate coverage, schema, and rendered answer invariants. These tests do
 not replace human source review or a citizen-facing quality evaluation.

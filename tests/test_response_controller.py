@@ -18,19 +18,22 @@ class ResponseControllerTests(unittest.TestCase):
         retrieval = self.lookup.retrieve(understanding)
         response = construct_response(understanding, retrieval, ["Sensitive details detected"], confirmed=True)
         self.assertEqual(response["state"], "answer")
-        self.assertIsNone(response["scope_note"])
+        self.assertIn("reviewed official instructions", response["scope_note"])
+        self.assertEqual(response["grounding_level"], "VERIFIED_SPECIFIC")
         self.assertEqual(response["source"]["url"], retrieval["record"]["source_url"])
         self.assertEqual(response["privacy_warnings"], ["Sensitive details detected"])
 
-    def test_fallback_is_labeled_general(self):
+    def test_unverified_deadline_gets_exact_safe_clarification(self):
         understanding = {
             "service": "TAX", "parent_topic_id": "TAX_RETURN_FILING",
             "query_topic_id": "TAX_RETURN_DEADLINE", "is_ood": False,
         }
         response = construct_response(understanding, self.lookup.retrieve(understanding), [], confirmed=True)
-        self.assertEqual(response["state"], "answer")
-        self.assertIn("service overview", response["scope_note"])
-        self.assertNotIn("deadline", response["body"].lower())
+        self.assertEqual(response["state"], "clarification")
+        self.assertEqual(response["grounding_level"], "SAFE_CLARIFICATION")
+        self.assertIn("deadline", response["body"].lower())
+        self.assertIsNotNone(response["clarification_question"])
+        self.assertNotRegex(response["body"], r"\b\d+\s+days?\b")
 
     def test_ood_and_miss_have_no_source_or_fabricated_guidance(self):
         for understanding in (

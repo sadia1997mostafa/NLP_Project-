@@ -49,9 +49,11 @@ citizen records, logins, payments or applications were submitted.
 - Online GD describes complaint processing, not a guarantee of acceptance or
   immediate emergency response. The emergency record points separately to
   Bangladesh Police's national emergency contact.
-- The catalogue intentionally leaves unsupported topics without exact records.
-  The coverage audit reports those gaps rather than duplicating generic text
-  under all taxonomy IDs.
+- The verified guidance catalogue intentionally retains only source-backed
+  records. A separate exact-intent answer-plan catalogue covers every frozen
+  topic and marks unsupported details as `VERIFIED_GENERAL` or
+  `SAFE_CLARIFICATION`; those plans are not evidence that detailed government
+  rules were verified.
 
 ## Maintenance
 

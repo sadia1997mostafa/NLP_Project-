@@ -70,6 +70,7 @@ class QueryPipeline:
         if len(evidence) != 1:
             retrieval = {"status": "ood", "match_level": None, "record": None}
         elif retrieval["status"] != "ood":
+
             match = match_topic(
                 privacy.safe_text, understanding.get("service"),
                 understanding.get("query_topic_id"), self.lookup.records,
@@ -110,7 +111,12 @@ class QueryPipeline:
                 and retrieval["record"]["query_topic_id"] != "POLICE_GD_EMERGENCY_ROUTING"):
             try:
                 generated = self.answer_generator.generate(privacy.safe_text, retrieval["record"], language)
-                if acceptable_answer(generated, retrieval["record"], language):
+                if acceptable_answer(
+                    generated,
+                    retrieval["record"],
+                    language,
+                    question=privacy.safe_text,
+                ):
                     response["body"] = generated
                     response["steps"] = []
                     response["answer_basis"] = "local_finetuned_model"

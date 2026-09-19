@@ -28,6 +28,10 @@ def construct_response(
         "steps": [],
         "language_note": None,
         "answer_basis": None,
+        "answer_type": None,
+        "grounding_level": None,
+        "clarification_question": None,
+        "plan_warnings": [],
     }
     if retrieval["status"] == "ood":
         return {
@@ -63,6 +67,38 @@ def construct_response(
             "scope_note": None,
         }
     record = retrieval["record"]
+    plan = record.get("answer_plan")
+    if plan is not None:
+        direct = plan["direct_answer"][language]
+        question = (
+            plan["clarification_question"][language]
+            if plan["clarification_question"] is not None else None
+        )
+        state = "clarification" if plan["grounding_level"] == "SAFE_CLARIFICATION" else "answer"
+        if state == "clarification" and question:
+            direct = f"{direct} {question}"
+        steps = [item[language] for item in plan["steps"]]
+        if state == "answer" and plan["grounding_level"] == "VERIFIED_GENERAL" and question:
+            steps.append(question)
+        return {
+            **base,
+            "state": state,
+            "title": plan["title"],
+            "body": direct,
+            "steps": steps,
+            "required_documents": plan["required_documents"],
+            "answer_basis": "exact_intent_answer_plan",
+            "answer_type": plan["answer_type"],
+            "grounding_level": plan["grounding_level"],
+            "clarification_question": question,
+            "plan_warnings": [item[language] for item in plan["warnings"]],
+            "scope_note": plan["scope_note"][language],
+            "source": {
+                "name": plan["official_source"],
+                "url": plan["source_url"],
+                "last_verified": plan["last_verified"],
+            },
+        }
     units = facts_for(record)
     lead = [unit for unit in units[1:] if unit.get("prominence") == "lead"]
     steps = [unit for unit in units[1:] if unit.get("prominence") != "lead"]

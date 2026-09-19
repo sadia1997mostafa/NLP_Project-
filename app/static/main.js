@@ -169,9 +169,17 @@ function showResult(state, title, body, kicker) {
   thinkingPanel.hidden = true;
   result.hidden = false;
   result.className = `result ${state}`;
-  setText("result-title", title);
+
+  const conversationalAnswer = state === "answer";
+
+  setText("result-title", conversationalAnswer ? "" : title);
+  setVisible("result-title", !conversationalAnswer && Boolean(title));
+
   setText("result-body", body);
-  setText("result-kicker", kicker);
+
+  setText("result-kicker", conversationalAnswer ? "" : kicker);
+  setVisible("result-kicker", !conversationalAnswer && Boolean(kicker));
+
   setVisible("scope-note", false);
   setVisible("privacy-notice", false);
   setVisible("masked-preview", false);
@@ -225,14 +233,22 @@ function showPipeline(payload) {
   setText("trace-topic", topicScore == null ? topicLabel : `${topicLabel} · ${percent(topicScore)} corpus match`);
 
   const basisLabels = {
-    local_finetuned_model: "Local Qwen wording, checked against verified facts",
-    curated_source_facts: "Controlled wording from verified facts",
-  };
+  local_finetuned_model: "Local Qwen wording, checked against verified facts",
+  curated_source_facts: "Controlled wording from verified facts",
+  exact_intent_answer_plan: "Controlled wording from an exact verified answer plan",
+};
   const basis = basisLabels[answer.answer_basis] || "No authoritative answer composed";
   setText("trace-answer", basis);
-  setText("grounding-status", answer.answer_basis === "local_finetuned_model"
-    ? "Model + verified facts" : answer.answer_basis === "curated_source_facts"
-      ? "Verified fact plan" : "Routing only");
+  setText(
+  "grounding-status",
+  answer.answer_basis === "local_finetuned_model"
+    ? "Model + verified facts"
+    : answer.answer_basis === "curated_source_facts"
+      ? "Verified fact plan"
+      : answer.answer_basis === "exact_intent_answer_plan"
+        ? "Verified answer plan"
+        : "Routing only"
+);
 
   const routingConfidence = understanding.overall_confidence ?? understanding.service_confidence;
   setText("routing-confidence", percent(routingConfidence));
@@ -283,10 +299,10 @@ function showPayload(payload) {
     }
     setVisible("result-documents", true);
   }
-  if (answer.scope_note) {
-    setText("scope-note", answer.scope_note);
-    setVisible("scope-note", true);
-  }
+  if (answer.scope_note && answer.answer_basis !== "local_finetuned_model") {
+  setText("scope-note", answer.scope_note);
+  setVisible("scope-note", true);
+}
   if (payload.privacy_present) lastPrivacyWarnings = payload.warnings || [];
   if (payload.privacy_present && payload.safe_text) lastMaskedQuestion = payload.safe_text;
   if (lastPrivacyWarnings.length) {

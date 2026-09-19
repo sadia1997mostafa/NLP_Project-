@@ -3,11 +3,30 @@
 from __future__ import annotations
 
 from src.retrieval.corpus import load_records
+from src.response.plans import plan_records
 
 
 class GuidanceLookup:
     def __init__(self, records: list[dict] | None = None):
-        self.records = records if records is not None else load_records()
+        if records is not None:
+            self.records = records
+        else:
+            official_records = load_records()
+            official_by_topic = {
+                record["query_topic_id"]: record
+                for record in official_records
+                if record["query_topic_id"] is not None
+            }
+            exact_plans = []
+            for record in plan_records():
+                official = official_by_topic.get(record["query_topic_id"])
+                if official is not None:
+                    record = {**record, **official, "answer_plan": record["answer_plan"]}
+                exact_plans.append(record)
+            self.records = [
+                record for record in official_records
+                if record["query_topic_id"] is None
+            ] + exact_plans
         self.by_key = {
             (record["service"], record["parent_topic_id"], record["query_topic_id"]): record
             for record in self.records

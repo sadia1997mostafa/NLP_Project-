@@ -10,8 +10,8 @@ from pathlib import Path
 from threading import Lock
 
 from src.privacy.detection import detect_privacy
-from src.response.facts import facts_for, render_fact
 from src.response.model_prompt import prompt_messages
+from src.response.plans import approved_plan_texts
 
 
 MODEL_ENV = "NAGORIKSHEBA_ANSWER_GGUF"
@@ -27,6 +27,19 @@ COMMON_WORDS = {
     "a", "an", "and", "are", "for", "in", "is", "of", "on", "or", "the", "this", "to", "your",
     "এই", "এবং", "এর", "ও", "করুন", "জন্য",
 }
+SENSITIVE_CLAIM_GROUPS = (
+    ("fee", "fees", "cost", "free", "টাকা", "ফি"),
+    ("deadline", "day", "days", "week", "weeks", "month", "months", "সপ্তাহ", "মাস"),
+    ("eligible", "eligibility", "ineligible", "যোগ্য", "অযোগ্য"),
+    ("required", "mandatory", "must", "অবশ্যই", "বাধ্যতামূলক"),
+    ("guarantee", "guaranteed", "approve", "approved", "accepted", "successful", "completed", "refund", "deliver", "delivered", "arrive", "done", "নিশ্চিত", "অনুমোদন", "গৃহীত", "সফল", "সম্পন্ন", "ফেরত", "হয়ে যাবে", "চলে যাবে"),
+)
+
+
+def _contains_claim(text: str, term: str) -> bool:
+    if term.isascii():
+        return bool(re.search(rf"\b{re.escape(term)}\b", text, re.I))
+    return term in text
 
 
 def configured_model_path() -> Path | None:
@@ -63,30 +76,46 @@ def _content_tokens(text: str) -> set[str]:
     }
 
 
-def acceptable_answer(answer: str, record: dict, language: str) -> bool:
+def acceptable_answer(
+    answer: str,
+    record: dict,
+    language: str,
+    question: str | None = None,
+) -> bool:
     if not isinstance(answer, str):
         return False
     answer = answer.strip()
     if (not 20 <= len(answer) <= 800 or "<|" in answer or "\ufffd" in answer
             or re.search(r"<[^>]*>", answer)
             or re.match(r"(?i)\s*(?:language\s*:|limburg\b|taboola\b)", answer)
-            or re.search(r"\[(?:NID|OTP|PHONE|PASSWORD|EMAIL|ADDRESS|NAME|PASSPORT|DATE_OF_BIRTH)\]", answer)):
+            or re.search(r"\[[A-Z][A-Z0-9_]{1,40}\]", answer)):
         return False
     if (re.search(r"https?://|www\.", answer, re.I) or DOMAIN.search(answer)
             or FOREIGN_SCRIPT.search(answer) or _has_repeated_phrase(answer)
             or detect_privacy(answer).privacy_present):
         return False
-    if language == "bn" and len(re.findall(r"[\u0980-\u09ff]", answer)) < 10:
-        return False
+    if language == "bn":
+        question_has_bangla = bool(question and re.search(r"[\u0980-\u09ff]", question))
+        if question_has_bangla and len(re.findall(r"[\u0980-\u09ff]", answer)) < 10:
+            return False
     if language == "en" and len(re.findall(r"[\u0980-\u09ff]", answer)) >= 10:
         return False
-    approved_facts = [render_fact(unit, language) for unit in facts_for(record)]
+    approved_facts = approved_plan_texts(record, language)
+    if not approved_facts:
+        return False
     approved = " ".join([record["guidance"], *record["required_documents"], *approved_facts])
     if not _digits(answer) <= _digits(approved):
         return False
+    answer_folded = answer.casefold()
+    approved_folded = approved.casefold()
+    for group in SENSITIVE_CLAIM_GROUPS:
+        if any(_contains_claim(answer_folded, term) for term in group) and not any(
+            _contains_claim(approved_folded, term) for term in group
+        ):
+            return False
     answer_tokens = _content_tokens(answer)
     grounded_count = len(answer_tokens & _content_tokens(" ".join(approved_facts)))
-    if grounded_count < 2 or grounded_count / max(1, len(answer_tokens)) < 0.4:
+    if grounded_count < 2 or grounded_count / max(1, len(answer_tokens)) < 0.2:
         return False
     if answer == record["guidance"].strip():
         return False
@@ -110,6 +139,9 @@ class LocalAnswerGenerator:
                 )
             result = self._model.create_chat_completion(
                 messages=prompt_messages(question, record, language),
-                temperature=0.1, max_tokens=220,
+                temperature=0.45,
+                top_p=0.9,
+                repeat_penalty=1.08,
+                max_tokens=512,
             )
         return result["choices"][0]["message"]["content"].strip()

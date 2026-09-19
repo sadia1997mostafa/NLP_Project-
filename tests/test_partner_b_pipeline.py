@@ -12,6 +12,7 @@ from app.server import create_app
 from src.pipeline.service import QueryPipeline
 from src.privacy.detection import detect_privacy
 from src.retrieval.corpus import load_records
+from src.response.plans import load_answer_plans
 
 
 def fake_predictor(text: str) -> dict:
@@ -247,7 +248,13 @@ class PipelineTests(unittest.TestCase):
         catalog = client.get("/api/guidance")
         self.assertEqual(catalog.status_code, 200)
         self.assertEqual(catalog.headers["cache-control"], "no-store")
-        self.assertEqual(len(catalog.json()), len(load_records()))
+        fallback_records = sum(
+            record["query_topic_id"] is None for record in load_records()
+        )
+        self.assertEqual(
+            len(catalog.json()),
+            len(load_answer_plans()) + fallback_records,
+        )
         self.assertEqual(set(catalog.json()[0]), {
             "service", "parent_topic_id", "query_topic_id", "title",
         })
