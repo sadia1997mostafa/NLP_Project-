@@ -9,16 +9,16 @@ from pathlib import Path
 
 from src.privacy.detection import detect_privacy
 from src.response.controller import response_language
-from src.response.facts import facts_for, render_fact
 from src.response.model_prompt import prompt_messages
-from src.retrieval.corpus import load_records
+from src.response.plans import render_plan_completion
+from src.retrieval.lookup import GuidanceLookup
 
 
 ROOT = Path(__file__).resolve().parents[1]
 
 
 def _example(question: str, record: dict, language: str) -> dict:
-    answer = " ".join(render_fact(unit, language) for unit in facts_for(record))
+    answer = render_plan_completion(record, language)
     return {
         "prompt": prompt_messages(question, record, language),
         "completion": [{"role": "assistant", "content": answer}],
@@ -30,13 +30,14 @@ def examples_for_split(split: str) -> list[dict]:
         raise ValueError("Only frozen train and dev splits are permitted")
     by_topic = {
         record["query_topic_id"]: record
-        for record in load_records() if record["query_topic_id"]
+        for record in GuidanceLookup().records if record["query_topic_id"]
     }
     examples = []
     with (ROOT / "data" / "splits" / f"{split}.csv").open(encoding="utf-8", newline="") as source:
         for row in csv.DictReader(source):
             record = by_topic.get(row["query_topic_id"])
-            if record is None or row["privacy_present"] != "FALSE" or row["is_ood"] != "FALSE":
+            if (record is None or row["privacy_present"].upper() != "FALSE"
+                    or row["is_ood"].upper() != "FALSE"):
                 continue
             question = row["text"].strip()
             if detect_privacy(question).privacy_present:

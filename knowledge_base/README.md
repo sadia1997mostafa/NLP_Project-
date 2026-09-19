@@ -30,6 +30,14 @@ knowledge source. Runtime sampling is deliberately conservative but
 conversational: `temperature=0.45`, `top_p=0.9`, `repeat_penalty=1.08`, and
 `max_tokens=512`. Rejected output always falls back to the deterministic plan.
 
+The answer-model exporter uses all 264 plans to produce 2,112 balanced TRAIN
+examples and 792 DEV examples. Every intent therefore teaches an appropriate
+response behavior, but only `VERIFIED_SPECIFIC` plans teach detailed facts.
+Training targets preserve numbered steps, document lists, warnings and
+clarification questions. The server supplies the validated official source URL
+as structured response data; the language model is deliberately forbidden from
+generating links.
+
 | Service | Exact Topics | Parent Records | Service Records |
 | --- | --- | --- | --- |
 | NID | 10 / 73 | 1 | 1 |

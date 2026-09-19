@@ -70,7 +70,11 @@ covered route, rather than copying the corpus paragraph. It keeps document
 conditions and official citations. This is controlled generation, not an
 open-ended model, and topic titles and document names may remain in English.
 An optional local, fine-tuned GGUF can write the answer for a confirmed exact
-topic using its masked question and single corpus record. It is enabled when
+topic using its masked question and bounded answer plan. The training exporter
+covers all 264 intent IDs while preserving specific, general and clarification
+grounding levels. Numbered steps, document lists and cautions are generated only
+from approved plan content; the app renders the validated official link
+separately. The writer is enabled when
 exactly one GGUF is present in `models/answer_generator/`, or when
 `NAGORIKSHEBA_ANSWER_GGUF` names a model explicitly, and keeps the controlled
 answer as fallback. See the

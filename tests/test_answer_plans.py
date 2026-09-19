@@ -52,6 +52,11 @@ class AnswerPlanTests(unittest.TestCase):
                 self.assertEqual(result["match_level"], "query_topic")
                 self.assertEqual(result["record"]["query_topic_id"], topic_id)
                 self.assertEqual(result["record"]["answer_plan"], plan)
+                response = construct_response(
+                    {"response_language": "en"}, result, [], confirmed=True,
+                )
+                self.assertEqual(response["source"]["url"], plan["source_url"])
+                self.assertEqual(response["source"]["name"], plan["official_source"])
 
     def test_safe_plan_asks_one_specific_clarification(self):
         topic_id = next(
@@ -79,6 +84,7 @@ class AnswerPlanTests(unittest.TestCase):
         self.assertIn("Use ONLY the approved facts", SYSTEM_PROMPT)
         self.assertIn("conversational Banglish", messages[1]["content"])
         self.assertIn("approved_content", messages[1]["content"])
+        self.assertIn("attaches the verified official link separately", SYSTEM_PROMPT)
         self.assertNotIn(record["source_url"], messages[1]["content"])
 
     def test_safe_paraphrase_passes_but_new_claims_do_not(self):

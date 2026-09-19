@@ -8,14 +8,14 @@ import math
 from pathlib import Path
 
 from src.response.local_generator import acceptable_answer
-from src.response.facts import facts_for, render_fact
 from src.response.model_prompt import prompt_messages
-from src.retrieval.corpus import load_records
+from src.response.plans import render_plan_completion
+from src.retrieval.lookup import GuidanceLookup
 
 
 ROOT = Path(__file__).resolve().parents[1]
 UNSLOTH_MODEL = "unsloth/Qwen3-4B-Instruct-2507"
-RECIPE = "grounded_qwen_v2"
+RECIPE = "grounded_qwen_v3_all_intents"
 CHALLENGES = ROOT / "knowledge_base" / "answer_challenges.json"
 
 
@@ -31,7 +31,7 @@ def _read_jsonl(path: Path) -> list[dict]:
 def challenge_rows() -> list[dict]:
     records = {
         (record["service"], record["query_topic_id"]): record
-        for record in load_records() if record["query_topic_id"]
+        for record in GuidanceLookup().records if record["query_topic_id"]
     }
     challenges = json.loads(CHALLENGES.read_text(encoding="utf-8"))
     rows = []
@@ -46,7 +46,7 @@ def challenge_rows() -> list[dict]:
             "prompt": prompt_messages(challenge["question"], record, language),
             "completion": [{
                 "role": "assistant",
-                "content": " ".join(render_fact(unit, language) for unit in facts_for(record)),
+                "content": render_plan_completion(record, language),
             }],
         })
     return rows
@@ -56,7 +56,7 @@ def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--data-dir", type=Path, default=ROOT / "data" / "answer_generation")
     parser.add_argument("--output-dir", type=Path, default=ROOT / "models" / "answer_generator")
-    parser.add_argument("--max-steps", type=int, default=50)
+    parser.add_argument("--max-steps", type=int, default=264)
     parser.add_argument("--skip-gguf", action="store_true", help="Keep the adapter only")
     args = parser.parse_args()
     if args.max_steps < 1:
@@ -72,11 +72,11 @@ def main() -> None:
     from trl import SFTConfig, SFTTrainer
 
     model, tokenizer = FastLanguageModel.from_pretrained(
-        model_name=UNSLOTH_MODEL, max_seq_length=1024, load_in_4bit=True,
+        model_name=UNSLOTH_MODEL, max_seq_length=2048, load_in_4bit=True,
     )
     model = FastLanguageModel.get_peft_model(
-        model, r=4, lora_alpha=8, lora_dropout=0, bias="none",
-        target_modules=["q_proj", "v_proj"],
+        model, r=8, lora_alpha=16, lora_dropout=0, bias="none",
+        target_modules=["q_proj", "k_proj", "v_proj", "o_proj", "gate_proj", "up_proj", "down_proj"],
         use_gradient_checkpointing="unsloth", random_state=3407,
     )
     args.output_dir.mkdir(parents=True, exist_ok=True)
@@ -87,7 +87,7 @@ def main() -> None:
         eval_dataset=Dataset.from_list(dev_rows),
         args=SFTConfig(
             output_dir=str(args.output_dir / "checkpoints"),
-            max_length=1024, completion_only_loss=True, packing=False,
+            max_length=2048, completion_only_loss=True, packing=False,
             per_device_train_batch_size=1, per_device_eval_batch_size=1,
             gradient_accumulation_steps=8, max_steps=args.max_steps,
             learning_rate=2e-5, warmup_steps=3, weight_decay=0.01,
@@ -102,7 +102,10 @@ def main() -> None:
     (args.output_dir / "metrics.json").write_text(
         json.dumps({
             "recipe": RECIPE,
-            "configuration": {"max_steps": args.max_steps, "learning_rate": 2e-5, "lora_rank": 4},
+            "configuration": {
+                "max_steps": args.max_steps, "learning_rate": 2e-5,
+                "lora_rank": 8, "max_sequence_length": 2048,
+            },
             "train": train_metrics,
             "dev": eval_metrics,
         }, indent=2), encoding="utf-8",
@@ -112,7 +115,7 @@ def main() -> None:
 
     FastLanguageModel.for_inference(model)
     sample_rows = challenge_rows()
-    records = {(record["service"], record["title"]): record for record in load_records()}
+    records = {(record["service"], record["title"]): record for record in GuidanceLookup().records}
     accepted_count = 0
     with (args.output_dir / "review_samples.jsonl").open("w", encoding="utf-8") as target:
         for row in sample_rows:
@@ -121,7 +124,7 @@ def main() -> None:
                 return_dict=True, return_tensors="pt",
             ).to("cuda")
             generated = model.generate(
-                **inputs, max_new_tokens=220, do_sample=False, repetition_penalty=1.08,
+                **inputs, max_new_tokens=384, do_sample=False, repetition_penalty=1.08,
             )
             prompt_length = inputs["input_ids"].shape[-1]
             answer = tokenizer.decode(generated[0][prompt_length:], skip_special_tokens=True).strip()

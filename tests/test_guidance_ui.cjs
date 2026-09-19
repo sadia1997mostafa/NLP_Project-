@@ -148,6 +148,19 @@ test("Bengali answer labels preserve source-language transparency", () => {
   assert.equal(elements.get("source-label").textContent, "সরকারি উৎস");
 });
 
+test("validated official source links render beside generated answers", () => {
+  const { context, elements } = interfaceContext();
+  context.payload = {
+    response: { state: "answer", language: "en", title: "Passport status", body: "Use Status Check.",
+      source: { name: "Bangladesh e-Passport", url: "https://www.epassport.gov.bd/", last_verified: "2026-09-18" } },
+    understanding: { service: "PASSPORT" }, privacy_present: false,
+  };
+  vm.runInContext("showPayload(payload)", context);
+  assert.equal(elements.get("result-source").hidden, false);
+  assert.equal(elements.get("source-link").href, "https://www.epassport.gov.bd/");
+  assert.equal(elements.get("source-link").textContent, "Bangladesh e-Passport");
+});
+
 test("empty, clarification and unavailable responses clear the checklist", () => {
   const { context, elements } = interfaceContext();
   for (const [state, documents] of [["answer", []], ["clarification", ["ignored"]], ["unavailable", []]]) {

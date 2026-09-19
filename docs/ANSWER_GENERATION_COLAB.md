@@ -14,14 +14,21 @@ claims. Human review of unseen questions is required before public use.
 ## Dataset
 
 `python -m scripts.export_answer_training` creates `train.jsonl` and
-`dev.jsonl` from the frozen train and dev question splits. Only exact topics
-covered by the reviewed corpus are included; the official TEST split is not
-read. Targets are composed from `answer_facts.json`. This is a bootstrap set,
-not independently written citizen QA. It has 388 train examples (including
-two language-controlled canonical examples for every covered exact route) and 138 dev
-examples; it does not teach the model the 208 uncovered exact topics.
-Train and dev can share topics and near-identical targets, so a low dev loss
-does not demonstrate good answers to new citizen questions.
+`dev.jsonl` from the frozen train and dev question splits. It covers all 264
+intent IDs without reading the official TEST split: 56 plans are
+`VERIFIED_SPECIFIC`, 123 are `VERIFIED_GENERAL`, and 85 are
+`SAFE_CLARIFICATION`. Bounded plans teach the model to admit when exact fees,
+deadlines, documents, eligibility rules or troubleshooting steps are not
+verified; they do not turn a general service link into specific evidence.
+
+The export has 2,112 train examples (six split questions plus two
+language-controlled canonical questions per intent) and 792 dev examples
+(three per intent). Targets contain a direct answer followed, when approved,
+by numbered steps, document lists, cautions and one clarification question.
+The application attaches the validated `.gov.bd` source link separately so the
+model is never trained to invent or reproduce URLs. Train and dev share topics
+and often share target facts, so a low dev loss does not demonstrate reliable
+answers to genuinely new citizen questions.
 
 Keep `guidance.json` unchanged unless its official source is rechecked. Review
 sample questions, conditions and target answers before training. Later, add
@@ -30,10 +37,10 @@ source-checked, independently worded QA examples in a separate dataset.
 ## Colab Steps
 
 1. Open the [official Unsloth Qwen3 4B Instruct notebook](https://colab.research.google.com/github/unslothai/notebooks/blob/main/nb/Qwen3_(4B)-Instruct.ipynb). Choose **Runtime > Change runtime type > GPU**. Run only its first **installation** cell; do not run its example-dataset or training cells.
-2. In a new code cell, clone this branch:
+2. In a new code cell, clone the answer-generation v3 branch:
 
    ```python
-   !git clone --branch feature/sece2e --single-branch https://github.com/sadia1997mostafa/NLP_Project-.git /content/NLP_Project-
+   !git clone --branch feature/answer-generation-v3 --single-branch https://github.com/sadia1997mostafa/NLP_Project-.git /content/NLP_Project-
    %cd /content/NLP_Project-
    ```
 
@@ -47,20 +54,23 @@ source-checked, independently worded QA examples in a separate dataset.
    print(json.dumps(first, ensure_ascii=False, indent=2))
    ```
 
-4. Train the conservative v2 QLoRA recipe into a fresh directory:
+4. Train the all-intent v3 QLoRA recipe into a fresh directory. The default
+   264 optimizer steps are one balanced pass over the 2,112 examples with an
+   effective batch size of eight:
 
    ```python
-   !python -m scripts.train_answer_colab --max-steps 50 --output-dir models/answer_generator_v2
+   !python -m scripts.train_answer_colab --max-steps 264 --output-dir models/answer_generator_v3
    ```
 
    A GPU is required and the run may take longer than a short Colab session.
-   Outputs are under `models/answer_generator_v2/`: adapter, `metrics.json`,
+   Outputs are under `models/answer_generator_v3/`: adapter, `metrics.json`,
    `review_samples.jsonl` (18 fixed unseen challenge answers), `review_summary.json`,
    and a `Q4_K_M` GGUF. The script requires at least 15 of 18 generated samples
    to pass structural safety checks before spending time on GGUF conversion.
    **Read the generated examples** for wrong facts, omitted conditions, and
    unnatural Bengali. Also test questions you write yourself, outside these
-   splits. Lowering `--max-steps` is only a smoke test. If GGUF
+   splits. Lowering `--max-steps` below 264 is only a smoke test and does not
+   expose the optimizer to the complete balanced training set. If GGUF
    export fails after training, the adapter remains; do not claim local model
    integration is ready until export works.
 
@@ -69,7 +79,7 @@ source-checked, independently worded QA examples in a separate dataset.
    ```python
    from google.colab import files
    from pathlib import Path
-   gguf = next(Path("models/answer_generator_v2").glob("**/*Q4_K_M.gguf"))
+   gguf = next(Path("models/answer_generator_v3").glob("**/*Q4_K_M.gguf"))
    print(gguf, round(gguf.stat().st_size / 1024**3, 2), "GB")
    files.download(str(gguf))
    ```

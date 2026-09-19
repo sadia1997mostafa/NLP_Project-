@@ -13,6 +13,43 @@ from src.models.hierarchy import load_contract
 
 PLANS_PATH = Path(__file__).resolve().parents[2] / "knowledge_base/answer_plans.json"
 
+_DOCUMENT_LABELS_BN = {
+    "Active mobile number": "সচল মোবাইল নম্বর",
+    "Applicable deed, utility bill, rental agreement or rent receipt":
+        "প্রযোজ্য দলিল, ইউটিলিটি বিল, ভাড়ার চুক্তিপত্র বা ভাড়ার রসিদ",
+    "Applicable income, investment, expenditure, asset/liability and tax-payment records":
+        "প্রযোজ্য আয়, বিনিয়োগ, ব্যয়, সম্পদ/দায় ও কর পরিশোধের নথি",
+    "Applicant photograph": "আবেদনকারীর ছবি",
+    "Current-address utility bill if different from NID":
+        "NID-এর ঠিকানা আলাদা হলে বর্তমান ঠিকানার ইউটিলিটি বিল",
+    "Educational certificate": "শিক্ষাগত সনদ",
+    "Evidence for requested corrections, if any":
+        "চাওয়া সংশোধনের সমর্থনে প্রমাণপত্র, প্রযোজ্য হলে",
+    "For under-six applicants: 3R lab-printed photograph with grey background":
+        "ছয় বছরের কম বয়সী আবেদনকারীর জন্য ধূসর পটভূমিতে ল্যাব-প্রিন্ট করা 3R ছবি",
+    "GD copy": "GD-এর কপি",
+    "GO/NOC for government employment, as applicable":
+        "সরকারি চাকরির ক্ষেত্রে প্রযোজ্য GO/NOC",
+    "Learner licence": "লার্নার লাইসেন্স",
+    "Live photograph": "সরাসরি তোলা ছবি",
+    "Medical certificate confirming blood group": "রক্তের গ্রুপ উল্লেখ করা মেডিকেল সনদ",
+    "Medical certificate from a registered doctor": "নিবন্ধিত চিকিৎসকের মেডিকেল সনদ",
+    "NID information": "NID-এর তথ্য",
+    "NID scan": "NID-এর স্ক্যান কপি",
+    "Offline-payment receipt, if paid offline": "অফলাইনে পরিশোধ করলে পেমেন্টের রসিদ",
+    "Online English birth registration certificate": "অনলাইন ইংরেজি জন্মনিবন্ধন সনদ",
+    "Original NID or birth certificate, as applicable": "প্রযোজ্য ক্ষেত্রে মূল NID বা জন্মসনদ",
+    "Original previous passport, for reissue": "পুনঃইস্যুর জন্য আগের পাসপোর্টের মূল কপি",
+    "Other papers specified for your test": "আপনার পরীক্ষার জন্য নির্ধারিত অন্যান্য কাগজপত্র",
+    "Parent's NID information when applicable": "প্রযোজ্য ক্ষেত্রে বাবা-মায়ের NID-এর তথ্য",
+    "Photocopy of the previous passport": "আগের পাসপোর্টের ফটোকপি",
+    "Previous passport, if any": "আগের পাসপোর্ট, থাকলে",
+    "Printed application form and summary, including appointment if any":
+        "প্রিন্ট করা আবেদনপত্র ও summary, appointment থাকলে সেটিসহ",
+    "SSC/equivalent certificate if applicable; otherwise evidence specified for your category":
+        "প্রযোজ্য হলে SSC/সমমানের সনদ; অন্যথায় আপনার শ্রেণির জন্য নির্ধারিত প্রমাণপত্র",
+}
+
 GROUNDING_LEVELS = {
     "VERIFIED_SPECIFIC",
     "VERIFIED_GENERAL",
@@ -176,3 +213,36 @@ def approved_plan_texts(record: dict, language: str) -> list[str]:
     if plan["clarification_question"]:
         texts.append(plan["clarification_question"][language])
     return texts
+
+
+def render_plan_completion(record: dict, language: str) -> str:
+    """Render a detailed SFT target without asking the model to reproduce links."""
+    if language not in {"en", "bn"}:
+        raise ValueError("Unsupported answer language")
+    plan = record.get("answer_plan") or load_answer_plans().get(record.get("query_topic_id"))
+    if plan is None:
+        raise ValueError("Answer completion requires an exact answer plan")
+
+    blocks = [plan["direct_answer"][language]]
+    if plan["steps"]:
+        heading = "ধাপগুলো:" if language == "bn" else "Steps:"
+        items = "\n".join(
+            f"{number}. {item[language]}"
+            for number, item in enumerate(plan["steps"], start=1)
+        )
+        blocks.append(f"{heading}\n{items}")
+    if plan["required_documents"]:
+        heading = "প্রয়োজনীয় নথি ও তথ্য:" if language == "bn" else "Documents and information:"
+        labels = (
+            [_DOCUMENT_LABELS_BN.get(item, item) for item in plan["required_documents"]]
+            if language == "bn" else plan["required_documents"]
+        )
+        items = "\n".join(f"- {item}" for item in labels)
+        blocks.append(f"{heading}\n{items}")
+    if plan["warnings"]:
+        heading = "খেয়াল রাখুন:" if language == "bn" else "Important:"
+        items = "\n".join(f"- {item[language]}" for item in plan["warnings"])
+        blocks.append(f"{heading}\n{items}")
+    if plan["clarification_question"]:
+        blocks.append(plan["clarification_question"][language])
+    return "\n\n".join(blocks)
