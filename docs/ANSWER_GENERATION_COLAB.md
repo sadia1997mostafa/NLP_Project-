@@ -111,3 +111,31 @@ source-checked, independently worded QA examples in a separate dataset.
 
 The model runs on CPU here and may answer slowly. Without GGUF and its optional
 runtime, the existing app continues to work; it never calls a remote model.
+
+## Held-out Test
+
+`data/evaluation/answer_generation_test.jsonl` contains one manually authored,
+privacy-clean question for every covered exact topic. These 56 questions are
+not read by the training exporter and automated tests reject any exact overlap
+with answer-model TRAIN or DEV.
+
+Run the structural leakage and coverage checks without loading the model:
+
+```powershell
+python -m scripts.evaluate_answer_test --validate-only
+```
+
+With the local GGUF ready, run the complete routing and generation evaluation:
+
+```powershell
+python -m scripts.evaluate_answer_test
+```
+
+The detailed report is written to
+`models/evaluation/answer_generation_test_results.json`. Passing requires the
+expected service, exact topic, output language, answer state, answer basis,
+privacy state and official source for each case. The emergency-routing case
+expects the controlled safety answer; the other cases expect accepted local
+Qwen wording. Read generation acceptance separately from exact-topic routing:
+the former evaluates Qwen against the expected record, while the latter tests
+whether the upstream pipeline selected that record without being told.

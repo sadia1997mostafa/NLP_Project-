@@ -10,4 +10,5 @@ venv/
 models/checkpoints/
 models/final/
 models/answer_generator*/
+models/answer_generator*.zip
 data/answer_generation/
