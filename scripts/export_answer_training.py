@@ -17,6 +17,14 @@ from src.retrieval.corpus import load_records
 ROOT = Path(__file__).resolve().parents[1]
 
 
+def _example(question: str, record: dict, language: str) -> dict:
+    answer = " ".join(render_fact(unit, language) for unit in facts_for(record))
+    return {
+        "prompt": prompt_messages(question, record, language),
+        "completion": [{"role": "assistant", "content": answer}],
+    }
+
+
 def examples_for_split(split: str) -> list[dict]:
     if split not in {"train", "dev"}:
         raise ValueError("Only frozen train and dev splits are permitted")
@@ -34,11 +42,15 @@ def examples_for_split(split: str) -> list[dict]:
             if detect_privacy(question).privacy_present:
                 continue
             language = response_language(question)
-            answer = " ".join(render_fact(unit, language) for unit in facts_for(record))
-            examples.append({
-                "prompt": prompt_messages(question, record, language),
-                "completion": [{"role": "assistant", "content": answer}],
-            })
+            examples.append(_example(question, record, language))
+    if split == "train":
+        for record in by_topic.values():
+            examples.append(_example(
+                f"Give me verified guidance for {record['title']}.", record, "en",
+            ))
+            examples.append(_example(
+                f"{record['title']} সম্পর্কে যাচাইকৃত নির্দেশনা দিন।", record, "bn",
+            ))
     return examples
 
 

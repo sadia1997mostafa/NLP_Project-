@@ -5,16 +5,18 @@ from __future__ import annotations
 import argparse
 import json
 import math
-import random
 from pathlib import Path
 
 from src.response.local_generator import acceptable_answer
+from src.response.facts import facts_for, render_fact
+from src.response.model_prompt import prompt_messages
 from src.retrieval.corpus import load_records
 
 
 ROOT = Path(__file__).resolve().parents[1]
 UNSLOTH_MODEL = "unsloth/Qwen3-4B-Instruct-2507"
 RECIPE = "grounded_qwen_v2"
+CHALLENGES = ROOT / "knowledge_base" / "answer_challenges.json"
 
 
 def _read_jsonl(path: Path) -> list[dict]:
@@ -26,11 +28,35 @@ def _read_jsonl(path: Path) -> list[dict]:
     return rows
 
 
+def challenge_rows() -> list[dict]:
+    records = {
+        (record["service"], record["query_topic_id"]): record
+        for record in load_records() if record["query_topic_id"]
+    }
+    challenges = json.loads(CHALLENGES.read_text(encoding="utf-8"))
+    rows = []
+    for challenge in challenges:
+        if set(challenge) != {"service", "query_topic_id", "language", "question"}:
+            raise ValueError("Invalid answer challenge schema")
+        record = records.get((challenge["service"], challenge["query_topic_id"]))
+        if record is None or challenge["language"] not in {"en", "bn"}:
+            raise ValueError(f"Invalid answer challenge route: {challenge}")
+        language = challenge["language"]
+        rows.append({
+            "prompt": prompt_messages(challenge["question"], record, language),
+            "completion": [{
+                "role": "assistant",
+                "content": " ".join(render_fact(unit, language) for unit in facts_for(record)),
+            }],
+        })
+    return rows
+
+
 def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--data-dir", type=Path, default=ROOT / "data" / "answer_generation")
     parser.add_argument("--output-dir", type=Path, default=ROOT / "models" / "answer_generator")
-    parser.add_argument("--max-steps", type=int, default=35)
+    parser.add_argument("--max-steps", type=int, default=50)
     parser.add_argument("--skip-gguf", action="store_true", help="Keep the adapter only")
     args = parser.parse_args()
     if args.max_steps < 1:
@@ -85,7 +111,7 @@ def main() -> None:
     tokenizer.save_pretrained(str(args.output_dir / "adapter"))
 
     FastLanguageModel.for_inference(model)
-    sample_rows = random.Random(3407).sample(dev_rows, min(12, len(dev_rows)))
+    sample_rows = challenge_rows()
     records = {(record["service"], record["title"]): record for record in load_records()}
     accepted_count = 0
     with (args.output_dir / "review_samples.jsonl").open("w", encoding="utf-8") as target:
@@ -104,6 +130,7 @@ def main() -> None:
             accepted = acceptable_answer(answer, records[(payload["service"], payload["topic"])], language)
             accepted_count += int(accepted)
             target.write(json.dumps({
+                "question": payload["question"],
                 "question_context": row["prompt"][1]["content"],
                 "reference": row["completion"][0]["content"],
                 "generated": answer,

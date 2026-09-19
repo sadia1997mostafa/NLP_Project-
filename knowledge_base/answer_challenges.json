@@ -1,0 +1,20 @@
+[
+  {"service": "NID", "query_topic_id": "NID_CORRECTION_DOB", "language": "bn", "question": "আমার এনআইডিতে জন্মতারিখ ভুল আছে, কীভাবে সংশোধন করব?"},
+  {"service": "NID", "query_topic_id": "NID_REPLACEMENT_ONLINE_APPLICATION", "language": "bn", "question": "amar NID card hariye geche, duplicate er jonno kivabe apply korbo?"},
+  {"service": "NID", "query_topic_id": "NID_ACCESS_DOWNLOAD", "language": "en", "question": "How can I download an available copy of my NID?"},
+  {"service": "BIRTH_REGISTRATION", "query_topic_id": "BR_VERIFICATION_RECORD", "language": "bn", "question": "জন্মনিবন্ধনের তথ্য অনলাইনে যাচাই করার নিয়ম কী?"},
+  {"service": "BIRTH_REGISTRATION", "query_topic_id": "BR_APPLICATION_STATUS", "language": "bn", "question": "birth registration application er status kivabe dekhbo?"},
+  {"service": "BIRTH_REGISTRATION", "query_topic_id": "BR_CERTIFICATE_REPRINT", "language": "en", "question": "What should I do if I need a reprint of a birth certificate?"},
+  {"service": "PASSPORT", "query_topic_id": "PASSPORT_APPLICATION_STATUS", "language": "bn", "question": "passport application status check korbo kivabe?"},
+  {"service": "PASSPORT", "query_topic_id": "PASSPORT_REISSUE_LOST", "language": "bn", "question": "পাসপোর্ট হারিয়ে গেলে পুনরায় পেতে কী করতে হবে?"},
+  {"service": "PASSPORT", "query_topic_id": "PASSPORT_FEES_INFORMATION", "language": "en", "question": "Where should I confirm the applicable e-passport fee before paying?"},
+  {"service": "TAX", "query_topic_id": "TAX_RETURN_ONLINE_SUBMISSION", "language": "bn", "question": "অনলাইনে আয়কর রিটার্ন জমা দেওয়ার ধাপ কী?"},
+  {"service": "TAX", "query_topic_id": "TAX_RETURN_ACKNOWLEDGEMENT", "language": "bn", "question": "return submit korar por acknowledgement slip kivabe pabo?"},
+  {"service": "TAX", "query_topic_id": "TAX_SUPPORT_REQUEST", "language": "en", "question": "How can I request official help with an e-Return problem?"},
+  {"service": "POLICE_GD", "query_topic_id": "POLICE_GD_STATUS", "language": "bn", "question": "অনলাইন জিডির অভিযোগের অগ্রগতি কীভাবে দেখব?"},
+  {"service": "POLICE_GD", "query_topic_id": "POLICE_GD_ONLINE_SUBMISSION", "language": "bn", "question": "online GD submit korte hole ki korte hobe?"},
+  {"service": "POLICE_GD", "query_topic_id": "POLICE_GD_CASE_VS_GD_GUIDANCE", "language": "en", "question": "What should I do if police determine that my complaint is a cognizable offence?"},
+  {"service": "DRIVING_LICENCE", "query_topic_id": "DRIVING_LICENCE_LEARNER_DOCUMENTS", "language": "bn", "question": "লার্নার ড্রাইভিং লাইসেন্সের জন্য কোন কাগজপত্র প্রস্তুত রাখব?"},
+  {"service": "DRIVING_LICENCE", "query_topic_id": "DRIVING_LICENCE_TEST_RESULT", "language": "bn", "question": "driving test result online e kivabe check korbo?"},
+  {"service": "DRIVING_LICENCE", "query_topic_id": "DRIVING_LICENCE_PAYMENT_VERIFICATION", "language": "en", "question": "How do I verify that a BRTA service payment was recorded?"}
+]

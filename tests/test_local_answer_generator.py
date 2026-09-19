@@ -56,6 +56,7 @@ class LocalAnswerTests(unittest.TestCase):
         for answer in (
             "Your passport will arrive in 7 days.",
             "Visit https://unknown.example to check your passport application status.",
+            "Check passport status and an officer will deliver it to your home shortly.",
             RuntimeError("model failed"),
         ):
             with self.subTest(answer=answer):

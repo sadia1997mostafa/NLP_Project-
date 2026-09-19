@@ -79,7 +79,9 @@ def acceptable_answer(answer: str, record: dict, language: str) -> bool:
     approved = " ".join([record["guidance"], *record["required_documents"], *approved_facts])
     if not _digits(answer) <= _digits(approved):
         return False
-    if len(_content_tokens(answer) & _content_tokens(" ".join(approved_facts))) < 2:
+    answer_tokens = _content_tokens(answer)
+    grounded_count = len(answer_tokens & _content_tokens(" ".join(approved_facts)))
+    if grounded_count < 2 or grounded_count / max(1, len(answer_tokens)) < 0.4:
         return False
     if answer == record["guidance"].strip():
         return False

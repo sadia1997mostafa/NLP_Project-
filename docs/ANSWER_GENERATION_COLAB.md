@@ -17,7 +17,8 @@ claims. Human review of unseen questions is required before public use.
 `dev.jsonl` from the frozen train and dev question splits. Only exact topics
 covered by the reviewed corpus are included; the official TEST split is not
 read. Targets are composed from `answer_facts.json`. This is a bootstrap set,
-not independently written citizen QA. Currently it has 276 train and 138 dev
+not independently written citizen QA. It has 388 train examples (including
+two language-controlled canonical examples for every covered exact route) and 138 dev
 examples; it does not teach the model the 208 uncovered exact topics.
 Train and dev can share topics and near-identical targets, so a low dev loss
 does not demonstrate good answers to new citizen questions.
@@ -49,13 +50,13 @@ source-checked, independently worded QA examples in a separate dataset.
 4. Train the conservative v2 QLoRA recipe into a fresh directory:
 
    ```python
-   !python -m scripts.train_answer_colab --max-steps 35 --output-dir models/answer_generator_v2
+   !python -m scripts.train_answer_colab --max-steps 50 --output-dir models/answer_generator_v2
    ```
 
    A GPU is required and the run may take longer than a short Colab session.
    Outputs are under `models/answer_generator_v2/`: adapter, `metrics.json`,
-   `review_samples.jsonl` (12 generated dev answers), `review_summary.json`,
-   and a `Q4_K_M` GGUF. The script requires at least 10 of 12 generated samples
+   `review_samples.jsonl` (18 fixed unseen challenge answers), `review_summary.json`,
+   and a `Q4_K_M` GGUF. The script requires at least 15 of 18 generated samples
    to pass structural safety checks before spending time on GGUF conversion.
    **Read the generated examples** for wrong facts, omitted conditions, and
    unnatural Bengali. Also test questions you write yourself, outside these
