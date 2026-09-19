@@ -128,6 +128,11 @@ class LocalAnswerGenerator:
         self._model = None
         self._lock = Lock()
 
+    @property
+    def is_loaded(self) -> bool:
+        """Report successful in-process initialization, not mere file presence."""
+        return self._model is not None
+
     def generate(self, question: str, record: dict, language: str) -> str:
         with self._lock:
             if self._model is None:

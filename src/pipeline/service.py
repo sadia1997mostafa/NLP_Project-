@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 from collections.abc import Callable
+from inspect import Parameter, signature
 from threading import Lock
 
 from src.models.inference import FINAL, predict_understanding
@@ -16,6 +17,30 @@ from src.response.local_generator import LocalAnswerGenerator, acceptable_answer
 
 class ModelUnavailableError(RuntimeError):
     pass
+
+
+ProgressCallback = Callable[[str, dict], None]
+SERVICE_NAMES = {
+    "NID": "National ID",
+    "BIRTH_REGISTRATION": "Birth registration",
+    "PASSPORT": "Passport",
+    "TAX": "Tax",
+    "POLICE_GD": "Police general diary",
+    "DRIVING_LICENCE": "Driving licence",
+}
+
+
+def _accepts_progress(predictor: Callable) -> bool:
+    """Return whether a predictor explicitly accepts stage callbacks."""
+    try:
+        parameters = signature(predictor).parameters.values()
+    except (TypeError, ValueError):
+        return False
+    return any(
+        parameter.name == "progress_callback"
+        or parameter.kind is Parameter.VAR_KEYWORD
+        for parameter in parameters
+    )
 
 
 def model_ready() -> bool:
@@ -41,11 +66,39 @@ class QueryPipeline:
             LocalAnswerGenerator(model_path) if local_generator_ready() and model_path else None
         )
 
-    def analyze(self, text: str) -> dict:
+    def analyze(
+        self,
+        text: str,
+        progress_callback: ProgressCallback | None = None,
+    ) -> dict:
+        def emit(stage: str, payload: dict) -> None:
+            if progress_callback is not None:
+                progress_callback(stage, payload)
+
         privacy = detect_privacy(text)
+        emit("privacy", {
+            "privacy_present": privacy.privacy_present,
+            "privacy_types": list(privacy.privacy_types),
+        })
+
+        model_events: dict[str, dict] = {}
+
+        def model_progress(stage: str, payload: dict) -> None:
+            if stage not in {"service", "parent", "intent"}:
+                return
+            public_payload = dict(payload)
+            model_events[stage] = public_payload
+            emit(stage, public_payload)
+
         # The original text is kept in memory only for this classifier call.
         with self._predictor_lock:
-            understanding = dict(self.predictor(text))
+            if _accepts_progress(self.predictor):
+                understanding = dict(self.predictor(
+                    text,
+                    progress_callback=model_progress,
+                ))
+            else:
+                understanding = dict(self.predictor(text))
         understanding["text"] = privacy.safe_text
         language = response_language(privacy.safe_text)
         understanding["response_language"] = language
@@ -65,6 +118,35 @@ class QueryPipeline:
                 understanding["query_topic_id"] = None
                 understanding["priority"] = None
                 understanding["service_resolution"] = "explicit_name_correction"
+
+        final_stages = {
+            "service": {
+                "label": understanding.get("service"),
+                "display_name": SERVICE_NAMES.get(
+                    understanding.get("service"), understanding.get("service")
+                ),
+                "confidence": understanding.get("service_confidence"),
+                "routing": understanding.get("service_routing")
+                or understanding.get("service_resolution"),
+            },
+            "parent": {
+                "label": understanding.get("parent_topic_id"),
+                "display_name": understanding.get("parent_topic"),
+                "confidence": understanding.get("parent_confidence"),
+            },
+            "intent": {
+                "label": understanding.get("query_topic_id"),
+                "display_name": understanding.get("query_topic"),
+                "confidence": understanding.get("intent_confidence")
+                or understanding.get("query_topic_confidence"),
+                "routing": understanding.get("intent_routing"),
+            },
+        }
+        for stage, payload in final_stages.items():
+            previous = model_events.get(stage)
+            if previous is None or previous.get("label") != payload.get("label"):
+                emit(stage, payload)
+
         retrieval = self.lookup.retrieve(understanding)
         effective = dict(understanding)
         if len(evidence) != 1:
@@ -105,10 +187,26 @@ class QueryPipeline:
                     )
                 effective["priority"] = None
                 understanding["topic_resolution"] = "unconfirmed"
+
+        record = retrieval.get("record") or {}
+        emit("grounding", {
+            "status": retrieval.get("status"),
+            "match_level": retrieval.get("match_level"),
+            "title": record.get("title"),
+            "grounding_level": record.get("grounding_level"),
+        })
         response = construct_response(effective, retrieval, privacy_warnings, confirmed=True)
-        if (self.answer_generator is not None and response["state"] == "answer"
-                and retrieval["match_level"] == "query_topic"
-                and retrieval["record"]["query_topic_id"] != "POLICE_GD_EMERGENCY_ROUTING"):
+        can_generate = (
+            self.answer_generator is not None
+            and response["state"] == "answer"
+            and retrieval["match_level"] == "query_topic"
+            and retrieval["record"]["query_topic_id"] != "POLICE_GD_EMERGENCY_ROUTING"
+        )
+        emit("answer_generation", {
+            "status": "preparing",
+            "mode": "local_qwen" if can_generate else "verified_fallback",
+        })
+        if can_generate:
             try:
                 generated = self.answer_generator.generate(privacy.safe_text, retrieval["record"], language)
                 if acceptable_answer(

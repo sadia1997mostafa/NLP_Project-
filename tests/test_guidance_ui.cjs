@@ -4,14 +4,51 @@ const fs = require("node:fs");
 const path = require("node:path");
 const vm = require("node:vm");
 
+function streamResponse(events) {
+  const bytes = new TextEncoder().encode(events.map(({ event, data }) =>
+    `event: ${event}\ndata: ${JSON.stringify(data)}\n\n`).join(""));
+  let delivered = false;
+  return {
+    ok: true,
+    body: {
+      getReader() {
+        return {
+          async read() {
+            if (delivered) return { done: true, value: undefined };
+            delivered = true;
+            return { done: false, value: bytes };
+          },
+        };
+      },
+    },
+  };
+}
+
+function completedStream(payload, stages = []) {
+  return streamResponse([
+    { event: "started", data: { status: "started" } },
+    ...stages,
+    { event: "complete", data: payload },
+  ]);
+}
+
 function interfaceContext(fetchImpl) {
   const elements = new Map();
   const stored = new Map();
   function element() {
     return {
       hidden: false, textContent: "", value: "", children: [], listeners: {},
+      className: "", style: {}, scrollHeight: 112,
       addEventListener(name, handler) { this.listeners[name] = handler; },
       focus() {},
+      scrollIntoView() {},
+      setAttribute(name, value) { this[name] = value; },
+      querySelector() { return null; },
+      requestSubmit() {
+        const handler = this.listeners.submit;
+        if (handler) this.lastSubmission = handler({ preventDefault() {} });
+        return this.lastSubmission;
+      },
       replaceChildren() { this.children = []; },
       appendChild(child) { this.children.push(child); },
     };
@@ -25,13 +62,22 @@ function interfaceContext(fetchImpl) {
     createElement: element,
   };
   const context = vm.createContext({
-    document, URL,
+    document, URL, TextDecoder, TextEncoder, Uint8Array, AbortController,
+    setTimeout, clearTimeout,
     sessionStorage: {
       getItem(key) { return stored.has(key) ? stored.get(key) : null; },
       setItem(key, value) { stored.set(key, String(value)); },
       removeItem(key) { stored.delete(key); },
     },
-    fetch: fetchImpl || (async (url) => ({ json: async () => url === "/api/guidance" ? [] : { model_ready: true } })),
+    fetch: fetchImpl || (async (url) => {
+      if (url === "/api/query/stream") {
+        return completedStream({
+          response: { state: "clarification", title: "Clarify", body: "Choose a topic." },
+          understanding: { service: "NID" }, privacy_present: false,
+        });
+      }
+      return { ok: true, json: async () => url === "/api/guidance" ? [] : { model_ready: true } };
+    }),
   });
   vm.runInContext(fs.readFileSync(path.join(__dirname, "../app/static/main.js"), "utf8"), context);
   return { context, elements, stored };
@@ -112,13 +158,13 @@ test("privacy notice shows the protected question as masked tokens", () => {
 
 test("recent questions store only server-protected text for the current tab", async () => {
   const { elements, stored } = interfaceContext(async (url) => {
-    if (url === "/api/analyze") {
-      return { ok: true, json: async () => ({
+    if (url === "/api/query/stream") {
+      return completedStream({
         response: { state: "answer", title: "NID update", body: "Use the official portal." },
         understanding: { service: "NID" }, privacy_present: true,
         privacy_types: ["nid"], safe_text: "amar nid [NID] update",
         warnings: ["Personal information was detected."],
-      }) };
+      });
     }
     return { ok: true, json: async () => url === "/api/guidance" ? [] : { model_ready: true } };
   });
@@ -142,8 +188,8 @@ test("Bengali answer labels preserve source-language transparency", () => {
     understanding: { service: "PASSPORT" }, privacy_present: false,
   };
   vm.runInContext("showPayload(payload)", context);
-  assert.equal(elements.get("result-kicker").textContent, "");
-  assert.equal(elements.get("result-kicker").hidden, true);
+  assert.equal(elements.get("result-kicker").textContent, "নির্দেশনা");
+  assert.equal(elements.get("result-kicker").hidden, false);
   assert.equal(elements.get("language-note").hidden, false);
   assert.equal(elements.get("source-label").textContent, "সরকারি উৎস");
 });
@@ -206,8 +252,8 @@ test("a guessed topic shows no answer until the visitor selects one", async () =
     service: selected.service, parent_topic_id: selected.parent_topic_id,
     query_topic_id: selected.query_topic_id, language: "en",
   }]);
-  assert.equal(elements.get("result-title").textContent, "");
-  assert.equal(elements.get("result-title").hidden, true);
+  assert.equal(elements.get("result-title").textContent, selected.title);
+  assert.equal(elements.get("result-title").hidden, false);
   assert.equal(elements.get("result-body").textContent, "Bring relevant documents.");
   assert.equal(elements.get("document-list").children[0].textContent, "Medical certificate");
 });
@@ -247,8 +293,8 @@ test("answer trace reports measured routing and grounding values", () => {
   assert.equal(elements.get("pipeline-panel").hidden, false);
   assert.equal(elements.get("routing-confidence").textContent, "87%");
   assert.equal(elements.get("topic-confidence").textContent, "62%");
-  assert.equal(elements.get("coverage-level").textContent, "Exact covered topic");
-  assert.equal(elements.get("grounding-status").textContent, "Model + verified facts");
+  assert.equal(elements.get("coverage-level").textContent, "Exact intent guidance");
+  assert.equal(elements.get("grounding-status").textContent, "Qwen + verified facts");
   assert.match(elements.get("trace-answer").textContent, /Local Qwen/);
 });
 
@@ -256,13 +302,13 @@ test("processing panel is visible only while analysis is pending", async () => {
   let finish;
   const pending = new Promise(resolve => { finish = resolve; });
   const { elements } = interfaceContext(async (url) => {
-    if (url === "/api/analyze") {
+    if (url === "/api/query/stream") {
       await pending;
-      return { ok: true, json: async () => ({
+      return completedStream({
         response: { state: "clarification", title: "Clarify", body: "Choose a topic." },
         understanding: { service: "NID", overall_confidence: 0.5 },
         privacy_present: false,
-      }) };
+      });
     }
     return { ok: true, json: async () => url === "/api/guidance" ? [] : { model_ready: true } };
   });
@@ -274,4 +320,101 @@ test("processing panel is visible only while analysis is pending", async () => {
   await request;
   assert.equal(elements.get("thinking-panel").hidden, true);
   assert.equal(elements.get("result").hidden, false);
+});
+
+test("Enter submits exactly once", async () => {
+  let requests = 0;
+  const { elements } = interfaceContext(async url => {
+    if (url === "/api/query/stream") {
+      requests += 1;
+      return completedStream({
+        response: { state: "answer", title: "Passport renewal", body: "Use the official process." },
+        understanding: { service: "PASSPORT" }, privacy_present: false, safe_text: "How do I renew my passport?",
+      });
+    }
+    return { ok: true, json: async () => url === "/api/guidance" ? [] : { model_ready: true } };
+  });
+  elements.get("query").value = "How do I renew my passport?";
+  let prevented = 0;
+  elements.get("query").listeners.keydown({ key: "Enter", shiftKey: false, isComposing: false, preventDefault() { prevented += 1; } });
+  await elements.get("query-form").lastSubmission;
+  assert.equal(prevented, 1);
+  assert.equal(requests, 1);
+});
+
+test("Shift+Enter inserts a newline without submitting", () => {
+  let requests = 0;
+  const { elements } = interfaceContext(async url => {
+    if (url === "/api/query/stream") requests += 1;
+    return url === "/api/query/stream"
+      ? completedStream({})
+      : { ok: true, json: async () => url === "/api/guidance" ? [] : { model_ready: true } };
+  });
+  let prevented = 0;
+  elements.get("query").listeners.keydown({ key: "Enter", shiftKey: true, isComposing: false, preventDefault() { prevented += 1; } });
+  assert.equal(prevented, 0);
+  assert.equal(requests, 0);
+});
+
+test("Enter during Bangla IME composition does not submit", () => {
+  let requests = 0;
+  const { elements } = interfaceContext(async url => {
+    if (url === "/api/query/stream") requests += 1;
+    return url === "/api/query/stream"
+      ? completedStream({})
+      : { ok: true, json: async () => url === "/api/guidance" ? [] : { model_ready: true } };
+  });
+  elements.get("query").listeners.compositionstart();
+  elements.get("query").listeners.keydown({ key: "Enter", shiftKey: false, isComposing: true, preventDefault() { throw new Error("must not prevent IME"); } });
+  elements.get("query").listeners.compositionend();
+  assert.equal(requests, 0);
+});
+
+test("repeated Enter presses cannot duplicate an in-flight request", async () => {
+  let finish;
+  const pending = new Promise(resolve => { finish = resolve; });
+  let requests = 0;
+  const { elements } = interfaceContext(async url => {
+    if (url === "/api/query/stream") {
+      requests += 1;
+      await pending;
+      return completedStream({
+        response: { state: "clarification", title: "Clarify", body: "Choose a topic." },
+        understanding: { service: "NID" }, privacy_present: false,
+      });
+    }
+    return { ok: true, json: async () => url === "/api/guidance" ? [] : { model_ready: true } };
+  });
+  elements.get("query").value = "NID correction";
+  const event = { key: "Enter", shiftKey: false, isComposing: false, preventDefault() {} };
+  elements.get("query").listeners.keydown(event);
+  elements.get("query").listeners.keydown(event);
+  elements.get("query").listeners.keydown(event);
+  assert.equal(requests, 1);
+  finish();
+  await elements.get("query-form").lastSubmission;
+});
+
+test("real progress events reveal classifications only when received", () => {
+  const { context, elements } = interfaceContext();
+  vm.runInContext("resetProgress(); handleProgressEvent('started', {status:'started'})", context);
+  assert.equal(elements.get("progress-service-value").textContent, "Waiting");
+  vm.runInContext("handleProgressEvent('service', {label:'PASSPORT', display_name:'Passport', confidence:0.94})", context);
+  assert.equal(elements.get("progress-service-value").textContent, "Passport");
+  assert.equal(elements.get("progress-service-confidence").textContent, "94%");
+  assert.equal(elements.get("progress-parent-value").textContent, "Working…");
+  assert.equal(elements.get("progress-intent-value").textContent, "Waiting");
+  vm.runInContext("handleProgressEvent('parent', {label:'PASSPORT_REISSUE', display_name:'Passport reissue', confidence:0.89})", context);
+  assert.equal(elements.get("progress-parent-value").textContent, "Passport reissue");
+  assert.equal(elements.get("progress-intent-value").textContent, "Working…");
+});
+
+test("a failed request marks only the active stage as failed", () => {
+  const { context, elements } = interfaceContext();
+  vm.runInContext("resetProgress(); handleProgressEvent('started', {status:'started'}); handleProgressEvent('privacy', {privacy_present:false}); handleProgressEvent('service', {label:'NID', display_name:'National ID', confidence:0.9}); handleProgressEvent('error', {message:'Unavailable'})", context);
+  assert.match(elements.get("progress-privacy").className, /complete/);
+  assert.match(elements.get("progress-service").className, /complete/);
+  assert.match(elements.get("progress-parent").className, /error/);
+  assert.match(elements.get("progress-intent").className, /pending/);
+  assert.doesNotMatch(elements.get("progress-intent").className, /complete/);
 });

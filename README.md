@@ -49,6 +49,14 @@ The visitor can change the topic. `GET /api/guidance` lists curated choices;
 from one listed choice, plus an optional `language` of `en` or `bn`. Raw query
 text is used only in memory for inference. The endpoint does not log request
 bodies and sends `Cache-Control: no-store`.
+
+The browser uses `POST /api/query/stream` for the same single analysis pass.
+It returns server-sent events for `started`, `privacy`, `service`, `parent`,
+`intent`, `grounding`, `answer_generation`, and `complete`. Service, parent,
+and intent events are emitted only after the existing classifier produces each
+result; inference is not repeated for the progress display. Telemetry contains
+no raw query or detected private value. The final `complete` payload has the
+same shape as `/api/analyze` and contains only the masked `safe_text`.
 Privacy matching covers common identifiers, OTPs/passwords, labelled NID,
 birth-registration, passport, TIN, driving-licence and application/reference
 numbers, generic labelled identifiers, bank/payment-card numbers, and explicitly

@@ -8,7 +8,7 @@ from dataclasses import dataclass
 from functools import lru_cache
 from pathlib import Path
 from threading import RLock
-from typing import Protocol
+from typing import Callable, Protocol
 
 from src.models.hierarchy import (
     conditioned_label_map,
@@ -24,6 +24,17 @@ ROOT = Path(__file__).resolve().parents[2]
 FINAL = ROOT / "models/final"
 CALIBRATION = ROOT / "models/evaluation/ood_dev_calibration.json"
 PRIORITY_BY_INTENT = ROOT / "configs/priority_by_intent.json"
+ProgressCallback = Callable[[str, dict], None]
+
+
+def _emit_progress(
+    callback: ProgressCallback | None,
+    stage: str,
+    payload: dict,
+) -> None:
+    """Emit public routing state only; never expose model internals or text."""
+    if callback is not None:
+        callback(stage, payload)
 
 
 class Predictor(Protocol):
@@ -41,14 +52,25 @@ class UnderstandingPipeline:
     confidence_threshold: float | None = None
     ood_threshold: float | None = None
 
-    def predict_understanding(self, text: str, top_k: int = 3) -> dict:
+    def predict_understanding(
+        self,
+        text: str,
+        top_k: int = 3,
+        progress_callback: ProgressCallback | None = None,
+    ) -> dict:
         cleaned = normalize_text(text)
         if not cleaned:
             raise ValueError("text must not be empty")
+        service = self.service_predictor.predict(cleaned, top_k)
+        _emit_progress(progress_callback, "service", service)
+        parent = self.parent_predictor.predict(cleaned, top_k)
+        _emit_progress(progress_callback, "parent", parent)
+        intent = self.intent_predictor.predict(cleaned, top_k)
+        _emit_progress(progress_callback, "intent", intent)
         outputs = {
-            "service": self.service_predictor.predict(cleaned, top_k),
-            "parent": self.parent_predictor.predict(cleaned, top_k),
-            "intent": self.intent_predictor.predict(cleaned, top_k),
+            "service": service,
+            "parent": parent,
+            "intent": intent,
             "priority": self.priority_predictor.predict(cleaned, top_k),
         }
         service_confidence = max(float(outputs["service"]["confidence"]), 0.0)
@@ -242,7 +264,12 @@ class LocalUnderstandingPipeline:
     confidence_threshold: float
     calibration_status: str = "provisional_synthetic_dev_only"
 
-    def predict_understanding(self, text: str, top_k: int = 3) -> dict:
+    def predict_understanding(
+        self,
+        text: str,
+        top_k: int = 3,
+        progress_callback: ProgressCallback | None = None,
+    ) -> dict:
         cleaned = normalize_text(text)
         if not cleaned:
             raise ValueError("text must not be empty")
@@ -261,6 +288,12 @@ class LocalUnderstandingPipeline:
             service_confidence = service_model_confidence
             service_routing = "xlm_roberta_fallback"
 
+        _emit_progress(progress_callback, "service", {
+            "label": service_id,
+            "confidence": service_confidence,
+            "routing": service_routing,
+        })
+
         parent_labels = list(conditioned_label_map("parent", service_id))
         parent = _predict_local(
             FINAL / "parent" / service_id,
@@ -269,6 +302,12 @@ class LocalUnderstandingPipeline:
             top_k=top_k,
         )
         parent_id = parent["label"]
+        parent_names, intent_names = _names()
+        _emit_progress(progress_callback, "parent", {
+            "label": parent_id,
+            "display_name": parent_names[parent_id],
+            "confidence": float(parent["confidence"]),
+        })
 
         deterministic_intent = only_intent(service_id, parent_id)
         if deterministic_intent:
@@ -289,6 +328,12 @@ class LocalUnderstandingPipeline:
             intent["routing"] = "service_model_parent_masked"
 
         intent_id = intent["label"]
+        _emit_progress(progress_callback, "intent", {
+            "label": intent_id,
+            "display_name": intent_names[intent_id],
+            "confidence": float(intent["confidence"]),
+            "routing": intent["routing"],
+        })
         priority_map = _priority_by_intent()
         if intent_id not in priority_map:
             raise ValueError(f"Intent missing from priority contract: {intent_id}")
@@ -303,7 +348,6 @@ class LocalUnderstandingPipeline:
         ood_score = 1.0 - ood_confidence
         is_ood = ood_confidence < self.confidence_threshold
 
-        parent_names, intent_names = _names()
         component_confidences = [
             service_confidence,
             float(parent["confidence"]),
@@ -365,7 +409,11 @@ def load_default_pipeline() -> LocalUnderstandingPipeline:
 def predict_understanding(
     text: str,
     pipeline: UnderstandingPipeline | LocalUnderstandingPipeline | None = None,
+    progress_callback: ProgressCallback | None = None,
 ) -> dict:
     """Return Prothom's structured understanding result for one query."""
     selected = pipeline if pipeline is not None else load_default_pipeline()
-    return selected.predict_understanding(text)
+    return selected.predict_understanding(
+        text,
+        progress_callback=progress_callback,
+    )

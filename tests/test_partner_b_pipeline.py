@@ -1,6 +1,7 @@
 """Privacy and backend contract tests that do not require model artifacts."""
 
 import asyncio
+import json
 import time
 import unittest
 from threading import Event
@@ -17,6 +18,17 @@ from src.response.plans import load_answer_plans
 
 def fake_predictor(text: str) -> dict:
     return {"text": text, "service": "NID", "query_topic_id": "NID_TEST", "is_ood": False}
+
+
+def parse_sse(text: str) -> list[tuple[str, dict]]:
+    events = []
+    for block in text.strip().split("\n\n"):
+        fields = {}
+        for line in block.splitlines():
+            key, _, value = line.partition(":")
+            fields.setdefault(key, []).append(value.lstrip())
+        events.append((fields["event"][0], json.loads("\n".join(fields["data"]))))
+    return events
 
 
 class PrivacyTests(unittest.TestCase):
@@ -116,6 +128,53 @@ class PipelineTests(unittest.TestCase):
         invalid = client.post("/api/analyze", json={"text": " "})
         self.assertEqual(invalid.status_code, 400)
         self.assertEqual(invalid.headers["cache-control"], "no-store")
+
+    def test_stream_emits_real_stages_once_without_exposing_private_text(self):
+        def progressive_predictor(text, progress_callback=None):
+            service = {"label": "NID", "display_name": "National ID", "confidence": 0.94}
+            parent = {"label": "NID_CORRECTION", "display_name": "NID correction", "confidence": 0.88}
+            intent = {"label": "NID_CORRECTION_DOB", "display_name": "Date of birth correction", "confidence": 0.83}
+            for stage, payload in (("service", service), ("parent", parent), ("intent", intent)):
+                progress_callback(stage, payload)
+            return {
+                "text": text, "service": "NID", "service_confidence": 0.94,
+                "parent_topic_id": "NID_CORRECTION", "parent_topic": "NID correction",
+                "parent_confidence": 0.88, "query_topic_id": "NID_CORRECTION_DOB",
+                "query_topic": "Date of birth correction", "intent_confidence": 0.83,
+                "priority": "Medium", "is_ood": False,
+            }
+
+        client = TestClient(create_app(QueryPipeline(progressive_predictor)))
+        raw = "NID 1234567890 date of birth correction"
+        response = client.post("/api/query/stream", json={"text": raw})
+        self.assertEqual(response.status_code, 200)
+        self.assertTrue(response.headers["content-type"].startswith("text/event-stream"))
+        self.assertEqual(response.headers["cache-control"], "no-store")
+        self.assertNotIn("1234567890", response.text)
+        events = parse_sse(response.text)
+        names = [event for event, _ in events]
+        self.assertEqual(names, [
+            "started", "privacy", "service", "parent", "intent",
+            "grounding", "answer_generation", "complete",
+        ])
+        final = events[-1][1]
+        self.assertEqual(final["safe_text"], "NID [NID] date of birth correction")
+        self.assertEqual(events[2][1]["label"], final["understanding"]["service"])
+        self.assertEqual(events[3][1]["label"], final["understanding"]["parent_topic_id"])
+        self.assertEqual(events[4][1]["label"], final["understanding"]["query_topic_id"])
+        self.assertNotIn("safe_text", events[1][1])
+
+    def test_stream_failure_is_generic_and_leaves_no_false_complete_state(self):
+        def broken_predictor(_text):
+            raise RuntimeError("secret model path and internal details")
+
+        response = TestClient(create_app(QueryPipeline(broken_predictor))).post(
+            "/api/query/stream", json={"text": "NID help"},
+        )
+        events = parse_sse(response.text)
+        self.assertEqual([name for name, _ in events], ["started", "privacy", "error"])
+        self.assertEqual(events[-1][1], {"message": "Analysis is temporarily unavailable"})
+        self.assertNotIn("secret model path", response.text)
 
     def test_serves_interface_and_assets(self):
         client = TestClient(create_app(QueryPipeline(fake_predictor)))

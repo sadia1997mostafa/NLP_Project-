@@ -3,166 +3,134 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="theme-color" content="#147d6a">
+    <meta name="theme-color" content="#0c6b4f">
+    <meta name="description" content="Privacy-aware guidance for six Bangladesh government services.">
     <title>NagorikSheba AI</title>
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%230c6b4f'/%3E%3Cpath d='M9 22V10l7 7 7-7v12' fill='none' stroke='white' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3Ccircle cx='16' cy='17' r='2.2' fill='%23e9b949'/%3E%3C/svg%3E">
     <link rel="stylesheet" href="/static/styles.css">
     <script src="/static/main.js" defer></script>
   </head>
   <body>
+    <a class="skip-link" href="#query">Skip to your question</a>
+
     <header class="topbar">
       <div class="topbar-inner">
-        <div class="brand" aria-label="NagorikSheba AI">
-          <span class="brand-mark" aria-hidden="true"><span></span></span>
-          <span>NagorikSheba <strong>AI</strong></span>
+        <a class="brand" href="/" aria-label="NagorikSheba AI home">
+          <svg class="brand-mark" viewBox="0 0 32 32" aria-hidden="true">
+            <rect width="32" height="32" rx="8"></rect>
+            <path d="M9 22V10l7 7 7-7v12"></path>
+            <circle cx="16" cy="17" r="2.2"></circle>
+          </svg>
+          <span class="brand-wordmark">NagorikSheba <strong>AI</strong></span>
+        </a>
+        <div id="service-status" class="service-status loading" role="status" aria-live="polite">
+          <span class="status-dot" aria-hidden="true"></span>
+          <span>Checking system</span>
         </div>
-        <div id="service-status" class="service-status" role="status">Checking service</div>
       </div>
     </header>
 
     <main class="layout">
       <section class="workspace" aria-labelledby="page-title">
         <div class="intro">
-          <p class="eyebrow">Citizen service guidance</p>
-          <h1 id="page-title">How can we help?</h1>
+          <p class="eyebrow">Bangladesh government-service guidance</p>
+          <h1 id="page-title">Ask a question. Get a clear next step.</h1>
+          <p class="intro-copy">Private details are protected before your question moves through the local assistant.</p>
         </div>
 
         <form id="query-form" class="query-form">
-          <label for="query">Your question</label>
-          <textarea id="query" name="query" rows="4" maxlength="4000" autocomplete="off" required placeholder="Ask about NID, birth registration, passport, tax, online GD, or a driving licence"></textarea>
+          <label for="query">What do you need help with?</label>
+          <div class="composer-shell">
+            <textarea id="query" name="query" rows="3" maxlength="4000" autocomplete="off" required aria-describedby="composer-hint character-count" placeholder="যেমন: আমার জন্ম নিবন্ধনের OTP আসছে না"></textarea>
+            <div class="composer-footer">
+              <span id="composer-hint" class="keyboard-hint">Enter to send · Shift+Enter for new line</span>
+              <span id="character-count" class="character-count">0 / 4000</span>
+            </div>
+          </div>
           <div class="form-actions">
-            <span id="character-count" class="character-count">0 / 4000</span>
+            <p class="privacy-hint"><span aria-hidden="true">◈</span> Avoid sharing personal numbers unless they are essential.</p>
             <div class="action-buttons">
               <button id="clear-button" type="button" class="secondary-button">Clear</button>
-              <button id="submit-button" type="submit" class="primary-button">Get guidance</button>
+              <button id="submit-button" type="submit" class="primary-button">
+                <span>Get guidance</span>
+                <svg viewBox="0 0 20 20" aria-hidden="true"><path d="m5 10 9-5-3.2 10-2-3-3.8-2Z"></path></svg>
+              </button>
             </div>
           </div>
         </form>
 
-        <section id="thinking-panel" class="thinking-panel" aria-live="polite" hidden>
+        <section id="thinking-panel" class="thinking-panel" aria-live="polite" aria-busy="true" hidden>
           <div class="thinking-heading">
-            <span class="thinking-spinner" aria-hidden="true"></span>
-            <div>
-              <p>Processing request</p>
-              <strong>Building a source-grounded answer</strong>
-            </div>
+            <div><p class="eyebrow">Processing</p><h2 id="processing-title">Understanding your request</h2></div>
+            <span class="live-indicator"><span aria-hidden="true"></span> Live</span>
           </div>
-          <ol class="thinking-steps">
-            <li>Protecting personal data</li>
-            <li>Identifying the service</li>
-            <li>Matching verified guidance</li>
-            <li>Preparing the answer</li>
+          <p id="progress-announcement" class="sr-only" role="status"></p>
+          <ol id="progress-list" class="progress-list">
+            <li id="progress-privacy" class="progress-step pending" data-stage="privacy"><span class="progress-marker" aria-hidden="true"></span><div><strong>Privacy</strong><span id="progress-privacy-value" class="stage-value">Waiting</span></div><span id="progress-privacy-confidence" class="stage-confidence"></span></li>
+            <li id="progress-service" class="progress-step pending" data-stage="service"><span class="progress-marker" aria-hidden="true"></span><div><strong>Service</strong><span id="progress-service-value" class="stage-value">Waiting</span></div><span id="progress-service-confidence" class="stage-confidence"></span></li>
+            <li id="progress-parent" class="progress-step pending" data-stage="parent"><span class="progress-marker" aria-hidden="true"></span><div><strong>Parent topic</strong><span id="progress-parent-value" class="stage-value">Waiting</span></div><span id="progress-parent-confidence" class="stage-confidence"></span></li>
+            <li id="progress-intent" class="progress-step pending" data-stage="intent"><span class="progress-marker" aria-hidden="true"></span><div><strong>Intent</strong><span id="progress-intent-value" class="stage-value">Waiting</span></div><span id="progress-intent-confidence" class="stage-confidence"></span></li>
+            <li id="progress-grounding" class="progress-step pending" data-stage="grounding"><span class="progress-marker" aria-hidden="true"></span><div><strong>Verified guidance</strong><span id="progress-grounding-value" class="stage-value">Waiting</span></div><span id="progress-grounding-confidence" class="stage-confidence"></span></li>
+            <li id="progress-answer_generation" class="progress-step pending" data-stage="answer_generation"><span class="progress-marker" aria-hidden="true"></span><div><strong>Answer</strong><span id="progress-answer_generation-value" class="stage-value">Waiting</span></div><span id="progress-answer_generation-confidence" class="stage-confidence"></span></li>
           </ol>
         </section>
 
-        <section id="result" class="result" aria-live="polite" hidden>
-          <div id="result-accent" class="result-accent"></div>
+        <section id="result" class="result" aria-live="polite" tabindex="-1" hidden>
           <div class="result-content">
+            <div id="result-meta" class="result-meta" hidden><span id="service-name"></span><span id="topic-name"></span><span id="priority-name"></span></div>
             <p id="result-kicker" class="result-kicker"></p>
             <h2 id="result-title"></h2>
             <p id="result-body" class="result-body"></p>
             <p id="language-note" class="language-note" hidden></p>
-            <div id="result-steps" class="result-documents" hidden>
-              <h3 id="steps-heading">Verified guidance</h3>
-              <ol id="step-list"></ol>
-            </div>
-            <div id="result-documents" class="result-documents" hidden>
-              <h3 id="documents-heading">Documents and details</h3>
-              <ul id="document-list"></ul>
-            </div>
+
+            <div id="result-steps" class="answer-section" hidden><h3 id="steps-heading">Verified guidance</h3><ol id="step-list" class="numbered-steps"></ol></div>
+            <div id="result-documents" class="answer-section" hidden><h3 id="documents-heading">Documents and details</h3><ul id="document-list" class="document-list"></ul></div>
             <p id="scope-note" class="scope-note" hidden></p>
-            <button id="change-topic" type="button" class="secondary-button change-topic" hidden>Change topic</button>
-            <form id="topic-form" class="topic-form" hidden>
-              <label for="topic-service">Service</label>
-              <select id="topic-service" required></select>
-              <label for="topic-choice">Topic</label>
-              <select id="topic-choice" required></select>
-              <p id="topic-error" role="status" hidden></p>
-              <button id="topic-submit" type="submit" class="primary-button" disabled>Show selected guidance</button>
-            </form>
-            <div id="privacy-notice" class="privacy-notice" hidden>
-              <strong>Privacy notice</strong>
-              <p id="privacy-message"></p>
-              <div id="masked-preview" class="masked-preview" hidden>
-                <span>Protected question</span>
-                <div id="masked-question" class="masked-question"></div>
-              </div>
+
+            <div id="result-source" class="source-card" hidden>
+              <div class="source-icon" aria-hidden="true">↗</div>
+              <div><span id="source-label" class="source-label">Official source</span><a id="source-link" target="_blank" rel="noopener noreferrer"></a><span id="source-date" class="source-date"></span></div>
             </div>
-            <section id="pipeline-panel" class="pipeline-panel" aria-labelledby="pipeline-heading" hidden>
-              <div class="pipeline-heading">
-                <div>
-                  <p class="pipeline-eyebrow">Answer trace</p>
-                  <h3 id="pipeline-heading">How this answer was prepared</h3>
-                </div>
-                <span id="grounding-status" class="grounding-status"></span>
-              </div>
+
+            <div id="privacy-notice" class="privacy-notice" hidden>
+              <div class="privacy-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 3 5 6v5c0 4.7 2.8 8.2 7 10 4.2-1.8 7-5.3 7-10V6l-7-3Z"></path><path d="m9 12 2 2 4-5"></path></svg></div>
+              <div><strong>Personal information protected</strong><p id="privacy-message"></p><div id="masked-preview" class="masked-preview" hidden><span>Protected question</span><div id="masked-question" class="masked-question"></div></div></div>
+            </div>
+
+            <div class="clarification-actions">
+              <button id="change-topic" type="button" class="secondary-button change-topic" hidden>Change topic</button>
+              <form id="topic-form" class="topic-form" hidden>
+                <div class="clarification-heading"><p class="eyebrow">Clarification</p><h3>We need one more detail</h3><p>Select the service and topic that best match your question.</p></div>
+                <label for="topic-service">Service</label><select id="topic-service" required></select>
+                <label for="topic-choice">Topic</label><select id="topic-choice" required></select>
+                <p id="topic-error" role="status" hidden></p>
+                <button id="topic-submit" type="submit" class="primary-button" disabled>Show guidance</button>
+              </form>
+            </div>
+
+            <details id="pipeline-panel" class="pipeline-panel" hidden>
+              <summary><span><small>Answer trace</small><strong>How this answer was prepared</strong></span><span id="grounding-status" class="grounding-status"></span></summary>
               <ol class="pipeline-flow">
-                <li>
-                  <span class="pipeline-index">1</span>
-                  <div><strong>Privacy check</strong><span id="trace-privacy"></span></div>
-                </li>
-                <li>
-                  <span class="pipeline-index">2</span>
-                  <div><strong>Service routing</strong><span id="trace-service"></span></div>
-                </li>
-                <li>
-                  <span class="pipeline-index">3</span>
-                  <div><strong>Topic evidence</strong><span id="trace-topic"></span></div>
-                </li>
-                <li>
-                  <span class="pipeline-index">4</span>
-                  <div><strong>Answer composition</strong><span id="trace-answer"></span></div>
-                </li>
+                <li><span class="pipeline-index">01</span><div><strong>Privacy</strong><span id="trace-privacy"></span></div></li>
+                <li><span class="pipeline-index">02</span><div><strong>Service</strong><span id="trace-service"></span></div></li>
+                <li><span class="pipeline-index">03</span><div><strong>Parent topic</strong><span id="trace-parent"></span></div></li>
+                <li><span class="pipeline-index">04</span><div><strong>Intent</strong><span id="trace-intent"></span></div></li>
+                <li><span class="pipeline-index">05</span><div><strong>Evidence</strong><span id="trace-topic"></span></div></li>
+                <li><span class="pipeline-index">06</span><div><strong>Answer</strong><span id="trace-answer"></span></div></li>
               </ol>
               <div class="confidence-grid">
-                <div><span>Routing confidence</span><strong id="routing-confidence">Not scored</strong></div>
-                <div><span>Corpus match</span><strong id="topic-confidence">Not scored</strong></div>
-                <div><span>Coverage</span><strong id="coverage-level">Unconfirmed</strong></div>
+                <div><span>Service</span><strong id="service-confidence">Not scored</strong></div><div><span>Parent</span><strong id="parent-confidence">Not scored</strong></div><div><span>Intent</span><strong id="intent-confidence">Not scored</strong></div><div><span>Corpus match</span><strong id="topic-confidence">Not scored</strong></div><div><span>Overall routing</span><strong id="routing-confidence">Not scored</strong></div><div><span>Coverage</span><strong id="coverage-level">Unconfirmed</strong></div>
               </div>
-              <p class="confidence-note">Confidence estimates routing certainty, not factual accuracy. Use the official source as the final reference.</p>
-            </section>
-            <div id="result-source" class="result-source" hidden>
-              <span id="source-label" class="source-label">Official source</span>
-              <a id="source-link" target="_blank" rel="noopener noreferrer"></a>
-              <span id="source-date" class="source-date"></span>
-            </div>
-            <div id="result-meta" class="result-meta" hidden>
-              <span id="service-name"></span>
-              <span id="topic-name"></span>
-              <span id="priority-name"></span>
-            </div>
+              <p class="confidence-note">Confidence reflects routing certainty, not factual accuracy. Use the official source as the final reference.</p>
+            </details>
           </div>
         </section>
       </section>
 
-      <aside class="sidebar" aria-label="Supported services">
-        <div class="sidebar-heading">
-          <p>Coverage</p>
-          <h2>Supported services</h2>
-        </div>
-        <ul class="supported-list">
-          <li><span class="service-index">01</span>National ID</li>
-          <li><span class="service-index">02</span>Birth registration</li>
-          <li><span class="service-index">03</span>Passport</li>
-          <li><span class="service-index">04</span>Tax</li>
-          <li><span class="service-index">05</span>Police general diary</li>
-          <li><span class="service-index">06</span>Driving licence</li>
-        </ul>
-        <section class="history-section" aria-labelledby="history-heading">
-          <div class="history-heading">
-            <div>
-              <p>Current tab</p>
-              <h2 id="history-heading">Recent questions</h2>
-            </div>
-            <button id="clear-history" type="button" hidden>Clear</button>
-          </div>
-          <p id="history-empty" class="history-empty">Masked questions will appear here.</p>
-          <ol id="history-list" class="history-list" hidden></ol>
-        </section>
-        <div class="runtime-summary">
-          <span>Runtime</span>
-          <strong id="runtime-mode">Checking models</strong>
-          <small>Local processing · no hosted answer API</small>
-        </div>
+      <aside class="sidebar" aria-label="Assistant information">
+        <section class="sidebar-section"><p class="sidebar-eyebrow">Coverage</p><h2>Supported services</h2><ul class="supported-list"><li><span class="service-index">01</span><span>National ID</span></li><li><span class="service-index">02</span><span>Birth registration</span></li><li><span class="service-index">03</span><span>Passport</span></li><li><span class="service-index">04</span><span>Tax</span></li><li><span class="service-index">05</span><span>Police general diary</span></li><li><span class="service-index">06</span><span>Driving licence</span></li></ul></section>
+        <section class="sidebar-section history-section" aria-labelledby="history-heading"><div class="history-heading"><div><p class="sidebar-eyebrow">This session</p><h2 id="history-heading">Recent questions</h2></div><button id="clear-history" type="button" hidden>Clear</button></div><p id="history-empty" class="history-empty">Protected questions will appear here.</p><ol id="history-list" class="history-list" hidden></ol></section>
+        <section class="sidebar-section runtime-summary"><p class="sidebar-eyebrow">Runtime</p><strong id="runtime-mode">Checking models</strong><small id="runtime-detail">Local processing · no hosted answer API</small></section>
       </aside>
     </main>
   </body>
