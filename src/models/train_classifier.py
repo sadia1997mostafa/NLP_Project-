@@ -40,6 +40,18 @@ def main() -> None:
     parser.add_argument("--service", help="Service scope for hierarchical parent/intent training")
     parser.add_argument("--parent", help="Parent scope for hierarchical intent training")
     parser.add_argument(
+        "--train-file",
+        type=Path,
+        default=ROOT / "data" / "splits" / "train.csv",
+        help="Training CSV path; relative paths are resolved from the repository root",
+    )
+    parser.add_argument(
+        "--init-model",
+        type=Path,
+        default=None,
+        help="Optional local model checkpoint to continue fine-tuning from",
+    )
+    parser.add_argument(
         "--execute-training",
         action="store_true",
         help="Explicitly authorize the future fine-tuning run (not used during preparation)",
@@ -57,7 +69,11 @@ def main() -> None:
         raise ValueError("num_labels does not match the frozen label map")
     scope = f"; service: {args.service}" if args.service else ""
     scope += f"; parent: {args.parent}" if args.parent else ""
-    print(f"Task: {args.task}{scope}; labels: {len(label_map)}; model: {config['model_name']}")
+    init_model = None
+    if args.init_model is not None:
+        init_model = args.init_model if args.init_model.is_absolute() else ROOT / args.init_model
+    model_source = str(init_model) if init_model is not None else config["model_name"]
+    print(f"Task: {args.task}{scope}; labels: {len(label_map)}; model: {model_source}")
     if args.task == "intent" and args.parent and len(label_map) == 1:
         print(f"DETERMINISTIC ROUTE: {next(iter(label_map))}; classifier training is unnecessary.")
         return
@@ -79,10 +95,15 @@ def main() -> None:
 
     set_seed(int(config["seed"]))
     tokenizer = AutoTokenizer.from_pretrained(config["tokenizer_name"])
-    train = load_dataset(ROOT / "data" / "splits" / "train.csv", args.task, tokenizer, label_map, config["max_length"], service=args.service, parent=args.parent)
+    train_path = args.train_file if args.train_file.is_absolute() else ROOT / args.train_file
+    print(f"Training data: {train_path}")
+    train = load_dataset(train_path, args.task, tokenizer, label_map, config["max_length"], service=args.service, parent=args.parent)
     dev = load_dataset(ROOT / "data" / "splits" / "dev.csv", args.task, tokenizer, label_map, config["max_length"], service=args.service, parent=args.parent)
     model = AutoModelForSequenceClassification.from_pretrained(
-        config["model_name"], num_labels=len(label_map), id2label={v: k for k, v in label_map.items()}, label2id=label_map
+        model_source,
+        num_labels=len(label_map),
+        id2label={v: k for k, v in label_map.items()},
+        label2id=label_map,
     )
     output_dir = ROOT / config["output_path"].format(task=args.task)
     if args.service:

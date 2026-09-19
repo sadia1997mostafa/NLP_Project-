@@ -1,0 +1,22 @@
+{
+  "base_train": "data\\splits\\train.csv",
+  "output_train": "data\\splits\\train_tax_dl_repair.csv",
+  "original_train_rows": 1584,
+  "repair_rows": 196,
+  "derived_train_rows": 1780,
+  "repair_intents": 49,
+  "tax_repair_rows": 84,
+  "driving_licence_repair_rows": 112,
+  "unique_intents_total": 264,
+  "repair_text_dev_overlap": 0,
+  "repair_text_test_overlap": 0,
+  "repair_family_dev_overlap": 0,
+  "repair_family_test_overlap": 0,
+  "dev_sha256_before": "52eaf999eff4fa6939668a43fe0a9aaa4923e78653f722ecf147071c362e87b7",
+  "dev_sha256_after": "52eaf999eff4fa6939668a43fe0a9aaa4923e78653f722ecf147071c362e87b7",
+  "test_sha256_before": "89fec303c4ebdf5269edffc60f44f5a8cf2154dc18d61cef7996690b4a5110af",
+  "test_sha256_after": "89fec303c4ebdf5269edffc60f44f5a8cf2154dc18d61cef7996690b4a5110af",
+  "dev_unchanged": true,
+  "test_unchanged": true,
+  "validation_passed": true
+}

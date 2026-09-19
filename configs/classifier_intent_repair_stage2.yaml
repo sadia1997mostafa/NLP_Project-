@@ -1,0 +1,29 @@
+training:
+  model_name: "xlm-roberta-base"
+  tokenizer_name: "models/final/tokenizer_xlm_roberta_base"
+  seed: 42
+  max_length: 128
+  train_batch_size: 8
+  evaluation_batch_size: 32
+  learning_rate: 0.000002
+  epochs: 4
+  weight_decay: 0.01
+  warmup_ratio: 0.1
+  early_stopping_patience: 2
+  save_total_limit: 2
+  save_only_model: true
+  output_path: "models/checkpoints/intent_repair_stage2"
+  class_weighting: "balanced"
+  confidence_threshold: null
+  ood_threshold: null
+  calibration_status: "required_after_training"
+
+tasks:
+  service:
+    num_labels: 6
+  parent:
+    num_labels: 49
+  intent:
+    num_labels: 264
+  priority:
+    num_labels: 3

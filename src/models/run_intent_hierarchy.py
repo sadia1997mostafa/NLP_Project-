@@ -78,7 +78,10 @@ def completed_result(
     }
 
 
-def run(execute_training: bool = False) -> list[dict]:
+def run(execute_training: bool = False, train_file: Path | None = None) -> list[dict]:
+    train_file = train_file or (ROOT / "data/splits/train.csv")
+    if not train_file.is_absolute():
+        train_file = ROOT / train_file
     inventory = build_inventory()
     print(
         "Intent hierarchy: 5 deterministic routes; 6 service-level "
@@ -127,6 +130,8 @@ def run(execute_training: bool = False) -> list[dict]:
                     service,
                     "--config",
                     str(CONFIG),
+                    "--train-file",
+                    str(train_file),
                     "--execute-training",
                 ],
                 cwd=ROOT,
@@ -266,5 +271,6 @@ def run(execute_training: bool = False) -> list[dict]:
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument("--execute-training", action="store_true")
+    parser.add_argument("--train-file", type=Path, default=ROOT / "data/splits/train.csv")
     args = parser.parse_args()
-    run(args.execute_training)
+    run(args.execute_training, args.train_file)
