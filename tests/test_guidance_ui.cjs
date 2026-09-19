@@ -184,3 +184,47 @@ test("changing service clears the previous topic selection", () => {
   assert.equal(elements.get("topic-choice").children[1].textContent, "Passport documents");
   assert.equal(elements.get("topic-submit").disabled, true);
 });
+
+test("answer trace reports measured routing and grounding values", () => {
+  const { context, elements } = interfaceContext();
+  context.payload = {
+    response: { state: "answer", language: "en", match_level: "query_topic",
+      title: "Track a passport application", body: "Open Status Check.",
+      answer_basis: "local_finetuned_model" },
+    understanding: { service: "PASSPORT", service_routing: "lexical_anchor",
+      overall_confidence: 0.873, topic_match_score: 0.624 },
+    retrieval: { status: "found", match_level: "query_topic" },
+    privacy_present: false,
+  };
+  vm.runInContext("showPayload(payload)", context);
+  assert.equal(elements.get("pipeline-panel").hidden, false);
+  assert.equal(elements.get("routing-confidence").textContent, "87%");
+  assert.equal(elements.get("topic-confidence").textContent, "62%");
+  assert.equal(elements.get("coverage-level").textContent, "Exact covered topic");
+  assert.equal(elements.get("grounding-status").textContent, "Model + verified facts");
+  assert.match(elements.get("trace-answer").textContent, /Local Qwen/);
+});
+
+test("processing panel is visible only while analysis is pending", async () => {
+  let finish;
+  const pending = new Promise(resolve => { finish = resolve; });
+  const { elements } = interfaceContext(async (url) => {
+    if (url === "/api/analyze") {
+      await pending;
+      return { ok: true, json: async () => ({
+        response: { state: "clarification", title: "Clarify", body: "Choose a topic." },
+        understanding: { service: "NID", overall_confidence: 0.5 },
+        privacy_present: false,
+      }) };
+    }
+    return { ok: true, json: async () => url === "/api/guidance" ? [] : { model_ready: true } };
+  });
+  elements.get("query").value = "NID correction";
+  const request = elements.get("query-form").listeners.submit({ preventDefault() {} });
+  assert.equal(elements.get("thinking-panel").hidden, false);
+  assert.equal(elements.get("result").hidden, true);
+  finish();
+  await request;
+  assert.equal(elements.get("thinking-panel").hidden, true);
+  assert.equal(elements.get("result").hidden, false);
+});

@@ -5,6 +5,7 @@ const clear = document.getElementById("clear-button");
 const count = document.getElementById("character-count");
 const status = document.getElementById("service-status");
 const result = document.getElementById("result");
+const thinkingPanel = document.getElementById("thinking-panel");
 const topicForm = document.getElementById("topic-form");
 const topicService = document.getElementById("topic-service");
 const topicChoice = document.getElementById("topic-choice");
@@ -67,6 +68,7 @@ function updateTopicChoices() {
 }
 
 function showResult(state, title, body, kicker) {
+  thinkingPanel.hidden = true;
   result.hidden = false;
   result.className = `result ${state}`;
   setText("result-title", title);
@@ -77,12 +79,66 @@ function showResult(state, title, body, kicker) {
   setVisible("result-source", false);
   setVisible("result-meta", false);
   setVisible("language-note", false);
+  setVisible("pipeline-panel", false);
   topicForm.hidden = true;
   changeTopic.hidden = true;
   setVisible("result-steps", false);
   document.getElementById("step-list").replaceChildren();
   setVisible("result-documents", false);
   document.getElementById("document-list").replaceChildren();
+}
+
+function percent(value) {
+  const number = Number(value);
+  if (!Number.isFinite(number)) return "Not scored";
+  return `${Math.round(Math.max(0, Math.min(1, number)) * 100)}%`;
+}
+
+function showPipeline(payload) {
+  const understanding = payload.understanding;
+  const answer = payload.response;
+  if (!understanding || !answer) return;
+
+  const privacyDetail = payload.privacy_present
+    ? `Masked: ${(payload.privacy_types || []).join(", ") || "personal information"}`
+    : "No personal identifiers detected";
+  setText("trace-privacy", privacyDetail);
+
+  const service = serviceNames[understanding.service] || understanding.service || "Unconfirmed";
+  const routingMethod = understanding.service_routing === "lexical_anchor"
+    ? "explicit service wording"
+    : understanding.service_routing === "user_selected"
+      ? "selected by user"
+      : understanding.service_resolution === "explicit_name_correction"
+        ? "corrected by explicit wording"
+        : "local classifier";
+  setText("trace-service", `${service} · ${routingMethod}`);
+
+  const matchLabels = {
+    query_topic: "Exact covered topic",
+    parent_topic: "General topic guidance",
+    service: "Service overview",
+  };
+  const matchLevel = answer.match_level || payload.retrieval?.match_level;
+  const topicLabel = matchLabels[matchLevel] || "Topic not confirmed";
+  const topicScore = understanding.topic_match_score ?? understanding.parent_match_score;
+  setText("trace-topic", topicScore == null ? topicLabel : `${topicLabel} · ${percent(topicScore)} corpus match`);
+
+  const basisLabels = {
+    local_finetuned_model: "Local Qwen wording, checked against verified facts",
+    curated_source_facts: "Controlled wording from verified facts",
+  };
+  const basis = basisLabels[answer.answer_basis] || "No authoritative answer composed";
+  setText("trace-answer", basis);
+  setText("grounding-status", answer.answer_basis === "local_finetuned_model"
+    ? "Model + verified facts" : answer.answer_basis === "curated_source_facts"
+      ? "Verified fact plan" : "Routing only");
+
+  const routingConfidence = understanding.overall_confidence ?? understanding.service_confidence;
+  setText("routing-confidence", percent(routingConfidence));
+  setText("topic-confidence", percent(topicScore));
+  setText("coverage-level", matchLabels[matchLevel] || "Unconfirmed");
+  setVisible("pipeline-panel", true);
 }
 
 function showPayload(payload) {
@@ -153,6 +209,7 @@ function showPayload(payload) {
     setText("priority-name", understanding.priority ? `Priority: ${understanding.priority}` : "");
     setVisible("result-meta", true);
   }
+  showPipeline(payload);
 }
 
 topicService.addEventListener("change", updateTopicChoices);
@@ -199,6 +256,7 @@ clear.addEventListener("click", () => {
   lastPrivacyWarnings = [];
   suggestedService = "";
   responseLanguage = "en";
+  thinkingPanel.hidden = true;
   query.focus();
 });
 
@@ -211,7 +269,8 @@ form.addEventListener("submit", async (event) => {
   lastPrivacyWarnings = [];
   suggestedService = "";
   responseLanguage = "en";
-  showResult("loading", "Checking your request", "", "In progress");
+  result.hidden = true;
+  thinkingPanel.hidden = false;
   try {
     const response = await fetch("/api/analyze", {
       method: "POST",
@@ -231,6 +290,7 @@ form.addEventListener("submit", async (event) => {
   } catch (_) {
     showResult("error", "Service unavailable", "We could not process this request right now. Please try again later.", "System error");
   } finally {
+    thinkingPanel.hidden = true;
     submit.disabled = false;
     submit.textContent = "Get guidance";
   }
@@ -239,12 +299,16 @@ form.addEventListener("submit", async (event) => {
 fetch("/api/status", { cache: "no-store" })
   .then((response) => response.json())
   .then((body) => {
-    status.textContent = body.model_ready ? "Service available" : "Service unavailable";
+    status.textContent = body.model_ready ? "System ready" : "Service unavailable";
     status.className = body.model_ready ? "service-status ready" : "service-status unavailable";
+    setText("runtime-mode", body.answer_generator_ready
+      ? "Classifier + local Qwen"
+      : body.model_ready ? "Classifier + verified fallback" : "Models unavailable");
   })
   .catch(() => {
     status.textContent = "Service unavailable";
     status.className = "service-status unavailable";
+    setText("runtime-mode", "Models unavailable");
   });
 
 fetch("/api/guidance", { cache: "no-store" })

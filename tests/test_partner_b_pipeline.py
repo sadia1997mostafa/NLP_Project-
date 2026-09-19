@@ -148,6 +148,8 @@ class PipelineTests(unittest.TestCase):
 
         result = QueryPipeline(wrong_intent).analyze("passport status check korbo kivabe?")
         self.assertEqual(result["understanding"]["resolved_topic_id"], "PASSPORT_APPLICATION_STATUS")
+        self.assertGreater(result["understanding"]["topic_match_score"], 0.25)
+        self.assertGreaterEqual(result["understanding"]["topic_match_margin"], 0.06)
         self.assertEqual(result["response"]["state"], "answer")
         self.assertEqual(result["response"]["title"], "Track a passport application")
 

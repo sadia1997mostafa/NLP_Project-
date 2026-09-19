@@ -38,6 +38,22 @@
           </div>
         </form>
 
+        <section id="thinking-panel" class="thinking-panel" aria-live="polite" hidden>
+          <div class="thinking-heading">
+            <span class="thinking-spinner" aria-hidden="true"></span>
+            <div>
+              <p>Processing request</p>
+              <strong>Building a source-grounded answer</strong>
+            </div>
+          </div>
+          <ol class="thinking-steps">
+            <li>Protecting personal data</li>
+            <li>Identifying the service</li>
+            <li>Matching verified guidance</li>
+            <li>Preparing the answer</li>
+          </ol>
+        </section>
+
         <section id="result" class="result" aria-live="polite" hidden>
           <div id="result-accent" class="result-accent"></div>
           <div class="result-content">
@@ -67,6 +83,39 @@
               <strong>Privacy notice</strong>
               <p id="privacy-message"></p>
             </div>
+            <section id="pipeline-panel" class="pipeline-panel" aria-labelledby="pipeline-heading" hidden>
+              <div class="pipeline-heading">
+                <div>
+                  <p class="pipeline-eyebrow">Answer trace</p>
+                  <h3 id="pipeline-heading">How this answer was prepared</h3>
+                </div>
+                <span id="grounding-status" class="grounding-status"></span>
+              </div>
+              <ol class="pipeline-flow">
+                <li>
+                  <span class="pipeline-index">1</span>
+                  <div><strong>Privacy check</strong><span id="trace-privacy"></span></div>
+                </li>
+                <li>
+                  <span class="pipeline-index">2</span>
+                  <div><strong>Service routing</strong><span id="trace-service"></span></div>
+                </li>
+                <li>
+                  <span class="pipeline-index">3</span>
+                  <div><strong>Topic evidence</strong><span id="trace-topic"></span></div>
+                </li>
+                <li>
+                  <span class="pipeline-index">4</span>
+                  <div><strong>Answer composition</strong><span id="trace-answer"></span></div>
+                </li>
+              </ol>
+              <div class="confidence-grid">
+                <div><span>Routing confidence</span><strong id="routing-confidence">Not scored</strong></div>
+                <div><span>Corpus match</span><strong id="topic-confidence">Not scored</strong></div>
+                <div><span>Coverage</span><strong id="coverage-level">Unconfirmed</strong></div>
+              </div>
+              <p class="confidence-note">Confidence estimates routing certainty, not factual accuracy. Use the official source as the final reference.</p>
+            </section>
             <div id="result-source" class="result-source" hidden>
               <span id="source-label" class="source-label">Official source</span>
               <a id="source-link" target="_blank" rel="noopener noreferrer"></a>
@@ -82,7 +131,10 @@
       </section>
 
       <aside class="sidebar" aria-label="Supported services">
-        <h2>Services</h2>
+        <div class="sidebar-heading">
+          <p>Coverage</p>
+          <h2>Supported services</h2>
+        </div>
         <ul>
           <li><span class="service-index">01</span>National ID</li>
           <li><span class="service-index">02</span>Birth registration</li>
@@ -91,6 +143,11 @@
           <li><span class="service-index">05</span>Police general diary</li>
           <li><span class="service-index">06</span>Driving licence</li>
         </ul>
+        <div class="runtime-summary">
+          <span>Runtime</span>
+          <strong id="runtime-mode">Checking models</strong>
+          <small>Local processing · no hosted answer API</small>
+        </div>
       </aside>
     </main>
   </body>

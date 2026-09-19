@@ -74,6 +74,8 @@ class QueryPipeline:
                 privacy.safe_text, understanding.get("service"),
                 understanding.get("query_topic_id"), self.lookup.records,
             )
+            understanding["topic_match_score"] = round(match.score, 4)
+            understanding["topic_match_margin"] = round(match.margin, 4)
             if match.record is not None:
                 record = match.record
                 retrieval = {"status": "found", "match_level": "query_topic", "record": record}
@@ -88,6 +90,8 @@ class QueryPipeline:
                     privacy.safe_text, understanding.get("service"),
                     understanding.get("parent_topic_id"), self.lookup.records,
                 )
+                understanding["parent_match_score"] = round(parent.score, 4)
+                understanding["parent_match_margin"] = round(parent.margin, 4)
                 if parent.record is not None:
                     record = parent.record
                     retrieval = {"status": "found", "match_level": "parent_topic", "record": record}
