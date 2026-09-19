@@ -82,6 +82,10 @@
             <div id="privacy-notice" class="privacy-notice" hidden>
               <strong>Privacy notice</strong>
               <p id="privacy-message"></p>
+              <div id="masked-preview" class="masked-preview" hidden>
+                <span>Protected question</span>
+                <div id="masked-question" class="masked-question"></div>
+              </div>
             </div>
             <section id="pipeline-panel" class="pipeline-panel" aria-labelledby="pipeline-heading" hidden>
               <div class="pipeline-heading">
@@ -135,7 +139,7 @@
           <p>Coverage</p>
           <h2>Supported services</h2>
         </div>
-        <ul>
+        <ul class="supported-list">
           <li><span class="service-index">01</span>National ID</li>
           <li><span class="service-index">02</span>Birth registration</li>
           <li><span class="service-index">03</span>Passport</li>
@@ -143,6 +147,17 @@
           <li><span class="service-index">05</span>Police general diary</li>
           <li><span class="service-index">06</span>Driving licence</li>
         </ul>
+        <section class="history-section" aria-labelledby="history-heading">
+          <div class="history-heading">
+            <div>
+              <p>Current tab</p>
+              <h2 id="history-heading">Recent questions</h2>
+            </div>
+            <button id="clear-history" type="button" hidden>Clear</button>
+          </div>
+          <p id="history-empty" class="history-empty">Masked questions will appear here.</p>
+          <ol id="history-list" class="history-list" hidden></ol>
+        </section>
         <div class="runtime-summary">
           <span>Runtime</span>
           <strong id="runtime-mode">Checking models</strong>

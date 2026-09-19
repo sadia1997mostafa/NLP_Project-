@@ -11,9 +11,15 @@ const topicService = document.getElementById("topic-service");
 const topicChoice = document.getElementById("topic-choice");
 const topicSubmit = document.getElementById("topic-submit");
 const changeTopic = document.getElementById("change-topic");
+const historyList = document.getElementById("history-list");
+const historyEmpty = document.getElementById("history-empty");
+const clearHistory = document.getElementById("clear-history");
+const historyKey = "nagoriksheba.recentQuestions.v1";
+const historyLimit = 8;
 let catalog = [];
 let catalogError = false;
 let lastPrivacyWarnings = [];
+let lastMaskedQuestion = "";
 let suggestedService = "";
 let responseLanguage = "en";
 
@@ -32,6 +38,89 @@ function setText(id, value) {
 
 function setVisible(id, visible) {
   document.getElementById(id).hidden = !visible;
+}
+
+function readHistory() {
+  try {
+    const stored = JSON.parse(sessionStorage.getItem(historyKey) || "[]");
+    return Array.isArray(stored)
+      ? stored.filter(item => item && typeof item.question === "string").slice(0, historyLimit)
+      : [];
+  } catch (_) {
+    return [];
+  }
+}
+
+let recentQuestions = readHistory();
+
+function renderMaskedText(container, text) {
+  container.replaceChildren();
+  for (const part of String(text || "").split(/(\[[A-Z_]+\])/g).filter(Boolean)) {
+    const span = document.createElement("span");
+    span.textContent = part;
+    if (/^\[[A-Z_]+\]$/.test(part)) span.className = "masked-token";
+    container.appendChild(span);
+  }
+}
+
+function writeHistory() {
+  try {
+    sessionStorage.setItem(historyKey, JSON.stringify(recentQuestions));
+  } catch (_) {
+    // The app remains usable when browser storage is unavailable.
+  }
+}
+
+function renderHistory() {
+  historyList.replaceChildren();
+  historyEmpty.hidden = recentQuestions.length > 0;
+  historyList.hidden = recentQuestions.length === 0;
+  clearHistory.hidden = recentQuestions.length === 0;
+  for (const entry of recentQuestions) {
+    const item = document.createElement("li");
+    item.className = "history-item";
+    const button = document.createElement("button");
+    button.type = "button";
+    button.title = "Use this protected question";
+    const questionText = document.createElement("span");
+    questionText.className = "history-question";
+    renderMaskedText(questionText, entry.question);
+    const meta = document.createElement("span");
+    meta.className = "history-meta";
+    const service = document.createElement("span");
+    service.textContent = serviceNames[entry.service] || entry.service || "Unconfirmed";
+    const time = document.createElement("span");
+    time.textContent = new Intl.DateTimeFormat([], { hour: "2-digit", minute: "2-digit" })
+      .format(new Date(entry.createdAt));
+    meta.appendChild(service);
+    meta.appendChild(time);
+    button.appendChild(questionText);
+    button.appendChild(meta);
+    button.addEventListener("click", () => {
+      query.value = entry.question;
+      count.textContent = `${query.value.length} / 4000`;
+      result.hidden = true;
+      query.focus();
+    });
+    item.appendChild(button);
+    historyList.appendChild(item);
+  }
+}
+
+function rememberQuestion(payload) {
+  const protectedQuestion = String(payload.safe_text || "").trim();
+  if (!protectedQuestion) return;
+  const understanding = payload.understanding || {};
+  recentQuestions = recentQuestions.filter(item => item.question !== protectedQuestion);
+  recentQuestions.unshift({
+    question: protectedQuestion,
+    service: understanding.service || "",
+    topic: payload.response?.title || "",
+    createdAt: Date.now(),
+  });
+  recentQuestions = recentQuestions.slice(0, historyLimit);
+  writeHistory();
+  renderHistory();
 }
 
 function addOption(select, label, value) {
@@ -76,6 +165,8 @@ function showResult(state, title, body, kicker) {
   setText("result-kicker", kicker);
   setVisible("scope-note", false);
   setVisible("privacy-notice", false);
+  setVisible("masked-preview", false);
+  document.getElementById("masked-question").replaceChildren();
   setVisible("result-source", false);
   setVisible("result-meta", false);
   setVisible("language-note", false);
@@ -188,9 +279,14 @@ function showPayload(payload) {
     setVisible("scope-note", true);
   }
   if (payload.privacy_present) lastPrivacyWarnings = payload.warnings || [];
+  if (payload.privacy_present && payload.safe_text) lastMaskedQuestion = payload.safe_text;
   if (lastPrivacyWarnings.length) {
     setText("privacy-message", lastPrivacyWarnings.join(" "));
     setVisible("privacy-notice", true);
+    if (lastMaskedQuestion) {
+      renderMaskedText(document.getElementById("masked-question"), lastMaskedQuestion);
+      setVisible("masked-preview", true);
+    }
   }
   if (answer.source) {
     const link = document.getElementById("source-link");
@@ -254,10 +350,21 @@ clear.addEventListener("click", () => {
   count.textContent = "0 / 4000";
   result.hidden = true;
   lastPrivacyWarnings = [];
+  lastMaskedQuestion = "";
   suggestedService = "";
   responseLanguage = "en";
   thinkingPanel.hidden = true;
   query.focus();
+});
+
+clearHistory.addEventListener("click", () => {
+  recentQuestions = [];
+  try {
+    sessionStorage.removeItem(historyKey);
+  } catch (_) {
+    // Storage may be unavailable in a restricted browser context.
+  }
+  renderHistory();
 });
 
 form.addEventListener("submit", async (event) => {
@@ -267,6 +374,7 @@ form.addEventListener("submit", async (event) => {
   submit.disabled = true;
   submit.textContent = "Working...";
   lastPrivacyWarnings = [];
+  lastMaskedQuestion = "";
   suggestedService = "";
   responseLanguage = "en";
   result.hidden = true;
@@ -287,6 +395,7 @@ form.addEventListener("submit", async (event) => {
       count.textContent = `${query.value.length} / 4000`;
     }
     showPayload(payload);
+    rememberQuestion(payload);
   } catch (_) {
     showResult("error", "Service unavailable", "We could not process this request right now. Please try again later.", "System error");
   } finally {
@@ -295,6 +404,8 @@ form.addEventListener("submit", async (event) => {
     submit.textContent = "Get guidance";
   }
 });
+
+renderHistory();
 
 fetch("/api/status", { cache: "no-store" })
   .then((response) => response.json())

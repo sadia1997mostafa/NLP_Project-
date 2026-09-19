@@ -6,6 +6,7 @@ const vm = require("node:vm");
 
 function interfaceContext(fetchImpl) {
   const elements = new Map();
+  const stored = new Map();
   function element() {
     return {
       hidden: false, textContent: "", value: "", children: [], listeners: {},
@@ -25,10 +26,15 @@ function interfaceContext(fetchImpl) {
   };
   const context = vm.createContext({
     document, URL,
+    sessionStorage: {
+      getItem(key) { return stored.has(key) ? stored.get(key) : null; },
+      setItem(key, value) { stored.set(key, String(value)); },
+      removeItem(key) { stored.delete(key); },
+    },
     fetch: fetchImpl || (async (url) => ({ json: async () => url === "/api/guidance" ? [] : { model_ready: true } })),
   });
   vm.runInContext(fs.readFileSync(path.join(__dirname, "../app/static/main.js"), "utf8"), context);
-  return { context, elements };
+  return { context, elements, stored };
 }
 
 function show(context, state, documents) {
@@ -88,6 +94,44 @@ test("privacy notice survives a topic change but clears for a new query", () => 
   elements.get("clear-button").listeners.click();
   show(context, "answer", []);
   assert.equal(elements.get("privacy-notice").hidden, true);
+});
+
+test("privacy notice shows the protected question as masked tokens", () => {
+  const { context, elements } = interfaceContext();
+  context.payload = {
+    response: { state: "answer", title: "NID update", body: "Follow the official steps." },
+    understanding: { service: "NID" }, privacy_present: true,
+    privacy_types: ["nid", "otp"], safe_text: "amar nid [NID], OTP [OTP]",
+    warnings: ["Personal information was detected."],
+  };
+  vm.runInContext("showPayload(payload)", context);
+  assert.equal(elements.get("masked-preview").hidden, false);
+  const tokens = elements.get("masked-question").children.filter(item => item.className === "masked-token");
+  assert.deepEqual(tokens.map(item => item.textContent), ["[NID]", "[OTP]"]);
+});
+
+test("recent questions store only server-protected text for the current tab", async () => {
+  const { elements, stored } = interfaceContext(async (url) => {
+    if (url === "/api/analyze") {
+      return { ok: true, json: async () => ({
+        response: { state: "answer", title: "NID update", body: "Use the official portal." },
+        understanding: { service: "NID" }, privacy_present: true,
+        privacy_types: ["nid"], safe_text: "amar nid [NID] update",
+        warnings: ["Personal information was detected."],
+      }) };
+    }
+    return { ok: true, json: async () => url === "/api/guidance" ? [] : { model_ready: true } };
+  });
+  elements.get("query").value = "amar nid 1234567890 update";
+  await elements.get("query-form").listeners.submit({ preventDefault() {} });
+  const serialized = stored.get("nagoriksheba.recentQuestions.v1");
+  assert.match(serialized, /\[NID\]/);
+  assert.doesNotMatch(serialized, /1234567890/);
+  assert.equal(elements.get("history-list").hidden, false);
+  assert.equal(elements.get("history-list").children.length, 1);
+  elements.get("clear-history").listeners.click();
+  assert.equal(stored.has("nagoriksheba.recentQuestions.v1"), false);
+  assert.equal(elements.get("history-list").hidden, true);
 });
 
 test("Bengali answer labels preserve source-language transparency", () => {
