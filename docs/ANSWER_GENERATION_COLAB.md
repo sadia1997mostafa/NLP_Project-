@@ -92,15 +92,16 @@ source-checked, independently worded QA examples in a separate dataset.
    A prebuilt wheel may not exist for this machine's Python 3.14. If this
    fails, use a compatible Python environment with the app dependencies and a
    supported wheel; a source build requires a C++ toolchain.
-3. In the **same PowerShell session** that starts the app, set the file path:
+3. If exactly one `.gguf` exists in `models/answer_generator/`, the app finds it
+   automatically. Start the prepared local environment with:
 
    ```powershell
-   $env:NAGORIKSHEBA_ANSWER_GGUF = 'D:\NLP_LAB\nlp_projectfinal\NLP_Project-\models\answer_generator\nagoriksheba-answer.gguf'
-   python -m uvicorn app.server:app --host 127.0.0.1 --port 8002
+   powershell -ExecutionPolicy Bypass -File scripts/start_local_app.ps1
    ```
 
-   Stop an existing app on port 8002 first, or choose a free port. `/api/status`
-   must report `answer_generator_ready: true`.
+   Set `NAGORIKSHEBA_ANSWER_GGUF` first only when choosing among multiple model
+   files. Stop an existing app on port 8002 first. `/api/status` must report
+   `answer_generator_ready: true`.
 4. Test new questions in all six services, including Bengali, Banglish,
    documents, conditional rules, unknown details, OTP masking and unrelated
    queries. Accepted model output has `answer_basis: local_finetuned_model`;

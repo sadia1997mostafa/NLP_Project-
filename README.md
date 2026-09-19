@@ -9,7 +9,8 @@ validated service.
 ## Run locally
 
 1. Use a Python environment with a supported PyTorch build and install
-   `python -m pip install -r requirements-app.txt`.
+   `python -m pip install -r requirements-app.txt`. To run the optional local
+   answer model too, install `requirements-answer.txt` instead.
 2. Obtain Prothom's `models/final/` directory, including the tokenizer and 13
    active classifier directories. Model files are Git ignored and are **not**
    included in this repository. Keep the directory at the repository root.
@@ -22,6 +23,11 @@ validated service.
    ```
 
 5. Open `http://127.0.0.1:8000/`.
+
+For the downloaded local answer model, put exactly one `.gguf` file in
+`models/answer_generator/`. The app discovers it automatically. On Windows,
+`powershell -ExecutionPolicy Bypass -File scripts/start_local_app.ps1` starts
+the prepared `.venv-answer` environment on `http://127.0.0.1:8002/`.
 
 The server imports `predict_understanding` once and retains Prothom's model
 cache across requests. `GET /api/status` reports whether the model files are
@@ -59,8 +65,10 @@ covered route, rather than copying the corpus paragraph. It keeps document
 conditions and official citations. This is controlled generation, not an
 open-ended model, and topic titles and document names may remain in English.
 An optional local, fine-tuned GGUF can write the answer for a confirmed exact
-topic using its masked question and single corpus record. It is disabled until
-configured and keeps the controlled answer as fallback. See the
+topic using its masked question and single corpus record. It is enabled when
+exactly one GGUF is present in `models/answer_generator/`, or when
+`NAGORIKSHEBA_ANSWER_GGUF` names a model explicitly, and keeps the controlled
+answer as fallback. See the
 [Colab answer-model runbook](docs/ANSWER_GENERATION_COLAB.md); the shipped app
 does not include trained generator weights or a hosted model dependency.
 Model confidence and the corpus matching gates are not validated on real

@@ -1,9 +1,13 @@
 """Optional local generation must never bypass routing or privacy gates."""
 
+import os
+import tempfile
 import unittest
+from pathlib import Path
+from unittest.mock import patch
 
 from src.pipeline.service import QueryPipeline
-from src.response.local_generator import acceptable_answer
+from src.response.local_generator import MODEL_ENV, acceptable_answer, configured_model_path
 from src.retrieval.corpus import load_records
 from src.retrieval.topic_match import match_topic
 
@@ -28,6 +32,31 @@ def passport_predictor(_):
 
 
 class LocalAnswerTests(unittest.TestCase):
+    def test_single_default_gguf_is_discovered(self):
+        with tempfile.TemporaryDirectory() as directory:
+            model_dir = Path(directory)
+            expected = model_dir / "answer.Q4_K_M.gguf"
+            expected.touch()
+            with patch.dict(os.environ, {}, clear=True), patch(
+                "src.response.local_generator.DEFAULT_MODEL_DIR", model_dir,
+            ):
+                self.assertEqual(configured_model_path(), expected)
+
+    def test_multiple_default_ggufs_require_an_explicit_choice(self):
+        with tempfile.TemporaryDirectory() as directory:
+            model_dir = Path(directory)
+            (model_dir / "first.gguf").touch()
+            (model_dir / "second.gguf").touch()
+            with patch.dict(os.environ, {}, clear=True), patch(
+                "src.response.local_generator.DEFAULT_MODEL_DIR", model_dir,
+            ):
+                self.assertIsNone(configured_model_path())
+
+    def test_model_environment_variable_overrides_default(self):
+        selected = Path("selected-model.gguf")
+        with patch.dict(os.environ, {MODEL_ENV: str(selected)}, clear=True):
+            self.assertEqual(configured_model_path(), selected)
+
     def test_common_banglish_phrases_reach_specific_records(self):
         records = load_records()
         cases = (

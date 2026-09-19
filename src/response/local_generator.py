@@ -15,6 +15,7 @@ from src.response.model_prompt import prompt_messages
 
 
 MODEL_ENV = "NAGORIKSHEBA_ANSWER_GGUF"
+DEFAULT_MODEL_DIR = Path(__file__).resolve().parents[2] / "models" / "answer_generator"
 FOREIGN_SCRIPT = re.compile(
     r"[\u0400-\u052f\u0600-\u06ff\u0750-\u077f\u0900-\u0963\u0966-\u097f"
     r"\u0e00-\u0e7f\u1100-\u11ff\u3040-\u30ff\u3400-\u9fff\uac00-\ud7af]"
@@ -30,7 +31,11 @@ COMMON_WORDS = {
 
 def configured_model_path() -> Path | None:
     value = os.environ.get(MODEL_ENV, "").strip()
-    return Path(value).expanduser() if value else None
+    if value:
+        return Path(value).expanduser()
+
+    candidates = sorted(DEFAULT_MODEL_DIR.glob("*.gguf"))
+    return candidates[0] if len(candidates) == 1 else None
 
 
 def local_generator_ready() -> bool:
