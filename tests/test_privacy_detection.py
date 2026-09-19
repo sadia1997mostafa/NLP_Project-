@@ -17,7 +17,10 @@ class PrivacyCorpusTests(unittest.TestCase):
             for line in CASES.read_text(encoding="utf-8").splitlines()
             if line.strip()
         ]
-        self.assertGreaterEqual(len(rows), 50)
+        self.assertEqual(len(rows), 100)
+        self.assertEqual(sum(row["privacy_present"] for row in rows), 65)
+        self.assertEqual(sum(not row["privacy_present"] for row in rows), 35)
+        self.assertGreaterEqual(sum(len(row["types"]) > 1 for row in rows), 12)
         self.assertEqual(len({row["id"] for row in rows}), len(rows))
         for row in rows:
             with self.subTest(case=row["id"]):

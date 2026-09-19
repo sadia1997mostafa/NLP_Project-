@@ -1,7 +1,8 @@
 # Privacy regression corpus
 
-`privacy_cases.jsonl` is a synthetic, non-secret regression set for the
-rule-based privacy masker. It covers labelled government identifiers, generic
+`privacy_cases.jsonl` is a 100-case synthetic, non-secret regression set for
+the rule-based privacy masker. Its 65 positive and 35 negative cases cover
+labelled government identifiers, generic
 identifiers, contact details, credentials, explicit personal fields, Bangla
 digits, English, Bangla and Banglish variants. Negative cases protect ordinary
 fees, years, emergency numbers and service questions from over-masking.

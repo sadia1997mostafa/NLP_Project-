@@ -53,8 +53,8 @@ Privacy matching covers common identifiers, OTPs/passwords, labelled NID,
 birth-registration, passport, TIN, driving-licence and application/reference
 numbers, generic labelled identifiers, bank/payment-card numbers, and explicitly
 labelled names and addresses, including Bangla digits and common Banglish
-variants. The synthetic privacy regression corpus includes positive and
-negative cases so service and intent wording remains available after masking.
+variants. The 100-case synthetic privacy regression corpus includes 65 positive
+and 35 negative cases so service and intent wording remains available after masking.
 Pattern matching can still miss free-form personal details. Avoid sharing
 unnecessary sensitive information.
 

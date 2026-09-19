@@ -52,3 +52,49 @@
 {"id":"N010","text":"TIN application করতে চাই","privacy_present":false,"types":[],"safe_text":"TIN application করতে চাই"}
 {"id":"N011","text":"জন্ম নিবন্ধন সনদ হারিয়ে গেছে","privacy_present":false,"types":[],"safe_text":"জন্ম নিবন্ধন সনদ হারিয়ে গেছে"}
 {"id":"N012","text":"passport no mone nei","privacy_present":false,"types":[],"safe_text":"passport no mone nei"}
+{"id":"P043","text":"amar email holo rahim99@mail.com, tax help chai","privacy_present":true,"types":["email"],"safe_text":"amar email holo [EMAIL], tax help chai"}
+{"id":"P044","text":"যোগাযোগের জন্য +880-1712-345678 নম্বরে call করুন","privacy_present":true,"types":["phone"],"safe_text":"যোগাযোগের জন্য [PHONE] নম্বরে call করুন"}
+{"id":"P045","text":"পাসকোড: Abc@123 দিয়ে login করেছি","privacy_present":true,"types":["password"],"safe_text":"পাসকোড: [PASSWORD] দিয়ে login করেছি"}
+{"id":"P046","text":"ভেরিফিকেশন কোডটি ৪৪৫৫৬৬ কাজ করছে না","privacy_present":true,"types":["otp"],"safe_text":"ভেরিফিকেশন কোডটি [OTP] কাজ করছে না"}
+{"id":"P047","text":"amar NID nombor holo ১২৩৪৫৬৭৮৯০ update korte chai","privacy_present":true,"types":["nid"],"safe_text":"amar NID nombor holo [NID] update korte chai"}
+{"id":"P048","text":"পাসপোর্ট নং B১২৩৪৫৬৭৮ এর status দেখব","privacy_present":true,"types":["passport"],"safe_text":"পাসপোর্ট নং [PASSPORT] এর status দেখব"}
+{"id":"P049","text":"birth registration no 1234-5678-9012-34567 verify korbo","privacy_present":true,"types":["birth_registration"],"safe_text":"birth registration no [BIRTH_REGISTRATION] verify korbo"}
+{"id":"P050","text":"tax identification number 123 456 789 012 return submit","privacy_present":true,"types":["tin"],"safe_text":"tax identification number [TIN] return submit"}
+{"id":"P051","text":"BRTA licence no CTG/7654321 renew korte chai","privacy_present":true,"types":["driving_licence"],"safe_text":"BRTA licence no [DRIVING_LICENCE] renew korte chai"}
+{"id":"P052","text":"registration number REG-2026-778899 diye track korbo","privacy_present":true,"types":["application_id"],"safe_text":"registration number [APPLICATION_ID] diye track korbo"}
+{"id":"P053","text":"ব্যাংক হিসাব নম্বর AC১২৩৪৫৬৭৮ যাচাই করুন","privacy_present":true,"types":["bank_account"],"safe_text":"ব্যাংক হিসাব নম্বর [BANK_ACCOUNT] যাচাই করুন"}
+{"id":"P054","text":"ডেবিট কার্ড নং ৪১১১-১১১১-১১১১-১১১১ দিয়েছি","privacy_present":true,"types":["payment_card"],"safe_text":"ডেবিট কার্ড নং [PAYMENT_CARD] দিয়েছি"}
+{"id":"P055","text":"DOB 2001-12-31, phone 01912345678 দিয়ে account করেছি","privacy_present":true,"types":["date_of_birth","phone"],"safe_text":"DOB [DATE_OF_BIRTH], phone [PHONE] দিয়ে account করেছি"}
+{"id":"P056","text":"my name is Nusrat Jahan, email nusrat@example.com, passport help","privacy_present":true,"types":["name","email"],"safe_text":"my name is [NAME], email [EMAIL], passport help"}
+{"id":"P057","text":"amar permanent address: House 9 Road 2; phone 01612345678; NID update","privacy_present":true,"types":["address","phone"],"safe_text":"amar permanent address: [ADDRESS]; phone [PHONE]; NID update"}
+{"id":"P058","text":"passport no B76543210, tracking code TRK-445566 status","privacy_present":true,"types":["passport","application_id"],"safe_text":"passport no [PASSPORT], tracking code [APPLICATION_ID] status"}
+{"id":"P059","text":"NID ১২৩৪৫৬৭৮৯০, জন্ম তারিখ ০১/০২/২০০১ correction","privacy_present":true,"types":["nid","date_of_birth"],"safe_text":"NID [NID], জন্ম তারিখ [DATE_OF_BIRTH] correction"}
+{"id":"P060","text":"জন্ম নিবন্ধন নম্বর ১২৩৪৫৬৭৮৯০১২৩৪৫৬৭, ফোন ০১৮১২৩৪৫৬৭৮, ওটিপি ৪৪৫৫৬৬","privacy_present":true,"types":["birth_registration","phone","otp"],"safe_text":"জন্ম নিবন্ধন নম্বর [BIRTH_REGISTRATION], ফোন [PHONE], ওটিপি [OTP]"}
+{"id":"P061","text":"driving license no DHA-7654321, my name is Arif Khan, renew","privacy_present":true,"types":["driving_licence","name"],"safe_text":"driving license no [DRIVING_LICENCE], my name is [NAME], renew"}
+{"id":"P062","text":"e-TIN number 123456789012, email tax.user@example.org return help","privacy_present":true,"types":["tin","email"],"safe_text":"e-TIN number [TIN], email [EMAIL] return help"}
+{"id":"P063","text":"bank account number AC-778899, card number 4111 1111 1111 1111","privacy_present":true,"types":["bank_account","payment_card"],"safe_text":"bank account number [BANK_ACCOUNT], card number [PAYMENT_CARD]"}
+{"id":"P064","text":"passport A12345678, NID 1234567890, OTP 654321","privacy_present":true,"types":["passport","nid","otp"],"safe_text":"passport [PASSPORT], NID [NID], OTP [OTP]"}
+{"id":"P065","text":"আমার নাম: নুসরাত জাহান, আমার বর্তমান ঠিকানা: বাড়ি ৯, রোড ২; email n@example.com phone 01512345678 password: DemoPass9","privacy_present":true,"types":["name","address","email","phone","password"],"safe_text":"আমার নাম: [NAME], আমার বর্তমান ঠিকানা: [ADDRESS]; email [EMAIL] phone [PHONE] password: [PASSWORD]"}
+{"id":"N013","text":"email address কোথায় দিতে হবে?","privacy_present":false,"types":[],"safe_text":"email address কোথায় দিতে হবে?"}
+{"id":"N014","text":"password reset korbo kivabe","privacy_present":false,"types":[],"safe_text":"password reset korbo kivabe"}
+{"id":"N015","text":"PIN ভুলে গেছি","privacy_present":false,"types":[],"safe_text":"PIN ভুলে গেছি"}
+{"id":"N016","text":"জন্ম তারিখ সংশোধনের নিয়ম কী","privacy_present":false,"types":[],"safe_text":"জন্ম তারিখ সংশোধনের নিয়ম কী"}
+{"id":"N017","text":"bank account লাগবে কি?","privacy_present":false,"types":[],"safe_text":"bank account লাগবে কি?"}
+{"id":"N018","text":"card payment করা যাবে?","privacy_present":false,"types":[],"safe_text":"card payment করা যাবে?"}
+{"id":"N019","text":"driving licence number কোথায় পাব?","privacy_present":false,"types":[],"safe_text":"driving licence number কোথায় পাব?"}
+{"id":"N020","text":"application ID delivery slip-e thake?","privacy_present":false,"types":[],"safe_text":"application ID delivery slip-e thake?"}
+{"id":"N021","text":"reference code হারিয়ে ফেলেছি","privacy_present":false,"types":[],"safe_text":"reference code হারিয়ে ফেলেছি"}
+{"id":"N022","text":"customer ID তৈরি করব কীভাবে?","privacy_present":false,"types":[],"safe_text":"customer ID তৈরি করব কীভাবে?"}
+{"id":"N023","text":"serial number কোথায় লেখা আছে?","privacy_present":false,"types":[],"safe_text":"serial number কোথায় লেখা আছে?"}
+{"id":"N024","text":"সেবার হেল্পলাইন 333 কি?","privacy_present":false,"types":[],"safe_text":"সেবার হেল্পলাইন 333 কি?"}
+{"id":"N025","text":"passport 64 pages and 10 years validity চাই","privacy_present":false,"types":[],"safe_text":"passport 64 pages and 10 years validity চাই"}
+{"id":"N026","text":"NID service charge 230 taka কিনা","privacy_present":false,"types":[],"safe_text":"NID service charge 230 taka কিনা"}
+{"id":"N027","text":"e-TIN return year 2024-2025","privacy_present":false,"types":[],"safe_text":"e-TIN return year 2024-2025"}
+{"id":"N028","text":"appointment date 01/02/2025 পরিবর্তন করব","privacy_present":false,"types":[],"safe_text":"appointment date 01/02/2025 পরিবর্তন করব"}
+{"id":"N029","text":"OTP 123 এসেছে কি?","privacy_present":false,"types":[],"safe_text":"OTP 123 এসেছে কি?"}
+{"id":"N030","text":"OTP 123456789 এসেছে","privacy_present":false,"types":[],"safe_text":"OTP 123456789 এসেছে"}
+{"id":"N031","text":"phone 12345 দিয়ে যোগাযোগ হবে?","privacy_present":false,"types":[],"safe_text":"phone 12345 দিয়ে যোগাযোগ হবে?"}
+{"id":"N032","text":"account number কয় digit হয়?","privacy_present":false,"types":[],"safe_text":"account number কয় digit হয়?"}
+{"id":"N033","text":"passport no এখনও পাইনি","privacy_present":false,"types":[],"safe_text":"passport no এখনও পাইনি"}
+{"id":"N034","text":"আমার নাম সংশোধন করতে চাই","privacy_present":false,"types":[],"safe_text":"আমার নাম সংশোধন করতে চাই"}
+{"id":"N035","text":"আমার বর্তমান ঠিকানা পরিবর্তন করতে চাই","privacy_present":false,"types":[],"safe_text":"আমার বর্তমান ঠিকানা পরিবর্তন করতে চাই"}

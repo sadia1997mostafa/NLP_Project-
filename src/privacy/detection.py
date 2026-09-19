@@ -87,7 +87,7 @@ PATTERNS: tuple[tuple[str, re.Pattern[str]], ...] = (
     )),
     ("name", _compiled(
         r"(?:(?:আমার|পিতার|মাতার)\s+নাম|নাম\s*[:：])\s*"
-        r"(?:(?:হলো|হচ্ছে)\s+|[:=]\s*)?([^,.;\n!?।]{2,60})"
+        r"(?:(?:হলো|হচ্ছে)\s+|[:=]\s*)([^,.;\n!?।]{2,60})"
     )),
     ("name", _compiled(
         r"\b(?:father(?:'s)?|mother(?:'s)?|babar|mayer)\s+(?:name|nam)\s*"
