@@ -1,0 +1,54 @@
+{"id":"P001","text":"My NID number 1234567890 needs correction","privacy_present":true,"types":["nid"],"safe_text":"My NID number [NID] needs correction"}
+{"id":"P002","text":"voter card no 1234-567-890 update korbo","privacy_present":true,"types":["nid"],"safe_text":"voter card no [NID] update korbo"}
+{"id":"P003","text":"জাতীয় পরিচয়পত্র নম্বর ১২৩৪৫৬৭৮৯০ সংশোধন করব","privacy_present":true,"types":["nid"],"safe_text":"জাতীয় পরিচয়পত্র নম্বর [NID] সংশোধন করব"}
+{"id":"P004","text":"passport no A12345678 hariye geche","privacy_present":true,"types":["passport"],"safe_text":"passport no [PASSPORT] hariye geche"}
+{"id":"P005","text":"e-passport number 1234567890 status check","privacy_present":true,"types":["passport"],"safe_text":"e-passport number [PASSPORT] status check"}
+{"id":"P006","text":"পাসপোর্ট নম্বর ১২৩৪৫৬৭৮৯০ হারিয়ে গেছে","privacy_present":true,"types":["passport"],"safe_text":"পাসপোর্ট নম্বর [PASSPORT] হারিয়ে গেছে"}
+{"id":"P007","text":"birth certificate no 54575477 হারিয়েছি","privacy_present":true,"types":["birth_registration"],"safe_text":"birth certificate no [BIRTH_REGISTRATION] হারিয়েছি"}
+{"id":"P008","text":"amar jonmo nibondon nombor 12345678901234567","privacy_present":true,"types":["birth_registration"],"safe_text":"amar jonmo nibondon nombor [BIRTH_REGISTRATION]"}
+{"id":"P009","text":"জন্ম নিবন্ধন নং ১২৩৪৫৬৭৮ যাচাই করব","privacy_present":true,"types":["birth_registration"],"safe_text":"জন্ম নিবন্ধন নং [BIRTH_REGISTRATION] যাচাই করব"}
+{"id":"P010","text":"e-TIN no 123456789012 return submit","privacy_present":true,"types":["tin"],"safe_text":"e-TIN no [TIN] return submit"}
+{"id":"P011","text":"টিন নম্বর ১২৩৪৫৬৭৮৯০ ভুল হয়েছে","privacy_present":true,"types":["tin"],"safe_text":"টিন নম্বর [TIN] ভুল হয়েছে"}
+{"id":"P012","text":"driving licence no DHA-1234567 renew korbo","privacy_present":true,"types":["driving_licence"],"safe_text":"driving licence no [DRIVING_LICENCE] renew korbo"}
+{"id":"P013","text":"learner license id LRN/123456 check","privacy_present":true,"types":["driving_licence"],"safe_text":"learner license id [DRIVING_LICENCE] check"}
+{"id":"P014","text":"ড্রাইভিং লাইসেন্স নম্বর DHA-১২৩৪৫৬৭","privacy_present":true,"types":["driving_licence"],"safe_text":"ড্রাইভিং লাইসেন্স নম্বর [DRIVING_LICENCE]"}
+{"id":"P015","text":"application ID APP-123456 status","privacy_present":true,"types":["application_id"],"safe_text":"application ID [APPLICATION_ID] status"}
+{"id":"P016","text":"reference code REF/778899 diye track korbo","privacy_present":true,"types":["application_id"],"safe_text":"reference code [APPLICATION_ID] diye track korbo"}
+{"id":"P017","text":"আবেদন নম্বর ১২৩৪-৫৬৭৮ এর অবস্থা কী","privacy_present":true,"types":["application_id"],"safe_text":"আবেদন নম্বর [APPLICATION_ID] এর অবস্থা কী"}
+{"id":"P018","text":"Call me at 01712345678 about NID","privacy_present":true,"types":["phone"],"safe_text":"Call me at [PHONE] about NID"}
+{"id":"P019","text":"mobile +880 1712345678 passport help","privacy_present":true,"types":["phone"],"safe_text":"mobile [PHONE] passport help"}
+{"id":"P020","text":"ফোন ০১৭১২৩৪৫৬৭৮ দিয়ে নিবন্ধন করেছি","privacy_present":true,"types":["phone"],"safe_text":"ফোন [PHONE] দিয়ে নিবন্ধন করেছি"}
+{"id":"P021","text":"OTP is 123456","privacy_present":true,"types":["otp"],"safe_text":"OTP is [OTP]"}
+{"id":"P022","text":"otp ta ১২৩৪৫৬ verify hocche na","privacy_present":true,"types":["otp"],"safe_text":"otp ta [OTP] verify hocche na"}
+{"id":"P023","text":"verification code: 778899","privacy_present":true,"types":["otp"],"safe_text":"verification code: [OTP]"}
+{"id":"P024","text":"password: secret123 reset korte chai","privacy_present":true,"types":["password"],"safe_text":"password: [PASSWORD] reset korte chai"}
+{"id":"P025","text":"PIN is 7788","privacy_present":true,"types":["password"],"safe_text":"PIN is [PASSWORD]"}
+{"id":"P026","text":"পাসওয়ার্ড হলো amarSecret9","privacy_present":true,"types":["password"],"safe_text":"পাসওয়ার্ড হলো [PASSWORD]"}
+{"id":"P027","text":"email user.test@example.com দিয়ে account খুলেছি","privacy_present":true,"types":["email"],"safe_text":"email [EMAIL] দিয়ে account খুলেছি"}
+{"id":"P028","text":"DOB 01/02/2000 correction chai","privacy_present":true,"types":["date_of_birth"],"safe_text":"DOB [DATE_OF_BIRTH] correction chai"}
+{"id":"P029","text":"জন্ম তারিখ: ২০০০-০২-০১ ভুল","privacy_present":true,"types":["date_of_birth"],"safe_text":"জন্ম তারিখ: [DATE_OF_BIRTH] ভুল"}
+{"id":"P030","text":"my name is Ayesha Rahman, NID correction","privacy_present":true,"types":["name"],"safe_text":"my name is [NAME], NID correction"}
+{"id":"P031","text":"amr nam: Rahim Uddin; passport help","privacy_present":true,"types":["name"],"safe_text":"amr nam: [NAME]; passport help"}
+{"id":"P032","text":"আমার নাম হলো সাদিয়া রহমান, জন্ম নিবন্ধন সংশোধন","privacy_present":true,"types":["name"],"safe_text":"আমার নাম হলো [NAME], জন্ম নিবন্ধন সংশোধন"}
+{"id":"P033","text":"father's name is Karim Mia, passport correction","privacy_present":true,"types":["name"],"safe_text":"father's name is [NAME], passport correction"}
+{"id":"P034","text":"address: 12 Lake Road; passport renewal","privacy_present":true,"types":["address"],"safe_text":"address: [ADDRESS]; passport renewal"}
+{"id":"P035","text":"amr thikana holo House 4, Road 7; NID correction","privacy_present":true,"types":["address"],"safe_text":"amr thikana holo [ADDRESS]; NID correction"}
+{"id":"P036","text":"আমার বর্তমান ঠিকানা: বাড়ি ৪, রোড ৭; এনআইডি সংশোধন","privacy_present":true,"types":["address"],"safe_text":"আমার বর্তমান ঠিকানা: [ADDRESS]; এনআইডি সংশোধন"}
+{"id":"P037","text":"bank account number 123456789012 টাকা ফেরত","privacy_present":true,"types":["bank_account"],"safe_text":"bank account number [BANK_ACCOUNT] টাকা ফেরত"}
+{"id":"P038","text":"card number 1234 5678 9012 3456 দিয়েছি","privacy_present":true,"types":["payment_card"],"safe_text":"card number [PAYMENT_CARD] দিয়েছি"}
+{"id":"P039","text":"personal ID CUST-778899 ব্যবহার করেছি","privacy_present":true,"types":["identifier"],"safe_text":"personal ID [IDENTIFIER] ব্যবহার করেছি"}
+{"id":"P040","text":"এই নম্বরটি 1234567890 আমার","privacy_present":true,"types":["identifier"],"safe_text":"এই নম্বরটি [IDENTIFIER] আমার"}
+{"id":"P041","text":"A12345678 দিয়ে passport status দেখি","privacy_present":true,"types":["passport"],"safe_text":"[PASSPORT] দিয়ে passport status দেখি"}
+{"id":"P042","text":"NID 1234567890, phone 01712345678, OTP 778899","privacy_present":true,"types":["nid","phone","otp"],"safe_text":"NID [NID], phone [PHONE], OTP [OTP]"}
+{"id":"N001","text":"How do I apply for a passport?","privacy_present":false,"types":[],"safe_text":"How do I apply for a passport?"}
+{"id":"N002","text":"passport fee 5750 kina জানতে চাই","privacy_present":false,"types":[],"safe_text":"passport fee 5750 kina জানতে চাই"}
+{"id":"N003","text":"Emergency হলে 999 call করব?","privacy_present":false,"types":[],"safe_text":"Emergency হলে 999 call করব?"}
+{"id":"N004","text":"tax return year 2025-2026","privacy_present":false,"types":[],"safe_text":"tax return year 2025-2026"}
+{"id":"N005","text":"application process ta kivabe shuru korbo","privacy_present":false,"types":[],"safe_text":"application process ta kivabe shuru korbo"}
+{"id":"N006","text":"amar thikana change korbo kivabe","privacy_present":false,"types":[],"safe_text":"amar thikana change korbo kivabe"}
+{"id":"N007","text":"name correction er documents ki","privacy_present":false,"types":[],"safe_text":"name correction er documents ki"}
+{"id":"N008","text":"OTP ashtese na","privacy_present":false,"types":[],"safe_text":"OTP ashtese na"}
+{"id":"N009","text":"phone number lagbe kina","privacy_present":false,"types":[],"safe_text":"phone number lagbe kina"}
+{"id":"N010","text":"TIN application করতে চাই","privacy_present":false,"types":[],"safe_text":"TIN application করতে চাই"}
+{"id":"N011","text":"জন্ম নিবন্ধন সনদ হারিয়ে গেছে","privacy_present":false,"types":[],"safe_text":"জন্ম নিবন্ধন সনদ হারিয়ে গেছে"}
+{"id":"N012","text":"passport no mone nei","privacy_present":false,"types":[],"safe_text":"passport no mone nei"}

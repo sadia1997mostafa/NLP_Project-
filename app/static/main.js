@@ -14,8 +14,8 @@ const changeTopic = document.getElementById("change-topic");
 const historyList = document.getElementById("history-list");
 const historyEmpty = document.getElementById("history-empty");
 const clearHistory = document.getElementById("clear-history");
-const historyKey = "nagoriksheba.recentQuestions.v2";
-const legacyHistoryKeys = ["nagoriksheba.recentQuestions.v1"];
+const historyKey = "nagoriksheba.recentQuestions.v3";
+const legacyHistoryKeys = ["nagoriksheba.recentQuestions.v1", "nagoriksheba.recentQuestions.v2"];
 const historyLimit = 8;
 let catalog = [];
 let catalogError = false;
@@ -34,10 +34,13 @@ const serviceNames = {
 };
 
 const privacyNames = {
+  bank_account: "bank account",
   birth_registration: "birth registration",
   driving_licence: "driving licence",
   application_id: "application/reference ID",
   date_of_birth: "date of birth",
+  identifier: "identifier",
+  payment_card: "payment card",
 };
 
 function setText(id, value) {
