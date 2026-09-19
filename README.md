@@ -49,9 +49,11 @@ The visitor can change the topic. `GET /api/guidance` lists curated choices;
 from one listed choice, plus an optional `language` of `en` or `bn`. Raw query
 text is used only in memory for inference. The endpoint does not log request
 bodies and sends `Cache-Control: no-store`.
-Privacy matching covers common identifiers, OTPs/passwords, and explicitly
-labelled names and addresses, including some Banglish fields. It can still miss
-free-form personal details. Avoid sharing unnecessary sensitive information.
+Privacy matching covers common identifiers, OTPs/passwords, labelled NID,
+birth-registration, passport, TIN, driving-licence and application/reference
+numbers, plus explicitly labelled names and addresses, including some Banglish
+fields. It can still miss free-form personal details. Avoid sharing unnecessary
+sensitive information.
 
 The [guidance corpus](knowledge_base/README.md) has 67 reviewed records from
 22 official source URLs: 56 exact topics, five parent topics, and general

@@ -124,13 +124,13 @@ test("recent questions store only server-protected text for the current tab", as
   });
   elements.get("query").value = "amar nid 1234567890 update";
   await elements.get("query-form").listeners.submit({ preventDefault() {} });
-  const serialized = stored.get("nagoriksheba.recentQuestions.v1");
+  const serialized = stored.get("nagoriksheba.recentQuestions.v2");
   assert.match(serialized, /\[NID\]/);
   assert.doesNotMatch(serialized, /1234567890/);
   assert.equal(elements.get("history-list").hidden, false);
   assert.equal(elements.get("history-list").children.length, 1);
   elements.get("clear-history").listeners.click();
-  assert.equal(stored.has("nagoriksheba.recentQuestions.v1"), false);
+  assert.equal(stored.has("nagoriksheba.recentQuestions.v2"), false);
   assert.equal(elements.get("history-list").hidden, true);
 });
 

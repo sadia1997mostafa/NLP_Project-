@@ -54,6 +54,26 @@ class PrivacyTests(unittest.TestCase):
         self.assertNotIn("12 Lake Road", result.safe_text)
         self.assertIn("NID correction", result.safe_text)
 
+    def test_explicit_service_identifiers_use_the_correct_privacy_type(self):
+        cases = (
+            ("amar birth certificate no 54575477 hariye geche", "birth_registration", "[BIRTH_REGISTRATION]"),
+            ("amr passport no 1234567890", "passport", "[PASSPORT]"),
+            ("e-TIN no 123456789012", "tin", "[TIN]"),
+            ("driving licence no DHA-1234567", "driving_licence", "[DRIVING_LICENCE]"),
+            ("application ID 1234-5678", "application_id", "[APPLICATION_ID]"),
+            ("জন্ম নিবন্ধন নম্বর ১২৩৪৫৬৭৮", "birth_registration", "[BIRTH_REGISTRATION]"),
+        )
+        for text, expected_type, placeholder in cases:
+            with self.subTest(text=text):
+                result = detect_privacy(text)
+                self.assertEqual(result.privacy_types, [expected_type])
+                self.assertIn(placeholder, result.safe_text)
+
+    def test_explicit_passport_number_wins_over_generic_nid_length(self):
+        result = detect_privacy("passport no 1234567890")
+        self.assertEqual(result.safe_text, "passport no [PASSPORT]")
+        self.assertEqual(result.privacy_types, ["passport"])
+
     def test_explicit_address_masks_contained_phone_as_well(self):
         result = detect_privacy("address: 12 Lake Road phone 01712345678; passport renewal")
         self.assertNotIn("Lake Road", result.safe_text)

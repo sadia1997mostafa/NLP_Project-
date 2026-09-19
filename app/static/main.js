@@ -14,7 +14,8 @@ const changeTopic = document.getElementById("change-topic");
 const historyList = document.getElementById("history-list");
 const historyEmpty = document.getElementById("history-empty");
 const clearHistory = document.getElementById("clear-history");
-const historyKey = "nagoriksheba.recentQuestions.v1";
+const historyKey = "nagoriksheba.recentQuestions.v2";
+const legacyHistoryKeys = ["nagoriksheba.recentQuestions.v1"];
 const historyLimit = 8;
 let catalog = [];
 let catalogError = false;
@@ -32,6 +33,13 @@ const serviceNames = {
   DRIVING_LICENCE: "Driving licence",
 };
 
+const privacyNames = {
+  birth_registration: "birth registration",
+  driving_licence: "driving licence",
+  application_id: "application/reference ID",
+  date_of_birth: "date of birth",
+};
+
 function setText(id, value) {
   document.getElementById(id).textContent = value || "";
 }
@@ -42,6 +50,7 @@ function setVisible(id, visible) {
 
 function readHistory() {
   try {
+    for (const key of legacyHistoryKeys) sessionStorage.removeItem(key);
     const stored = JSON.parse(sessionStorage.getItem(historyKey) || "[]");
     return Array.isArray(stored)
       ? stored.filter(item => item && typeof item.question === "string").slice(0, historyLimit)
@@ -191,7 +200,7 @@ function showPipeline(payload) {
   if (!understanding || !answer) return;
 
   const privacyDetail = payload.privacy_present
-    ? `Masked: ${(payload.privacy_types || []).join(", ") || "personal information"}`
+    ? `Masked: ${(payload.privacy_types || []).map(type => privacyNames[type] || type).join(", ") || "personal information"}`
     : "No personal identifiers detected";
   setText("trace-privacy", privacyDetail);
 
