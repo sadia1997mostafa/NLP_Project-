@@ -78,10 +78,12 @@ def main() -> None:
     with (args.output_dir / "review_samples.jsonl").open("w", encoding="utf-8") as target:
         for row in sample_rows:
             inputs = tokenizer.apply_chat_template(
-                row["prompt"], add_generation_prompt=True, return_tensors="pt",
+                row["prompt"], add_generation_prompt=True, tokenize=True,
+                return_dict=True, return_tensors="pt",
             ).to("cuda")
-            generated = model.generate(inputs, max_new_tokens=220, do_sample=False)
-            answer = tokenizer.decode(generated[0][inputs.shape[-1]:], skip_special_tokens=True).strip()
+            generated = model.generate(**inputs, max_new_tokens=220, do_sample=False)
+            prompt_length = inputs["input_ids"].shape[-1]
+            answer = tokenizer.decode(generated[0][prompt_length:], skip_special_tokens=True).strip()
             target.write(json.dumps({
                 "question_context": row["prompt"][1]["content"],
                 "reference": row["completion"][0]["content"],
@@ -92,6 +94,10 @@ def main() -> None:
         model.save_pretrained_gguf(
             str(args.output_dir / "gguf"), tokenizer, quantization_method="q4_k_m",
         )
+        gguf_files = sorted(args.output_dir.glob("**/*Q4_K_M.gguf"))
+        if not gguf_files:
+            raise RuntimeError("GGUF export returned without a Q4_K_M file")
+        print(f"GGUF: {gguf_files[-1]}")
     print(f"Training artifacts saved in {args.output_dir}")
 
 

@@ -67,7 +67,7 @@ source-checked, independently worded QA examples in a separate dataset.
    from pathlib import Path
    import shutil
    drive.mount("/content/drive")
-   gguf = next(Path("models/answer_generator/gguf").glob("*.gguf"))
+   gguf = next(Path("models/answer_generator").glob("**/*Q4_K_M.gguf"))
    destination = Path("/content/drive/MyDrive/nagoriksheba-answer.gguf")
    shutil.copy2(gguf, destination)
    print(destination, gguf.stat().st_size)
