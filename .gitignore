@@ -8,5 +8,5 @@ venv/
 # Local Transformer model artifacts
 models/checkpoints/
 models/final/
-models/answer_generator/
+models/answer_generator*/
 data/answer_generation/

@@ -2,8 +2,9 @@
 
 This optional experiment uses no hosted model or API. The existing classifier
 selects an exact curated topic; the fine-tuned model receives the masked
-question and that topic's own `guidance.json` record. The app adds source links
-and document lists separately. If the model is absent, fails, or returns an
+question and that topic's reviewed facts in the required answer language. The
+app adds source links and document lists separately. If the model is absent,
+fails, or returns an
 obviously unsafe answer, the controlled answer remains available.
 
 This does **not** guarantee factual accuracy. Automated checks catch some
@@ -45,35 +46,35 @@ source-checked, independently worded QA examples in a separate dataset.
    print(json.dumps(first, ensure_ascii=False, indent=2))
    ```
 
-4. Train QLoRA and export a quantized GGUF:
+4. Train the conservative v2 QLoRA recipe into a fresh directory:
 
    ```python
-   !python -m scripts.train_answer_colab --max-steps 60
+   !python -m scripts.train_answer_colab --max-steps 35 --output-dir models/answer_generator_v2
    ```
 
    A GPU is required and the run may take longer than a short Colab session.
-   Outputs are under `models/answer_generator/`: adapter, `metrics.json`,
-   `review_samples.jsonl` (12 generated dev answers), and a `q4_k_m` GGUF.
+   Outputs are under `models/answer_generator_v2/`: adapter, `metrics.json`,
+   `review_samples.jsonl` (12 generated dev answers), `review_summary.json`,
+   and a `Q4_K_M` GGUF. The script requires at least 10 of 12 generated samples
+   to pass structural safety checks before spending time on GGUF conversion.
    **Read the generated examples** for wrong facts, omitted conditions, and
    unnatural Bengali. Also test questions you write yourself, outside these
    splits. Lowering `--max-steps` is only a smoke test. If GGUF
    export fails after training, the adapter remains; do not claim local model
    integration is ready until export works.
 
-5. Move the **single** GGUF to Drive for download to this PC:
+5. Download the **single** GGUF directly to this PC:
 
    ```python
-   from google.colab import drive
+   from google.colab import files
    from pathlib import Path
-   import shutil
-   drive.mount("/content/drive")
-   gguf = next(Path("models/answer_generator").glob("**/*Q4_K_M.gguf"))
-   destination = Path("/content/drive/MyDrive/nagoriksheba-answer.gguf")
-   shutil.copy2(gguf, destination)
-   print(destination, gguf.stat().st_size)
+   gguf = next(Path("models/answer_generator_v2").glob("**/*Q4_K_M.gguf"))
+   print(gguf, round(gguf.stat().st_size / 1024**3, 2), "GB")
+   files.download(str(gguf))
    ```
 
-   Retain `metrics.json` and `review_samples.jsonl` as evaluation evidence.
+   Also download `metrics.json`, `review_summary.json`, and
+   `review_samples.jsonl` as evaluation evidence.
    Do not commit model weights or private data to Git.
 
 ## Local Steps

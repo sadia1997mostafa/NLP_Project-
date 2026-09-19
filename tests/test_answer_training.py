@@ -25,16 +25,24 @@ class AnswerTrainingTests(unittest.TestCase):
                     self.assertEqual(example["completion"][0]["role"], "assistant")
                     payload = json.loads(example["prompt"][1]["content"])
                     record = records[payload["topic"]]
-                    self.assertEqual(payload["approved_guidance"], record["guidance"])
+                    self.assertEqual(payload["service"], record["service"])
                     self.assertFalse(detect_privacy(payload["question"]).privacy_present)
                     self.assertTrue(example["completion"][0]["content"])
+                    self.assertTrue(payload["approved_facts"])
+                    expected = "Bengali" if any(
+                        "\u0980" <= char <= "\u09ff" for char in example["completion"][0]["content"]
+                    ) else "English"
+                    self.assertEqual(payload["required_output_language"], expected)
 
     def test_runtime_prompt_matches_export_format(self):
         record = next(r for r in load_records() if r["query_topic_id"] == "PASSPORT_APPLICATION_STATUS")
         messages = prompt_messages("passport status check korbo kivabe?", record, "bn")
         payload = json.loads(messages[1]["content"])
-        self.assertEqual(payload["language"], "Bengali")
-        self.assertEqual(payload["approved_guidance"], record["guidance"])
+        self.assertEqual(payload["required_output_language"], "Bengali")
+        self.assertTrue(all(any("\u0980" <= char <= "\u09ff" for char in fact)
+                            for fact in payload["approved_facts"]))
+        self.assertNotIn("approved_guidance", payload)
+        self.assertNotIn("document_conditions", payload)
         self.assertNotIn("source_url", payload)
 
 

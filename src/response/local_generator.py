@@ -10,10 +10,22 @@ from pathlib import Path
 from threading import Lock
 
 from src.privacy.detection import detect_privacy
+from src.response.facts import facts_for, render_fact
 from src.response.model_prompt import prompt_messages
 
 
 MODEL_ENV = "NAGORIKSHEBA_ANSWER_GGUF"
+FOREIGN_SCRIPT = re.compile(
+    r"[\u0400-\u052f\u0600-\u06ff\u0750-\u077f\u0900-\u0963\u0966-\u097f"
+    r"\u0e00-\u0e7f\u1100-\u11ff\u3040-\u30ff\u3400-\u9fff\uac00-\ud7af]"
+)
+DOMAIN = re.compile(
+    r"\b(?:[a-z0-9-]+\.)+(?:bd|com|org|net|gov|edu|io|co)(?:\.[a-z]{2})?\b", re.I,
+)
+COMMON_WORDS = {
+    "a", "an", "and", "are", "for", "in", "is", "of", "on", "or", "the", "this", "to", "your",
+    "এই", "এবং", "এর", "ও", "করুন", "জন্য",
+}
 
 
 def configured_model_path() -> Path | None:
@@ -31,21 +43,43 @@ def _digits(text: str) -> set[str]:
     return set(re.findall(r"\d+", normalized))
 
 
+def _has_repeated_phrase(text: str) -> bool:
+    words = re.findall(r"\w+", text.casefold(), flags=re.UNICODE)
+    if len(words) < 12:
+        return False
+    phrases = [tuple(words[index:index + 4]) for index in range(len(words) - 3)]
+    return any(phrases.count(phrase) >= 3 for phrase in set(phrases))
+
+
+def _content_tokens(text: str) -> set[str]:
+    return {
+        token for token in re.findall(r"\w+", text.casefold(), flags=re.UNICODE)
+        if len(token) > 1 and token not in COMMON_WORDS
+    }
+
+
 def acceptable_answer(answer: str, record: dict, language: str) -> bool:
     if not isinstance(answer, str):
         return False
     answer = answer.strip()
-    if (not 20 <= len(answer) <= 800 or "<|" in answer
+    if (not 20 <= len(answer) <= 800 or "<|" in answer or "\ufffd" in answer
+            or re.search(r"<[^>]*>", answer)
+            or re.match(r"(?i)\s*(?:language\s*:|limburg\b|taboola\b)", answer)
             or re.search(r"\[(?:NID|OTP|PHONE|PASSWORD|EMAIL|ADDRESS|NAME|PASSPORT|DATE_OF_BIRTH)\]", answer)):
         return False
-    if re.search(r"https?://|www\.", answer, re.I) or detect_privacy(answer).privacy_present:
+    if (re.search(r"https?://|www\.", answer, re.I) or DOMAIN.search(answer)
+            or FOREIGN_SCRIPT.search(answer) or _has_repeated_phrase(answer)
+            or detect_privacy(answer).privacy_present):
         return False
     if language == "bn" and len(re.findall(r"[\u0980-\u09ff]", answer)) < 10:
         return False
     if language == "en" and len(re.findall(r"[\u0980-\u09ff]", answer)) >= 10:
         return False
-    approved = " ".join([record["guidance"], *record["required_documents"]])
+    approved_facts = [render_fact(unit, language) for unit in facts_for(record)]
+    approved = " ".join([record["guidance"], *record["required_documents"], *approved_facts])
     if not _digits(answer) <= _digits(approved):
+        return False
+    if len(_content_tokens(answer) & _content_tokens(" ".join(approved_facts))) < 2:
         return False
     if answer == record["guidance"].strip():
         return False

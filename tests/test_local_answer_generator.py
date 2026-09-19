@@ -78,6 +78,21 @@ class LocalAnswerTests(unittest.TestCase):
         self.assertFalse(acceptable_answer("পাসপোর্টের অবস্থা দেখতে ৭ দিনের মধ্যে আবেদন করুন।", record, "bn"))
         self.assertFalse(acceptable_answer("পাসপোর্টের অবস্থা দেখতে [OTP] লিখুন।", record, "bn"))
 
+    def test_observed_garbage_patterns_are_rejected(self):
+        record = next(r for r in load_records() if r["query_topic_id"] == "PASSPORT_APPLICATION_STATUS")
+        bad_answers = (
+            ("language: bn আবেদন আইডি দিয়ে পাসপোর্টের অবস্থা দেখুন।", "bn"),
+            ("Check your application status at taxporat.com before passport delivery.", "en"),
+            ("<LMF>আবেদনের অবস্থা যাচাই করুন।</LMF>", "bn"),
+            ("limburg: আবেদন আইডি দিয়ে পাসপোর্টের অবস্থা দেখুন।", "bn"),
+            ("넹 আবেদন আইডি দিয়ে পাসপোর্টের অবস্থা দেখুন।", "bn"),
+            ("Status Check খুলুন। application status check করুন। application status check করুন। application status check করুন।", "bn"),
+            ("بچو application status and passport delivery details check کریں۔", "en"),
+        )
+        for answer, language in bad_answers:
+            with self.subTest(answer=answer):
+                self.assertFalse(acceptable_answer(answer, record, language))
+
     def test_emergency_route_never_uses_model(self):
         writer = FakeGenerator("Use the online complaint form for your emergency in Bangladesh.")
         predictor = lambda _: {
