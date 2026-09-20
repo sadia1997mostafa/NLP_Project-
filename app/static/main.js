@@ -27,7 +27,6 @@ let suggestedService = "";
 let responseLanguage = "en";
 let isSubmitting = false;
 let isComposing = false;
-let activeRequestController = null;
 let progressEventLog = [];
 
 const serviceNames = {
@@ -427,43 +426,34 @@ function parseEventBlock(block) {
 }
 
 async function streamAnalysis(text, onEvent) {
-  const controller = typeof AbortController === "function" ? new AbortController() : null;
-  activeRequestController = controller;
-  const timeout = controller ? setTimeout(() => controller.abort(), 180000) : null;
-  try {
-    const response = await fetch("/api/query/stream", {
-      method: "POST",
-      headers: { "Content-Type": "application/json", "Accept": "text/event-stream" },
-      body: JSON.stringify({ text }),
-      cache: "no-store",
-      signal: controller?.signal,
-    });
-    if (!response.ok || !response.body?.getReader) throw new Error("Service unavailable");
-    const reader = response.body.getReader();
-    const decoder = new TextDecoder();
-    let buffer = "";
-    let finalPayload = null;
-    while (true) {
-      const { value, done } = await reader.read();
-      buffer += decoder.decode(value || new Uint8Array(), { stream: !done });
-      const blocks = buffer.split(/\r?\n\r?\n/);
-      buffer = blocks.pop() || "";
-      for (const block of blocks) {
-        if (!block.trim()) continue;
-        const parsed = parseEventBlock(block);
-        if (!parsed) continue;
-        onEvent(parsed.event, parsed.data);
-        if (parsed.event === "complete") finalPayload = parsed.data;
-        if (parsed.event === "error") throw new Error(parsed.data.message || "Service unavailable");
-      }
-      if (done) break;
+  const response = await fetch("/api/query/stream", {
+    method: "POST",
+    headers: { "Content-Type": "application/json", "Accept": "text/event-stream" },
+    body: JSON.stringify({ text }),
+    cache: "no-store",
+  });
+  if (!response.ok || !response.body?.getReader) throw new Error("Service unavailable");
+  const reader = response.body.getReader();
+  const decoder = new TextDecoder();
+  let buffer = "";
+  let finalPayload = null;
+  while (true) {
+    const { value, done } = await reader.read();
+    buffer += decoder.decode(value || new Uint8Array(), { stream: !done });
+    const blocks = buffer.split(/\r?\n\r?\n/);
+    buffer = blocks.pop() || "";
+    for (const block of blocks) {
+      if (!block.trim()) continue;
+      const parsed = parseEventBlock(block);
+      if (!parsed) continue;
+      onEvent(parsed.event, parsed.data);
+      if (parsed.event === "complete") finalPayload = parsed.data;
+      if (parsed.event === "error") throw new Error(parsed.data.message || "Service unavailable");
     }
-    if (!finalPayload) throw new Error("Incomplete response");
-    return finalPayload;
-  } finally {
-    if (timeout) clearTimeout(timeout);
-    activeRequestController = null;
+    if (done) break;
   }
+  if (!finalPayload) throw new Error("Incomplete response");
+  return finalPayload;
 }
 
 function updateComposer() {
@@ -553,12 +543,11 @@ form.addEventListener("submit", async event => {
     showPayload(payload);
     rememberQuestion(payload);
   } catch (error) {
-    const timedOut = error?.name === "AbortError";
-    failProgress(timedOut ? "The request timed out" : "The request could not be completed");
+    failProgress("The request could not be completed");
     showResult(
       "error",
-      timedOut ? "This is taking longer than expected" : "Service temporarily unavailable",
-      timedOut ? "Please try again. Your question has been kept in the composer." : "We could not process this request. Your question is still here, so you can retry.",
+      "Service temporarily unavailable",
+      "We could not process this request. Your question is still here, so you can retry.",
       "Request not completed",
     );
   } finally {
