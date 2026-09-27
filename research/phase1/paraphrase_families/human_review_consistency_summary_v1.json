@@ -1,0 +1,25 @@
+{
+  "reviewed_pairs": 29,
+  "exact_same_label_pairs": 0,
+  "exact_cross_label_pairs": 2,
+  "cross_label_equivalence_pairs": 2,
+  "ambiguous_remaining": 0,
+  "mandatory_rereview_count": 1,
+  "warning_count": 0,
+  "mandatory_pair_ids": [
+    "NID5-ND-000048"
+  ],
+  "status": "REQUIRES_HUMAN_CORRECTION",
+  "resolved_review_sha256": "902b2942bf3f7f3d62d033d43b03f501015928875c58c9520247700949c232cb",
+  "all_decisions_present": true,
+  "decision_vocabulary_valid": true,
+  "source_text_unchanged": true,
+  "source_labels_unchanged": true,
+  "resolved_file_modified": false,
+  "phase0_manifest_sha256": "4d6356191e1813e9f1ec6345614d2e0a003d134a26521bc7a702ce8a72ef11f1",
+  "private_correction_queue": {
+    "path": "D:\\Files\\Academic\\4-1\\NLP\\NLP Project\\NLP_Project-_private\\phase1\\human_review_correction_queue_v1.csv",
+    "rows": 1,
+    "sha256": "1967f8041ba2fbf9d9e514a9b78bc586bd48c9ed2269f037c9b62d86691f973f"
+  }
+}
