@@ -1,0 +1,41 @@
+{
+  "experiment_id": "EXP-P0-BASELINE-001",
+  "protocol": "NID-5CLASS-PHASE0-V1",
+  "model": "TFIDF-LOGREG-V1",
+  "git_starting_commit": "908edc5d20321375fe572f6dc7c7b8fab85a2333",
+  "source_raw_sha256": "6de6ba4f342602b99254b97ad830161405baf817eb38cadee2a56980fc5e7faa",
+  "source_canonical_content_sha256": "156d0a6a5f1f15773cc2adf286fc7e9f1c7d5f68fe8f332757a7435bc0c68811",
+  "split_manifest_sha256": "4d6356191e1813e9f1ec6345614d2e0a003d134a26521bc7a702ce8a72ef11f1",
+  "config_sha256": "a7546377637df41f5ebe353a717ccd6a9b779197ab3829e7c726aa51a773c315",
+  "seed": 42,
+  "package_versions": {
+    "python": "3.13.9",
+    "scikit_learn": "1.9.0",
+    "numpy": "2.5.1"
+  },
+  "train_count": 1017,
+  "dev_count": 219,
+  "test_count": 218,
+  "feature_count": 3393,
+  "fit_seconds": 3.841840700013563,
+  "runtime_seconds": 3.94874880000134,
+  "converged": true,
+  "convergence_warnings": [],
+  "n_iter": [
+    30
+  ],
+  "train_class_distribution": {
+    "Lost/Stolen NID": 165,
+    "NID Information Correction": 187,
+    "NID Online Problem": 213,
+    "New NID Registration": 314,
+    "Smart ID Card": 138
+  },
+  "dev_outputs_frozen_at_utc": "2026-09-27T14:22:57.995756+00:00",
+  "test_evaluations": 1,
+  "test_evaluated_at_utc": "2026-09-27T14:22:58.038780+00:00",
+  "training_data_scope": "train_only",
+  "dev_and_test_transform_only": true,
+  "hyperparameter_search": false,
+  "serialized_model_written": false
+}

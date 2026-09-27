@@ -1,0 +1,94 @@
+{
+  "rows": 218,
+  "accuracy": 0.9220183486238532,
+  "macro_precision": 0.9180290297937358,
+  "macro_recall": 0.9247603596922221,
+  "macro_f1": 0.9201711625354878,
+  "zero_division": 0,
+  "label_order": [
+    0,
+    1,
+    2,
+    3,
+    4
+  ],
+  "per_class": [
+    {
+      "label_id": 0,
+      "label_name": "NID Information Correction",
+      "precision": 0.9047619047619048,
+      "recall": 0.95,
+      "f1": 0.926829268292683,
+      "support": 40
+    },
+    {
+      "label_id": 1,
+      "label_name": "New NID Registration",
+      "precision": 0.9242424242424242,
+      "recall": 0.9104477611940298,
+      "f1": 0.9172932330827067,
+      "support": 67
+    },
+    {
+      "label_id": 2,
+      "label_name": "Lost/Stolen NID",
+      "precision": 0.8787878787878788,
+      "recall": 0.8285714285714286,
+      "f1": 0.8529411764705882,
+      "support": 35
+    },
+    {
+      "label_id": 3,
+      "label_name": "NID Online Problem",
+      "precision": 1.0,
+      "recall": 0.9347826086956522,
+      "f1": 0.9662921348314607,
+      "support": 46
+    },
+    {
+      "label_id": 4,
+      "label_name": "Smart ID Card",
+      "precision": 0.8823529411764706,
+      "recall": 1.0,
+      "f1": 0.9375,
+      "support": 30
+    }
+  ],
+  "confusion_matrix": [
+    [
+      38,
+      2,
+      0,
+      0,
+      0
+    ],
+    [
+      0,
+      61,
+      4,
+      0,
+      2
+    ],
+    [
+      3,
+      1,
+      29,
+      0,
+      2
+    ],
+    [
+      1,
+      2,
+      0,
+      43,
+      0
+    ],
+    [
+      0,
+      0,
+      0,
+      0,
+      30
+    ]
+  ]
+}

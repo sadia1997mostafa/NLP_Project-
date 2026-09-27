@@ -1,0 +1,137 @@
+{
+  "experiment_id": "EXP-P0-BASELINE-001",
+  "dev": {
+    "total_errors": 14,
+    "confusion_pairs": [
+      {
+        "true_label": "Lost/Stolen NID",
+        "predicted_label": "NID Information Correction",
+        "count": 3
+      },
+      {
+        "true_label": "Lost/Stolen NID",
+        "predicted_label": "New NID Registration",
+        "count": 2
+      },
+      {
+        "true_label": "NID Information Correction",
+        "predicted_label": "New NID Registration",
+        "count": 2
+      },
+      {
+        "true_label": "NID Online Problem",
+        "predicted_label": "New NID Registration",
+        "count": 2
+      },
+      {
+        "true_label": "NID Online Problem",
+        "predicted_label": "Lost/Stolen NID",
+        "count": 1
+      },
+      {
+        "true_label": "NID Online Problem",
+        "predicted_label": "NID Information Correction",
+        "count": 1
+      },
+      {
+        "true_label": "New NID Registration",
+        "predicted_label": "Lost/Stolen NID",
+        "count": 1
+      },
+      {
+        "true_label": "New NID Registration",
+        "predicted_label": "NID Information Correction",
+        "count": 1
+      },
+      {
+        "true_label": "New NID Registration",
+        "predicted_label": "Smart ID Card",
+        "count": 1
+      }
+    ],
+    "errors_per_true_class": {
+      "Lost/Stolen NID": 5,
+      "NID Information Correction": 2,
+      "NID Online Problem": 4,
+      "New NID Registration": 3
+    },
+    "errors_per_predicted_class": {
+      "Lost/Stolen NID": 2,
+      "NID Information Correction": 5,
+      "New NID Registration": 6,
+      "Smart ID Card": 1
+    },
+    "errors_in_duplicate_groups": 1,
+    "errors_in_conflicting_label_groups": 1
+  },
+  "test": {
+    "total_errors": 17,
+    "confusion_pairs": [
+      {
+        "true_label": "New NID Registration",
+        "predicted_label": "Lost/Stolen NID",
+        "count": 4
+      },
+      {
+        "true_label": "Lost/Stolen NID",
+        "predicted_label": "NID Information Correction",
+        "count": 3
+      },
+      {
+        "true_label": "Lost/Stolen NID",
+        "predicted_label": "Smart ID Card",
+        "count": 2
+      },
+      {
+        "true_label": "NID Information Correction",
+        "predicted_label": "New NID Registration",
+        "count": 2
+      },
+      {
+        "true_label": "NID Online Problem",
+        "predicted_label": "New NID Registration",
+        "count": 2
+      },
+      {
+        "true_label": "New NID Registration",
+        "predicted_label": "Smart ID Card",
+        "count": 2
+      },
+      {
+        "true_label": "Lost/Stolen NID",
+        "predicted_label": "New NID Registration",
+        "count": 1
+      },
+      {
+        "true_label": "NID Online Problem",
+        "predicted_label": "NID Information Correction",
+        "count": 1
+      }
+    ],
+    "errors_per_true_class": {
+      "Lost/Stolen NID": 6,
+      "NID Information Correction": 2,
+      "NID Online Problem": 3,
+      "New NID Registration": 6
+    },
+    "errors_per_predicted_class": {
+      "Lost/Stolen NID": 4,
+      "NID Information Correction": 4,
+      "New NID Registration": 5,
+      "Smart ID Card": 4
+    },
+    "errors_in_duplicate_groups": 1,
+    "errors_in_conflicting_label_groups": 1
+  },
+  "known_label_conflict_groups": [
+    {
+      "group_id": "NID5-G-2731efe83266714848774942bd0a7b19e39a6c58b71c9f399676944c9765cfba",
+      "split": "test"
+    },
+    {
+      "group_id": "NID5-G-822aafb6b0cf593df2dce2c1c8dfc0fab9b1167ff65007fa28baa001c763cebb",
+      "split": "dev"
+    }
+  ],
+  "raw_query_text_included": false
+}

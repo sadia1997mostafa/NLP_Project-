@@ -1,0 +1,40 @@
+protocol: "NID-5CLASS-PHASE0-V1"
+model_name: "TFIDF-LOGREG-V1"
+seed: 42
+
+text_preprocessing:
+  specification: "research/phase0/nid_5class_preprocessing_v1.yaml"
+
+vectorizer:
+  class: "sklearn.feature_extraction.text.TfidfVectorizer"
+  parameters:
+    analyzer: "word"
+    ngram_range: [1, 2]
+    min_df: 1
+    max_df: 1.0
+    sublinear_tf: true
+    norm: "l2"
+    lowercase: false
+    strip_accents: null
+    max_features: null
+
+classifier:
+  class: "sklearn.linear_model.LogisticRegression"
+  parameters:
+    C: 1.0
+    class_weight: "balanced"
+    solver: "lbfgs"
+    max_iter: 2000
+    random_state: 42
+
+evaluation:
+  primary_metric: "macro_f1"
+  zero_division: 0
+  fit_split: "train"
+  selection_split: "dev"
+  final_split: "test"
+
+environment:
+  python: "3.13.9"
+  scikit_learn: "1.9.0"
+  numpy: "2.5.1"
