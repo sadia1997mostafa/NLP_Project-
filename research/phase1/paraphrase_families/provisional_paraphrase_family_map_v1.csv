@@ -1,0 +1,1455 @@
+sample_id,label_id,label_name,phase0_split,provisional_family_id,family_size,family_status,adjudication_source
+NID5-V1-000001,0,NID Information Correction,train,NID5-PF-V1-0001,1,SINGLETON,codex_provisional
+NID5-V1-000002,0,NID Information Correction,train,NID5-PF-V1-0002,1,SINGLETON,codex_provisional
+NID5-V1-000003,0,NID Information Correction,train,NID5-PF-V1-0003,1,SINGLETON,codex_provisional
+NID5-V1-000004,0,NID Information Correction,train,NID5-PF-V1-0004,1,SINGLETON,codex_provisional
+NID5-V1-000005,0,NID Information Correction,train,NID5-PF-V1-0005,1,SINGLETON,codex_provisional
+NID5-V1-000006,0,NID Information Correction,train,NID5-PF-V1-0006,1,SINGLETON,codex_provisional
+NID5-V1-000007,0,NID Information Correction,train,NID5-PF-V1-0007,1,SINGLETON,codex_provisional
+NID5-V1-000008,0,NID Information Correction,train,NID5-PF-V1-0008,1,SINGLETON,codex_provisional
+NID5-V1-000009,0,NID Information Correction,test,NID5-PF-V1-0009,1,SINGLETON,codex_provisional
+NID5-V1-000010,0,NID Information Correction,train,NID5-PF-V1-0010,1,SINGLETON,codex_provisional
+NID5-V1-000011,0,NID Information Correction,train,NID5-PF-V1-0011,1,SINGLETON,codex_provisional
+NID5-V1-000012,0,NID Information Correction,test,NID5-PF-V1-0012,1,SINGLETON,codex_provisional
+NID5-V1-000013,0,NID Information Correction,train,NID5-PF-V1-0013,1,SINGLETON,codex_provisional
+NID5-V1-000014,0,NID Information Correction,dev,NID5-PF-V1-0014,1,SINGLETON,codex_provisional
+NID5-V1-000015,0,NID Information Correction,train,NID5-PF-V1-0015,1,SINGLETON,codex_provisional
+NID5-V1-000016,0,NID Information Correction,train,NID5-PF-V1-0016,2,PROVISIONAL_CONFIRMED,codex_provisional
+NID5-V1-000017,0,NID Information Correction,train,NID5-PF-V1-0017,1,SINGLETON,codex_provisional
+NID5-V1-000018,0,NID Information Correction,dev,NID5-PF-V1-0018,1,SINGLETON,codex_provisional
+NID5-V1-000019,0,NID Information Correction,train,NID5-PF-V1-0019,1,SINGLETON,codex_provisional
+NID5-V1-000020,0,NID Information Correction,train,NID5-PF-V1-0020,1,SINGLETON,codex_provisional
+NID5-V1-000021,0,NID Information Correction,train,NID5-PF-V1-0021,1,SINGLETON,codex_provisional
+NID5-V1-000022,0,NID Information Correction,train,NID5-PF-V1-0022,1,SINGLETON,codex_provisional
+NID5-V1-000023,0,NID Information Correction,train,NID5-PF-V1-0023,1,SINGLETON,codex_provisional
+NID5-V1-000024,0,NID Information Correction,test,NID5-PF-V1-0024,1,SINGLETON,codex_provisional
+NID5-V1-000025,0,NID Information Correction,dev,NID5-PF-V1-0025,1,SINGLETON,codex_provisional
+NID5-V1-000026,0,NID Information Correction,train,NID5-PF-V1-0026,1,SINGLETON,codex_provisional
+NID5-V1-000027,0,NID Information Correction,train,NID5-PF-V1-0027,1,SINGLETON,codex_provisional
+NID5-V1-000028,0,NID Information Correction,train,NID5-PF-V1-0028,1,SINGLETON,codex_provisional
+NID5-V1-000029,0,NID Information Correction,train,NID5-PF-V1-0029,1,SINGLETON,codex_provisional
+NID5-V1-000030,0,NID Information Correction,train,NID5-PF-V1-0030,1,SINGLETON,codex_provisional
+NID5-V1-000031,0,NID Information Correction,train,NID5-PF-V1-0031,1,SINGLETON,codex_provisional
+NID5-V1-000032,0,NID Information Correction,train,NID5-PF-V1-0032,1,SINGLETON,codex_provisional
+NID5-V1-000033,0,NID Information Correction,train,NID5-PF-V1-0033,1,SINGLETON,codex_provisional
+NID5-V1-000034,0,NID Information Correction,dev,NID5-PF-V1-0034,1,SINGLETON,codex_provisional
+NID5-V1-000035,0,NID Information Correction,train,NID5-PF-V1-0035,1,SINGLETON,codex_provisional
+NID5-V1-000036,0,NID Information Correction,train,NID5-PF-V1-0036,1,SINGLETON,codex_provisional
+NID5-V1-000037,0,NID Information Correction,train,NID5-PF-V1-0037,1,SINGLETON,codex_provisional
+NID5-V1-000038,0,NID Information Correction,train,NID5-PF-V1-0038,1,SINGLETON,codex_provisional
+NID5-V1-000039,0,NID Information Correction,dev,NID5-PF-V1-0039,1,SINGLETON,codex_provisional
+NID5-V1-000040,0,NID Information Correction,dev,NID5-PF-V1-0040,1,SINGLETON,codex_provisional
+NID5-V1-000041,0,NID Information Correction,train,NID5-PF-V1-0041,1,SINGLETON,codex_provisional
+NID5-V1-000042,0,NID Information Correction,train,NID5-PF-V1-0042,1,SINGLETON,codex_provisional
+NID5-V1-000043,0,NID Information Correction,train,NID5-PF-V1-0043,1,SINGLETON,codex_provisional
+NID5-V1-000044,0,NID Information Correction,test,NID5-PF-V1-0044,1,SINGLETON,codex_provisional
+NID5-V1-000045,0,NID Information Correction,test,NID5-PF-V1-0045,1,SINGLETON,codex_provisional
+NID5-V1-000046,0,NID Information Correction,train,NID5-PF-V1-0046,1,SINGLETON,codex_provisional
+NID5-V1-000047,0,NID Information Correction,train,NID5-PF-V1-0047,1,SINGLETON,codex_provisional
+NID5-V1-000048,0,NID Information Correction,train,NID5-PF-V1-0048,1,SINGLETON,codex_provisional
+NID5-V1-000049,0,NID Information Correction,test,NID5-PF-V1-0049,1,SINGLETON,codex_provisional
+NID5-V1-000050,0,NID Information Correction,dev,NID5-PF-V1-0050,1,SINGLETON,codex_provisional
+NID5-V1-000051,0,NID Information Correction,train,NID5-PF-V1-0051,1,SINGLETON,codex_provisional
+NID5-V1-000052,0,NID Information Correction,train,NID5-PF-V1-0052,1,SINGLETON,codex_provisional
+NID5-V1-000053,0,NID Information Correction,train,NID5-PF-V1-0053,1,SINGLETON,codex_provisional
+NID5-V1-000054,0,NID Information Correction,train,NID5-PF-V1-0054,1,SINGLETON,codex_provisional
+NID5-V1-000055,0,NID Information Correction,dev,NID5-PF-V1-0055,1,SINGLETON,codex_provisional
+NID5-V1-000056,0,NID Information Correction,dev,NID5-PF-V1-0056,1,SINGLETON,codex_provisional
+NID5-V1-000057,0,NID Information Correction,train,NID5-PF-V1-0057,1,SINGLETON,codex_provisional
+NID5-V1-000058,0,NID Information Correction,test,NID5-PF-V1-0058,1,SINGLETON,codex_provisional
+NID5-V1-000059,0,NID Information Correction,train,NID5-PF-V1-0059,1,SINGLETON,codex_provisional
+NID5-V1-000060,0,NID Information Correction,train,NID5-PF-V1-0060,1,SINGLETON,codex_provisional
+NID5-V1-000061,0,NID Information Correction,train,NID5-PF-V1-0061,1,SINGLETON,codex_provisional
+NID5-V1-000062,0,NID Information Correction,test,NID5-PF-V1-0062,1,SINGLETON,codex_provisional
+NID5-V1-000063,0,NID Information Correction,dev,NID5-PF-V1-0063,1,SINGLETON,codex_provisional
+NID5-V1-000064,0,NID Information Correction,train,NID5-PF-V1-0064,1,SINGLETON,codex_provisional
+NID5-V1-000065,0,NID Information Correction,dev,NID5-PF-V1-0065,1,SINGLETON,codex_provisional
+NID5-V1-000066,0,NID Information Correction,train,NID5-PF-V1-0066,1,SINGLETON,codex_provisional
+NID5-V1-000067,0,NID Information Correction,test,NID5-PF-V1-0067,1,SINGLETON,codex_provisional
+NID5-V1-000068,0,NID Information Correction,train,NID5-PF-V1-0016,2,PROVISIONAL_CONFIRMED,codex_provisional
+NID5-V1-000069,0,NID Information Correction,dev,NID5-PF-V1-0068,1,SINGLETON,codex_provisional
+NID5-V1-000070,0,NID Information Correction,train,NID5-PF-V1-0069,1,SINGLETON,codex_provisional
+NID5-V1-000071,0,NID Information Correction,train,NID5-PF-V1-0070,1,SINGLETON,codex_provisional
+NID5-V1-000072,0,NID Information Correction,train,NID5-PF-V1-0071,1,SINGLETON,codex_provisional
+NID5-V1-000073,0,NID Information Correction,test,NID5-PF-V1-0072,1,SINGLETON,codex_provisional
+NID5-V1-000074,0,NID Information Correction,train,NID5-PF-V1-0073,1,SINGLETON,codex_provisional
+NID5-V1-000075,0,NID Information Correction,train,NID5-PF-V1-0074,1,SINGLETON,codex_provisional
+NID5-V1-000076,0,NID Information Correction,train,NID5-PF-V1-0075,1,SINGLETON,codex_provisional
+NID5-V1-000077,0,NID Information Correction,train,NID5-PF-V1-0076,1,SINGLETON,codex_provisional
+NID5-V1-000078,0,NID Information Correction,train,NID5-PF-V1-0077,1,SINGLETON,codex_provisional
+NID5-V1-000079,0,NID Information Correction,test,NID5-PF-V1-0078,1,SINGLETON,codex_provisional
+NID5-V1-000080,0,NID Information Correction,train,NID5-PF-V1-0079,1,SINGLETON,codex_provisional
+NID5-V1-000081,0,NID Information Correction,train,NID5-PF-V1-0080,1,SINGLETON,codex_provisional
+NID5-V1-000082,0,NID Information Correction,train,NID5-PF-V1-0081,1,SINGLETON,codex_provisional
+NID5-V1-000083,0,NID Information Correction,test,NID5-PF-V1-0082,1,SINGLETON,codex_provisional
+NID5-V1-000084,0,NID Information Correction,train,NID5-PF-V1-0083,1,SINGLETON,codex_provisional
+NID5-V1-000085,0,NID Information Correction,train,NID5-PF-V1-0084,1,SINGLETON,codex_provisional
+NID5-V1-000086,0,NID Information Correction,train,NID5-PF-V1-0085,1,SINGLETON,codex_provisional
+NID5-V1-000087,0,NID Information Correction,train,NID5-PF-V1-0086,1,SINGLETON,codex_provisional
+NID5-V1-000088,0,NID Information Correction,train,NID5-PF-V1-0087,1,SINGLETON,codex_provisional
+NID5-V1-000089,0,NID Information Correction,dev,NID5-PF-V1-0088,1,SINGLETON,codex_provisional
+NID5-V1-000090,0,NID Information Correction,train,NID5-PF-V1-0089,1,SINGLETON,codex_provisional
+NID5-V1-000091,0,NID Information Correction,dev,NID5-PF-V1-0090,1,SINGLETON,codex_provisional
+NID5-V1-000092,0,NID Information Correction,dev,NID5-PF-V1-0091,1,SINGLETON,codex_provisional
+NID5-V1-000093,0,NID Information Correction,train,NID5-PF-V1-0092,1,SINGLETON,codex_provisional
+NID5-V1-000094,0,NID Information Correction,train,NID5-PF-V1-0093,1,SINGLETON,codex_provisional
+NID5-V1-000095,0,NID Information Correction,train,NID5-PF-V1-0094,1,SINGLETON,codex_provisional
+NID5-V1-000096,0,NID Information Correction,train,NID5-PF-V1-0095,1,SINGLETON,codex_provisional
+NID5-V1-000097,0,NID Information Correction,train,NID5-PF-V1-0096,1,SINGLETON,codex_provisional
+NID5-V1-000098,0,NID Information Correction,train,NID5-PF-V1-0097,1,SINGLETON,codex_provisional
+NID5-V1-000099,0,NID Information Correction,test,NID5-PF-V1-0098,1,SINGLETON,codex_provisional
+NID5-V1-000100,0,NID Information Correction,dev,NID5-PF-V1-0099,1,SINGLETON,codex_provisional
+NID5-V1-000101,0,NID Information Correction,dev,NID5-PF-V1-0100,1,SINGLETON,codex_provisional
+NID5-V1-000102,0,NID Information Correction,train,NID5-PF-V1-0101,1,SINGLETON,codex_provisional
+NID5-V1-000103,0,NID Information Correction,dev,NID5-PF-V1-0102,1,SINGLETON,codex_provisional
+NID5-V1-000104,0,NID Information Correction,train,NID5-PF-V1-0103,1,SINGLETON,codex_provisional
+NID5-V1-000105,0,NID Information Correction,dev,NID5-PF-V1-0104,2,PROVISIONAL_CONFIRMED,codex_provisional
+NID5-V1-000106,0,NID Information Correction,train,NID5-PF-V1-0105,1,SINGLETON,codex_provisional
+NID5-V1-000107,0,NID Information Correction,test,NID5-PF-V1-0106,1,SINGLETON,codex_provisional
+NID5-V1-000108,0,NID Information Correction,dev,NID5-PF-V1-0107,1,SINGLETON,codex_provisional
+NID5-V1-000109,0,NID Information Correction,train,NID5-PF-V1-0108,1,SINGLETON,codex_provisional
+NID5-V1-000110,0,NID Information Correction,test,NID5-PF-V1-0109,1,SINGLETON,codex_provisional
+NID5-V1-000111,0,NID Information Correction,dev,NID5-PF-V1-0110,1,SINGLETON,codex_provisional
+NID5-V1-000112,0,NID Information Correction,train,NID5-PF-V1-0111,1,SINGLETON,codex_provisional
+NID5-V1-000113,0,NID Information Correction,train,NID5-PF-V1-0112,1,SINGLETON,codex_provisional
+NID5-V1-000114,0,NID Information Correction,train,NID5-PF-V1-0113,1,SINGLETON,codex_provisional
+NID5-V1-000115,0,NID Information Correction,train,NID5-PF-V1-0114,1,SINGLETON,codex_provisional
+NID5-V1-000116,0,NID Information Correction,train,NID5-PF-V1-0115,1,SINGLETON,codex_provisional
+NID5-V1-000117,0,NID Information Correction,train,NID5-PF-V1-0116,1,SINGLETON,codex_provisional
+NID5-V1-000118,0,NID Information Correction,train,NID5-PF-V1-0117,1,SINGLETON,codex_provisional
+NID5-V1-000119,0,NID Information Correction,train,NID5-PF-V1-0118,1,SINGLETON,codex_provisional
+NID5-V1-000120,0,NID Information Correction,train,NID5-PF-V1-0119,1,SINGLETON,codex_provisional
+NID5-V1-000121,0,NID Information Correction,dev,NID5-PF-V1-0104,2,PROVISIONAL_CONFIRMED,codex_provisional
+NID5-V1-000122,0,NID Information Correction,train,NID5-PF-V1-0120,1,SINGLETON,codex_provisional
+NID5-V1-000123,0,NID Information Correction,train,NID5-PF-V1-0121,1,SINGLETON,codex_provisional
+NID5-V1-000124,0,NID Information Correction,test,NID5-PF-V1-0122,1,SINGLETON,codex_provisional
+NID5-V1-000125,0,NID Information Correction,train,NID5-PF-V1-0123,1,SINGLETON,codex_provisional
+NID5-V1-000126,0,NID Information Correction,train,NID5-PF-V1-0124,1,SINGLETON,codex_provisional
+NID5-V1-000127,0,NID Information Correction,train,NID5-PF-V1-0125,1,SINGLETON,codex_provisional
+NID5-V1-000128,0,NID Information Correction,dev,NID5-PF-V1-0126,1,SINGLETON,codex_provisional
+NID5-V1-000129,0,NID Information Correction,dev,NID5-PF-V1-0127,1,SINGLETON,codex_provisional
+NID5-V1-000130,0,NID Information Correction,train,NID5-PF-V1-0128,1,SINGLETON,codex_provisional
+NID5-V1-000131,0,NID Information Correction,train,NID5-PF-V1-0129,1,SINGLETON,codex_provisional
+NID5-V1-000132,0,NID Information Correction,train,NID5-PF-V1-0130,1,SINGLETON,codex_provisional
+NID5-V1-000133,0,NID Information Correction,train,NID5-PF-V1-0131,1,SINGLETON,codex_provisional
+NID5-V1-000134,0,NID Information Correction,train,NID5-PF-V1-0132,1,SINGLETON,codex_provisional
+NID5-V1-000135,0,NID Information Correction,test,NID5-PF-V1-0133,2,PROVISIONAL_CONFIRMED,codex_provisional
+NID5-V1-000136,0,NID Information Correction,dev,NID5-PF-V1-0134,2,PROVISIONAL_CONFIRMED,codex_provisional
+NID5-V1-000137,0,NID Information Correction,test,NID5-PF-V1-0135,2,PROVISIONAL_CONFIRMED,codex_provisional
+NID5-V1-000138,0,NID Information Correction,dev,NID5-PF-V1-0136,2,PROVISIONAL_CONFIRMED,codex_provisional
+NID5-V1-000139,0,NID Information Correction,test,NID5-PF-V1-0133,2,PROVISIONAL_CONFIRMED,codex_provisional
+NID5-V1-000140,0,NID Information Correction,dev,NID5-PF-V1-0134,2,PROVISIONAL_CONFIRMED,codex_provisional
+NID5-V1-000141,0,NID Information Correction,test,NID5-PF-V1-0135,2,PROVISIONAL_CONFIRMED,codex_provisional
+NID5-V1-000142,0,NID Information Correction,dev,NID5-PF-V1-0136,2,PROVISIONAL_CONFIRMED,codex_provisional
+NID5-V1-000143,0,NID Information Correction,train,NID5-PF-V1-0137,1,SINGLETON,codex_provisional
+NID5-V1-000144,0,NID Information Correction,dev,NID5-PF-V1-0138,1,SINGLETON,codex_provisional
+NID5-V1-000145,0,NID Information Correction,train,NID5-PF-V1-0139,1,SINGLETON,codex_provisional
+NID5-V1-000146,0,NID Information Correction,train,NID5-PF-V1-0140,1,SINGLETON,codex_provisional
+NID5-V1-000147,0,NID Information Correction,train,NID5-PF-V1-0141,1,SINGLETON,codex_provisional
+NID5-V1-000148,0,NID Information Correction,train,NID5-PF-V1-0142,1,SINGLETON,codex_provisional
+NID5-V1-000149,0,NID Information Correction,train,NID5-PF-V1-0143,1,SINGLETON,codex_provisional
+NID5-V1-000150,0,NID Information Correction,train,NID5-PF-V1-0144,2,PROVISIONAL_CONFIRMED,codex_provisional
+NID5-V1-000151,0,NID Information Correction,train,NID5-PF-V1-0145,1,SINGLETON,codex_provisional
+NID5-V1-000152,0,NID Information Correction,train,NID5-PF-V1-0146,1,SINGLETON,codex_provisional
+NID5-V1-000153,0,NID Information Correction,train,NID5-PF-V1-0147,1,SINGLETON,codex_provisional
+NID5-V1-000154,0,NID Information Correction,train,NID5-PF-V1-0148,1,SINGLETON,codex_provisional
+NID5-V1-000155,0,NID Information Correction,train,NID5-PF-V1-0149,1,SINGLETON,codex_provisional
+NID5-V1-000156,0,NID Information Correction,train,NID5-PF-V1-0150,1,SINGLETON,codex_provisional
+NID5-V1-000157,0,NID Information Correction,dev,NID5-PF-V1-0144,2,PROVISIONAL_CONFIRMED,codex_provisional
+NID5-V1-000158,0,NID Information Correction,train,NID5-PF-V1-0151,1,SINGLETON,codex_provisional
+NID5-V1-000159,0,NID Information Correction,train,NID5-PF-V1-0152,1,SINGLETON,codex_provisional
+NID5-V1-000160,0,NID Information Correction,test,NID5-PF-V1-0153,1,SINGLETON,codex_provisional
+NID5-V1-000161,0,NID Information Correction,dev,NID5-PF-V1-0154,1,SINGLETON,codex_provisional
+NID5-V1-000162,0,NID Information Correction,train,NID5-PF-V1-0155,1,SINGLETON,codex_provisional
+NID5-V1-000163,0,NID Information Correction,train,NID5-PF-V1-0156,1,SINGLETON,codex_provisional
+NID5-V1-000164,0,NID Information Correction,test,NID5-PF-V1-0157,1,SINGLETON,codex_provisional
+NID5-V1-000165,0,NID Information Correction,train,NID5-PF-V1-0158,1,SINGLETON,codex_provisional
+NID5-V1-000166,0,NID Information Correction,train,NID5-PF-V1-0159,1,SINGLETON,codex_provisional
+NID5-V1-000167,0,NID Information Correction,dev,NID5-PF-V1-0160,1,SINGLETON,codex_provisional
+NID5-V1-000168,0,NID Information Correction,train,NID5-PF-V1-0161,1,SINGLETON,codex_provisional
+NID5-V1-000169,0,NID Information Correction,dev,NID5-PF-V1-0162,1,SINGLETON,codex_provisional
+NID5-V1-000170,0,NID Information Correction,train,NID5-PF-V1-0163,1,SINGLETON,codex_provisional
+NID5-V1-000171,0,NID Information Correction,train,NID5-PF-V1-0164,1,SINGLETON,codex_provisional
+NID5-V1-000172,0,NID Information Correction,train,NID5-PF-V1-0165,1,SINGLETON,codex_provisional
+NID5-V1-000173,0,NID Information Correction,dev,NID5-PF-V1-0166,1,SINGLETON,codex_provisional
+NID5-V1-000174,0,NID Information Correction,test,NID5-PF-V1-0167,1,SINGLETON,codex_provisional
+NID5-V1-000175,0,NID Information Correction,train,NID5-PF-V1-0168,1,SINGLETON,codex_provisional
+NID5-V1-000176,0,NID Information Correction,train,NID5-PF-V1-0169,1,SINGLETON,codex_provisional
+NID5-V1-000177,0,NID Information Correction,train,NID5-PF-V1-0170,1,SINGLETON,codex_provisional
+NID5-V1-000178,0,NID Information Correction,train,NID5-PF-V1-0171,1,SINGLETON,codex_provisional
+NID5-V1-000179,0,NID Information Correction,train,NID5-PF-V1-0172,1,SINGLETON,codex_provisional
+NID5-V1-000180,0,NID Information Correction,train,NID5-PF-V1-0173,1,SINGLETON,codex_provisional
+NID5-V1-000181,0,NID Information Correction,train,NID5-PF-V1-0174,1,SINGLETON,codex_provisional
+NID5-V1-000182,0,NID Information Correction,test,NID5-PF-V1-0175,1,SINGLETON,codex_provisional
+NID5-V1-000183,0,NID Information Correction,train,NID5-PF-V1-0176,2,PROVISIONAL_CONFIRMED,codex_provisional
+NID5-V1-000184,0,NID Information Correction,train,NID5-PF-V1-0177,1,SINGLETON,codex_provisional
+NID5-V1-000185,0,NID Information Correction,train,NID5-PF-V1-0178,1,SINGLETON,codex_provisional
+NID5-V1-000186,0,NID Information Correction,train,NID5-PF-V1-0179,1,SINGLETON,codex_provisional
+NID5-V1-000187,0,NID Information Correction,train,NID5-PF-V1-0180,1,SINGLETON,codex_provisional
+NID5-V1-000188,0,NID Information Correction,test,NID5-PF-V1-0181,1,SINGLETON,codex_provisional
+NID5-V1-000189,0,NID Information Correction,train,NID5-PF-V1-0182,1,SINGLETON,codex_provisional
+NID5-V1-000190,0,NID Information Correction,train,NID5-PF-V1-0183,1,SINGLETON,codex_provisional
+NID5-V1-000191,0,NID Information Correction,train,NID5-PF-V1-0184,1,SINGLETON,codex_provisional
+NID5-V1-000192,0,NID Information Correction,train,NID5-PF-V1-0185,1,SINGLETON,codex_provisional
+NID5-V1-000193,0,NID Information Correction,train,NID5-PF-V1-0186,1,SINGLETON,codex_provisional
+NID5-V1-000194,0,NID Information Correction,dev,NID5-PF-V1-0176,2,PROVISIONAL_CONFIRMED,codex_provisional
+NID5-V1-000195,0,NID Information Correction,train,NID5-PF-V1-0187,1,SINGLETON,codex_provisional
+NID5-V1-000196,0,NID Information Correction,train,NID5-PF-V1-0188,1,SINGLETON,codex_provisional
+NID5-V1-000197,0,NID Information Correction,train,NID5-PF-V1-0189,2,PROVISIONAL_CONFIRMED,codex_provisional
+NID5-V1-000198,0,NID Information Correction,test,NID5-PF-V1-0190,1,SINGLETON,codex_provisional
+NID5-V1-000199,0,NID Information Correction,test,NID5-PF-V1-0191,1,SINGLETON,codex_provisional
+NID5-V1-000200,0,NID Information Correction,train,NID5-PF-V1-0192,1,SINGLETON,codex_provisional
+NID5-V1-000201,0,NID Information Correction,train,NID5-PF-V1-0193,1,SINGLETON,codex_provisional
+NID5-V1-000202,0,NID Information Correction,train,NID5-PF-V1-0194,1,SINGLETON,codex_provisional
+NID5-V1-000203,0,NID Information Correction,train,NID5-PF-V1-0195,1,SINGLETON,codex_provisional
+NID5-V1-000204,0,NID Information Correction,train,NID5-PF-V1-0196,1,SINGLETON,codex_provisional
+NID5-V1-000205,0,NID Information Correction,train,NID5-PF-V1-0197,1,SINGLETON,codex_provisional
+NID5-V1-000206,0,NID Information Correction,train,NID5-PF-V1-0198,1,SINGLETON,codex_provisional
+NID5-V1-000207,0,NID Information Correction,test,NID5-PF-V1-0199,1,SINGLETON,codex_provisional
+NID5-V1-000208,0,NID Information Correction,train,NID5-PF-V1-0200,1,SINGLETON,codex_provisional
+NID5-V1-000209,0,NID Information Correction,train,NID5-PF-V1-0201,1,SINGLETON,codex_provisional
+NID5-V1-000210,0,NID Information Correction,test,NID5-PF-V1-0202,1,SINGLETON,codex_provisional
+NID5-V1-000211,0,NID Information Correction,train,NID5-PF-V1-0203,1,SINGLETON,codex_provisional
+NID5-V1-000212,0,NID Information Correction,train,NID5-PF-V1-0204,1,SINGLETON,codex_provisional
+NID5-V1-000213,0,NID Information Correction,train,NID5-PF-V1-0205,1,SINGLETON,codex_provisional
+NID5-V1-000214,0,NID Information Correction,train,NID5-PF-V1-0189,2,PROVISIONAL_CONFIRMED,codex_provisional
+NID5-V1-000215,0,NID Information Correction,train,NID5-PF-V1-0206,1,SINGLETON,codex_provisional
+NID5-V1-000216,0,NID Information Correction,train,NID5-PF-V1-0207,1,SINGLETON,codex_provisional
+NID5-V1-000217,0,NID Information Correction,train,NID5-PF-V1-0208,1,SINGLETON,codex_provisional
+NID5-V1-000218,0,NID Information Correction,test,NID5-PF-V1-0209,1,SINGLETON,codex_provisional
+NID5-V1-000219,0,NID Information Correction,train,NID5-PF-V1-0210,1,SINGLETON,codex_provisional
+NID5-V1-000220,0,NID Information Correction,train,NID5-PF-V1-0211,1,SINGLETON,codex_provisional
+NID5-V1-000221,0,NID Information Correction,train,NID5-PF-V1-0212,3,HUMAN_REVIEW_REQUIRED,codex_provisional
+NID5-V1-000222,0,NID Information Correction,train,NID5-PF-V1-0213,1,SINGLETON,codex_provisional
+NID5-V1-000223,0,NID Information Correction,test,NID5-PF-V1-0214,1,SINGLETON,codex_provisional
+NID5-V1-000224,0,NID Information Correction,train,NID5-PF-V1-0215,1,SINGLETON,codex_provisional
+NID5-V1-000225,0,NID Information Correction,train,NID5-PF-V1-0216,1,SINGLETON,codex_provisional
+NID5-V1-000226,0,NID Information Correction,train,NID5-PF-V1-0217,1,SINGLETON,codex_provisional
+NID5-V1-000227,0,NID Information Correction,dev,NID5-PF-V1-0218,1,SINGLETON,codex_provisional
+NID5-V1-000228,0,NID Information Correction,train,NID5-PF-V1-0212,3,HUMAN_REVIEW_REQUIRED,codex_provisional
+NID5-V1-000229,0,NID Information Correction,train,NID5-PF-V1-0219,1,SINGLETON,codex_provisional
+NID5-V1-000230,0,NID Information Correction,test,NID5-PF-V1-0212,3,HUMAN_REVIEW_REQUIRED,codex_provisional
+NID5-V1-000231,0,NID Information Correction,train,NID5-PF-V1-0220,1,SINGLETON,codex_provisional
+NID5-V1-000232,0,NID Information Correction,train,NID5-PF-V1-0221,1,SINGLETON,codex_provisional
+NID5-V1-000233,0,NID Information Correction,train,NID5-PF-V1-0222,1,SINGLETON,codex_provisional
+NID5-V1-000234,0,NID Information Correction,train,NID5-PF-V1-0223,2,PROVISIONAL_CONFIRMED,codex_provisional
+NID5-V1-000235,0,NID Information Correction,test,NID5-PF-V1-0224,1,SINGLETON,codex_provisional
+NID5-V1-000236,0,NID Information Correction,train,NID5-PF-V1-0225,1,SINGLETON,codex_provisional
+NID5-V1-000237,0,NID Information Correction,test,NID5-PF-V1-0226,1,SINGLETON,codex_provisional
+NID5-V1-000238,0,NID Information Correction,dev,NID5-PF-V1-0227,1,SINGLETON,codex_provisional
+NID5-V1-000239,0,NID Information Correction,train,NID5-PF-V1-0228,1,SINGLETON,codex_provisional
+NID5-V1-000240,0,NID Information Correction,test,NID5-PF-V1-0229,1,SINGLETON,codex_provisional
+NID5-V1-000241,0,NID Information Correction,train,NID5-PF-V1-0230,1,SINGLETON,codex_provisional
+NID5-V1-000242,0,NID Information Correction,train,NID5-PF-V1-0231,1,SINGLETON,codex_provisional
+NID5-V1-000243,0,NID Information Correction,train,NID5-PF-V1-0232,1,SINGLETON,codex_provisional
+NID5-V1-000244,0,NID Information Correction,dev,NID5-PF-V1-0233,1,SINGLETON,codex_provisional
+NID5-V1-000245,0,NID Information Correction,train,NID5-PF-V1-0234,1,SINGLETON,codex_provisional
+NID5-V1-000246,0,NID Information Correction,train,NID5-PF-V1-0235,1,SINGLETON,codex_provisional
+NID5-V1-000247,0,NID Information Correction,test,NID5-PF-V1-0236,1,SINGLETON,codex_provisional
+NID5-V1-000248,0,NID Information Correction,train,NID5-PF-V1-0237,1,SINGLETON,codex_provisional
+NID5-V1-000249,0,NID Information Correction,train,NID5-PF-V1-0238,1,SINGLETON,codex_provisional
+NID5-V1-000250,0,NID Information Correction,train,NID5-PF-V1-0223,2,PROVISIONAL_CONFIRMED,codex_provisional
+NID5-V1-000251,0,NID Information Correction,train,NID5-PF-V1-0239,2,PROVISIONAL_CONFIRMED,codex_provisional
+NID5-V1-000252,0,NID Information Correction,dev,NID5-PF-V1-0240,1,SINGLETON,codex_provisional
+NID5-V1-000253,0,NID Information Correction,dev,NID5-PF-V1-0239,2,PROVISIONAL_CONFIRMED,codex_provisional
+NID5-V1-000254,0,NID Information Correction,train,NID5-PF-V1-0241,1,SINGLETON,codex_provisional
+NID5-V1-000255,0,NID Information Correction,test,NID5-PF-V1-0242,1,SINGLETON,codex_provisional
+NID5-V1-000256,0,NID Information Correction,train,NID5-PF-V1-0243,1,SINGLETON,codex_provisional
+NID5-V1-000257,0,NID Information Correction,train,NID5-PF-V1-0244,1,SINGLETON,codex_provisional
+NID5-V1-000258,0,NID Information Correction,train,NID5-PF-V1-0245,1,SINGLETON,codex_provisional
+NID5-V1-000259,0,NID Information Correction,train,NID5-PF-V1-0246,1,SINGLETON,codex_provisional
+NID5-V1-000260,0,NID Information Correction,train,NID5-PF-V1-0247,1,SINGLETON,codex_provisional
+NID5-V1-000261,0,NID Information Correction,test,NID5-PF-V1-0248,1,SINGLETON,codex_provisional
+NID5-V1-000262,0,NID Information Correction,train,NID5-PF-V1-0249,1,SINGLETON,codex_provisional
+NID5-V1-000263,0,NID Information Correction,train,NID5-PF-V1-0250,1,SINGLETON,codex_provisional
+NID5-V1-000264,0,NID Information Correction,test,NID5-PF-V1-0251,1,SINGLETON,codex_provisional
+NID5-V1-000265,0,NID Information Correction,train,NID5-PF-V1-0252,1,SINGLETON,codex_provisional
+NID5-V1-000266,0,NID Information Correction,train,NID5-PF-V1-0253,1,SINGLETON,codex_provisional
+NID5-V1-000267,0,NID Information Correction,test,NID5-PF-V1-0254,1,SINGLETON,codex_provisional
+NID5-V1-000268,1,New NID Registration,train,NID5-PF-V1-0255,1,SINGLETON,codex_provisional
+NID5-V1-000269,1,New NID Registration,test,NID5-PF-V1-0256,1,SINGLETON,codex_provisional
+NID5-V1-000270,1,New NID Registration,train,NID5-PF-V1-0257,1,SINGLETON,codex_provisional
+NID5-V1-000271,1,New NID Registration,train,NID5-PF-V1-0258,1,SINGLETON,codex_provisional
+NID5-V1-000272,1,New NID Registration,test,NID5-PF-V1-0259,1,SINGLETON,codex_provisional
+NID5-V1-000273,1,New NID Registration,train,NID5-PF-V1-0260,1,SINGLETON,codex_provisional
+NID5-V1-000274,1,New NID Registration,train,NID5-PF-V1-0261,1,SINGLETON,codex_provisional
+NID5-V1-000275,1,New NID Registration,train,NID5-PF-V1-0262,1,SINGLETON,codex_provisional
+NID5-V1-000276,1,New NID Registration,test,NID5-PF-V1-0263,1,SINGLETON,codex_provisional
+NID5-V1-000277,1,New NID Registration,train,NID5-PF-V1-0264,1,SINGLETON,codex_provisional
+NID5-V1-000278,1,New NID Registration,dev,NID5-PF-V1-0265,2,PROVISIONAL_CONFIRMED,codex_provisional
+NID5-V1-000279,1,New NID Registration,train,NID5-PF-V1-0266,1,SINGLETON,codex_provisional
+NID5-V1-000280,1,New NID Registration,train,NID5-PF-V1-0267,1,SINGLETON,codex_provisional
+NID5-V1-000281,1,New NID Registration,test,NID5-PF-V1-0268,1,SINGLETON,codex_provisional
+NID5-V1-000282,1,New NID Registration,dev,NID5-PF-V1-0269,1,SINGLETON,codex_provisional
+NID5-V1-000283,1,New NID Registration,train,NID5-PF-V1-0270,1,SINGLETON,codex_provisional
+NID5-V1-000284,1,New NID Registration,train,NID5-PF-V1-0271,1,SINGLETON,codex_provisional
+NID5-V1-000285,1,New NID Registration,test,NID5-PF-V1-0272,1,SINGLETON,codex_provisional
+NID5-V1-000286,1,New NID Registration,train,NID5-PF-V1-0273,1,SINGLETON,codex_provisional
+NID5-V1-000287,1,New NID Registration,train,NID5-PF-V1-0274,1,SINGLETON,codex_provisional
+NID5-V1-000288,1,New NID Registration,train,NID5-PF-V1-0275,1,SINGLETON,codex_provisional
+NID5-V1-000289,1,New NID Registration,train,NID5-PF-V1-0276,1,SINGLETON,codex_provisional
+NID5-V1-000290,1,New NID Registration,dev,NID5-PF-V1-0277,1,SINGLETON,codex_provisional
+NID5-V1-000291,1,New NID Registration,dev,NID5-PF-V1-0278,1,SINGLETON,codex_provisional
+NID5-V1-000292,1,New NID Registration,train,NID5-PF-V1-0279,1,SINGLETON,codex_provisional
+NID5-V1-000293,1,New NID Registration,train,NID5-PF-V1-0280,1,SINGLETON,codex_provisional
+NID5-V1-000294,1,New NID Registration,test,NID5-PF-V1-0281,1,SINGLETON,codex_provisional
+NID5-V1-000295,1,New NID Registration,train,NID5-PF-V1-0282,1,SINGLETON,codex_provisional
+NID5-V1-000296,1,New NID Registration,train,NID5-PF-V1-0283,1,SINGLETON,codex_provisional
+NID5-V1-000297,1,New NID Registration,train,NID5-PF-V1-0284,1,SINGLETON,codex_provisional
+NID5-V1-000298,1,New NID Registration,dev,NID5-PF-V1-0285,1,SINGLETON,codex_provisional
+NID5-V1-000299,1,New NID Registration,dev,NID5-PF-V1-0286,1,SINGLETON,codex_provisional
+NID5-V1-000300,1,New NID Registration,test,NID5-PF-V1-0287,1,SINGLETON,codex_provisional
+NID5-V1-000301,1,New NID Registration,dev,NID5-PF-V1-0288,1,SINGLETON,codex_provisional
+NID5-V1-000302,1,New NID Registration,test,NID5-PF-V1-0289,1,SINGLETON,codex_provisional
+NID5-V1-000303,1,New NID Registration,test,NID5-PF-V1-0290,1,SINGLETON,codex_provisional
+NID5-V1-000304,1,New NID Registration,train,NID5-PF-V1-0291,1,SINGLETON,codex_provisional
+NID5-V1-000305,1,New NID Registration,train,NID5-PF-V1-0292,1,SINGLETON,codex_provisional
+NID5-V1-000306,1,New NID Registration,train,NID5-PF-V1-0293,1,SINGLETON,codex_provisional
+NID5-V1-000307,1,New NID Registration,test,NID5-PF-V1-0294,1,SINGLETON,codex_provisional
+NID5-V1-000308,1,New NID Registration,dev,NID5-PF-V1-0295,1,SINGLETON,codex_provisional
+NID5-V1-000309,1,New NID Registration,train,NID5-PF-V1-0296,1,SINGLETON,codex_provisional
+NID5-V1-000310,1,New NID Registration,train,NID5-PF-V1-0297,1,SINGLETON,codex_provisional
+NID5-V1-000311,1,New NID Registration,train,NID5-PF-V1-0298,1,SINGLETON,codex_provisional
+NID5-V1-000312,1,New NID Registration,train,NID5-PF-V1-0299,1,SINGLETON,codex_provisional
+NID5-V1-000313,1,New NID Registration,train,NID5-PF-V1-0300,1,SINGLETON,codex_provisional
+NID5-V1-000314,1,New NID Registration,train,NID5-PF-V1-0301,1,SINGLETON,codex_provisional
+NID5-V1-000315,1,New NID Registration,train,NID5-PF-V1-0302,1,SINGLETON,codex_provisional
+NID5-V1-000316,1,New NID Registration,train,NID5-PF-V1-0303,1,SINGLETON,codex_provisional
+NID5-V1-000317,1,New NID Registration,train,NID5-PF-V1-0304,1,SINGLETON,codex_provisional
+NID5-V1-000318,1,New NID Registration,train,NID5-PF-V1-0305,1,SINGLETON,codex_provisional
+NID5-V1-000319,1,New NID Registration,train,NID5-PF-V1-0306,1,SINGLETON,codex_provisional
+NID5-V1-000320,1,New NID Registration,train,NID5-PF-V1-0307,1,SINGLETON,codex_provisional
+NID5-V1-000321,1,New NID Registration,train,NID5-PF-V1-0308,1,SINGLETON,codex_provisional
+NID5-V1-000322,1,New NID Registration,test,NID5-PF-V1-0309,1,SINGLETON,codex_provisional
+NID5-V1-000323,1,New NID Registration,train,NID5-PF-V1-0310,1,SINGLETON,codex_provisional
+NID5-V1-000324,1,New NID Registration,test,NID5-PF-V1-0311,1,SINGLETON,codex_provisional
+NID5-V1-000325,1,New NID Registration,train,NID5-PF-V1-0312,1,SINGLETON,codex_provisional
+NID5-V1-000326,1,New NID Registration,test,NID5-PF-V1-0313,1,SINGLETON,codex_provisional
+NID5-V1-000327,1,New NID Registration,test,NID5-PF-V1-0314,1,SINGLETON,codex_provisional
+NID5-V1-000328,1,New NID Registration,train,NID5-PF-V1-0315,1,SINGLETON,codex_provisional
+NID5-V1-000329,1,New NID Registration,train,NID5-PF-V1-0316,1,SINGLETON,codex_provisional
+NID5-V1-000330,1,New NID Registration,train,NID5-PF-V1-0317,1,SINGLETON,codex_provisional
+NID5-V1-000331,1,New NID Registration,test,NID5-PF-V1-0318,1,SINGLETON,codex_provisional
+NID5-V1-000332,1,New NID Registration,train,NID5-PF-V1-0319,1,SINGLETON,codex_provisional
+NID5-V1-000333,1,New NID Registration,dev,NID5-PF-V1-0320,1,SINGLETON,codex_provisional
+NID5-V1-000334,1,New NID Registration,test,NID5-PF-V1-0321,1,SINGLETON,codex_provisional
+NID5-V1-000335,1,New NID Registration,train,NID5-PF-V1-0322,1,SINGLETON,codex_provisional
+NID5-V1-000336,1,New NID Registration,test,NID5-PF-V1-0323,1,SINGLETON,codex_provisional
+NID5-V1-000337,1,New NID Registration,train,NID5-PF-V1-0324,1,SINGLETON,codex_provisional
+NID5-V1-000338,1,New NID Registration,train,NID5-PF-V1-0325,1,SINGLETON,codex_provisional
+NID5-V1-000339,1,New NID Registration,train,NID5-PF-V1-0326,1,SINGLETON,codex_provisional
+NID5-V1-000340,1,New NID Registration,test,NID5-PF-V1-0327,1,SINGLETON,codex_provisional
+NID5-V1-000341,1,New NID Registration,test,NID5-PF-V1-0328,1,SINGLETON,codex_provisional
+NID5-V1-000342,1,New NID Registration,train,NID5-PF-V1-0329,1,SINGLETON,codex_provisional
+NID5-V1-000343,1,New NID Registration,test,NID5-PF-V1-0330,1,SINGLETON,codex_provisional
+NID5-V1-000344,1,New NID Registration,train,NID5-PF-V1-0331,1,SINGLETON,codex_provisional
+NID5-V1-000345,1,New NID Registration,train,NID5-PF-V1-0332,1,SINGLETON,codex_provisional
+NID5-V1-000346,1,New NID Registration,test,NID5-PF-V1-0333,1,SINGLETON,codex_provisional
+NID5-V1-000347,1,New NID Registration,train,NID5-PF-V1-0334,1,SINGLETON,codex_provisional
+NID5-V1-000348,1,New NID Registration,test,NID5-PF-V1-0335,1,SINGLETON,codex_provisional
+NID5-V1-000349,1,New NID Registration,train,NID5-PF-V1-0336,1,SINGLETON,codex_provisional
+NID5-V1-000350,1,New NID Registration,train,NID5-PF-V1-0337,1,SINGLETON,codex_provisional
+NID5-V1-000351,1,New NID Registration,train,NID5-PF-V1-0338,1,SINGLETON,codex_provisional
+NID5-V1-000352,1,New NID Registration,test,NID5-PF-V1-0339,1,SINGLETON,codex_provisional
+NID5-V1-000353,1,New NID Registration,train,NID5-PF-V1-0340,1,SINGLETON,codex_provisional
+NID5-V1-000354,1,New NID Registration,train,NID5-PF-V1-0341,1,SINGLETON,codex_provisional
+NID5-V1-000355,1,New NID Registration,train,NID5-PF-V1-0342,1,SINGLETON,codex_provisional
+NID5-V1-000356,1,New NID Registration,train,NID5-PF-V1-0343,1,SINGLETON,codex_provisional
+NID5-V1-000357,1,New NID Registration,train,NID5-PF-V1-0344,1,SINGLETON,codex_provisional
+NID5-V1-000358,1,New NID Registration,train,NID5-PF-V1-0345,1,SINGLETON,codex_provisional
+NID5-V1-000359,1,New NID Registration,train,NID5-PF-V1-0346,1,SINGLETON,codex_provisional
+NID5-V1-000360,1,New NID Registration,train,NID5-PF-V1-0347,1,SINGLETON,codex_provisional
+NID5-V1-000361,1,New NID Registration,train,NID5-PF-V1-0348,1,SINGLETON,codex_provisional
+NID5-V1-000362,1,New NID Registration,train,NID5-PF-V1-0349,1,SINGLETON,codex_provisional
+NID5-V1-000363,1,New NID Registration,train,NID5-PF-V1-0350,1,SINGLETON,codex_provisional
+NID5-V1-000364,1,New NID Registration,test,NID5-PF-V1-0351,1,SINGLETON,codex_provisional
+NID5-V1-000365,1,New NID Registration,test,NID5-PF-V1-0352,1,SINGLETON,codex_provisional
+NID5-V1-000366,1,New NID Registration,train,NID5-PF-V1-0353,1,SINGLETON,codex_provisional
+NID5-V1-000367,1,New NID Registration,train,NID5-PF-V1-0354,1,SINGLETON,codex_provisional
+NID5-V1-000368,1,New NID Registration,train,NID5-PF-V1-0355,1,SINGLETON,codex_provisional
+NID5-V1-000369,1,New NID Registration,dev,NID5-PF-V1-0356,1,SINGLETON,codex_provisional
+NID5-V1-000370,1,New NID Registration,train,NID5-PF-V1-0357,1,SINGLETON,codex_provisional
+NID5-V1-000371,1,New NID Registration,train,NID5-PF-V1-0358,1,SINGLETON,codex_provisional
+NID5-V1-000372,1,New NID Registration,train,NID5-PF-V1-0359,1,SINGLETON,codex_provisional
+NID5-V1-000373,1,New NID Registration,test,NID5-PF-V1-0360,1,SINGLETON,codex_provisional
+NID5-V1-000374,1,New NID Registration,dev,NID5-PF-V1-0361,1,SINGLETON,codex_provisional
+NID5-V1-000375,1,New NID Registration,train,NID5-PF-V1-0362,1,SINGLETON,codex_provisional
+NID5-V1-000376,1,New NID Registration,train,NID5-PF-V1-0363,1,SINGLETON,codex_provisional
+NID5-V1-000377,1,New NID Registration,dev,NID5-PF-V1-0364,1,SINGLETON,codex_provisional
+NID5-V1-000378,1,New NID Registration,train,NID5-PF-V1-0365,1,SINGLETON,codex_provisional
+NID5-V1-000379,1,New NID Registration,train,NID5-PF-V1-0366,1,SINGLETON,codex_provisional
+NID5-V1-000380,1,New NID Registration,train,NID5-PF-V1-0367,1,SINGLETON,codex_provisional
+NID5-V1-000381,1,New NID Registration,train,NID5-PF-V1-0368,1,SINGLETON,codex_provisional
+NID5-V1-000382,1,New NID Registration,train,NID5-PF-V1-0369,1,SINGLETON,codex_provisional
+NID5-V1-000383,1,New NID Registration,train,NID5-PF-V1-0370,1,SINGLETON,codex_provisional
+NID5-V1-000384,1,New NID Registration,train,NID5-PF-V1-0371,1,SINGLETON,codex_provisional
+NID5-V1-000385,1,New NID Registration,test,NID5-PF-V1-0372,1,SINGLETON,codex_provisional
+NID5-V1-000386,1,New NID Registration,train,NID5-PF-V1-0373,1,SINGLETON,codex_provisional
+NID5-V1-000387,1,New NID Registration,dev,NID5-PF-V1-0374,1,SINGLETON,codex_provisional
+NID5-V1-000388,1,New NID Registration,dev,NID5-PF-V1-0375,1,SINGLETON,codex_provisional
+NID5-V1-000389,1,New NID Registration,dev,NID5-PF-V1-0376,1,SINGLETON,codex_provisional
+NID5-V1-000390,1,New NID Registration,dev,NID5-PF-V1-0377,1,SINGLETON,codex_provisional
+NID5-V1-000391,1,New NID Registration,dev,NID5-PF-V1-0378,1,SINGLETON,codex_provisional
+NID5-V1-000392,1,New NID Registration,dev,NID5-PF-V1-0379,1,SINGLETON,codex_provisional
+NID5-V1-000393,1,New NID Registration,train,NID5-PF-V1-0380,1,SINGLETON,codex_provisional
+NID5-V1-000394,1,New NID Registration,train,NID5-PF-V1-0381,1,SINGLETON,codex_provisional
+NID5-V1-000395,1,New NID Registration,train,NID5-PF-V1-0382,1,SINGLETON,codex_provisional
+NID5-V1-000396,1,New NID Registration,train,NID5-PF-V1-0383,1,SINGLETON,codex_provisional
+NID5-V1-000397,1,New NID Registration,train,NID5-PF-V1-0384,1,SINGLETON,codex_provisional
+NID5-V1-000398,1,New NID Registration,train,NID5-PF-V1-0385,1,SINGLETON,codex_provisional
+NID5-V1-000399,1,New NID Registration,dev,NID5-PF-V1-0386,1,SINGLETON,codex_provisional
+NID5-V1-000400,1,New NID Registration,dev,NID5-PF-V1-0387,1,SINGLETON,codex_provisional
+NID5-V1-000401,1,New NID Registration,train,NID5-PF-V1-0388,1,SINGLETON,codex_provisional
+NID5-V1-000402,1,New NID Registration,train,NID5-PF-V1-0389,1,SINGLETON,codex_provisional
+NID5-V1-000403,1,New NID Registration,train,NID5-PF-V1-0390,1,SINGLETON,codex_provisional
+NID5-V1-000404,1,New NID Registration,test,NID5-PF-V1-0391,1,SINGLETON,codex_provisional
+NID5-V1-000405,1,New NID Registration,train,NID5-PF-V1-0392,1,SINGLETON,codex_provisional
+NID5-V1-000406,1,New NID Registration,train,NID5-PF-V1-0393,1,SINGLETON,codex_provisional
+NID5-V1-000407,1,New NID Registration,train,NID5-PF-V1-0394,1,SINGLETON,codex_provisional
+NID5-V1-000408,1,New NID Registration,test,NID5-PF-V1-0395,1,SINGLETON,codex_provisional
+NID5-V1-000409,1,New NID Registration,train,NID5-PF-V1-0396,1,SINGLETON,codex_provisional
+NID5-V1-000410,1,New NID Registration,dev,NID5-PF-V1-0397,1,SINGLETON,codex_provisional
+NID5-V1-000411,1,New NID Registration,train,NID5-PF-V1-0398,1,SINGLETON,codex_provisional
+NID5-V1-000412,1,New NID Registration,dev,NID5-PF-V1-0399,1,SINGLETON,codex_provisional
+NID5-V1-000413,1,New NID Registration,dev,NID5-PF-V1-0400,1,SINGLETON,codex_provisional
+NID5-V1-000414,1,New NID Registration,train,NID5-PF-V1-0401,1,SINGLETON,codex_provisional
+NID5-V1-000415,1,New NID Registration,train,NID5-PF-V1-0402,1,SINGLETON,codex_provisional
+NID5-V1-000416,1,New NID Registration,train,NID5-PF-V1-0403,1,SINGLETON,codex_provisional
+NID5-V1-000417,1,New NID Registration,train,NID5-PF-V1-0404,1,SINGLETON,codex_provisional
+NID5-V1-000418,1,New NID Registration,train,NID5-PF-V1-0405,1,SINGLETON,codex_provisional
+NID5-V1-000419,1,New NID Registration,train,NID5-PF-V1-0406,1,SINGLETON,codex_provisional
+NID5-V1-000420,1,New NID Registration,dev,NID5-PF-V1-0407,1,SINGLETON,codex_provisional
+NID5-V1-000421,1,New NID Registration,train,NID5-PF-V1-0408,1,SINGLETON,codex_provisional
+NID5-V1-000422,1,New NID Registration,train,NID5-PF-V1-0409,1,SINGLETON,codex_provisional
+NID5-V1-000423,1,New NID Registration,train,NID5-PF-V1-0410,1,SINGLETON,codex_provisional
+NID5-V1-000424,1,New NID Registration,train,NID5-PF-V1-0411,1,SINGLETON,codex_provisional
+NID5-V1-000425,1,New NID Registration,train,NID5-PF-V1-0412,1,SINGLETON,codex_provisional
+NID5-V1-000426,1,New NID Registration,train,NID5-PF-V1-0413,1,SINGLETON,codex_provisional
+NID5-V1-000427,1,New NID Registration,train,NID5-PF-V1-0414,1,SINGLETON,codex_provisional
+NID5-V1-000428,1,New NID Registration,train,NID5-PF-V1-0415,1,SINGLETON,codex_provisional
+NID5-V1-000429,1,New NID Registration,train,NID5-PF-V1-0416,1,SINGLETON,codex_provisional
+NID5-V1-000430,1,New NID Registration,train,NID5-PF-V1-0417,1,SINGLETON,codex_provisional
+NID5-V1-000431,1,New NID Registration,train,NID5-PF-V1-0418,1,SINGLETON,codex_provisional
+NID5-V1-000432,1,New NID Registration,train,NID5-PF-V1-0419,1,SINGLETON,codex_provisional
+NID5-V1-000433,1,New NID Registration,train,NID5-PF-V1-0420,1,SINGLETON,codex_provisional
+NID5-V1-000434,1,New NID Registration,dev,NID5-PF-V1-0421,1,SINGLETON,codex_provisional
+NID5-V1-000435,1,New NID Registration,train,NID5-PF-V1-0422,1,SINGLETON,codex_provisional
+NID5-V1-000436,1,New NID Registration,train,NID5-PF-V1-0423,1,SINGLETON,codex_provisional
+NID5-V1-000437,1,New NID Registration,train,NID5-PF-V1-0424,1,SINGLETON,codex_provisional
+NID5-V1-000438,1,New NID Registration,train,NID5-PF-V1-0425,1,SINGLETON,codex_provisional
+NID5-V1-000439,1,New NID Registration,train,NID5-PF-V1-0426,1,SINGLETON,codex_provisional
+NID5-V1-000440,1,New NID Registration,train,NID5-PF-V1-0427,1,SINGLETON,codex_provisional
+NID5-V1-000441,1,New NID Registration,train,NID5-PF-V1-0428,1,SINGLETON,codex_provisional
+NID5-V1-000442,1,New NID Registration,train,NID5-PF-V1-0429,1,SINGLETON,codex_provisional
+NID5-V1-000443,1,New NID Registration,train,NID5-PF-V1-0430,1,SINGLETON,codex_provisional
+NID5-V1-000444,1,New NID Registration,train,NID5-PF-V1-0431,1,SINGLETON,codex_provisional
+NID5-V1-000445,1,New NID Registration,train,NID5-PF-V1-0432,1,SINGLETON,codex_provisional
+NID5-V1-000446,1,New NID Registration,test,NID5-PF-V1-0433,1,SINGLETON,codex_provisional
+NID5-V1-000447,1,New NID Registration,test,NID5-PF-V1-0434,1,SINGLETON,codex_provisional
+NID5-V1-000448,1,New NID Registration,dev,NID5-PF-V1-0435,1,SINGLETON,codex_provisional
+NID5-V1-000449,1,New NID Registration,dev,NID5-PF-V1-0436,1,SINGLETON,codex_provisional
+NID5-V1-000450,1,New NID Registration,train,NID5-PF-V1-0437,1,SINGLETON,codex_provisional
+NID5-V1-000451,1,New NID Registration,train,NID5-PF-V1-0438,1,SINGLETON,codex_provisional
+NID5-V1-000452,1,New NID Registration,train,NID5-PF-V1-0439,1,SINGLETON,codex_provisional
+NID5-V1-000453,1,New NID Registration,train,NID5-PF-V1-0440,1,SINGLETON,codex_provisional
+NID5-V1-000454,1,New NID Registration,train,NID5-PF-V1-0441,1,SINGLETON,codex_provisional
+NID5-V1-000455,1,New NID Registration,dev,NID5-PF-V1-0442,1,SINGLETON,codex_provisional
+NID5-V1-000456,1,New NID Registration,train,NID5-PF-V1-0443,1,SINGLETON,codex_provisional
+NID5-V1-000457,1,New NID Registration,train,NID5-PF-V1-0444,1,SINGLETON,codex_provisional
+NID5-V1-000458,1,New NID Registration,test,NID5-PF-V1-0445,1,SINGLETON,codex_provisional
+NID5-V1-000459,1,New NID Registration,train,NID5-PF-V1-0446,1,SINGLETON,codex_provisional
+NID5-V1-000460,1,New NID Registration,train,NID5-PF-V1-0447,1,SINGLETON,codex_provisional
+NID5-V1-000461,1,New NID Registration,train,NID5-PF-V1-0448,2,PROVISIONAL_CONFIRMED,codex_provisional
+NID5-V1-000462,1,New NID Registration,train,NID5-PF-V1-0449,1,SINGLETON,codex_provisional
+NID5-V1-000463,1,New NID Registration,train,NID5-PF-V1-0450,1,SINGLETON,codex_provisional
+NID5-V1-000464,1,New NID Registration,train,NID5-PF-V1-0451,1,SINGLETON,codex_provisional
+NID5-V1-000465,1,New NID Registration,test,NID5-PF-V1-0452,1,SINGLETON,codex_provisional
+NID5-V1-000466,1,New NID Registration,train,NID5-PF-V1-0453,1,SINGLETON,codex_provisional
+NID5-V1-000467,1,New NID Registration,dev,NID5-PF-V1-0454,1,SINGLETON,codex_provisional
+NID5-V1-000468,1,New NID Registration,train,NID5-PF-V1-0455,1,SINGLETON,codex_provisional
+NID5-V1-000469,1,New NID Registration,train,NID5-PF-V1-0456,1,SINGLETON,codex_provisional
+NID5-V1-000470,1,New NID Registration,dev,NID5-PF-V1-0448,2,PROVISIONAL_CONFIRMED,codex_provisional
+NID5-V1-000471,1,New NID Registration,train,NID5-PF-V1-0457,1,SINGLETON,codex_provisional
+NID5-V1-000472,1,New NID Registration,dev,NID5-PF-V1-0458,1,SINGLETON,codex_provisional
+NID5-V1-000473,1,New NID Registration,train,NID5-PF-V1-0459,1,SINGLETON,codex_provisional
+NID5-V1-000474,1,New NID Registration,train,NID5-PF-V1-0460,1,SINGLETON,codex_provisional
+NID5-V1-000475,1,New NID Registration,dev,NID5-PF-V1-0461,1,SINGLETON,codex_provisional
+NID5-V1-000476,1,New NID Registration,dev,NID5-PF-V1-0462,1,SINGLETON,codex_provisional
+NID5-V1-000477,1,New NID Registration,train,NID5-PF-V1-0463,1,SINGLETON,codex_provisional
+NID5-V1-000478,1,New NID Registration,test,NID5-PF-V1-0464,1,SINGLETON,codex_provisional
+NID5-V1-000479,1,New NID Registration,train,NID5-PF-V1-0465,1,SINGLETON,codex_provisional
+NID5-V1-000480,1,New NID Registration,train,NID5-PF-V1-0466,1,SINGLETON,codex_provisional
+NID5-V1-000481,1,New NID Registration,train,NID5-PF-V1-0467,1,SINGLETON,codex_provisional
+NID5-V1-000482,1,New NID Registration,dev,NID5-PF-V1-0468,1,SINGLETON,codex_provisional
+NID5-V1-000483,1,New NID Registration,train,NID5-PF-V1-0469,1,SINGLETON,codex_provisional
+NID5-V1-000484,1,New NID Registration,train,NID5-PF-V1-0470,1,SINGLETON,codex_provisional
+NID5-V1-000485,1,New NID Registration,train,NID5-PF-V1-0471,1,SINGLETON,codex_provisional
+NID5-V1-000486,1,New NID Registration,train,NID5-PF-V1-0472,1,SINGLETON,codex_provisional
+NID5-V1-000487,1,New NID Registration,train,NID5-PF-V1-0473,1,SINGLETON,codex_provisional
+NID5-V1-000488,1,New NID Registration,train,NID5-PF-V1-0474,1,SINGLETON,codex_provisional
+NID5-V1-000489,1,New NID Registration,dev,NID5-PF-V1-0475,1,SINGLETON,codex_provisional
+NID5-V1-000490,1,New NID Registration,train,NID5-PF-V1-0476,1,SINGLETON,codex_provisional
+NID5-V1-000491,1,New NID Registration,train,NID5-PF-V1-0477,1,SINGLETON,codex_provisional
+NID5-V1-000492,1,New NID Registration,test,NID5-PF-V1-0478,1,SINGLETON,codex_provisional
+NID5-V1-000493,1,New NID Registration,train,NID5-PF-V1-0479,1,SINGLETON,codex_provisional
+NID5-V1-000494,1,New NID Registration,train,NID5-PF-V1-0480,1,SINGLETON,codex_provisional
+NID5-V1-000495,1,New NID Registration,train,NID5-PF-V1-0481,1,SINGLETON,codex_provisional
+NID5-V1-000496,1,New NID Registration,train,NID5-PF-V1-0482,1,SINGLETON,codex_provisional
+NID5-V1-000497,1,New NID Registration,train,NID5-PF-V1-0483,1,SINGLETON,codex_provisional
+NID5-V1-000498,1,New NID Registration,train,NID5-PF-V1-0484,1,SINGLETON,codex_provisional
+NID5-V1-000499,1,New NID Registration,dev,NID5-PF-V1-0485,1,SINGLETON,codex_provisional
+NID5-V1-000500,1,New NID Registration,test,NID5-PF-V1-0486,1,SINGLETON,codex_provisional
+NID5-V1-000501,1,New NID Registration,test,NID5-PF-V1-0487,1,SINGLETON,codex_provisional
+NID5-V1-000502,1,New NID Registration,train,NID5-PF-V1-0488,1,SINGLETON,codex_provisional
+NID5-V1-000503,1,New NID Registration,test,NID5-PF-V1-0489,1,SINGLETON,codex_provisional
+NID5-V1-000504,1,New NID Registration,train,NID5-PF-V1-0490,1,SINGLETON,codex_provisional
+NID5-V1-000505,1,New NID Registration,train,NID5-PF-V1-0491,1,SINGLETON,codex_provisional
+NID5-V1-000506,1,New NID Registration,test,NID5-PF-V1-0492,1,SINGLETON,codex_provisional
+NID5-V1-000507,1,New NID Registration,test,NID5-PF-V1-0493,1,SINGLETON,codex_provisional
+NID5-V1-000508,1,New NID Registration,test,NID5-PF-V1-0494,1,SINGLETON,codex_provisional
+NID5-V1-000509,1,New NID Registration,train,NID5-PF-V1-0495,1,SINGLETON,codex_provisional
+NID5-V1-000510,1,New NID Registration,test,NID5-PF-V1-0496,1,SINGLETON,codex_provisional
+NID5-V1-000511,1,New NID Registration,train,NID5-PF-V1-0497,1,SINGLETON,codex_provisional
+NID5-V1-000512,1,New NID Registration,train,NID5-PF-V1-0498,1,SINGLETON,codex_provisional
+NID5-V1-000513,1,New NID Registration,train,NID5-PF-V1-0499,1,SINGLETON,codex_provisional
+NID5-V1-000514,1,New NID Registration,train,NID5-PF-V1-0500,1,SINGLETON,codex_provisional
+NID5-V1-000515,1,New NID Registration,train,NID5-PF-V1-0501,1,SINGLETON,codex_provisional
+NID5-V1-000516,1,New NID Registration,train,NID5-PF-V1-0502,1,SINGLETON,codex_provisional
+NID5-V1-000517,1,New NID Registration,train,NID5-PF-V1-0503,1,SINGLETON,codex_provisional
+NID5-V1-000518,1,New NID Registration,train,NID5-PF-V1-0504,1,SINGLETON,codex_provisional
+NID5-V1-000519,1,New NID Registration,dev,NID5-PF-V1-0505,1,SINGLETON,codex_provisional
+NID5-V1-000520,1,New NID Registration,dev,NID5-PF-V1-0506,1,SINGLETON,codex_provisional
+NID5-V1-000521,1,New NID Registration,dev,NID5-PF-V1-0507,1,SINGLETON,codex_provisional
+NID5-V1-000522,1,New NID Registration,train,NID5-PF-V1-0508,1,SINGLETON,codex_provisional
+NID5-V1-000523,1,New NID Registration,dev,NID5-PF-V1-0509,1,SINGLETON,codex_provisional
+NID5-V1-000524,1,New NID Registration,train,NID5-PF-V1-0510,1,SINGLETON,codex_provisional
+NID5-V1-000525,1,New NID Registration,dev,NID5-PF-V1-0511,1,SINGLETON,codex_provisional
+NID5-V1-000526,1,New NID Registration,test,NID5-PF-V1-0512,1,SINGLETON,codex_provisional
+NID5-V1-000527,1,New NID Registration,dev,NID5-PF-V1-0513,1,SINGLETON,codex_provisional
+NID5-V1-000528,1,New NID Registration,train,NID5-PF-V1-0514,1,SINGLETON,codex_provisional
+NID5-V1-000529,1,New NID Registration,train,NID5-PF-V1-0515,1,SINGLETON,codex_provisional
+NID5-V1-000530,1,New NID Registration,train,NID5-PF-V1-0516,1,SINGLETON,codex_provisional
+NID5-V1-000531,1,New NID Registration,train,NID5-PF-V1-0517,1,SINGLETON,codex_provisional
+NID5-V1-000532,1,New NID Registration,train,NID5-PF-V1-0518,1,SINGLETON,codex_provisional
+NID5-V1-000533,1,New NID Registration,test,NID5-PF-V1-0519,1,SINGLETON,codex_provisional
+NID5-V1-000534,1,New NID Registration,train,NID5-PF-V1-0520,1,SINGLETON,codex_provisional
+NID5-V1-000535,1,New NID Registration,test,NID5-PF-V1-0521,1,SINGLETON,codex_provisional
+NID5-V1-000536,1,New NID Registration,train,NID5-PF-V1-0522,1,SINGLETON,codex_provisional
+NID5-V1-000537,1,New NID Registration,train,NID5-PF-V1-0523,1,SINGLETON,codex_provisional
+NID5-V1-000538,1,New NID Registration,train,NID5-PF-V1-0524,1,SINGLETON,codex_provisional
+NID5-V1-000539,1,New NID Registration,train,NID5-PF-V1-0525,1,SINGLETON,codex_provisional
+NID5-V1-000540,1,New NID Registration,train,NID5-PF-V1-0526,1,SINGLETON,codex_provisional
+NID5-V1-000541,1,New NID Registration,train,NID5-PF-V1-0527,1,SINGLETON,codex_provisional
+NID5-V1-000542,1,New NID Registration,train,NID5-PF-V1-0528,1,SINGLETON,codex_provisional
+NID5-V1-000543,1,New NID Registration,train,NID5-PF-V1-0529,1,SINGLETON,codex_provisional
+NID5-V1-000544,1,New NID Registration,train,NID5-PF-V1-0530,1,SINGLETON,codex_provisional
+NID5-V1-000545,1,New NID Registration,train,NID5-PF-V1-0531,1,SINGLETON,codex_provisional
+NID5-V1-000546,1,New NID Registration,train,NID5-PF-V1-0532,1,SINGLETON,codex_provisional
+NID5-V1-000547,1,New NID Registration,train,NID5-PF-V1-0265,2,PROVISIONAL_CONFIRMED,codex_provisional
+NID5-V1-000548,1,New NID Registration,train,NID5-PF-V1-0533,1,SINGLETON,codex_provisional
+NID5-V1-000549,1,New NID Registration,test,NID5-PF-V1-0534,1,SINGLETON,codex_provisional
+NID5-V1-000550,1,New NID Registration,test,NID5-PF-V1-0535,1,SINGLETON,codex_provisional
+NID5-V1-000551,1,New NID Registration,test,NID5-PF-V1-0536,1,SINGLETON,codex_provisional
+NID5-V1-000552,1,New NID Registration,train,NID5-PF-V1-0537,1,SINGLETON,codex_provisional
+NID5-V1-000553,1,New NID Registration,train,NID5-PF-V1-0538,1,SINGLETON,codex_provisional
+NID5-V1-000554,1,New NID Registration,train,NID5-PF-V1-0539,1,SINGLETON,codex_provisional
+NID5-V1-000555,1,New NID Registration,train,NID5-PF-V1-0540,1,SINGLETON,codex_provisional
+NID5-V1-000556,1,New NID Registration,dev,NID5-PF-V1-0541,1,SINGLETON,codex_provisional
+NID5-V1-000557,1,New NID Registration,train,NID5-PF-V1-0542,1,SINGLETON,codex_provisional
+NID5-V1-000558,1,New NID Registration,train,NID5-PF-V1-0543,1,SINGLETON,codex_provisional
+NID5-V1-000559,1,New NID Registration,dev,NID5-PF-V1-0544,1,SINGLETON,codex_provisional
+NID5-V1-000560,1,New NID Registration,train,NID5-PF-V1-0545,1,SINGLETON,codex_provisional
+NID5-V1-000561,1,New NID Registration,train,NID5-PF-V1-0546,1,SINGLETON,codex_provisional
+NID5-V1-000562,1,New NID Registration,train,NID5-PF-V1-0547,1,SINGLETON,codex_provisional
+NID5-V1-000563,1,New NID Registration,train,NID5-PF-V1-0548,1,SINGLETON,codex_provisional
+NID5-V1-000564,1,New NID Registration,train,NID5-PF-V1-0549,1,SINGLETON,codex_provisional
+NID5-V1-000565,1,New NID Registration,test,NID5-PF-V1-0550,1,SINGLETON,codex_provisional
+NID5-V1-000566,1,New NID Registration,test,NID5-PF-V1-0551,1,SINGLETON,codex_provisional
+NID5-V1-000567,1,New NID Registration,dev,NID5-PF-V1-0552,1,SINGLETON,codex_provisional
+NID5-V1-000568,1,New NID Registration,test,NID5-PF-V1-0553,1,SINGLETON,codex_provisional
+NID5-V1-000569,1,New NID Registration,train,NID5-PF-V1-0554,1,SINGLETON,codex_provisional
+NID5-V1-000570,1,New NID Registration,dev,NID5-PF-V1-0555,1,SINGLETON,codex_provisional
+NID5-V1-000571,1,New NID Registration,train,NID5-PF-V1-0556,1,SINGLETON,codex_provisional
+NID5-V1-000572,1,New NID Registration,train,NID5-PF-V1-0557,1,SINGLETON,codex_provisional
+NID5-V1-000573,1,New NID Registration,test,NID5-PF-V1-0558,1,SINGLETON,codex_provisional
+NID5-V1-000574,1,New NID Registration,test,NID5-PF-V1-0559,1,SINGLETON,codex_provisional
+NID5-V1-000575,1,New NID Registration,train,NID5-PF-V1-0560,1,SINGLETON,codex_provisional
+NID5-V1-000576,1,New NID Registration,train,NID5-PF-V1-0561,1,SINGLETON,codex_provisional
+NID5-V1-000577,1,New NID Registration,test,NID5-PF-V1-0562,1,SINGLETON,codex_provisional
+NID5-V1-000578,1,New NID Registration,train,NID5-PF-V1-0563,1,SINGLETON,codex_provisional
+NID5-V1-000579,1,New NID Registration,dev,NID5-PF-V1-0564,1,SINGLETON,codex_provisional
+NID5-V1-000580,1,New NID Registration,train,NID5-PF-V1-0565,1,SINGLETON,codex_provisional
+NID5-V1-000581,1,New NID Registration,train,NID5-PF-V1-0566,1,SINGLETON,codex_provisional
+NID5-V1-000582,1,New NID Registration,dev,NID5-PF-V1-0567,1,SINGLETON,codex_provisional
+NID5-V1-000583,1,New NID Registration,dev,NID5-PF-V1-0568,1,SINGLETON,codex_provisional
+NID5-V1-000584,1,New NID Registration,test,NID5-PF-V1-0569,1,SINGLETON,codex_provisional
+NID5-V1-000585,1,New NID Registration,train,NID5-PF-V1-0570,1,SINGLETON,codex_provisional
+NID5-V1-000586,1,New NID Registration,dev,NID5-PF-V1-0571,1,SINGLETON,codex_provisional
+NID5-V1-000587,1,New NID Registration,train,NID5-PF-V1-0572,1,SINGLETON,codex_provisional
+NID5-V1-000588,1,New NID Registration,train,NID5-PF-V1-0573,1,SINGLETON,codex_provisional
+NID5-V1-000589,1,New NID Registration,test,NID5-PF-V1-0574,1,SINGLETON,codex_provisional
+NID5-V1-000590,1,New NID Registration,train,NID5-PF-V1-0575,1,SINGLETON,codex_provisional
+NID5-V1-000591,1,New NID Registration,train,NID5-PF-V1-0576,1,SINGLETON,codex_provisional
+NID5-V1-000592,1,New NID Registration,test,NID5-PF-V1-0577,2,LABEL_CONFLICT,codex_provisional
+NID5-V1-000593,1,New NID Registration,train,NID5-PF-V1-0578,1,SINGLETON,codex_provisional
+NID5-V1-000594,1,New NID Registration,train,NID5-PF-V1-0579,1,SINGLETON,codex_provisional
+NID5-V1-000595,1,New NID Registration,train,NID5-PF-V1-0580,2,LABEL_CONFLICT,codex_provisional
+NID5-V1-000596,1,New NID Registration,train,NID5-PF-V1-0581,1,SINGLETON,codex_provisional
+NID5-V1-000597,1,New NID Registration,train,NID5-PF-V1-0582,1,SINGLETON,codex_provisional
+NID5-V1-000598,1,New NID Registration,train,NID5-PF-V1-0583,1,SINGLETON,codex_provisional
+NID5-V1-000599,1,New NID Registration,train,NID5-PF-V1-0584,1,SINGLETON,codex_provisional
+NID5-V1-000600,1,New NID Registration,train,NID5-PF-V1-0585,1,SINGLETON,codex_provisional
+NID5-V1-000601,1,New NID Registration,train,NID5-PF-V1-0586,1,SINGLETON,codex_provisional
+NID5-V1-000602,1,New NID Registration,dev,NID5-PF-V1-0587,2,LABEL_CONFLICT,codex_provisional
+NID5-V1-000603,1,New NID Registration,train,NID5-PF-V1-0588,1,SINGLETON,codex_provisional
+NID5-V1-000604,1,New NID Registration,train,NID5-PF-V1-0589,1,SINGLETON,codex_provisional
+NID5-V1-000605,1,New NID Registration,train,NID5-PF-V1-0590,1,SINGLETON,codex_provisional
+NID5-V1-000606,1,New NID Registration,train,NID5-PF-V1-0591,1,SINGLETON,codex_provisional
+NID5-V1-000607,1,New NID Registration,dev,NID5-PF-V1-0592,1,SINGLETON,codex_provisional
+NID5-V1-000608,1,New NID Registration,train,NID5-PF-V1-0593,1,SINGLETON,codex_provisional
+NID5-V1-000609,1,New NID Registration,train,NID5-PF-V1-0594,2,PROVISIONAL_CONFIRMED,codex_provisional
+NID5-V1-000610,1,New NID Registration,dev,NID5-PF-V1-0595,1,SINGLETON,codex_provisional
+NID5-V1-000611,1,New NID Registration,train,NID5-PF-V1-0596,1,SINGLETON,codex_provisional
+NID5-V1-000612,1,New NID Registration,dev,NID5-PF-V1-0597,1,SINGLETON,codex_provisional
+NID5-V1-000613,1,New NID Registration,train,NID5-PF-V1-0598,1,SINGLETON,codex_provisional
+NID5-V1-000614,1,New NID Registration,train,NID5-PF-V1-0594,2,PROVISIONAL_CONFIRMED,codex_provisional
+NID5-V1-000615,1,New NID Registration,dev,NID5-PF-V1-0599,1,SINGLETON,codex_provisional
+NID5-V1-000616,1,New NID Registration,train,NID5-PF-V1-0600,1,SINGLETON,codex_provisional
+NID5-V1-000617,1,New NID Registration,train,NID5-PF-V1-0601,1,SINGLETON,codex_provisional
+NID5-V1-000618,1,New NID Registration,test,NID5-PF-V1-0602,1,SINGLETON,codex_provisional
+NID5-V1-000619,1,New NID Registration,test,NID5-PF-V1-0603,1,SINGLETON,codex_provisional
+NID5-V1-000620,1,New NID Registration,train,NID5-PF-V1-0604,1,SINGLETON,codex_provisional
+NID5-V1-000621,1,New NID Registration,train,NID5-PF-V1-0605,1,SINGLETON,codex_provisional
+NID5-V1-000622,1,New NID Registration,train,NID5-PF-V1-0606,1,SINGLETON,codex_provisional
+NID5-V1-000623,1,New NID Registration,dev,NID5-PF-V1-0607,1,SINGLETON,codex_provisional
+NID5-V1-000624,1,New NID Registration,train,NID5-PF-V1-0608,1,SINGLETON,codex_provisional
+NID5-V1-000625,1,New NID Registration,train,NID5-PF-V1-0609,1,SINGLETON,codex_provisional
+NID5-V1-000626,1,New NID Registration,train,NID5-PF-V1-0610,1,SINGLETON,codex_provisional
+NID5-V1-000627,1,New NID Registration,train,NID5-PF-V1-0611,1,SINGLETON,codex_provisional
+NID5-V1-000628,1,New NID Registration,train,NID5-PF-V1-0612,1,SINGLETON,codex_provisional
+NID5-V1-000629,1,New NID Registration,train,NID5-PF-V1-0613,1,SINGLETON,codex_provisional
+NID5-V1-000630,1,New NID Registration,test,NID5-PF-V1-0614,1,SINGLETON,codex_provisional
+NID5-V1-000631,1,New NID Registration,train,NID5-PF-V1-0615,1,SINGLETON,codex_provisional
+NID5-V1-000632,1,New NID Registration,train,NID5-PF-V1-0616,1,SINGLETON,codex_provisional
+NID5-V1-000633,1,New NID Registration,train,NID5-PF-V1-0617,1,SINGLETON,codex_provisional
+NID5-V1-000634,1,New NID Registration,dev,NID5-PF-V1-0618,1,SINGLETON,codex_provisional
+NID5-V1-000635,1,New NID Registration,train,NID5-PF-V1-0619,1,SINGLETON,codex_provisional
+NID5-V1-000636,1,New NID Registration,train,NID5-PF-V1-0620,1,SINGLETON,codex_provisional
+NID5-V1-000637,1,New NID Registration,train,NID5-PF-V1-0621,1,SINGLETON,codex_provisional
+NID5-V1-000638,1,New NID Registration,train,NID5-PF-V1-0622,1,SINGLETON,codex_provisional
+NID5-V1-000639,1,New NID Registration,train,NID5-PF-V1-0623,1,SINGLETON,codex_provisional
+NID5-V1-000640,1,New NID Registration,train,NID5-PF-V1-0624,1,SINGLETON,codex_provisional
+NID5-V1-000641,1,New NID Registration,train,NID5-PF-V1-0625,1,SINGLETON,codex_provisional
+NID5-V1-000642,1,New NID Registration,train,NID5-PF-V1-0626,1,SINGLETON,codex_provisional
+NID5-V1-000643,1,New NID Registration,test,NID5-PF-V1-0627,1,SINGLETON,codex_provisional
+NID5-V1-000644,1,New NID Registration,train,NID5-PF-V1-0628,1,SINGLETON,codex_provisional
+NID5-V1-000645,1,New NID Registration,train,NID5-PF-V1-0629,1,SINGLETON,codex_provisional
+NID5-V1-000646,1,New NID Registration,test,NID5-PF-V1-0630,1,SINGLETON,codex_provisional
+NID5-V1-000647,1,New NID Registration,train,NID5-PF-V1-0631,1,SINGLETON,codex_provisional
+NID5-V1-000648,1,New NID Registration,dev,NID5-PF-V1-0632,1,SINGLETON,codex_provisional
+NID5-V1-000649,1,New NID Registration,train,NID5-PF-V1-0633,1,SINGLETON,codex_provisional
+NID5-V1-000650,1,New NID Registration,dev,NID5-PF-V1-0634,1,SINGLETON,codex_provisional
+NID5-V1-000651,1,New NID Registration,train,NID5-PF-V1-0635,1,SINGLETON,codex_provisional
+NID5-V1-000652,1,New NID Registration,dev,NID5-PF-V1-0636,1,SINGLETON,codex_provisional
+NID5-V1-000653,1,New NID Registration,train,NID5-PF-V1-0637,1,SINGLETON,codex_provisional
+NID5-V1-000654,1,New NID Registration,train,NID5-PF-V1-0638,1,SINGLETON,codex_provisional
+NID5-V1-000655,1,New NID Registration,train,NID5-PF-V1-0639,1,SINGLETON,codex_provisional
+NID5-V1-000656,1,New NID Registration,train,NID5-PF-V1-0640,1,SINGLETON,codex_provisional
+NID5-V1-000657,1,New NID Registration,train,NID5-PF-V1-0641,1,SINGLETON,codex_provisional
+NID5-V1-000658,1,New NID Registration,train,NID5-PF-V1-0642,1,SINGLETON,codex_provisional
+NID5-V1-000659,1,New NID Registration,dev,NID5-PF-V1-0643,1,SINGLETON,codex_provisional
+NID5-V1-000660,1,New NID Registration,train,NID5-PF-V1-0644,1,SINGLETON,codex_provisional
+NID5-V1-000661,1,New NID Registration,train,NID5-PF-V1-0645,1,SINGLETON,codex_provisional
+NID5-V1-000662,1,New NID Registration,test,NID5-PF-V1-0646,1,SINGLETON,codex_provisional
+NID5-V1-000663,1,New NID Registration,train,NID5-PF-V1-0647,1,SINGLETON,codex_provisional
+NID5-V1-000664,1,New NID Registration,test,NID5-PF-V1-0648,1,SINGLETON,codex_provisional
+NID5-V1-000665,1,New NID Registration,train,NID5-PF-V1-0649,1,SINGLETON,codex_provisional
+NID5-V1-000666,1,New NID Registration,train,NID5-PF-V1-0650,1,SINGLETON,codex_provisional
+NID5-V1-000667,1,New NID Registration,train,NID5-PF-V1-0651,1,SINGLETON,codex_provisional
+NID5-V1-000668,1,New NID Registration,train,NID5-PF-V1-0652,1,SINGLETON,codex_provisional
+NID5-V1-000669,1,New NID Registration,train,NID5-PF-V1-0653,1,SINGLETON,codex_provisional
+NID5-V1-000670,1,New NID Registration,train,NID5-PF-V1-0654,1,SINGLETON,codex_provisional
+NID5-V1-000671,1,New NID Registration,train,NID5-PF-V1-0655,1,SINGLETON,codex_provisional
+NID5-V1-000672,1,New NID Registration,train,NID5-PF-V1-0656,1,SINGLETON,codex_provisional
+NID5-V1-000673,1,New NID Registration,train,NID5-PF-V1-0657,1,SINGLETON,codex_provisional
+NID5-V1-000674,1,New NID Registration,train,NID5-PF-V1-0658,1,SINGLETON,codex_provisional
+NID5-V1-000675,1,New NID Registration,train,NID5-PF-V1-0659,1,SINGLETON,codex_provisional
+NID5-V1-000676,1,New NID Registration,train,NID5-PF-V1-0660,1,SINGLETON,codex_provisional
+NID5-V1-000677,1,New NID Registration,train,NID5-PF-V1-0661,2,PROVISIONAL_CONFIRMED,codex_provisional
+NID5-V1-000678,1,New NID Registration,train,NID5-PF-V1-0662,1,SINGLETON,codex_provisional
+NID5-V1-000679,1,New NID Registration,dev,NID5-PF-V1-0663,1,SINGLETON,codex_provisional
+NID5-V1-000680,1,New NID Registration,test,NID5-PF-V1-0661,2,PROVISIONAL_CONFIRMED,codex_provisional
+NID5-V1-000681,1,New NID Registration,train,NID5-PF-V1-0664,1,SINGLETON,codex_provisional
+NID5-V1-000682,1,New NID Registration,train,NID5-PF-V1-0665,1,SINGLETON,codex_provisional
+NID5-V1-000683,1,New NID Registration,train,NID5-PF-V1-0666,1,SINGLETON,codex_provisional
+NID5-V1-000684,1,New NID Registration,test,NID5-PF-V1-0667,1,SINGLETON,codex_provisional
+NID5-V1-000685,1,New NID Registration,train,NID5-PF-V1-0668,1,SINGLETON,codex_provisional
+NID5-V1-000686,1,New NID Registration,train,NID5-PF-V1-0669,1,SINGLETON,codex_provisional
+NID5-V1-000687,1,New NID Registration,test,NID5-PF-V1-0670,1,SINGLETON,codex_provisional
+NID5-V1-000688,1,New NID Registration,dev,NID5-PF-V1-0671,1,SINGLETON,codex_provisional
+NID5-V1-000689,1,New NID Registration,train,NID5-PF-V1-0672,1,SINGLETON,codex_provisional
+NID5-V1-000690,1,New NID Registration,train,NID5-PF-V1-0673,1,SINGLETON,codex_provisional
+NID5-V1-000691,1,New NID Registration,train,NID5-PF-V1-0674,1,SINGLETON,codex_provisional
+NID5-V1-000692,1,New NID Registration,dev,NID5-PF-V1-0675,1,SINGLETON,codex_provisional
+NID5-V1-000693,1,New NID Registration,train,NID5-PF-V1-0676,1,SINGLETON,codex_provisional
+NID5-V1-000694,1,New NID Registration,train,NID5-PF-V1-0677,1,SINGLETON,codex_provisional
+NID5-V1-000695,1,New NID Registration,dev,NID5-PF-V1-0678,1,SINGLETON,codex_provisional
+NID5-V1-000696,1,New NID Registration,dev,NID5-PF-V1-0679,1,SINGLETON,codex_provisional
+NID5-V1-000697,1,New NID Registration,train,NID5-PF-V1-0680,1,SINGLETON,codex_provisional
+NID5-V1-000698,1,New NID Registration,train,NID5-PF-V1-0681,1,SINGLETON,codex_provisional
+NID5-V1-000699,1,New NID Registration,train,NID5-PF-V1-0682,1,SINGLETON,codex_provisional
+NID5-V1-000700,1,New NID Registration,train,NID5-PF-V1-0683,1,SINGLETON,codex_provisional
+NID5-V1-000701,1,New NID Registration,train,NID5-PF-V1-0684,1,SINGLETON,codex_provisional
+NID5-V1-000702,1,New NID Registration,train,NID5-PF-V1-0685,1,SINGLETON,codex_provisional
+NID5-V1-000703,1,New NID Registration,train,NID5-PF-V1-0686,1,SINGLETON,codex_provisional
+NID5-V1-000704,1,New NID Registration,dev,NID5-PF-V1-0687,1,SINGLETON,codex_provisional
+NID5-V1-000705,1,New NID Registration,train,NID5-PF-V1-0688,1,SINGLETON,codex_provisional
+NID5-V1-000706,1,New NID Registration,train,NID5-PF-V1-0689,1,SINGLETON,codex_provisional
+NID5-V1-000707,1,New NID Registration,train,NID5-PF-V1-0690,1,SINGLETON,codex_provisional
+NID5-V1-000708,1,New NID Registration,train,NID5-PF-V1-0691,1,SINGLETON,codex_provisional
+NID5-V1-000709,1,New NID Registration,train,NID5-PF-V1-0692,1,SINGLETON,codex_provisional
+NID5-V1-000710,1,New NID Registration,train,NID5-PF-V1-0693,1,SINGLETON,codex_provisional
+NID5-V1-000711,1,New NID Registration,train,NID5-PF-V1-0694,1,SINGLETON,codex_provisional
+NID5-V1-000712,1,New NID Registration,train,NID5-PF-V1-0695,1,SINGLETON,codex_provisional
+NID5-V1-000713,1,New NID Registration,train,NID5-PF-V1-0696,1,SINGLETON,codex_provisional
+NID5-V1-000714,1,New NID Registration,train,NID5-PF-V1-0697,1,SINGLETON,codex_provisional
+NID5-V1-000715,1,New NID Registration,train,NID5-PF-V1-0698,1,SINGLETON,codex_provisional
+NID5-V1-000716,2,Lost/Stolen NID,test,NID5-PF-V1-0699,1,SINGLETON,codex_provisional
+NID5-V1-000717,2,Lost/Stolen NID,train,NID5-PF-V1-0700,1,SINGLETON,codex_provisional
+NID5-V1-000718,2,Lost/Stolen NID,train,NID5-PF-V1-0701,1,SINGLETON,codex_provisional
+NID5-V1-000719,2,Lost/Stolen NID,train,NID5-PF-V1-0702,1,SINGLETON,codex_provisional
+NID5-V1-000720,2,Lost/Stolen NID,train,NID5-PF-V1-0703,1,SINGLETON,codex_provisional
+NID5-V1-000721,2,Lost/Stolen NID,train,NID5-PF-V1-0704,1,SINGLETON,codex_provisional
+NID5-V1-000722,2,Lost/Stolen NID,test,NID5-PF-V1-0705,1,SINGLETON,codex_provisional
+NID5-V1-000723,2,Lost/Stolen NID,dev,NID5-PF-V1-0706,1,SINGLETON,codex_provisional
+NID5-V1-000724,2,Lost/Stolen NID,dev,NID5-PF-V1-0707,1,SINGLETON,codex_provisional
+NID5-V1-000725,2,Lost/Stolen NID,train,NID5-PF-V1-0708,1,SINGLETON,codex_provisional
+NID5-V1-000726,2,Lost/Stolen NID,train,NID5-PF-V1-0709,1,SINGLETON,codex_provisional
+NID5-V1-000727,2,Lost/Stolen NID,test,NID5-PF-V1-0710,1,SINGLETON,codex_provisional
+NID5-V1-000728,2,Lost/Stolen NID,train,NID5-PF-V1-0711,1,SINGLETON,codex_provisional
+NID5-V1-000729,2,Lost/Stolen NID,train,NID5-PF-V1-0712,1,SINGLETON,codex_provisional
+NID5-V1-000730,2,Lost/Stolen NID,train,NID5-PF-V1-0713,2,PROVISIONAL_CONFIRMED,codex_provisional
+NID5-V1-000731,2,Lost/Stolen NID,train,NID5-PF-V1-0713,2,PROVISIONAL_CONFIRMED,codex_provisional
+NID5-V1-000732,2,Lost/Stolen NID,train,NID5-PF-V1-0714,1,SINGLETON,codex_provisional
+NID5-V1-000733,2,Lost/Stolen NID,train,NID5-PF-V1-0715,1,SINGLETON,codex_provisional
+NID5-V1-000734,2,Lost/Stolen NID,train,NID5-PF-V1-0716,1,SINGLETON,codex_provisional
+NID5-V1-000735,2,Lost/Stolen NID,dev,NID5-PF-V1-0717,1,SINGLETON,codex_provisional
+NID5-V1-000736,2,Lost/Stolen NID,train,NID5-PF-V1-0718,1,SINGLETON,codex_provisional
+NID5-V1-000737,2,Lost/Stolen NID,train,NID5-PF-V1-0719,1,SINGLETON,codex_provisional
+NID5-V1-000738,2,Lost/Stolen NID,train,NID5-PF-V1-0720,1,SINGLETON,codex_provisional
+NID5-V1-000739,2,Lost/Stolen NID,dev,NID5-PF-V1-0721,1,SINGLETON,codex_provisional
+NID5-V1-000740,2,Lost/Stolen NID,train,NID5-PF-V1-0722,1,SINGLETON,codex_provisional
+NID5-V1-000741,2,Lost/Stolen NID,dev,NID5-PF-V1-0723,1,SINGLETON,codex_provisional
+NID5-V1-000742,2,Lost/Stolen NID,train,NID5-PF-V1-0724,1,SINGLETON,codex_provisional
+NID5-V1-000743,2,Lost/Stolen NID,train,NID5-PF-V1-0725,1,SINGLETON,codex_provisional
+NID5-V1-000744,2,Lost/Stolen NID,train,NID5-PF-V1-0726,1,SINGLETON,codex_provisional
+NID5-V1-000745,2,Lost/Stolen NID,test,NID5-PF-V1-0727,1,SINGLETON,codex_provisional
+NID5-V1-000746,2,Lost/Stolen NID,train,NID5-PF-V1-0728,1,SINGLETON,codex_provisional
+NID5-V1-000747,2,Lost/Stolen NID,test,NID5-PF-V1-0729,1,SINGLETON,codex_provisional
+NID5-V1-000748,2,Lost/Stolen NID,test,NID5-PF-V1-0730,1,SINGLETON,codex_provisional
+NID5-V1-000749,2,Lost/Stolen NID,train,NID5-PF-V1-0731,1,SINGLETON,codex_provisional
+NID5-V1-000750,2,Lost/Stolen NID,train,NID5-PF-V1-0732,1,SINGLETON,codex_provisional
+NID5-V1-000751,2,Lost/Stolen NID,train,NID5-PF-V1-0733,1,SINGLETON,codex_provisional
+NID5-V1-000752,2,Lost/Stolen NID,test,NID5-PF-V1-0734,1,SINGLETON,codex_provisional
+NID5-V1-000753,2,Lost/Stolen NID,train,NID5-PF-V1-0735,1,SINGLETON,codex_provisional
+NID5-V1-000754,2,Lost/Stolen NID,train,NID5-PF-V1-0736,1,SINGLETON,codex_provisional
+NID5-V1-000755,2,Lost/Stolen NID,train,NID5-PF-V1-0737,1,SINGLETON,codex_provisional
+NID5-V1-000756,2,Lost/Stolen NID,train,NID5-PF-V1-0738,1,SINGLETON,codex_provisional
+NID5-V1-000757,2,Lost/Stolen NID,dev,NID5-PF-V1-0739,1,SINGLETON,codex_provisional
+NID5-V1-000758,2,Lost/Stolen NID,train,NID5-PF-V1-0740,1,SINGLETON,codex_provisional
+NID5-V1-000759,2,Lost/Stolen NID,train,NID5-PF-V1-0741,1,SINGLETON,codex_provisional
+NID5-V1-000760,2,Lost/Stolen NID,dev,NID5-PF-V1-0742,1,SINGLETON,codex_provisional
+NID5-V1-000761,2,Lost/Stolen NID,train,NID5-PF-V1-0743,1,SINGLETON,codex_provisional
+NID5-V1-000762,2,Lost/Stolen NID,train,NID5-PF-V1-0744,1,SINGLETON,codex_provisional
+NID5-V1-000763,2,Lost/Stolen NID,train,NID5-PF-V1-0745,1,SINGLETON,codex_provisional
+NID5-V1-000764,2,Lost/Stolen NID,test,NID5-PF-V1-0746,1,SINGLETON,codex_provisional
+NID5-V1-000765,2,Lost/Stolen NID,train,NID5-PF-V1-0747,1,SINGLETON,codex_provisional
+NID5-V1-000766,2,Lost/Stolen NID,train,NID5-PF-V1-0748,1,SINGLETON,codex_provisional
+NID5-V1-000767,2,Lost/Stolen NID,train,NID5-PF-V1-0749,2,LABEL_CONFLICT,codex_provisional
+NID5-V1-000768,2,Lost/Stolen NID,train,NID5-PF-V1-0750,1,SINGLETON,codex_provisional
+NID5-V1-000769,2,Lost/Stolen NID,train,NID5-PF-V1-0751,4,LABEL_CONFLICT,codex_provisional
+NID5-V1-000770,2,Lost/Stolen NID,train,NID5-PF-V1-0752,1,SINGLETON,codex_provisional
+NID5-V1-000771,2,Lost/Stolen NID,train,NID5-PF-V1-0753,1,SINGLETON,codex_provisional
+NID5-V1-000772,2,Lost/Stolen NID,train,NID5-PF-V1-0754,1,SINGLETON,codex_provisional
+NID5-V1-000773,2,Lost/Stolen NID,train,NID5-PF-V1-0755,1,SINGLETON,codex_provisional
+NID5-V1-000774,2,Lost/Stolen NID,test,NID5-PF-V1-0756,1,SINGLETON,codex_provisional
+NID5-V1-000775,2,Lost/Stolen NID,train,NID5-PF-V1-0757,1,SINGLETON,codex_provisional
+NID5-V1-000776,2,Lost/Stolen NID,train,NID5-PF-V1-0758,1,SINGLETON,codex_provisional
+NID5-V1-000777,2,Lost/Stolen NID,train,NID5-PF-V1-0759,1,SINGLETON,codex_provisional
+NID5-V1-000778,2,Lost/Stolen NID,train,NID5-PF-V1-0760,1,SINGLETON,codex_provisional
+NID5-V1-000779,2,Lost/Stolen NID,train,NID5-PF-V1-0761,1,SINGLETON,codex_provisional
+NID5-V1-000780,2,Lost/Stolen NID,test,NID5-PF-V1-0762,1,SINGLETON,codex_provisional
+NID5-V1-000781,2,Lost/Stolen NID,train,NID5-PF-V1-0763,1,SINGLETON,codex_provisional
+NID5-V1-000782,2,Lost/Stolen NID,test,NID5-PF-V1-0764,1,SINGLETON,codex_provisional
+NID5-V1-000783,2,Lost/Stolen NID,train,NID5-PF-V1-0765,1,SINGLETON,codex_provisional
+NID5-V1-000784,2,Lost/Stolen NID,train,NID5-PF-V1-0766,1,SINGLETON,codex_provisional
+NID5-V1-000785,2,Lost/Stolen NID,train,NID5-PF-V1-0767,2,PROVISIONAL_CONFIRMED,codex_provisional
+NID5-V1-000786,2,Lost/Stolen NID,test,NID5-PF-V1-0768,2,LABEL_CONFLICT,codex_provisional
+NID5-V1-000787,2,Lost/Stolen NID,train,NID5-PF-V1-0769,1,SINGLETON,codex_provisional
+NID5-V1-000788,2,Lost/Stolen NID,train,NID5-PF-V1-0770,2,PROVISIONAL_CONFIRMED,codex_provisional
+NID5-V1-000789,2,Lost/Stolen NID,train,NID5-PF-V1-0771,1,SINGLETON,codex_provisional
+NID5-V1-000790,2,Lost/Stolen NID,train,NID5-PF-V1-0772,1,SINGLETON,codex_provisional
+NID5-V1-000791,2,Lost/Stolen NID,train,NID5-PF-V1-0773,2,PROVISIONAL_CONFIRMED,codex_provisional
+NID5-V1-000792,2,Lost/Stolen NID,dev,NID5-PF-V1-0774,1,SINGLETON,codex_provisional
+NID5-V1-000793,2,Lost/Stolen NID,dev,NID5-PF-V1-0775,1,SINGLETON,codex_provisional
+NID5-V1-000794,2,Lost/Stolen NID,train,NID5-PF-V1-0776,2,PROVISIONAL_CONFIRMED,codex_provisional
+NID5-V1-000795,2,Lost/Stolen NID,train,NID5-PF-V1-0777,1,SINGLETON,codex_provisional
+NID5-V1-000796,2,Lost/Stolen NID,train,NID5-PF-V1-0778,1,SINGLETON,codex_provisional
+NID5-V1-000797,2,Lost/Stolen NID,train,NID5-PF-V1-0779,1,SINGLETON,codex_provisional
+NID5-V1-000798,2,Lost/Stolen NID,train,NID5-PF-V1-0780,1,SINGLETON,codex_provisional
+NID5-V1-000799,2,Lost/Stolen NID,train,NID5-PF-V1-0781,1,SINGLETON,codex_provisional
+NID5-V1-000800,2,Lost/Stolen NID,train,NID5-PF-V1-0782,1,SINGLETON,codex_provisional
+NID5-V1-000801,2,Lost/Stolen NID,train,NID5-PF-V1-0783,1,SINGLETON,codex_provisional
+NID5-V1-000802,2,Lost/Stolen NID,train,NID5-PF-V1-0784,1,SINGLETON,codex_provisional
+NID5-V1-000803,2,Lost/Stolen NID,dev,NID5-PF-V1-0785,1,SINGLETON,codex_provisional
+NID5-V1-000804,2,Lost/Stolen NID,test,NID5-PF-V1-0786,1,SINGLETON,codex_provisional
+NID5-V1-000805,2,Lost/Stolen NID,dev,NID5-PF-V1-0787,1,SINGLETON,codex_provisional
+NID5-V1-000806,2,Lost/Stolen NID,test,NID5-PF-V1-0788,1,SINGLETON,codex_provisional
+NID5-V1-000807,2,Lost/Stolen NID,dev,NID5-PF-V1-0789,1,SINGLETON,codex_provisional
+NID5-V1-000808,2,Lost/Stolen NID,train,NID5-PF-V1-0790,1,SINGLETON,codex_provisional
+NID5-V1-000809,2,Lost/Stolen NID,train,NID5-PF-V1-0791,2,PROVISIONAL_CONFIRMED,codex_provisional
+NID5-V1-000810,2,Lost/Stolen NID,train,NID5-PF-V1-0792,1,SINGLETON,codex_provisional
+NID5-V1-000811,2,Lost/Stolen NID,train,NID5-PF-V1-0793,1,SINGLETON,codex_provisional
+NID5-V1-000812,2,Lost/Stolen NID,test,NID5-PF-V1-0794,1,SINGLETON,codex_provisional
+NID5-V1-000813,2,Lost/Stolen NID,dev,NID5-PF-V1-0795,1,SINGLETON,codex_provisional
+NID5-V1-000814,2,Lost/Stolen NID,train,NID5-PF-V1-0796,1,SINGLETON,codex_provisional
+NID5-V1-000815,2,Lost/Stolen NID,train,NID5-PF-V1-0797,1,SINGLETON,codex_provisional
+NID5-V1-000816,2,Lost/Stolen NID,train,NID5-PF-V1-0798,1,SINGLETON,codex_provisional
+NID5-V1-000817,2,Lost/Stolen NID,dev,NID5-PF-V1-0799,1,SINGLETON,codex_provisional
+NID5-V1-000818,2,Lost/Stolen NID,train,NID5-PF-V1-0800,1,SINGLETON,codex_provisional
+NID5-V1-000819,2,Lost/Stolen NID,train,NID5-PF-V1-0801,1,SINGLETON,codex_provisional
+NID5-V1-000820,2,Lost/Stolen NID,train,NID5-PF-V1-0802,1,SINGLETON,codex_provisional
+NID5-V1-000821,2,Lost/Stolen NID,test,NID5-PF-V1-0803,1,SINGLETON,codex_provisional
+NID5-V1-000822,2,Lost/Stolen NID,test,NID5-PF-V1-0804,1,SINGLETON,codex_provisional
+NID5-V1-000823,2,Lost/Stolen NID,train,NID5-PF-V1-0805,1,SINGLETON,codex_provisional
+NID5-V1-000824,2,Lost/Stolen NID,dev,NID5-PF-V1-0806,1,SINGLETON,codex_provisional
+NID5-V1-000825,2,Lost/Stolen NID,dev,NID5-PF-V1-0807,1,SINGLETON,codex_provisional
+NID5-V1-000826,2,Lost/Stolen NID,train,NID5-PF-V1-0751,4,LABEL_CONFLICT,codex_provisional
+NID5-V1-000827,2,Lost/Stolen NID,train,NID5-PF-V1-0808,1,SINGLETON,codex_provisional
+NID5-V1-000828,2,Lost/Stolen NID,test,NID5-PF-V1-0809,1,SINGLETON,codex_provisional
+NID5-V1-000829,2,Lost/Stolen NID,train,NID5-PF-V1-0810,1,SINGLETON,codex_provisional
+NID5-V1-000830,2,Lost/Stolen NID,test,NID5-PF-V1-0811,1,SINGLETON,codex_provisional
+NID5-V1-000831,2,Lost/Stolen NID,dev,NID5-PF-V1-0812,1,SINGLETON,codex_provisional
+NID5-V1-000832,2,Lost/Stolen NID,train,NID5-PF-V1-0813,1,SINGLETON,codex_provisional
+NID5-V1-000833,2,Lost/Stolen NID,test,NID5-PF-V1-0814,1,SINGLETON,codex_provisional
+NID5-V1-000834,2,Lost/Stolen NID,train,NID5-PF-V1-0815,1,SINGLETON,codex_provisional
+NID5-V1-000835,2,Lost/Stolen NID,train,NID5-PF-V1-0816,1,SINGLETON,codex_provisional
+NID5-V1-000836,2,Lost/Stolen NID,train,NID5-PF-V1-0817,1,SINGLETON,codex_provisional
+NID5-V1-000837,2,Lost/Stolen NID,train,NID5-PF-V1-0818,1,SINGLETON,codex_provisional
+NID5-V1-000838,2,Lost/Stolen NID,train,NID5-PF-V1-0819,1,SINGLETON,codex_provisional
+NID5-V1-000839,2,Lost/Stolen NID,train,NID5-PF-V1-0820,1,SINGLETON,codex_provisional
+NID5-V1-000840,2,Lost/Stolen NID,train,NID5-PF-V1-0821,1,SINGLETON,codex_provisional
+NID5-V1-000841,2,Lost/Stolen NID,train,NID5-PF-V1-0791,2,PROVISIONAL_CONFIRMED,codex_provisional
+NID5-V1-000842,2,Lost/Stolen NID,test,NID5-PF-V1-0822,1,SINGLETON,codex_provisional
+NID5-V1-000843,2,Lost/Stolen NID,train,NID5-PF-V1-0823,1,SINGLETON,codex_provisional
+NID5-V1-000844,2,Lost/Stolen NID,dev,NID5-PF-V1-0824,1,SINGLETON,codex_provisional
+NID5-V1-000845,2,Lost/Stolen NID,test,NID5-PF-V1-0825,1,SINGLETON,codex_provisional
+NID5-V1-000846,2,Lost/Stolen NID,train,NID5-PF-V1-0773,2,PROVISIONAL_CONFIRMED,codex_provisional
+NID5-V1-000847,2,Lost/Stolen NID,train,NID5-PF-V1-0826,1,SINGLETON,codex_provisional
+NID5-V1-000848,2,Lost/Stolen NID,dev,NID5-PF-V1-0827,1,SINGLETON,codex_provisional
+NID5-V1-000849,2,Lost/Stolen NID,train,NID5-PF-V1-0828,1,SINGLETON,codex_provisional
+NID5-V1-000850,2,Lost/Stolen NID,train,NID5-PF-V1-0829,1,SINGLETON,codex_provisional
+NID5-V1-000851,2,Lost/Stolen NID,train,NID5-PF-V1-0776,2,PROVISIONAL_CONFIRMED,codex_provisional
+NID5-V1-000852,2,Lost/Stolen NID,train,NID5-PF-V1-0830,1,SINGLETON,codex_provisional
+NID5-V1-000853,2,Lost/Stolen NID,train,NID5-PF-V1-0831,1,SINGLETON,codex_provisional
+NID5-V1-000854,2,Lost/Stolen NID,dev,NID5-PF-V1-0832,1,SINGLETON,codex_provisional
+NID5-V1-000855,2,Lost/Stolen NID,train,NID5-PF-V1-0833,2,PROVISIONAL_CONFIRMED,codex_provisional
+NID5-V1-000856,2,Lost/Stolen NID,train,NID5-PF-V1-0834,1,SINGLETON,codex_provisional
+NID5-V1-000857,2,Lost/Stolen NID,train,NID5-PF-V1-0835,1,SINGLETON,codex_provisional
+NID5-V1-000858,2,Lost/Stolen NID,train,NID5-PF-V1-0836,1,SINGLETON,codex_provisional
+NID5-V1-000859,2,Lost/Stolen NID,train,NID5-PF-V1-0837,1,SINGLETON,codex_provisional
+NID5-V1-000860,2,Lost/Stolen NID,train,NID5-PF-V1-0838,1,SINGLETON,codex_provisional
+NID5-V1-000861,2,Lost/Stolen NID,train,NID5-PF-V1-0839,1,SINGLETON,codex_provisional
+NID5-V1-000862,2,Lost/Stolen NID,train,NID5-PF-V1-0840,1,SINGLETON,codex_provisional
+NID5-V1-000863,2,Lost/Stolen NID,train,NID5-PF-V1-0841,1,SINGLETON,codex_provisional
+NID5-V1-000864,2,Lost/Stolen NID,train,NID5-PF-V1-0842,1,SINGLETON,codex_provisional
+NID5-V1-000865,2,Lost/Stolen NID,train,NID5-PF-V1-0843,1,SINGLETON,codex_provisional
+NID5-V1-000866,2,Lost/Stolen NID,train,NID5-PF-V1-0844,1,SINGLETON,codex_provisional
+NID5-V1-000867,2,Lost/Stolen NID,dev,NID5-PF-V1-0845,1,SINGLETON,codex_provisional
+NID5-V1-000868,2,Lost/Stolen NID,train,NID5-PF-V1-0846,1,SINGLETON,codex_provisional
+NID5-V1-000869,2,Lost/Stolen NID,train,NID5-PF-V1-0847,1,SINGLETON,codex_provisional
+NID5-V1-000870,2,Lost/Stolen NID,test,NID5-PF-V1-0848,1,SINGLETON,codex_provisional
+NID5-V1-000871,2,Lost/Stolen NID,dev,NID5-PF-V1-0849,1,SINGLETON,codex_provisional
+NID5-V1-000872,2,Lost/Stolen NID,train,NID5-PF-V1-0850,1,SINGLETON,codex_provisional
+NID5-V1-000873,2,Lost/Stolen NID,train,NID5-PF-V1-0851,1,SINGLETON,codex_provisional
+NID5-V1-000874,2,Lost/Stolen NID,train,NID5-PF-V1-0852,1,SINGLETON,codex_provisional
+NID5-V1-000875,2,Lost/Stolen NID,train,NID5-PF-V1-0853,1,SINGLETON,codex_provisional
+NID5-V1-000876,2,Lost/Stolen NID,train,NID5-PF-V1-0854,1,SINGLETON,codex_provisional
+NID5-V1-000877,2,Lost/Stolen NID,train,NID5-PF-V1-0855,1,SINGLETON,codex_provisional
+NID5-V1-000878,2,Lost/Stolen NID,train,NID5-PF-V1-0856,1,SINGLETON,codex_provisional
+NID5-V1-000879,2,Lost/Stolen NID,test,NID5-PF-V1-0857,1,SINGLETON,codex_provisional
+NID5-V1-000880,2,Lost/Stolen NID,train,NID5-PF-V1-0858,1,SINGLETON,codex_provisional
+NID5-V1-000881,2,Lost/Stolen NID,train,NID5-PF-V1-0859,1,SINGLETON,codex_provisional
+NID5-V1-000882,2,Lost/Stolen NID,dev,NID5-PF-V1-0860,1,SINGLETON,codex_provisional
+NID5-V1-000883,2,Lost/Stolen NID,train,NID5-PF-V1-0861,1,SINGLETON,codex_provisional
+NID5-V1-000884,2,Lost/Stolen NID,dev,NID5-PF-V1-0862,1,SINGLETON,codex_provisional
+NID5-V1-000885,2,Lost/Stolen NID,train,NID5-PF-V1-0863,1,SINGLETON,codex_provisional
+NID5-V1-000886,2,Lost/Stolen NID,train,NID5-PF-V1-0864,1,SINGLETON,codex_provisional
+NID5-V1-000887,2,Lost/Stolen NID,train,NID5-PF-V1-0865,1,SINGLETON,codex_provisional
+NID5-V1-000888,2,Lost/Stolen NID,train,NID5-PF-V1-0866,1,SINGLETON,codex_provisional
+NID5-V1-000889,2,Lost/Stolen NID,dev,NID5-PF-V1-0867,1,SINGLETON,codex_provisional
+NID5-V1-000890,2,Lost/Stolen NID,train,NID5-PF-V1-0868,1,SINGLETON,codex_provisional
+NID5-V1-000891,2,Lost/Stolen NID,test,NID5-PF-V1-0767,2,PROVISIONAL_CONFIRMED,codex_provisional
+NID5-V1-000892,2,Lost/Stolen NID,test,NID5-PF-V1-0869,1,SINGLETON,codex_provisional
+NID5-V1-000893,2,Lost/Stolen NID,test,NID5-PF-V1-0770,2,PROVISIONAL_CONFIRMED,codex_provisional
+NID5-V1-000894,2,Lost/Stolen NID,train,NID5-PF-V1-0751,4,LABEL_CONFLICT,codex_provisional
+NID5-V1-000895,2,Lost/Stolen NID,train,NID5-PF-V1-0870,1,SINGLETON,codex_provisional
+NID5-V1-000896,2,Lost/Stolen NID,test,NID5-PF-V1-0871,1,SINGLETON,codex_provisional
+NID5-V1-000897,2,Lost/Stolen NID,train,NID5-PF-V1-0872,1,SINGLETON,codex_provisional
+NID5-V1-000898,2,Lost/Stolen NID,train,NID5-PF-V1-0873,1,SINGLETON,codex_provisional
+NID5-V1-000899,2,Lost/Stolen NID,train,NID5-PF-V1-0874,1,SINGLETON,codex_provisional
+NID5-V1-000900,2,Lost/Stolen NID,train,NID5-PF-V1-0875,1,SINGLETON,codex_provisional
+NID5-V1-000901,2,Lost/Stolen NID,train,NID5-PF-V1-0876,1,SINGLETON,codex_provisional
+NID5-V1-000902,2,Lost/Stolen NID,dev,NID5-PF-V1-0877,1,SINGLETON,codex_provisional
+NID5-V1-000903,2,Lost/Stolen NID,train,NID5-PF-V1-0878,1,SINGLETON,codex_provisional
+NID5-V1-000904,2,Lost/Stolen NID,test,NID5-PF-V1-0879,1,SINGLETON,codex_provisional
+NID5-V1-000905,2,Lost/Stolen NID,train,NID5-PF-V1-0880,1,SINGLETON,codex_provisional
+NID5-V1-000906,2,Lost/Stolen NID,train,NID5-PF-V1-0881,1,SINGLETON,codex_provisional
+NID5-V1-000907,2,Lost/Stolen NID,train,NID5-PF-V1-0882,1,SINGLETON,codex_provisional
+NID5-V1-000908,2,Lost/Stolen NID,train,NID5-PF-V1-0883,1,SINGLETON,codex_provisional
+NID5-V1-000909,2,Lost/Stolen NID,dev,NID5-PF-V1-0884,1,SINGLETON,codex_provisional
+NID5-V1-000910,2,Lost/Stolen NID,dev,NID5-PF-V1-0885,1,SINGLETON,codex_provisional
+NID5-V1-000911,2,Lost/Stolen NID,train,NID5-PF-V1-0886,1,SINGLETON,codex_provisional
+NID5-V1-000912,2,Lost/Stolen NID,test,NID5-PF-V1-0887,1,SINGLETON,codex_provisional
+NID5-V1-000913,2,Lost/Stolen NID,dev,NID5-PF-V1-0888,1,SINGLETON,codex_provisional
+NID5-V1-000914,2,Lost/Stolen NID,test,NID5-PF-V1-0889,1,SINGLETON,codex_provisional
+NID5-V1-000915,2,Lost/Stolen NID,train,NID5-PF-V1-0890,2,PROVISIONAL_CONFIRMED,codex_provisional
+NID5-V1-000916,2,Lost/Stolen NID,dev,NID5-PF-V1-0891,1,SINGLETON,codex_provisional
+NID5-V1-000917,2,Lost/Stolen NID,test,NID5-PF-V1-0892,1,SINGLETON,codex_provisional
+NID5-V1-000918,2,Lost/Stolen NID,train,NID5-PF-V1-0893,1,SINGLETON,codex_provisional
+NID5-V1-000919,2,Lost/Stolen NID,dev,NID5-PF-V1-0894,1,SINGLETON,codex_provisional
+NID5-V1-000920,2,Lost/Stolen NID,dev,NID5-PF-V1-0895,1,SINGLETON,codex_provisional
+NID5-V1-000921,2,Lost/Stolen NID,train,NID5-PF-V1-0896,1,SINGLETON,codex_provisional
+NID5-V1-000922,2,Lost/Stolen NID,dev,NID5-PF-V1-0897,1,SINGLETON,codex_provisional
+NID5-V1-000923,2,Lost/Stolen NID,test,NID5-PF-V1-0898,1,SINGLETON,codex_provisional
+NID5-V1-000924,2,Lost/Stolen NID,dev,NID5-PF-V1-0899,1,SINGLETON,codex_provisional
+NID5-V1-000925,2,Lost/Stolen NID,train,NID5-PF-V1-0900,1,SINGLETON,codex_provisional
+NID5-V1-000926,2,Lost/Stolen NID,train,NID5-PF-V1-0901,1,SINGLETON,codex_provisional
+NID5-V1-000927,2,Lost/Stolen NID,train,NID5-PF-V1-0890,2,PROVISIONAL_CONFIRMED,codex_provisional
+NID5-V1-000928,2,Lost/Stolen NID,train,NID5-PF-V1-0902,1,SINGLETON,codex_provisional
+NID5-V1-000929,2,Lost/Stolen NID,train,NID5-PF-V1-0903,1,SINGLETON,codex_provisional
+NID5-V1-000930,2,Lost/Stolen NID,dev,NID5-PF-V1-0904,1,SINGLETON,codex_provisional
+NID5-V1-000931,2,Lost/Stolen NID,train,NID5-PF-V1-0905,1,SINGLETON,codex_provisional
+NID5-V1-000932,2,Lost/Stolen NID,train,NID5-PF-V1-0906,1,SINGLETON,codex_provisional
+NID5-V1-000933,2,Lost/Stolen NID,train,NID5-PF-V1-0907,1,SINGLETON,codex_provisional
+NID5-V1-000934,2,Lost/Stolen NID,train,NID5-PF-V1-0908,1,SINGLETON,codex_provisional
+NID5-V1-000935,2,Lost/Stolen NID,train,NID5-PF-V1-0909,1,SINGLETON,codex_provisional
+NID5-V1-000936,2,Lost/Stolen NID,train,NID5-PF-V1-0910,1,SINGLETON,codex_provisional
+NID5-V1-000937,2,Lost/Stolen NID,train,NID5-PF-V1-0911,1,SINGLETON,codex_provisional
+NID5-V1-000938,2,Lost/Stolen NID,train,NID5-PF-V1-0912,1,SINGLETON,codex_provisional
+NID5-V1-000939,2,Lost/Stolen NID,train,NID5-PF-V1-0913,1,SINGLETON,codex_provisional
+NID5-V1-000940,2,Lost/Stolen NID,train,NID5-PF-V1-0914,1,SINGLETON,codex_provisional
+NID5-V1-000941,2,Lost/Stolen NID,train,NID5-PF-V1-0833,2,PROVISIONAL_CONFIRMED,codex_provisional
+NID5-V1-000942,2,Lost/Stolen NID,train,NID5-PF-V1-0915,1,SINGLETON,codex_provisional
+NID5-V1-000943,2,Lost/Stolen NID,test,NID5-PF-V1-0916,1,SINGLETON,codex_provisional
+NID5-V1-000944,2,Lost/Stolen NID,train,NID5-PF-V1-0917,1,SINGLETON,codex_provisional
+NID5-V1-000945,2,Lost/Stolen NID,train,NID5-PF-V1-0918,1,SINGLETON,codex_provisional
+NID5-V1-000946,2,Lost/Stolen NID,train,NID5-PF-V1-0919,1,SINGLETON,codex_provisional
+NID5-V1-000947,2,Lost/Stolen NID,train,NID5-PF-V1-0920,1,SINGLETON,codex_provisional
+NID5-V1-000948,2,Lost/Stolen NID,train,NID5-PF-V1-0921,1,SINGLETON,codex_provisional
+NID5-V1-000949,2,Lost/Stolen NID,dev,NID5-PF-V1-0922,1,SINGLETON,codex_provisional
+NID5-V1-000950,2,Lost/Stolen NID,train,NID5-PF-V1-0923,1,SINGLETON,codex_provisional
+NID5-V1-000951,2,Lost/Stolen NID,test,NID5-PF-V1-0924,1,SINGLETON,codex_provisional
+NID5-V1-000952,3,NID Online Problem,dev,NID5-PF-V1-0925,1,SINGLETON,codex_provisional
+NID5-V1-000953,3,NID Online Problem,train,NID5-PF-V1-0926,1,SINGLETON,codex_provisional
+NID5-V1-000954,3,NID Online Problem,test,NID5-PF-V1-0927,1,SINGLETON,codex_provisional
+NID5-V1-000955,3,NID Online Problem,train,NID5-PF-V1-0928,1,SINGLETON,codex_provisional
+NID5-V1-000956,3,NID Online Problem,train,NID5-PF-V1-0929,1,SINGLETON,codex_provisional
+NID5-V1-000957,3,NID Online Problem,test,NID5-PF-V1-0930,1,SINGLETON,codex_provisional
+NID5-V1-000958,3,NID Online Problem,train,NID5-PF-V1-0931,1,SINGLETON,codex_provisional
+NID5-V1-000959,3,NID Online Problem,train,NID5-PF-V1-0932,1,SINGLETON,codex_provisional
+NID5-V1-000960,3,NID Online Problem,train,NID5-PF-V1-0933,1,SINGLETON,codex_provisional
+NID5-V1-000961,3,NID Online Problem,test,NID5-PF-V1-0934,1,SINGLETON,codex_provisional
+NID5-V1-000962,3,NID Online Problem,dev,NID5-PF-V1-0935,1,SINGLETON,codex_provisional
+NID5-V1-000963,3,NID Online Problem,train,NID5-PF-V1-0936,1,SINGLETON,codex_provisional
+NID5-V1-000964,3,NID Online Problem,train,NID5-PF-V1-0937,1,SINGLETON,codex_provisional
+NID5-V1-000965,3,NID Online Problem,train,NID5-PF-V1-0938,1,SINGLETON,codex_provisional
+NID5-V1-000966,3,NID Online Problem,train,NID5-PF-V1-0939,1,SINGLETON,codex_provisional
+NID5-V1-000967,3,NID Online Problem,test,NID5-PF-V1-0940,1,SINGLETON,codex_provisional
+NID5-V1-000968,3,NID Online Problem,train,NID5-PF-V1-0941,1,SINGLETON,codex_provisional
+NID5-V1-000969,3,NID Online Problem,train,NID5-PF-V1-0942,2,PROVISIONAL_CONFIRMED,codex_provisional
+NID5-V1-000970,3,NID Online Problem,train,NID5-PF-V1-0943,1,SINGLETON,codex_provisional
+NID5-V1-000971,3,NID Online Problem,train,NID5-PF-V1-0944,1,SINGLETON,codex_provisional
+NID5-V1-000972,3,NID Online Problem,train,NID5-PF-V1-0945,1,SINGLETON,codex_provisional
+NID5-V1-000973,3,NID Online Problem,train,NID5-PF-V1-0946,1,SINGLETON,codex_provisional
+NID5-V1-000974,3,NID Online Problem,train,NID5-PF-V1-0947,1,SINGLETON,codex_provisional
+NID5-V1-000975,3,NID Online Problem,train,NID5-PF-V1-0948,1,SINGLETON,codex_provisional
+NID5-V1-000976,3,NID Online Problem,test,NID5-PF-V1-0949,1,SINGLETON,codex_provisional
+NID5-V1-000977,3,NID Online Problem,train,NID5-PF-V1-0950,1,SINGLETON,codex_provisional
+NID5-V1-000978,3,NID Online Problem,dev,NID5-PF-V1-0951,1,SINGLETON,codex_provisional
+NID5-V1-000979,3,NID Online Problem,test,NID5-PF-V1-0952,1,SINGLETON,codex_provisional
+NID5-V1-000980,3,NID Online Problem,train,NID5-PF-V1-0953,1,SINGLETON,codex_provisional
+NID5-V1-000981,3,NID Online Problem,train,NID5-PF-V1-0954,1,SINGLETON,codex_provisional
+NID5-V1-000982,3,NID Online Problem,train,NID5-PF-V1-0955,1,SINGLETON,codex_provisional
+NID5-V1-000983,3,NID Online Problem,train,NID5-PF-V1-0956,1,SINGLETON,codex_provisional
+NID5-V1-000984,3,NID Online Problem,test,NID5-PF-V1-0957,1,SINGLETON,codex_provisional
+NID5-V1-000985,3,NID Online Problem,test,NID5-PF-V1-0958,1,SINGLETON,codex_provisional
+NID5-V1-000986,3,NID Online Problem,test,NID5-PF-V1-0959,1,SINGLETON,codex_provisional
+NID5-V1-000987,3,NID Online Problem,test,NID5-PF-V1-0960,1,SINGLETON,codex_provisional
+NID5-V1-000988,3,NID Online Problem,dev,NID5-PF-V1-0942,2,PROVISIONAL_CONFIRMED,codex_provisional
+NID5-V1-000989,3,NID Online Problem,dev,NID5-PF-V1-0961,1,SINGLETON,codex_provisional
+NID5-V1-000990,3,NID Online Problem,train,NID5-PF-V1-0962,1,SINGLETON,codex_provisional
+NID5-V1-000991,3,NID Online Problem,train,NID5-PF-V1-0963,1,SINGLETON,codex_provisional
+NID5-V1-000992,3,NID Online Problem,train,NID5-PF-V1-0964,1,SINGLETON,codex_provisional
+NID5-V1-000993,3,NID Online Problem,train,NID5-PF-V1-0965,1,SINGLETON,codex_provisional
+NID5-V1-000994,3,NID Online Problem,train,NID5-PF-V1-0966,1,SINGLETON,codex_provisional
+NID5-V1-000995,3,NID Online Problem,train,NID5-PF-V1-0967,1,SINGLETON,codex_provisional
+NID5-V1-000996,3,NID Online Problem,train,NID5-PF-V1-0968,1,SINGLETON,codex_provisional
+NID5-V1-000997,3,NID Online Problem,train,NID5-PF-V1-0969,1,SINGLETON,codex_provisional
+NID5-V1-000998,3,NID Online Problem,dev,NID5-PF-V1-0970,1,SINGLETON,codex_provisional
+NID5-V1-000999,3,NID Online Problem,train,NID5-PF-V1-0971,1,SINGLETON,codex_provisional
+NID5-V1-001000,3,NID Online Problem,train,NID5-PF-V1-0972,1,SINGLETON,codex_provisional
+NID5-V1-001001,3,NID Online Problem,train,NID5-PF-V1-0973,1,SINGLETON,codex_provisional
+NID5-V1-001002,3,NID Online Problem,test,NID5-PF-V1-0974,1,SINGLETON,codex_provisional
+NID5-V1-001003,3,NID Online Problem,train,NID5-PF-V1-0975,1,SINGLETON,codex_provisional
+NID5-V1-001004,3,NID Online Problem,dev,NID5-PF-V1-0976,1,SINGLETON,codex_provisional
+NID5-V1-001005,3,NID Online Problem,test,NID5-PF-V1-0977,1,SINGLETON,codex_provisional
+NID5-V1-001006,3,NID Online Problem,train,NID5-PF-V1-0978,1,SINGLETON,codex_provisional
+NID5-V1-001007,3,NID Online Problem,dev,NID5-PF-V1-0979,1,SINGLETON,codex_provisional
+NID5-V1-001008,3,NID Online Problem,train,NID5-PF-V1-0980,1,SINGLETON,codex_provisional
+NID5-V1-001009,3,NID Online Problem,train,NID5-PF-V1-0981,1,SINGLETON,codex_provisional
+NID5-V1-001010,3,NID Online Problem,train,NID5-PF-V1-0982,1,SINGLETON,codex_provisional
+NID5-V1-001011,3,NID Online Problem,dev,NID5-PF-V1-0983,1,SINGLETON,codex_provisional
+NID5-V1-001012,3,NID Online Problem,train,NID5-PF-V1-0984,1,SINGLETON,codex_provisional
+NID5-V1-001013,3,NID Online Problem,test,NID5-PF-V1-0985,1,SINGLETON,codex_provisional
+NID5-V1-001014,3,NID Online Problem,train,NID5-PF-V1-0986,1,SINGLETON,codex_provisional
+NID5-V1-001015,3,NID Online Problem,train,NID5-PF-V1-0987,1,SINGLETON,codex_provisional
+NID5-V1-001016,3,NID Online Problem,train,NID5-PF-V1-0988,1,SINGLETON,codex_provisional
+NID5-V1-001017,3,NID Online Problem,train,NID5-PF-V1-0989,1,SINGLETON,codex_provisional
+NID5-V1-001018,3,NID Online Problem,test,NID5-PF-V1-0990,1,SINGLETON,codex_provisional
+NID5-V1-001019,3,NID Online Problem,train,NID5-PF-V1-0991,1,SINGLETON,codex_provisional
+NID5-V1-001020,3,NID Online Problem,train,NID5-PF-V1-0992,1,SINGLETON,codex_provisional
+NID5-V1-001021,3,NID Online Problem,train,NID5-PF-V1-0993,1,SINGLETON,codex_provisional
+NID5-V1-001022,3,NID Online Problem,train,NID5-PF-V1-0994,1,SINGLETON,codex_provisional
+NID5-V1-001023,3,NID Online Problem,train,NID5-PF-V1-0995,1,SINGLETON,codex_provisional
+NID5-V1-001024,3,NID Online Problem,dev,NID5-PF-V1-0996,1,SINGLETON,codex_provisional
+NID5-V1-001025,3,NID Online Problem,test,NID5-PF-V1-0997,1,SINGLETON,codex_provisional
+NID5-V1-001026,3,NID Online Problem,train,NID5-PF-V1-0998,1,SINGLETON,codex_provisional
+NID5-V1-001027,3,NID Online Problem,train,NID5-PF-V1-0999,1,SINGLETON,codex_provisional
+NID5-V1-001028,3,NID Online Problem,train,NID5-PF-V1-1000,1,SINGLETON,codex_provisional
+NID5-V1-001029,3,NID Online Problem,train,NID5-PF-V1-1001,1,SINGLETON,codex_provisional
+NID5-V1-001030,3,NID Online Problem,train,NID5-PF-V1-1002,1,SINGLETON,codex_provisional
+NID5-V1-001031,3,NID Online Problem,train,NID5-PF-V1-1003,1,SINGLETON,codex_provisional
+NID5-V1-001032,3,NID Online Problem,train,NID5-PF-V1-1004,1,SINGLETON,codex_provisional
+NID5-V1-001033,3,NID Online Problem,test,NID5-PF-V1-1005,1,SINGLETON,codex_provisional
+NID5-V1-001034,3,NID Online Problem,dev,NID5-PF-V1-1006,1,SINGLETON,codex_provisional
+NID5-V1-001035,3,NID Online Problem,dev,NID5-PF-V1-1007,1,SINGLETON,codex_provisional
+NID5-V1-001036,3,NID Online Problem,train,NID5-PF-V1-1008,1,SINGLETON,codex_provisional
+NID5-V1-001037,3,NID Online Problem,train,NID5-PF-V1-1009,1,SINGLETON,codex_provisional
+NID5-V1-001038,3,NID Online Problem,train,NID5-PF-V1-1010,1,SINGLETON,codex_provisional
+NID5-V1-001039,3,NID Online Problem,train,NID5-PF-V1-1011,1,SINGLETON,codex_provisional
+NID5-V1-001040,3,NID Online Problem,train,NID5-PF-V1-1012,1,SINGLETON,codex_provisional
+NID5-V1-001041,3,NID Online Problem,train,NID5-PF-V1-1013,1,SINGLETON,codex_provisional
+NID5-V1-001042,3,NID Online Problem,test,NID5-PF-V1-1014,1,SINGLETON,codex_provisional
+NID5-V1-001043,3,NID Online Problem,dev,NID5-PF-V1-1015,1,SINGLETON,codex_provisional
+NID5-V1-001044,3,NID Online Problem,train,NID5-PF-V1-1016,1,SINGLETON,codex_provisional
+NID5-V1-001045,3,NID Online Problem,train,NID5-PF-V1-1017,1,SINGLETON,codex_provisional
+NID5-V1-001046,3,NID Online Problem,train,NID5-PF-V1-1018,1,SINGLETON,codex_provisional
+NID5-V1-001047,3,NID Online Problem,test,NID5-PF-V1-1019,1,SINGLETON,codex_provisional
+NID5-V1-001048,3,NID Online Problem,train,NID5-PF-V1-1020,1,SINGLETON,codex_provisional
+NID5-V1-001049,3,NID Online Problem,train,NID5-PF-V1-1021,1,SINGLETON,codex_provisional
+NID5-V1-001050,3,NID Online Problem,dev,NID5-PF-V1-1022,2,PROVISIONAL_CONFIRMED,codex_provisional
+NID5-V1-001051,3,NID Online Problem,train,NID5-PF-V1-1023,1,SINGLETON,codex_provisional
+NID5-V1-001052,3,NID Online Problem,train,NID5-PF-V1-1024,1,SINGLETON,codex_provisional
+NID5-V1-001053,3,NID Online Problem,train,NID5-PF-V1-1025,1,SINGLETON,codex_provisional
+NID5-V1-001054,3,NID Online Problem,test,NID5-PF-V1-1026,1,SINGLETON,codex_provisional
+NID5-V1-001055,3,NID Online Problem,train,NID5-PF-V1-1027,1,SINGLETON,codex_provisional
+NID5-V1-001056,3,NID Online Problem,train,NID5-PF-V1-1028,1,SINGLETON,codex_provisional
+NID5-V1-001057,3,NID Online Problem,train,NID5-PF-V1-1029,1,SINGLETON,codex_provisional
+NID5-V1-001058,3,NID Online Problem,train,NID5-PF-V1-1030,1,SINGLETON,codex_provisional
+NID5-V1-001059,3,NID Online Problem,train,NID5-PF-V1-1031,1,SINGLETON,codex_provisional
+NID5-V1-001060,3,NID Online Problem,train,NID5-PF-V1-1022,2,PROVISIONAL_CONFIRMED,codex_provisional
+NID5-V1-001061,3,NID Online Problem,train,NID5-PF-V1-1032,1,SINGLETON,codex_provisional
+NID5-V1-001062,3,NID Online Problem,train,NID5-PF-V1-1033,2,PROVISIONAL_CONFIRMED,codex_provisional
+NID5-V1-001063,3,NID Online Problem,train,NID5-PF-V1-1034,1,SINGLETON,codex_provisional
+NID5-V1-001064,3,NID Online Problem,train,NID5-PF-V1-1035,1,SINGLETON,codex_provisional
+NID5-V1-001065,3,NID Online Problem,dev,NID5-PF-V1-1036,1,SINGLETON,codex_provisional
+NID5-V1-001066,3,NID Online Problem,train,NID5-PF-V1-1037,1,SINGLETON,codex_provisional
+NID5-V1-001067,3,NID Online Problem,train,NID5-PF-V1-1038,1,SINGLETON,codex_provisional
+NID5-V1-001068,3,NID Online Problem,train,NID5-PF-V1-1039,1,SINGLETON,codex_provisional
+NID5-V1-001069,3,NID Online Problem,test,NID5-PF-V1-1040,1,SINGLETON,codex_provisional
+NID5-V1-001070,3,NID Online Problem,train,NID5-PF-V1-1041,1,SINGLETON,codex_provisional
+NID5-V1-001071,3,NID Online Problem,train,NID5-PF-V1-1042,1,SINGLETON,codex_provisional
+NID5-V1-001072,3,NID Online Problem,train,NID5-PF-V1-1043,1,SINGLETON,codex_provisional
+NID5-V1-001073,3,NID Online Problem,train,NID5-PF-V1-1044,1,SINGLETON,codex_provisional
+NID5-V1-001074,3,NID Online Problem,train,NID5-PF-V1-1033,2,PROVISIONAL_CONFIRMED,codex_provisional
+NID5-V1-001075,3,NID Online Problem,train,NID5-PF-V1-1045,1,SINGLETON,codex_provisional
+NID5-V1-001076,3,NID Online Problem,dev,NID5-PF-V1-1046,1,SINGLETON,codex_provisional
+NID5-V1-001077,3,NID Online Problem,train,NID5-PF-V1-1047,1,SINGLETON,codex_provisional
+NID5-V1-001078,3,NID Online Problem,train,NID5-PF-V1-1048,1,SINGLETON,codex_provisional
+NID5-V1-001079,3,NID Online Problem,test,NID5-PF-V1-1049,1,SINGLETON,codex_provisional
+NID5-V1-001080,3,NID Online Problem,train,NID5-PF-V1-1050,1,SINGLETON,codex_provisional
+NID5-V1-001081,3,NID Online Problem,train,NID5-PF-V1-1051,1,SINGLETON,codex_provisional
+NID5-V1-001082,3,NID Online Problem,train,NID5-PF-V1-1052,1,SINGLETON,codex_provisional
+NID5-V1-001083,3,NID Online Problem,dev,NID5-PF-V1-1053,1,SINGLETON,codex_provisional
+NID5-V1-001084,3,NID Online Problem,train,NID5-PF-V1-1054,1,SINGLETON,codex_provisional
+NID5-V1-001085,3,NID Online Problem,test,NID5-PF-V1-1055,1,SINGLETON,codex_provisional
+NID5-V1-001086,3,NID Online Problem,test,NID5-PF-V1-1056,1,SINGLETON,codex_provisional
+NID5-V1-001087,3,NID Online Problem,train,NID5-PF-V1-1057,1,SINGLETON,codex_provisional
+NID5-V1-001088,3,NID Online Problem,train,NID5-PF-V1-1058,1,SINGLETON,codex_provisional
+NID5-V1-001089,3,NID Online Problem,train,NID5-PF-V1-1059,1,SINGLETON,codex_provisional
+NID5-V1-001090,3,NID Online Problem,test,NID5-PF-V1-1060,1,SINGLETON,codex_provisional
+NID5-V1-001091,3,NID Online Problem,train,NID5-PF-V1-1061,1,SINGLETON,codex_provisional
+NID5-V1-001092,3,NID Online Problem,train,NID5-PF-V1-1062,1,SINGLETON,codex_provisional
+NID5-V1-001093,3,NID Online Problem,train,NID5-PF-V1-1063,1,SINGLETON,codex_provisional
+NID5-V1-001094,3,NID Online Problem,train,NID5-PF-V1-1064,1,SINGLETON,codex_provisional
+NID5-V1-001095,3,NID Online Problem,dev,NID5-PF-V1-1065,1,SINGLETON,codex_provisional
+NID5-V1-001096,3,NID Online Problem,test,NID5-PF-V1-1066,1,SINGLETON,codex_provisional
+NID5-V1-001097,3,NID Online Problem,train,NID5-PF-V1-1067,1,SINGLETON,codex_provisional
+NID5-V1-001098,3,NID Online Problem,train,NID5-PF-V1-1068,1,SINGLETON,codex_provisional
+NID5-V1-001099,3,NID Online Problem,train,NID5-PF-V1-1069,1,SINGLETON,codex_provisional
+NID5-V1-001100,3,NID Online Problem,test,NID5-PF-V1-1070,1,SINGLETON,codex_provisional
+NID5-V1-001101,3,NID Online Problem,test,NID5-PF-V1-1071,1,SINGLETON,codex_provisional
+NID5-V1-001102,3,NID Online Problem,train,NID5-PF-V1-1072,1,SINGLETON,codex_provisional
+NID5-V1-001103,3,NID Online Problem,dev,NID5-PF-V1-1073,1,SINGLETON,codex_provisional
+NID5-V1-001104,3,NID Online Problem,train,NID5-PF-V1-1074,1,SINGLETON,codex_provisional
+NID5-V1-001105,3,NID Online Problem,dev,NID5-PF-V1-1075,1,SINGLETON,codex_provisional
+NID5-V1-001106,3,NID Online Problem,train,NID5-PF-V1-1076,1,SINGLETON,codex_provisional
+NID5-V1-001107,3,NID Online Problem,train,NID5-PF-V1-1077,1,SINGLETON,codex_provisional
+NID5-V1-001108,3,NID Online Problem,train,NID5-PF-V1-1078,2,PROVISIONAL_CONFIRMED,codex_provisional
+NID5-V1-001109,3,NID Online Problem,train,NID5-PF-V1-1079,1,SINGLETON,codex_provisional
+NID5-V1-001110,3,NID Online Problem,test,NID5-PF-V1-1078,2,PROVISIONAL_CONFIRMED,codex_provisional
+NID5-V1-001111,3,NID Online Problem,train,NID5-PF-V1-1080,1,SINGLETON,codex_provisional
+NID5-V1-001112,3,NID Online Problem,train,NID5-PF-V1-1081,1,SINGLETON,codex_provisional
+NID5-V1-001113,3,NID Online Problem,dev,NID5-PF-V1-1082,1,SINGLETON,codex_provisional
+NID5-V1-001114,3,NID Online Problem,train,NID5-PF-V1-1083,1,SINGLETON,codex_provisional
+NID5-V1-001115,3,NID Online Problem,train,NID5-PF-V1-1084,1,SINGLETON,codex_provisional
+NID5-V1-001116,3,NID Online Problem,train,NID5-PF-V1-1085,1,SINGLETON,codex_provisional
+NID5-V1-001117,3,NID Online Problem,test,NID5-PF-V1-1086,1,SINGLETON,codex_provisional
+NID5-V1-001118,3,NID Online Problem,train,NID5-PF-V1-1087,1,SINGLETON,codex_provisional
+NID5-V1-001119,3,NID Online Problem,train,NID5-PF-V1-1088,1,SINGLETON,codex_provisional
+NID5-V1-001120,3,NID Online Problem,train,NID5-PF-V1-1089,1,SINGLETON,codex_provisional
+NID5-V1-001121,3,NID Online Problem,dev,NID5-PF-V1-1090,1,SINGLETON,codex_provisional
+NID5-V1-001122,3,NID Online Problem,train,NID5-PF-V1-1091,1,SINGLETON,codex_provisional
+NID5-V1-001123,3,NID Online Problem,train,NID5-PF-V1-1092,1,SINGLETON,codex_provisional
+NID5-V1-001124,3,NID Online Problem,test,NID5-PF-V1-1093,1,SINGLETON,codex_provisional
+NID5-V1-001125,3,NID Online Problem,dev,NID5-PF-V1-1094,1,SINGLETON,codex_provisional
+NID5-V1-001126,3,NID Online Problem,test,NID5-PF-V1-1095,1,SINGLETON,codex_provisional
+NID5-V1-001127,3,NID Online Problem,train,NID5-PF-V1-1096,1,SINGLETON,codex_provisional
+NID5-V1-001128,3,NID Online Problem,dev,NID5-PF-V1-1097,1,SINGLETON,codex_provisional
+NID5-V1-001129,3,NID Online Problem,train,NID5-PF-V1-1098,1,SINGLETON,codex_provisional
+NID5-V1-001130,3,NID Online Problem,train,NID5-PF-V1-1099,1,SINGLETON,codex_provisional
+NID5-V1-001131,3,NID Online Problem,dev,NID5-PF-V1-1100,1,SINGLETON,codex_provisional
+NID5-V1-001132,3,NID Online Problem,test,NID5-PF-V1-1101,1,SINGLETON,codex_provisional
+NID5-V1-001133,3,NID Online Problem,train,NID5-PF-V1-1102,1,SINGLETON,codex_provisional
+NID5-V1-001134,3,NID Online Problem,train,NID5-PF-V1-1103,1,SINGLETON,codex_provisional
+NID5-V1-001135,3,NID Online Problem,train,NID5-PF-V1-1104,1,SINGLETON,codex_provisional
+NID5-V1-001136,3,NID Online Problem,train,NID5-PF-V1-1105,1,SINGLETON,codex_provisional
+NID5-V1-001137,3,NID Online Problem,train,NID5-PF-V1-1106,1,SINGLETON,codex_provisional
+NID5-V1-001138,3,NID Online Problem,train,NID5-PF-V1-1107,1,SINGLETON,codex_provisional
+NID5-V1-001139,3,NID Online Problem,test,NID5-PF-V1-1108,1,SINGLETON,codex_provisional
+NID5-V1-001140,3,NID Online Problem,dev,NID5-PF-V1-1109,1,SINGLETON,codex_provisional
+NID5-V1-001141,3,NID Online Problem,train,NID5-PF-V1-1110,1,SINGLETON,codex_provisional
+NID5-V1-001142,3,NID Online Problem,train,NID5-PF-V1-1111,1,SINGLETON,codex_provisional
+NID5-V1-001143,3,NID Online Problem,dev,NID5-PF-V1-1112,1,SINGLETON,codex_provisional
+NID5-V1-001144,3,NID Online Problem,test,NID5-PF-V1-1113,1,SINGLETON,codex_provisional
+NID5-V1-001145,3,NID Online Problem,train,NID5-PF-V1-1114,1,SINGLETON,codex_provisional
+NID5-V1-001146,3,NID Online Problem,dev,NID5-PF-V1-1115,1,SINGLETON,codex_provisional
+NID5-V1-001147,3,NID Online Problem,dev,NID5-PF-V1-1116,1,SINGLETON,codex_provisional
+NID5-V1-001148,3,NID Online Problem,dev,NID5-PF-V1-1117,1,SINGLETON,codex_provisional
+NID5-V1-001149,3,NID Online Problem,train,NID5-PF-V1-1118,1,SINGLETON,codex_provisional
+NID5-V1-001150,3,NID Online Problem,train,NID5-PF-V1-1119,1,SINGLETON,codex_provisional
+NID5-V1-001151,3,NID Online Problem,dev,NID5-PF-V1-1120,1,SINGLETON,codex_provisional
+NID5-V1-001152,3,NID Online Problem,train,NID5-PF-V1-1121,1,SINGLETON,codex_provisional
+NID5-V1-001153,3,NID Online Problem,train,NID5-PF-V1-1122,1,SINGLETON,codex_provisional
+NID5-V1-001154,3,NID Online Problem,train,NID5-PF-V1-1123,1,SINGLETON,codex_provisional
+NID5-V1-001155,3,NID Online Problem,train,NID5-PF-V1-1124,1,SINGLETON,codex_provisional
+NID5-V1-001156,3,NID Online Problem,train,NID5-PF-V1-1125,1,SINGLETON,codex_provisional
+NID5-V1-001157,3,NID Online Problem,train,NID5-PF-V1-1126,1,SINGLETON,codex_provisional
+NID5-V1-001158,3,NID Online Problem,train,NID5-PF-V1-1127,1,SINGLETON,codex_provisional
+NID5-V1-001159,3,NID Online Problem,train,NID5-PF-V1-1128,1,SINGLETON,codex_provisional
+NID5-V1-001160,3,NID Online Problem,train,NID5-PF-V1-1129,1,SINGLETON,codex_provisional
+NID5-V1-001161,3,NID Online Problem,dev,NID5-PF-V1-1130,1,SINGLETON,codex_provisional
+NID5-V1-001162,3,NID Online Problem,train,NID5-PF-V1-1131,1,SINGLETON,codex_provisional
+NID5-V1-001163,3,NID Online Problem,test,NID5-PF-V1-1132,1,SINGLETON,codex_provisional
+NID5-V1-001164,3,NID Online Problem,train,NID5-PF-V1-1133,1,SINGLETON,codex_provisional
+NID5-V1-001165,3,NID Online Problem,train,NID5-PF-V1-1134,1,SINGLETON,codex_provisional
+NID5-V1-001166,3,NID Online Problem,train,NID5-PF-V1-1135,1,SINGLETON,codex_provisional
+NID5-V1-001167,3,NID Online Problem,train,NID5-PF-V1-1136,1,SINGLETON,codex_provisional
+NID5-V1-001168,3,NID Online Problem,train,NID5-PF-V1-1137,1,SINGLETON,codex_provisional
+NID5-V1-001169,3,NID Online Problem,test,NID5-PF-V1-1138,1,SINGLETON,codex_provisional
+NID5-V1-001170,3,NID Online Problem,train,NID5-PF-V1-1139,1,SINGLETON,codex_provisional
+NID5-V1-001171,3,NID Online Problem,dev,NID5-PF-V1-1140,1,SINGLETON,codex_provisional
+NID5-V1-001172,3,NID Online Problem,test,NID5-PF-V1-1141,1,SINGLETON,codex_provisional
+NID5-V1-001173,3,NID Online Problem,train,NID5-PF-V1-1142,1,SINGLETON,codex_provisional
+NID5-V1-001174,3,NID Online Problem,dev,NID5-PF-V1-1143,1,SINGLETON,codex_provisional
+NID5-V1-001175,3,NID Online Problem,train,NID5-PF-V1-1144,1,SINGLETON,codex_provisional
+NID5-V1-001176,3,NID Online Problem,train,NID5-PF-V1-1145,1,SINGLETON,codex_provisional
+NID5-V1-001177,3,NID Online Problem,train,NID5-PF-V1-1146,1,SINGLETON,codex_provisional
+NID5-V1-001178,3,NID Online Problem,train,NID5-PF-V1-1147,1,SINGLETON,codex_provisional
+NID5-V1-001179,3,NID Online Problem,test,NID5-PF-V1-1148,1,SINGLETON,codex_provisional
+NID5-V1-001180,3,NID Online Problem,train,NID5-PF-V1-1149,1,SINGLETON,codex_provisional
+NID5-V1-001181,3,NID Online Problem,train,NID5-PF-V1-1150,1,SINGLETON,codex_provisional
+NID5-V1-001182,3,NID Online Problem,train,NID5-PF-V1-1151,1,SINGLETON,codex_provisional
+NID5-V1-001183,3,NID Online Problem,train,NID5-PF-V1-1152,1,SINGLETON,codex_provisional
+NID5-V1-001184,3,NID Online Problem,dev,NID5-PF-V1-1153,1,SINGLETON,codex_provisional
+NID5-V1-001185,3,NID Online Problem,train,NID5-PF-V1-1154,1,SINGLETON,codex_provisional
+NID5-V1-001186,3,NID Online Problem,test,NID5-PF-V1-1155,1,SINGLETON,codex_provisional
+NID5-V1-001187,3,NID Online Problem,train,NID5-PF-V1-1156,1,SINGLETON,codex_provisional
+NID5-V1-001188,3,NID Online Problem,dev,NID5-PF-V1-1157,1,SINGLETON,codex_provisional
+NID5-V1-001189,3,NID Online Problem,train,NID5-PF-V1-1158,1,SINGLETON,codex_provisional
+NID5-V1-001190,3,NID Online Problem,train,NID5-PF-V1-1159,2,PROVISIONAL_CONFIRMED,codex_provisional
+NID5-V1-001191,3,NID Online Problem,train,NID5-PF-V1-1160,1,SINGLETON,codex_provisional
+NID5-V1-001192,3,NID Online Problem,dev,NID5-PF-V1-1161,1,SINGLETON,codex_provisional
+NID5-V1-001193,3,NID Online Problem,train,NID5-PF-V1-1162,1,SINGLETON,codex_provisional
+NID5-V1-001194,3,NID Online Problem,train,NID5-PF-V1-1159,2,PROVISIONAL_CONFIRMED,codex_provisional
+NID5-V1-001195,3,NID Online Problem,train,NID5-PF-V1-1163,1,SINGLETON,codex_provisional
+NID5-V1-001196,3,NID Online Problem,train,NID5-PF-V1-1164,1,SINGLETON,codex_provisional
+NID5-V1-001197,3,NID Online Problem,test,NID5-PF-V1-1165,1,SINGLETON,codex_provisional
+NID5-V1-001198,3,NID Online Problem,train,NID5-PF-V1-1166,1,SINGLETON,codex_provisional
+NID5-V1-001199,3,NID Online Problem,train,NID5-PF-V1-1167,1,SINGLETON,codex_provisional
+NID5-V1-001200,3,NID Online Problem,train,NID5-PF-V1-1168,1,SINGLETON,codex_provisional
+NID5-V1-001201,3,NID Online Problem,train,NID5-PF-V1-1169,1,SINGLETON,codex_provisional
+NID5-V1-001202,3,NID Online Problem,train,NID5-PF-V1-1170,2,PROVISIONAL_CONFIRMED,codex_provisional
+NID5-V1-001203,3,NID Online Problem,train,NID5-PF-V1-1171,1,SINGLETON,codex_provisional
+NID5-V1-001204,3,NID Online Problem,train,NID5-PF-V1-1172,2,PROVISIONAL_CONFIRMED,codex_provisional
+NID5-V1-001205,3,NID Online Problem,train,NID5-PF-V1-1173,1,SINGLETON,codex_provisional
+NID5-V1-001206,3,NID Online Problem,train,NID5-PF-V1-1174,1,SINGLETON,codex_provisional
+NID5-V1-001207,3,NID Online Problem,train,NID5-PF-V1-1175,1,SINGLETON,codex_provisional
+NID5-V1-001208,3,NID Online Problem,train,NID5-PF-V1-1176,1,SINGLETON,codex_provisional
+NID5-V1-001209,3,NID Online Problem,train,NID5-PF-V1-1177,1,SINGLETON,codex_provisional
+NID5-V1-001210,3,NID Online Problem,dev,NID5-PF-V1-1178,1,SINGLETON,codex_provisional
+NID5-V1-001211,3,NID Online Problem,train,NID5-PF-V1-1179,1,SINGLETON,codex_provisional
+NID5-V1-001212,3,NID Online Problem,test,NID5-PF-V1-1180,1,SINGLETON,codex_provisional
+NID5-V1-001213,3,NID Online Problem,train,NID5-PF-V1-1181,1,SINGLETON,codex_provisional
+NID5-V1-001214,3,NID Online Problem,train,NID5-PF-V1-1170,2,PROVISIONAL_CONFIRMED,codex_provisional
+NID5-V1-001215,3,NID Online Problem,train,NID5-PF-V1-1172,2,PROVISIONAL_CONFIRMED,codex_provisional
+NID5-V1-001216,3,NID Online Problem,train,NID5-PF-V1-1182,1,SINGLETON,codex_provisional
+NID5-V1-001217,3,NID Online Problem,train,NID5-PF-V1-1183,1,SINGLETON,codex_provisional
+NID5-V1-001218,3,NID Online Problem,dev,NID5-PF-V1-1184,1,SINGLETON,codex_provisional
+NID5-V1-001219,3,NID Online Problem,test,NID5-PF-V1-1185,1,SINGLETON,codex_provisional
+NID5-V1-001220,3,NID Online Problem,train,NID5-PF-V1-1186,1,SINGLETON,codex_provisional
+NID5-V1-001221,3,NID Online Problem,train,NID5-PF-V1-1187,1,SINGLETON,codex_provisional
+NID5-V1-001222,3,NID Online Problem,train,NID5-PF-V1-1188,1,SINGLETON,codex_provisional
+NID5-V1-001223,3,NID Online Problem,dev,NID5-PF-V1-1189,1,SINGLETON,codex_provisional
+NID5-V1-001224,3,NID Online Problem,train,NID5-PF-V1-1190,1,SINGLETON,codex_provisional
+NID5-V1-001225,3,NID Online Problem,train,NID5-PF-V1-1191,1,SINGLETON,codex_provisional
+NID5-V1-001226,3,NID Online Problem,train,NID5-PF-V1-1192,1,SINGLETON,codex_provisional
+NID5-V1-001227,3,NID Online Problem,dev,NID5-PF-V1-1193,1,SINGLETON,codex_provisional
+NID5-V1-001228,3,NID Online Problem,train,NID5-PF-V1-1194,1,SINGLETON,codex_provisional
+NID5-V1-001229,3,NID Online Problem,train,NID5-PF-V1-1195,1,SINGLETON,codex_provisional
+NID5-V1-001230,3,NID Online Problem,test,NID5-PF-V1-1196,1,SINGLETON,codex_provisional
+NID5-V1-001231,3,NID Online Problem,train,NID5-PF-V1-1197,1,SINGLETON,codex_provisional
+NID5-V1-001232,3,NID Online Problem,train,NID5-PF-V1-1198,1,SINGLETON,codex_provisional
+NID5-V1-001233,3,NID Online Problem,train,NID5-PF-V1-1199,1,SINGLETON,codex_provisional
+NID5-V1-001234,3,NID Online Problem,train,NID5-PF-V1-1200,1,SINGLETON,codex_provisional
+NID5-V1-001235,3,NID Online Problem,test,NID5-PF-V1-1201,1,SINGLETON,codex_provisional
+NID5-V1-001236,3,NID Online Problem,train,NID5-PF-V1-1202,1,SINGLETON,codex_provisional
+NID5-V1-001237,3,NID Online Problem,train,NID5-PF-V1-1203,1,SINGLETON,codex_provisional
+NID5-V1-001238,3,NID Online Problem,train,NID5-PF-V1-1204,1,SINGLETON,codex_provisional
+NID5-V1-001239,3,NID Online Problem,dev,NID5-PF-V1-1205,1,SINGLETON,codex_provisional
+NID5-V1-001240,3,NID Online Problem,train,NID5-PF-V1-1206,1,SINGLETON,codex_provisional
+NID5-V1-001241,3,NID Online Problem,train,NID5-PF-V1-1207,1,SINGLETON,codex_provisional
+NID5-V1-001242,3,NID Online Problem,test,NID5-PF-V1-1208,1,SINGLETON,codex_provisional
+NID5-V1-001243,3,NID Online Problem,train,NID5-PF-V1-1209,1,SINGLETON,codex_provisional
+NID5-V1-001244,3,NID Online Problem,train,NID5-PF-V1-1210,1,SINGLETON,codex_provisional
+NID5-V1-001245,3,NID Online Problem,train,NID5-PF-V1-1211,1,SINGLETON,codex_provisional
+NID5-V1-001246,3,NID Online Problem,train,NID5-PF-V1-1212,1,SINGLETON,codex_provisional
+NID5-V1-001247,3,NID Online Problem,test,NID5-PF-V1-1213,1,SINGLETON,codex_provisional
+NID5-V1-001248,3,NID Online Problem,train,NID5-PF-V1-1214,1,SINGLETON,codex_provisional
+NID5-V1-001249,3,NID Online Problem,train,NID5-PF-V1-1215,1,SINGLETON,codex_provisional
+NID5-V1-001250,3,NID Online Problem,train,NID5-PF-V1-1216,1,SINGLETON,codex_provisional
+NID5-V1-001251,3,NID Online Problem,dev,NID5-PF-V1-1217,1,SINGLETON,codex_provisional
+NID5-V1-001252,3,NID Online Problem,train,NID5-PF-V1-1218,1,SINGLETON,codex_provisional
+NID5-V1-001253,3,NID Online Problem,dev,NID5-PF-V1-1219,1,SINGLETON,codex_provisional
+NID5-V1-001254,3,NID Online Problem,train,NID5-PF-V1-1220,1,SINGLETON,codex_provisional
+NID5-V1-001255,3,NID Online Problem,dev,NID5-PF-V1-1221,1,SINGLETON,codex_provisional
+NID5-V1-001256,3,NID Online Problem,dev,NID5-PF-V1-1222,1,SINGLETON,codex_provisional
+NID5-V1-001257,4,Smart ID Card,test,NID5-PF-V1-1223,1,SINGLETON,codex_provisional
+NID5-V1-001258,4,Smart ID Card,test,NID5-PF-V1-1224,1,SINGLETON,codex_provisional
+NID5-V1-001259,4,Smart ID Card,train,NID5-PF-V1-1225,1,SINGLETON,codex_provisional
+NID5-V1-001260,4,Smart ID Card,train,NID5-PF-V1-1226,1,SINGLETON,codex_provisional
+NID5-V1-001261,4,Smart ID Card,test,NID5-PF-V1-1227,1,SINGLETON,codex_provisional
+NID5-V1-001262,4,Smart ID Card,train,NID5-PF-V1-1228,1,SINGLETON,codex_provisional
+NID5-V1-001263,4,Smart ID Card,train,NID5-PF-V1-1229,1,SINGLETON,codex_provisional
+NID5-V1-001264,4,Smart ID Card,train,NID5-PF-V1-1230,1,SINGLETON,codex_provisional
+NID5-V1-001265,4,Smart ID Card,train,NID5-PF-V1-1231,1,SINGLETON,codex_provisional
+NID5-V1-001266,4,Smart ID Card,train,NID5-PF-V1-1232,1,SINGLETON,codex_provisional
+NID5-V1-001267,4,Smart ID Card,test,NID5-PF-V1-1233,1,SINGLETON,codex_provisional
+NID5-V1-001268,4,Smart ID Card,test,NID5-PF-V1-1234,1,SINGLETON,codex_provisional
+NID5-V1-001269,4,Smart ID Card,train,NID5-PF-V1-1235,1,SINGLETON,codex_provisional
+NID5-V1-001270,4,Smart ID Card,train,NID5-PF-V1-1236,1,SINGLETON,codex_provisional
+NID5-V1-001271,4,Smart ID Card,train,NID5-PF-V1-1237,1,SINGLETON,codex_provisional
+NID5-V1-001272,4,Smart ID Card,train,NID5-PF-V1-1238,1,SINGLETON,codex_provisional
+NID5-V1-001273,4,Smart ID Card,test,NID5-PF-V1-1239,1,SINGLETON,codex_provisional
+NID5-V1-001274,4,Smart ID Card,dev,NID5-PF-V1-1240,2,PROVISIONAL_CONFIRMED,codex_provisional
+NID5-V1-001275,4,Smart ID Card,train,NID5-PF-V1-1240,2,PROVISIONAL_CONFIRMED,codex_provisional
+NID5-V1-001276,4,Smart ID Card,train,NID5-PF-V1-1241,1,SINGLETON,codex_provisional
+NID5-V1-001277,4,Smart ID Card,train,NID5-PF-V1-1242,1,SINGLETON,codex_provisional
+NID5-V1-001278,4,Smart ID Card,train,NID5-PF-V1-1243,1,SINGLETON,codex_provisional
+NID5-V1-001279,4,Smart ID Card,dev,NID5-PF-V1-1244,2,PROVISIONAL_CONFIRMED,codex_provisional
+NID5-V1-001280,4,Smart ID Card,train,NID5-PF-V1-1245,1,SINGLETON,codex_provisional
+NID5-V1-001281,4,Smart ID Card,dev,NID5-PF-V1-1246,1,SINGLETON,codex_provisional
+NID5-V1-001282,4,Smart ID Card,train,NID5-PF-V1-1247,1,SINGLETON,codex_provisional
+NID5-V1-001283,4,Smart ID Card,train,NID5-PF-V1-1248,1,SINGLETON,codex_provisional
+NID5-V1-001284,4,Smart ID Card,train,NID5-PF-V1-1249,1,SINGLETON,codex_provisional
+NID5-V1-001285,4,Smart ID Card,train,NID5-PF-V1-1250,1,SINGLETON,codex_provisional
+NID5-V1-001286,4,Smart ID Card,train,NID5-PF-V1-1251,1,SINGLETON,codex_provisional
+NID5-V1-001287,4,Smart ID Card,dev,NID5-PF-V1-1252,1,SINGLETON,codex_provisional
+NID5-V1-001288,4,Smart ID Card,dev,NID5-PF-V1-1253,1,SINGLETON,codex_provisional
+NID5-V1-001289,4,Smart ID Card,train,NID5-PF-V1-1254,1,SINGLETON,codex_provisional
+NID5-V1-001290,4,Smart ID Card,train,NID5-PF-V1-1255,1,SINGLETON,codex_provisional
+NID5-V1-001291,4,Smart ID Card,train,NID5-PF-V1-1256,1,SINGLETON,codex_provisional
+NID5-V1-001292,4,Smart ID Card,train,NID5-PF-V1-1257,1,SINGLETON,codex_provisional
+NID5-V1-001293,4,Smart ID Card,train,NID5-PF-V1-1258,1,SINGLETON,codex_provisional
+NID5-V1-001294,4,Smart ID Card,train,NID5-PF-V1-1259,1,SINGLETON,codex_provisional
+NID5-V1-001295,4,Smart ID Card,train,NID5-PF-V1-1260,1,SINGLETON,codex_provisional
+NID5-V1-001296,4,Smart ID Card,train,NID5-PF-V1-1261,1,SINGLETON,codex_provisional
+NID5-V1-001297,4,Smart ID Card,train,NID5-PF-V1-1262,1,SINGLETON,codex_provisional
+NID5-V1-001298,4,Smart ID Card,test,NID5-PF-V1-1263,1,SINGLETON,codex_provisional
+NID5-V1-001299,4,Smart ID Card,train,NID5-PF-V1-1264,1,SINGLETON,codex_provisional
+NID5-V1-001300,4,Smart ID Card,dev,NID5-PF-V1-1244,2,PROVISIONAL_CONFIRMED,codex_provisional
+NID5-V1-001301,4,Smart ID Card,test,NID5-PF-V1-1265,1,SINGLETON,codex_provisional
+NID5-V1-001302,4,Smart ID Card,test,NID5-PF-V1-1266,1,SINGLETON,codex_provisional
+NID5-V1-001303,4,Smart ID Card,train,NID5-PF-V1-1267,1,SINGLETON,codex_provisional
+NID5-V1-001304,4,Smart ID Card,train,NID5-PF-V1-1268,1,SINGLETON,codex_provisional
+NID5-V1-001305,4,Smart ID Card,train,NID5-PF-V1-1269,1,SINGLETON,codex_provisional
+NID5-V1-001306,4,Smart ID Card,train,NID5-PF-V1-1270,1,SINGLETON,codex_provisional
+NID5-V1-001307,4,Smart ID Card,dev,NID5-PF-V1-1271,1,SINGLETON,codex_provisional
+NID5-V1-001308,4,Smart ID Card,dev,NID5-PF-V1-1272,1,SINGLETON,codex_provisional
+NID5-V1-001309,4,Smart ID Card,train,NID5-PF-V1-1273,1,SINGLETON,codex_provisional
+NID5-V1-001310,4,Smart ID Card,train,NID5-PF-V1-1274,1,SINGLETON,codex_provisional
+NID5-V1-001311,4,Smart ID Card,train,NID5-PF-V1-1275,1,SINGLETON,codex_provisional
+NID5-V1-001312,4,Smart ID Card,train,NID5-PF-V1-1276,1,SINGLETON,codex_provisional
+NID5-V1-001313,4,Smart ID Card,dev,NID5-PF-V1-1277,1,SINGLETON,codex_provisional
+NID5-V1-001314,4,Smart ID Card,train,NID5-PF-V1-1278,1,SINGLETON,codex_provisional
+NID5-V1-001315,4,Smart ID Card,dev,NID5-PF-V1-1279,2,PROVISIONAL_CONFIRMED,codex_provisional
+NID5-V1-001316,4,Smart ID Card,test,NID5-PF-V1-1280,1,SINGLETON,codex_provisional
+NID5-V1-001317,4,Smart ID Card,train,NID5-PF-V1-1281,1,SINGLETON,codex_provisional
+NID5-V1-001318,4,Smart ID Card,train,NID5-PF-V1-1282,1,SINGLETON,codex_provisional
+NID5-V1-001319,4,Smart ID Card,train,NID5-PF-V1-1283,1,SINGLETON,codex_provisional
+NID5-V1-001320,4,Smart ID Card,dev,NID5-PF-V1-1284,1,SINGLETON,codex_provisional
+NID5-V1-001321,4,Smart ID Card,train,NID5-PF-V1-1285,1,SINGLETON,codex_provisional
+NID5-V1-001322,4,Smart ID Card,train,NID5-PF-V1-1286,1,SINGLETON,codex_provisional
+NID5-V1-001323,4,Smart ID Card,train,NID5-PF-V1-1287,1,SINGLETON,codex_provisional
+NID5-V1-001324,4,Smart ID Card,train,NID5-PF-V1-1288,1,SINGLETON,codex_provisional
+NID5-V1-001325,4,Smart ID Card,test,NID5-PF-V1-1289,1,SINGLETON,codex_provisional
+NID5-V1-001326,4,Smart ID Card,dev,NID5-PF-V1-1290,1,SINGLETON,codex_provisional
+NID5-V1-001327,4,Smart ID Card,dev,NID5-PF-V1-1279,2,PROVISIONAL_CONFIRMED,codex_provisional
+NID5-V1-001328,4,Smart ID Card,train,NID5-PF-V1-1291,1,SINGLETON,codex_provisional
+NID5-V1-001329,4,Smart ID Card,train,NID5-PF-V1-1292,1,SINGLETON,codex_provisional
+NID5-V1-001330,4,Smart ID Card,dev,NID5-PF-V1-1293,1,SINGLETON,codex_provisional
+NID5-V1-001331,4,Smart ID Card,train,NID5-PF-V1-1294,1,SINGLETON,codex_provisional
+NID5-V1-001332,4,Smart ID Card,train,NID5-PF-V1-1295,1,SINGLETON,codex_provisional
+NID5-V1-001333,4,Smart ID Card,dev,NID5-PF-V1-1296,1,SINGLETON,codex_provisional
+NID5-V1-001334,4,Smart ID Card,dev,NID5-PF-V1-1297,1,SINGLETON,codex_provisional
+NID5-V1-001335,4,Smart ID Card,train,NID5-PF-V1-1298,1,SINGLETON,codex_provisional
+NID5-V1-001336,4,Smart ID Card,train,NID5-PF-V1-1299,1,SINGLETON,codex_provisional
+NID5-V1-001337,4,Smart ID Card,train,NID5-PF-V1-1300,1,SINGLETON,codex_provisional
+NID5-V1-001338,4,Smart ID Card,test,NID5-PF-V1-1301,1,SINGLETON,codex_provisional
+NID5-V1-001339,4,Smart ID Card,dev,NID5-PF-V1-1302,1,SINGLETON,codex_provisional
+NID5-V1-001340,4,Smart ID Card,train,NID5-PF-V1-1303,1,SINGLETON,codex_provisional
+NID5-V1-001341,4,Smart ID Card,train,NID5-PF-V1-1304,1,SINGLETON,codex_provisional
+NID5-V1-001342,4,Smart ID Card,dev,NID5-PF-V1-1305,1,SINGLETON,codex_provisional
+NID5-V1-001343,4,Smart ID Card,train,NID5-PF-V1-1306,1,SINGLETON,codex_provisional
+NID5-V1-001344,4,Smart ID Card,dev,NID5-PF-V1-1307,1,SINGLETON,codex_provisional
+NID5-V1-001345,4,Smart ID Card,dev,NID5-PF-V1-1308,1,SINGLETON,codex_provisional
+NID5-V1-001346,4,Smart ID Card,train,NID5-PF-V1-1309,1,SINGLETON,codex_provisional
+NID5-V1-001347,4,Smart ID Card,train,NID5-PF-V1-1310,1,SINGLETON,codex_provisional
+NID5-V1-001348,4,Smart ID Card,test,NID5-PF-V1-1311,1,SINGLETON,codex_provisional
+NID5-V1-001349,4,Smart ID Card,train,NID5-PF-V1-1312,1,SINGLETON,codex_provisional
+NID5-V1-001350,4,Smart ID Card,test,NID5-PF-V1-1313,1,SINGLETON,codex_provisional
+NID5-V1-001351,4,Smart ID Card,train,NID5-PF-V1-1314,1,SINGLETON,codex_provisional
+NID5-V1-001352,4,Smart ID Card,train,NID5-PF-V1-1315,1,SINGLETON,codex_provisional
+NID5-V1-001353,4,Smart ID Card,train,NID5-PF-V1-1316,1,SINGLETON,codex_provisional
+NID5-V1-001354,4,Smart ID Card,dev,NID5-PF-V1-1317,1,SINGLETON,codex_provisional
+NID5-V1-001355,4,Smart ID Card,test,NID5-PF-V1-0577,2,LABEL_CONFLICT,codex_provisional
+NID5-V1-001356,4,Smart ID Card,test,NID5-PF-V1-1318,1,SINGLETON,codex_provisional
+NID5-V1-001357,4,Smart ID Card,train,NID5-PF-V1-1319,1,SINGLETON,codex_provisional
+NID5-V1-001358,4,Smart ID Card,dev,NID5-PF-V1-1320,1,SINGLETON,codex_provisional
+NID5-V1-001359,4,Smart ID Card,test,NID5-PF-V1-1321,1,SINGLETON,codex_provisional
+NID5-V1-001360,4,Smart ID Card,train,NID5-PF-V1-1322,1,SINGLETON,codex_provisional
+NID5-V1-001361,4,Smart ID Card,train,NID5-PF-V1-1323,1,SINGLETON,codex_provisional
+NID5-V1-001362,4,Smart ID Card,train,NID5-PF-V1-1324,1,SINGLETON,codex_provisional
+NID5-V1-001363,4,Smart ID Card,test,NID5-PF-V1-1325,1,SINGLETON,codex_provisional
+NID5-V1-001364,4,Smart ID Card,train,NID5-PF-V1-1326,1,SINGLETON,codex_provisional
+NID5-V1-001365,4,Smart ID Card,train,NID5-PF-V1-1327,1,SINGLETON,codex_provisional
+NID5-V1-001366,4,Smart ID Card,train,NID5-PF-V1-1328,1,SINGLETON,codex_provisional
+NID5-V1-001367,4,Smart ID Card,train,NID5-PF-V1-1329,1,SINGLETON,codex_provisional
+NID5-V1-001368,4,Smart ID Card,train,NID5-PF-V1-1330,1,SINGLETON,codex_provisional
+NID5-V1-001369,4,Smart ID Card,train,NID5-PF-V1-1331,1,SINGLETON,codex_provisional
+NID5-V1-001370,4,Smart ID Card,test,NID5-PF-V1-1332,1,SINGLETON,codex_provisional
+NID5-V1-001371,4,Smart ID Card,dev,NID5-PF-V1-0587,2,LABEL_CONFLICT,codex_provisional
+NID5-V1-001372,4,Smart ID Card,train,NID5-PF-V1-1333,1,SINGLETON,codex_provisional
+NID5-V1-001373,4,Smart ID Card,train,NID5-PF-V1-1334,1,SINGLETON,codex_provisional
+NID5-V1-001374,4,Smart ID Card,train,NID5-PF-V1-1335,1,SINGLETON,codex_provisional
+NID5-V1-001375,4,Smart ID Card,train,NID5-PF-V1-1336,1,SINGLETON,codex_provisional
+NID5-V1-001376,4,Smart ID Card,dev,NID5-PF-V1-1337,1,SINGLETON,codex_provisional
+NID5-V1-001377,4,Smart ID Card,train,NID5-PF-V1-1338,1,SINGLETON,codex_provisional
+NID5-V1-001378,4,Smart ID Card,train,NID5-PF-V1-1339,1,SINGLETON,codex_provisional
+NID5-V1-001379,4,Smart ID Card,train,NID5-PF-V1-1340,1,SINGLETON,codex_provisional
+NID5-V1-001380,4,Smart ID Card,train,NID5-PF-V1-1341,3,HUMAN_REVIEW_REQUIRED,codex_provisional
+NID5-V1-001381,4,Smart ID Card,train,NID5-PF-V1-1342,1,SINGLETON,codex_provisional
+NID5-V1-001382,4,Smart ID Card,train,NID5-PF-V1-1343,1,SINGLETON,codex_provisional
+NID5-V1-001383,4,Smart ID Card,train,NID5-PF-V1-1344,1,SINGLETON,codex_provisional
+NID5-V1-001384,4,Smart ID Card,train,NID5-PF-V1-1345,1,SINGLETON,codex_provisional
+NID5-V1-001385,4,Smart ID Card,test,NID5-PF-V1-1346,1,SINGLETON,codex_provisional
+NID5-V1-001386,4,Smart ID Card,train,NID5-PF-V1-1347,1,SINGLETON,codex_provisional
+NID5-V1-001387,4,Smart ID Card,train,NID5-PF-V1-1341,3,HUMAN_REVIEW_REQUIRED,codex_provisional
+NID5-V1-001388,4,Smart ID Card,train,NID5-PF-V1-1348,1,SINGLETON,codex_provisional
+NID5-V1-001389,4,Smart ID Card,train,NID5-PF-V1-1349,1,SINGLETON,codex_provisional
+NID5-V1-001390,4,Smart ID Card,train,NID5-PF-V1-1341,3,HUMAN_REVIEW_REQUIRED,codex_provisional
+NID5-V1-001391,4,Smart ID Card,train,NID5-PF-V1-0580,2,LABEL_CONFLICT,codex_provisional
+NID5-V1-001392,4,Smart ID Card,train,NID5-PF-V1-1350,1,SINGLETON,codex_provisional
+NID5-V1-001393,4,Smart ID Card,train,NID5-PF-V1-1351,1,SINGLETON,codex_provisional
+NID5-V1-001394,4,Smart ID Card,train,NID5-PF-V1-1352,1,SINGLETON,codex_provisional
+NID5-V1-001395,4,Smart ID Card,train,NID5-PF-V1-1353,2,PROVISIONAL_CONFIRMED,codex_provisional
+NID5-V1-001396,4,Smart ID Card,train,NID5-PF-V1-1354,1,SINGLETON,codex_provisional
+NID5-V1-001397,4,Smart ID Card,train,NID5-PF-V1-1355,1,SINGLETON,codex_provisional
+NID5-V1-001398,4,Smart ID Card,train,NID5-PF-V1-1353,2,PROVISIONAL_CONFIRMED,codex_provisional
+NID5-V1-001399,4,Smart ID Card,train,NID5-PF-V1-1356,1,SINGLETON,codex_provisional
+NID5-V1-001400,4,Smart ID Card,train,NID5-PF-V1-1357,1,SINGLETON,codex_provisional
+NID5-V1-001401,4,Smart ID Card,train,NID5-PF-V1-1358,1,SINGLETON,codex_provisional
+NID5-V1-001402,4,Smart ID Card,train,NID5-PF-V1-1359,1,SINGLETON,codex_provisional
+NID5-V1-001403,4,Smart ID Card,dev,NID5-PF-V1-1360,1,SINGLETON,codex_provisional
+NID5-V1-001404,4,Smart ID Card,train,NID5-PF-V1-1361,1,SINGLETON,codex_provisional
+NID5-V1-001405,4,Smart ID Card,train,NID5-PF-V1-1362,1,SINGLETON,codex_provisional
+NID5-V1-001406,4,Smart ID Card,train,NID5-PF-V1-1363,1,SINGLETON,codex_provisional
+NID5-V1-001407,4,Smart ID Card,test,NID5-PF-V1-1364,1,SINGLETON,codex_provisional
+NID5-V1-001408,4,Smart ID Card,train,NID5-PF-V1-1365,1,SINGLETON,codex_provisional
+NID5-V1-001409,4,Smart ID Card,test,NID5-PF-V1-1366,1,SINGLETON,codex_provisional
+NID5-V1-001410,4,Smart ID Card,train,NID5-PF-V1-1367,1,SINGLETON,codex_provisional
+NID5-V1-001411,4,Smart ID Card,train,NID5-PF-V1-1368,1,SINGLETON,codex_provisional
+NID5-V1-001412,4,Smart ID Card,test,NID5-PF-V1-1369,1,SINGLETON,codex_provisional
+NID5-V1-001413,4,Smart ID Card,dev,NID5-PF-V1-1370,1,SINGLETON,codex_provisional
+NID5-V1-001414,4,Smart ID Card,train,NID5-PF-V1-1371,1,SINGLETON,codex_provisional
+NID5-V1-001415,4,Smart ID Card,train,NID5-PF-V1-1372,1,SINGLETON,codex_provisional
+NID5-V1-001416,4,Smart ID Card,train,NID5-PF-V1-1373,1,SINGLETON,codex_provisional
+NID5-V1-001417,4,Smart ID Card,train,NID5-PF-V1-1374,1,SINGLETON,codex_provisional
+NID5-V1-001418,4,Smart ID Card,test,NID5-PF-V1-1375,1,SINGLETON,codex_provisional
+NID5-V1-001419,4,Smart ID Card,dev,NID5-PF-V1-1376,1,SINGLETON,codex_provisional
+NID5-V1-001420,4,Smart ID Card,dev,NID5-PF-V1-1377,1,SINGLETON,codex_provisional
+NID5-V1-001421,4,Smart ID Card,test,NID5-PF-V1-1378,1,SINGLETON,codex_provisional
+NID5-V1-001422,4,Smart ID Card,train,NID5-PF-V1-1379,1,SINGLETON,codex_provisional
+NID5-V1-001423,4,Smart ID Card,test,NID5-PF-V1-1380,1,SINGLETON,codex_provisional
+NID5-V1-001424,4,Smart ID Card,train,NID5-PF-V1-1381,1,SINGLETON,codex_provisional
+NID5-V1-001425,4,Smart ID Card,test,NID5-PF-V1-1382,1,SINGLETON,codex_provisional
+NID5-V1-001426,4,Smart ID Card,train,NID5-PF-V1-1383,1,SINGLETON,codex_provisional
+NID5-V1-001427,4,Smart ID Card,train,NID5-PF-V1-1384,1,SINGLETON,codex_provisional
+NID5-V1-001428,4,Smart ID Card,train,NID5-PF-V1-1385,1,SINGLETON,codex_provisional
+NID5-V1-001429,4,Smart ID Card,train,NID5-PF-V1-1386,1,SINGLETON,codex_provisional
+NID5-V1-001430,4,Smart ID Card,test,NID5-PF-V1-1387,1,SINGLETON,codex_provisional
+NID5-V1-001431,4,Smart ID Card,train,NID5-PF-V1-1388,1,SINGLETON,codex_provisional
+NID5-V1-001432,4,Smart ID Card,dev,NID5-PF-V1-1389,1,SINGLETON,codex_provisional
+NID5-V1-001433,4,Smart ID Card,train,NID5-PF-V1-1390,1,SINGLETON,codex_provisional
+NID5-V1-001434,4,Smart ID Card,train,NID5-PF-V1-1391,1,SINGLETON,codex_provisional
+NID5-V1-001435,4,Smart ID Card,train,NID5-PF-V1-1392,1,SINGLETON,codex_provisional
+NID5-V1-001436,4,Smart ID Card,train,NID5-PF-V1-1393,1,SINGLETON,codex_provisional
+NID5-V1-001437,4,Smart ID Card,train,NID5-PF-V1-1394,1,SINGLETON,codex_provisional
+NID5-V1-001438,4,Smart ID Card,train,NID5-PF-V1-1395,1,SINGLETON,codex_provisional
+NID5-V1-001439,4,Smart ID Card,train,NID5-PF-V1-0749,2,LABEL_CONFLICT,codex_provisional
+NID5-V1-001440,4,Smart ID Card,train,NID5-PF-V1-1396,1,SINGLETON,codex_provisional
+NID5-V1-001441,4,Smart ID Card,train,NID5-PF-V1-1397,1,SINGLETON,codex_provisional
+NID5-V1-001442,4,Smart ID Card,train,NID5-PF-V1-1398,1,SINGLETON,codex_provisional
+NID5-V1-001443,4,Smart ID Card,dev,NID5-PF-V1-1399,1,SINGLETON,codex_provisional
+NID5-V1-001444,4,Smart ID Card,train,NID5-PF-V1-1400,1,SINGLETON,codex_provisional
+NID5-V1-001445,4,Smart ID Card,test,NID5-PF-V1-1401,1,SINGLETON,codex_provisional
+NID5-V1-001446,4,Smart ID Card,train,NID5-PF-V1-1402,1,SINGLETON,codex_provisional
+NID5-V1-001447,4,Smart ID Card,train,NID5-PF-V1-1403,1,SINGLETON,codex_provisional
+NID5-V1-001448,4,Smart ID Card,train,NID5-PF-V1-1404,1,SINGLETON,codex_provisional
+NID5-V1-001449,4,Smart ID Card,test,NID5-PF-V1-0751,4,LABEL_CONFLICT,codex_provisional
+NID5-V1-001450,4,Smart ID Card,train,NID5-PF-V1-0768,2,LABEL_CONFLICT,codex_provisional
+NID5-V1-001451,4,Smart ID Card,train,NID5-PF-V1-1405,1,SINGLETON,codex_provisional
+NID5-V1-001452,4,Smart ID Card,train,NID5-PF-V1-1406,1,SINGLETON,codex_provisional
+NID5-V1-001453,4,Smart ID Card,train,NID5-PF-V1-1407,1,SINGLETON,codex_provisional
+NID5-V1-001454,4,Smart ID Card,train,NID5-PF-V1-1408,1,SINGLETON,codex_provisional

@@ -1,0 +1,98 @@
+{
+  "source_row_count": 1454,
+  "candidate_pair_count": 99,
+  "decision_counts": {
+    "AMBIGUOUS_REVIEW_REQUIRED": 1,
+    "LABEL_CONFLICT_SAME_MEANING": 7,
+    "NOT_PARAPHRASE": 2,
+    "RELATED_NOT_PARAPHRASE": 16,
+    "SAME_MEANING": 42,
+    "SAME_TEMPLATE_DIFFERENT_MEANING": 31
+  },
+  "confidence_counts": {
+    "HIGH": 84,
+    "LOW": 1,
+    "MEDIUM": 14
+  },
+  "decision_by_label_relation": {
+    "AMBIGUOUS_REVIEW_REQUIRED": {
+      "same_label": 1
+    },
+    "LABEL_CONFLICT_SAME_MEANING": {
+      "cross_label": 7
+    },
+    "NOT_PARAPHRASE": {
+      "cross_label": 1,
+      "same_label": 1
+    },
+    "RELATED_NOT_PARAPHRASE": {
+      "same_label": 16
+    },
+    "SAME_MEANING": {
+      "cross_label": 1,
+      "same_label": 41
+    },
+    "SAME_TEMPLATE_DIFFERENT_MEANING": {
+      "cross_label": 24,
+      "same_label": 7
+    }
+  },
+  "decision_by_split_relation": {
+    "AMBIGUOUS_REVIEW_REQUIRED": {
+      "cross_split": 1
+    },
+    "LABEL_CONFLICT_SAME_MEANING": {
+      "cross_split": 4,
+      "same_split": 3
+    },
+    "NOT_PARAPHRASE": {
+      "cross_split": 1,
+      "same_split": 1
+    },
+    "RELATED_NOT_PARAPHRASE": {
+      "cross_split": 6,
+      "same_split": 10
+    },
+    "SAME_MEANING": {
+      "cross_split": 13,
+      "same_split": 29
+    },
+    "SAME_TEMPLATE_DIFFERENT_MEANING": {
+      "cross_split": 15,
+      "same_split": 16
+    }
+  },
+  "family_statistics": {
+    "equivalence_edge_count": 49,
+    "total_families": 1408,
+    "multi_row_families": 42,
+    "singleton_families": 1366,
+    "largest_family_size": 4,
+    "review_required_families": 2,
+    "label_conflict_families": 6,
+    "cross_label_families": 6,
+    "train_dev_families": 8,
+    "train_test_families": 7,
+    "dev_test_families": 0,
+    "families_crossing_more_than_two_splits": 0,
+    "samples_affected_by_cross_split_families": 33,
+    "same_label_cross_split_families": 13,
+    "cross_label_cross_split_families": 2
+  },
+  "human_review_queue_size": 29,
+  "private_adjudicated_file": {
+    "path": "D:\\Files\\Academic\\4-1\\NLP\\NLP Project\\NLP_Project-_private\\phase1\\near_duplicate_review_v1_adjudicated.csv",
+    "sha256": "cdd9dbbf23381d0a72826708627921a8b1c83c3818e584be18de79e40d9de88d",
+    "rows": 99
+  },
+  "private_human_review_queue": {
+    "path": "D:\\Files\\Academic\\4-1\\NLP\\NLP Project\\NLP_Project-_private\\phase1\\human_review_queue_v1.csv",
+    "sha256": "104140c76c72b5a28abed48e641a8f35a64ca40fe0c5fc98340ceddbb1d2fcc2",
+    "rows": 29
+  },
+  "adjudication_source": "codex_provisional",
+  "final_human_adjudication_status": "PENDING",
+  "labels_changed": false,
+  "phase0_split_changed": false,
+  "model_evaluations": 0
+}
