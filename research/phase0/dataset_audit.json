@@ -1,0 +1,124 @@
+{
+  "audit_scope": "Phase 0 Task 1 repository and dataset discovery",
+  "audit_date": "2026-09-26",
+  "python_interpreter": "D:\\Files\\Academic\\4-1\\NLP\\nlp\\Scripts\\python.exe",
+  "historical_source": {
+    "status": "LIKELY",
+    "reason": "The two native Google Sheets are content-identical and contain the remembered 1454 rows and five labels, but no executable repository path or saved run proves that either sheet produced the remembered baseline metrics.",
+    "files": [
+      {
+        "path": "G:\\My Drive\\NID Query Datasheet.gsheet",
+        "drive_file_id": "1O7Fg5-NaYDGpSDuZR4ELoD2f8vC5QCwIycVSMAuXno4",
+        "modified_date": "2026-09-25",
+        "sheet_names": ["Sheet1"]
+      },
+      {
+        "path": "G:\\My Drive\\Copy of NID Query Datasheet.gsheet",
+        "drive_file_id": "1Akj4WeKNH_UAXEh6mPeGM86Kq5i8ZFM0eLNKCTMYjUM",
+        "modified_date": "2026-09-10",
+        "sheet_names": ["Sheet1"]
+      }
+    ],
+    "csv_export_sha256": "6de6ba4f342602b99254b97ad830161405baf817eb38cadee2a56980fc5e7faa",
+    "csv_export_bytes": 251432,
+    "content_identical_at_audit_time": true,
+    "rows": 1454,
+    "columns": [
+      "id",
+      "text",
+      "service",
+      "problem",
+      "priority",
+      "language_style",
+      "privacy_present",
+      "privacy_types",
+      "source_type",
+      "parent_id",
+      "difficulty",
+      "is_ood",
+      "annotation_notes"
+    ],
+    "query_field": "text",
+    "label_field": "problem",
+    "id_unique": 1454,
+    "missing_cells": 0,
+    "exact_duplicate_rows": 0,
+    "duplicate_query_groups": 7,
+    "duplicate_query_extra_rows": 7,
+    "service_counts": {"NID": 1454},
+    "label_counts": {
+      "NID Information Correction": 267,
+      "New NID Registration": 448,
+      "Lost/Stolen NID": 236,
+      "NID Online Problem": 305,
+      "Smart ID Card": 198
+    },
+    "priority_counts": {"Medium": 829, "High": 625},
+    "language_style_counts": {"Formal": 730, "Mixed": 429, "Informal": 295},
+    "source_type_counts": {"REAL": 1454},
+    "provenance_warning": "REAL is a sheet annotation, not independently verified provenance.",
+    "label_encoding": "string labels in problem; no stable numeric label encoder was found",
+    "parent_id_warning": "parent_id is not a five-class ID: values are block/row-like markers (1/0, 268, 716, 952, 1257), so it must not be treated as label2id."
+  },
+  "current_repository_nid_corpus": {
+    "status": "CONFIRMED",
+    "path": "data/processed/nid_canonical_v0_1.csv",
+    "sha256": "b559549980a0b7e95e74c3c89d96133a35bb452f6559132ecef1f08a12222827",
+    "rows": 876,
+    "parents": 9,
+    "query_topics": 73,
+    "families": 292,
+    "rows_per_query_topic": 12,
+    "source_type_counts": {"SYNTHETIC": 292, "PARAPHRASED": 584},
+    "priority_counts": {"Low": 792, "Medium": 84},
+    "language_style_counts": {"Mixed": 438, "Formal": 219, "Informal": 219},
+    "privacy_positive": 0,
+    "ood_rows": 0,
+    "exact_duplicate_rows": 0,
+    "duplicate_normalized_query_texts": 0,
+    "generation_evidence": "src/preprocessing/prepare_pretraining_data.py:212-240",
+    "historical_rows_migrated": 0,
+    "migration_review_rows": 0
+  },
+  "current_split": {
+    "protocol": "For each query_topic_id, sorted F01/F02 families go to train, F03 to dev, F04 to test.",
+    "train_rows": 1584,
+    "dev_rows": 792,
+    "test_rows": 792,
+    "nid_train_rows": 438,
+    "nid_dev_rows": 219,
+    "nid_test_rows": 219,
+    "percentages": {"train": 50, "dev": 25, "test": 25},
+    "random_seed": null,
+    "stratification": "deterministic per-intent family allocation",
+    "stored": true,
+    "family_overlap": {"train_dev": 0, "train_test": 0, "dev_test": 0},
+    "normalized_text_overlap": {"train_dev": 0, "train_test": 0, "dev_test": 0},
+    "evidence": "src/preprocessing/prepare_pretraining_data.py:286-304"
+  },
+  "historical_baseline": {
+    "domain": "Bangladesh NID citizen queries",
+    "remembered_rows": 1454,
+    "remembered_labels": 5,
+    "remembered_iid_macro_f1_percent": 96.36,
+    "remembered_shifted_macro_f1_percent": 82.64,
+    "remembered_gap_percentage_points": 13.72,
+    "dataset_identity": "LIKELY",
+    "iid_result_provenance": "UNVERIFIED",
+    "shifted_result_provenance": "UNVERIFIED",
+    "model_provenance": "UNVERIFIED",
+    "split_protocol": "NOT FOUND",
+    "shift_dataset": "NOT FOUND",
+    "notes": [
+      "No exact 96.36, 82.64, or 13.72 occurrence exists in repository source, documentation, configs, or evaluation summaries.",
+      "No five-class training script, five-class label map, saved five-class checkpoint metadata, prediction export, confusion matrix, or split manifest was found.",
+      "Current evaluation artifacts concern the later six-service 49-parent/264-intent system and must not be used as evidence for the remembered historical baseline."
+    ]
+  },
+  "source_integrity": {
+    "source_datasets_modified_by_audit": false,
+    "drive_files_modified_by_audit": false,
+    "large_files_created": false,
+    "dependencies_installed": false
+  }
+}

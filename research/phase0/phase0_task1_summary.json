@@ -1,0 +1,55 @@
+{
+  "task": "PHASE 0 - TASK 1 REPOSITORY + DATASET + BASELINE DISCOVERY",
+  "status": "COMPLETE",
+  "date": "2026-09-26",
+  "repository": {
+    "root": "D:\\Files\\Academic\\4-1\\NLP\\NLP Project\\NLP_Project-",
+    "name": "NLP_Project-",
+    "branch": "feature/ui-professional-refresh",
+    "head": "bada1269e18688d35080608d974bd03513a59e1e",
+    "remote": "https://github.com/sadia1997mostafa/NLP_Project-.git",
+    "initially_dirty": true,
+    "preexisting_changes_preserved": true
+  },
+  "conclusions": {
+    "historical_1454_row_dataset": "LIKELY",
+    "historical_dataset_present": true,
+    "historical_dataset_location": "Google Drive native Sheets outside Git",
+    "five_class_ontology_verified": true,
+    "historical_dataset_use_by_classifier": "UNVERIFIED",
+    "iid_96_36_provenance": "UNVERIFIED",
+    "shift_82_64_provenance": "UNVERIFIED",
+    "current_repository_nid_dataset": "CONFIRMED synthetic/paraphrased 876-row, 73-intent corpus",
+    "current_saved_split_leakage_check": "PASS for family IDs and exact normalized text"
+  },
+  "artifacts_created": [
+    "research/phase0/repository_inventory.md",
+    "research/phase0/dataset_candidates.csv",
+    "research/phase0/dataset_audit.json",
+    "research/phase0/baseline_provenance.md",
+    "research/phase0/phase0_task1_summary.json"
+  ],
+  "phase0_progress": {
+    "environment_storage_audit": "COMPLETE",
+    "repository_discovery": "COMPLETE",
+    "dataset_identification": "COMPLETE with dataset identity LIKELY and training provenance unverified",
+    "label_mapping": "COMPLETE for the five coarse strings; no numeric encoder found",
+    "preprocessing_trace": "COMPLETE for current repository; historical pipeline not found",
+    "split_trace": "COMPLETE for current repository; historical split not found",
+    "iid_provenance": "UNVERIFIED",
+    "shift_provenance": "UNVERIFIED",
+    "baseline_rerun": "NOT STARTED",
+    "freeze_manifests": "NOT STARTED",
+    "final_phase0_report": "NOT STARTED",
+    "overall_percent": 55
+  },
+  "storage_compliance": {
+    "python_interpreter": "D:\\Files\\Academic\\4-1\\NLP\\nlp\\Scripts\\python.exe",
+    "drive_files_created": 0,
+    "large_files_created": 0,
+    "models_downloaded": 0,
+    "models_trained": 0,
+    "dependencies_installed": 0
+  },
+  "next_single_action": "Phase 0 Task 2: freeze an immutable local export and manifest for the 1454-row source, then define a leakage-safe reproducible baseline protocol without running training yet."
+}
