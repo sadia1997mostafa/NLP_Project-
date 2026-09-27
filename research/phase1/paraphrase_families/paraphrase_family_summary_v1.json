@@ -3,10 +3,10 @@
   "candidate_pair_count": 99,
   "decision_counts": {
     "AMBIGUOUS_REVIEW_REQUIRED": 1,
-    "LABEL_CONFLICT_SAME_MEANING": 7,
+    "LABEL_CONFLICT_SAME_MEANING": 8,
     "NOT_PARAPHRASE": 2,
     "RELATED_NOT_PARAPHRASE": 16,
-    "SAME_MEANING": 42,
+    "SAME_MEANING": 41,
     "SAME_TEMPLATE_DIFFERENT_MEANING": 31
   },
   "confidence_counts": {
@@ -19,7 +19,7 @@
       "same_label": 1
     },
     "LABEL_CONFLICT_SAME_MEANING": {
-      "cross_label": 7
+      "cross_label": 8
     },
     "NOT_PARAPHRASE": {
       "cross_label": 1,
@@ -29,7 +29,6 @@
       "same_label": 16
     },
     "SAME_MEANING": {
-      "cross_label": 1,
       "same_label": 41
     },
     "SAME_TEMPLATE_DIFFERENT_MEANING": {
@@ -43,7 +42,7 @@
     },
     "LABEL_CONFLICT_SAME_MEANING": {
       "cross_split": 4,
-      "same_split": 3
+      "same_split": 4
     },
     "NOT_PARAPHRASE": {
       "cross_split": 1,
@@ -55,7 +54,7 @@
     },
     "SAME_MEANING": {
       "cross_split": 13,
-      "same_split": 29
+      "same_split": 28
     },
     "SAME_TEMPLATE_DIFFERENT_MEANING": {
       "cross_split": 15,
@@ -82,12 +81,12 @@
   "human_review_queue_size": 29,
   "private_adjudicated_file": {
     "path": "D:\\Files\\Academic\\4-1\\NLP\\NLP Project\\NLP_Project-_private\\phase1\\near_duplicate_review_v1_adjudicated.csv",
-    "sha256": "cdd9dbbf23381d0a72826708627921a8b1c83c3818e584be18de79e40d9de88d",
+    "sha256": "5f457e76f573b8017aeaf71a0851859424bc3995aac5ce47ec8f8e617733fe83",
     "rows": 99
   },
   "private_human_review_queue": {
     "path": "D:\\Files\\Academic\\4-1\\NLP\\NLP Project\\NLP_Project-_private\\phase1\\human_review_queue_v1.csv",
-    "sha256": "104140c76c72b5a28abed48e641a8f35a64ca40fe0c5fc98340ceddbb1d2fcc2",
+    "sha256": "1e373fde76200a73d0d25371e8a6e1ddf449ba34be72afa3477e37b0424a0520",
     "rows": 29
   },
   "adjudication_source": "codex_provisional",

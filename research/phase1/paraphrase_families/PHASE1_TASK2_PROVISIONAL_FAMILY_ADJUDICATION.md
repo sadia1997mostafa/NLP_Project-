@@ -12,10 +12,10 @@ This task semantically inspected the 99 lexical near-duplicate candidates produc
 
 | Provisional decision | Pairs |
 | --- | ---: |
-| `SAME_MEANING` | 42 |
+| `SAME_MEANING` | 41 |
 | `SAME_TEMPLATE_DIFFERENT_MEANING` | 31 |
 | `RELATED_NOT_PARAPHRASE` | 16 |
-| `LABEL_CONFLICT_SAME_MEANING` | 7 |
+| `LABEL_CONFLICT_SAME_MEANING` | 8 |
 | `AMBIGUOUS_REVIEW_REQUIRED` | 1 |
 | `NOT_PARAPHRASE` | 2 |
 | **Total** | **99** |
@@ -56,8 +56,8 @@ These counts describe provisional semantic families, not a revised split. No sam
 ## 6. Cross-label issues
 
 - Exact source-label conflict groups carried forward from Task 1: 2
-- Cross-label `SAME_MEANING` pairs: 1
-- `LABEL_CONFLICT_SAME_MEANING` pairs: 7
+- Cross-label `SAME_MEANING` pairs: 0
+- `LABEL_CONFLICT_SAME_MEANING` pairs: 8
 - Provisional cross-label families: 6
 
 The apparent conflicts are review targets only. No frozen label was corrected or otherwise changed.
@@ -66,7 +66,7 @@ The apparent conflicts are review targets only. No frozen label was corrected or
 
 - Private path: `D:\Files\Academic\4-1\NLP\NLP Project\NLP_Project-_private\phase1\human_review_queue_v1.csv`
 - Rows: 29
-- SHA-256: `104140c76c72b5a28abed48e641a8f35a64ca40fe0c5fc98340ceddbb1d2fcc2`
+- SHA-256: `1e373fde76200a73d0d25371e8a6e1ddf449ba34be72afa3477e37b0424a0520`
 - Human decisions completed: no
 
 The queue contains raw text and therefore remains outside Git. Its Git-safe index contains only sample/pair identifiers, labels, splits, similarity, provisional judgments, and review reasons.

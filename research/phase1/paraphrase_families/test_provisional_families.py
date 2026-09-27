@@ -59,6 +59,8 @@ def test_complete_family_map_and_safe_schema():
         for row in families
     )
     for row in decisions:
+        if row["label_a"] != row["label_b"] and row["provisional_decision"] in EQUIVALENT:
+            assert row["provisional_decision"] == "LABEL_CONFLICT_SAME_MEANING"
         if row["provisional_decision"] in EQUIVALENT:
             assert (
                 by_sample[row["sample_id_a"]]["provisional_family_id"]
