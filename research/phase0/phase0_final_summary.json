@@ -1,0 +1,58 @@
+{
+  "phase": 0,
+  "status": "COMPLETE_WITH_HISTORICAL_LIMITATION",
+  "protocol": "NID-5CLASS-PHASE0-V1",
+  "dataset": {
+    "rows": 1454,
+    "source_raw_sha256": "6de6ba4f342602b99254b97ad830161405baf817eb38cadee2a56980fc5e7faa",
+    "canonical_content_sha256": "156d0a6a5f1f15773cc2adf286fc7e9f1c7d5f68fe8f332757a7435bc0c68811"
+  },
+  "labels": [
+    {"label_id": 0, "label_name": "NID Information Correction", "count": 267},
+    {"label_id": 1, "label_name": "New NID Registration", "count": 448},
+    {"label_id": 2, "label_name": "Lost/Stolen NID", "count": 236},
+    {"label_id": 3, "label_name": "NID Online Problem", "count": 305},
+    {"label_id": 4, "label_name": "Smart ID Card", "count": 198}
+  ],
+  "split": {
+    "seed": 42,
+    "train": 1017,
+    "dev": 219,
+    "test": 218,
+    "manifest_sha256": "4d6356191e1813e9f1ec6345614d2e0a003d134a26521bc7a702ce8a72ef11f1"
+  },
+  "baseline": {
+    "experiment_id": "EXP-P0-BASELINE-001",
+    "model": "TFIDF-LOGREG-V1",
+    "config": "research/phase0/nid_5class_baseline_tfidf_logreg_v1.yaml",
+    "git_commit": "6a0de916884bf7c686ff0d3867cd45ab1e2ff12b",
+    "official_test_evaluations": 1,
+    "dev": {
+      "accuracy": 0.9360730593607306,
+      "macro_precision": 0.9410285038792165,
+      "macro_recall": 0.935875693993799,
+      "macro_f1": 0.937334391301132
+    },
+    "test": {
+      "accuracy": 0.9220183486238532,
+      "macro_precision": 0.9180290297937358,
+      "macro_recall": 0.9247603596922221,
+      "macro_f1": 0.9201711625354878
+    }
+  },
+  "historical_iid": {"macro_f1_percent": 96.36, "status": "unverified"},
+  "historical_shift": {"macro_f1_percent": 82.64, "status": "unverified"},
+  "historical_shift_gap": {"percentage_points": 13.72, "status": "unverified"},
+  "historical_reproduction_status": "IMPOSSIBLE_FROM_AVAILABLE_ARTIFACTS",
+  "shift_challenge_status": "DEFERRED_TO_PHASE_1",
+  "pii_screen_status": "ZERO_HEURISTIC_MATCHES_MANUAL_REVIEW_STILL_REQUIRED",
+  "unnamed_column_review_status": "REQUIRES_OWNER_REVIEW_BEFORE_PUBLIC_RELEASE",
+  "private_source_path": "D:\\Files\\Academic\\4-1\\NLP\\NLP Project\\NLP_Project-_private\\phase0\\nid_5class_source_v1.csv",
+  "private_source_git_tracked": false,
+  "python_interpreter": "D:\\Files\\Academic\\4-1\\NLP\\nlp\\Scripts\\python.exe",
+  "package_versions": {
+    "python": "3.13.9",
+    "scikit_learn": "1.9.0",
+    "numpy": "2.5.1"
+  }
+}

@@ -8,7 +8,7 @@
   "sheet_name": "Sheet1",
   "exported_at_utc": "2026-09-27T13:28:47.929263+00:00",
   "export_format": "Google Drive native Sheet export as text/csv",
-  "private_frozen_csv_path": "D:\\Files\\Academic\\4-1\\NLP\\NLP Project\\NLP_Project-\\_private\\phase0\\nid_5class_source_v1.csv",
+  "private_frozen_csv_path": "D:\\Files\\Academic\\4-1\\NLP\\NLP Project\\NLP_Project-_private\\phase0\\nid_5class_source_v1.csv",
   "raw_file_sha256": "6de6ba4f342602b99254b97ad830161405baf817eb38cadee2a56980fc5e7faa",
   "canonical_content_sha256": "156d0a6a5f1f15773cc2adf286fc7e9f1c7d5f68fe8f332757a7435bc0c68811",
   "canonical_content_hash_method": "SHA-256 of compact UTF-8 JSON containing the ordered column list and ordered raw cell-value matrix; ensure_ascii=false; no key sorting",
@@ -33,6 +33,17 @@
     ""
   ],
   "rows_with_nonempty_unnamed_trailing_cells": 17,
+  "unnamed_column_review": {
+    "status": "REQUIRES_OWNER_REVIEW_BEFORE_PUBLIC_RELEASE",
+    "column_14_populated_rows": 17,
+    "column_14_value_length_range": [5, 5],
+    "column_14_unique_values": 1,
+    "column_15_populated_rows": 17,
+    "column_15_value_length_range": [25, 57],
+    "column_15_unique_values": 17,
+    "datatype_characteristics": "ASCII alphabetic text; no numeric-only, identifier-like, Bangla, or frozen-label matches detected",
+    "baseline_usage": "Neither unnamed column is used as query text, label, split feature, or model input; full-row hashes preserve both columns for mutation detection."
+  },
   "query_column": "text",
   "label_column": "problem",
   "label_count": 5,

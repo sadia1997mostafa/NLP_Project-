@@ -53,7 +53,12 @@ SPLITS = ("train", "dev", "test")
 RATIOS = {"train": 0.70, "dev": 0.15, "test": 0.15}
 
 ROOT = Path(__file__).resolve().parents[2]
-DEFAULT_INPUT = ROOT / "_private" / "phase0" / "nid_5class_source_v1.csv"
+DEFAULT_INPUT = (
+    ROOT.parent
+    / f"{ROOT.name}_private"
+    / "phase0"
+    / "nid_5class_source_v1.csv"
+)
 DEFAULT_OUTPUT = Path(__file__).resolve().parent
 STARTING_GIT_COMMIT = "0c61617169f4301a73a334b9970adaf18867fc66"
 
@@ -492,7 +497,7 @@ Macro-F1 values remain unverified references.
 - Source: `G:\\My Drive\\NID Query Datasheet.gsheet`
 - Content-identical Drive copy: `G:\\My Drive\\Copy of NID Query Datasheet.gsheet`
 - Sheet: `Sheet1`
-- Private snapshot: `_private/phase0/nid_5class_source_v1.csv`
+- Private snapshot: sibling `NLP_Project-_private/phase0/nid_5class_source_v1.csv`
 - Rows: 1,454
 - Physical CSV columns: 15 (13 named plus 2 unnamed trailing columns)
 - Rows with populated unnamed trailing cells: {pii['rows_with_nonempty_unnamed_trailing_cells']}
@@ -591,7 +596,7 @@ def main() -> None:
         "--input",
         type=Path,
         default=DEFAULT_INPUT,
-        help="Private source CSV (default: repository _private/phase0 snapshot)",
+        help="Private source CSV (default: sibling NLP_Project-_private snapshot)",
     )
     parser.add_argument(
         "--output-dir",

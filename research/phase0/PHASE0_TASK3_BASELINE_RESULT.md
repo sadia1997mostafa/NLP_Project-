@@ -117,8 +117,8 @@ assigned split throughout evaluation; no labels were repaired.
 
 ## Reproduction command
 
-From the repository root, with the private frozen source at its documented
-default path:
+From the repository root, with the private frozen source in the documented
+sibling `NLP_Project-_private` directory:
 
 ```bat
 "D:\Files\Academic\4-1\NLP\nlp\Scripts\python.exe" research\phase0\run_nid_5class_baseline.py

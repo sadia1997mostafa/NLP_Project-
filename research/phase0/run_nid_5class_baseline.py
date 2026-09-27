@@ -353,7 +353,11 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument(
         "--source",
         type=Path,
-        default=ROOT / "_private/phase0/nid_5class_source_v1.csv",
+        default=(
+            ROOT.parent
+            / f"{ROOT.name}_private"
+            / "phase0/nid_5class_source_v1.csv"
+        ),
     )
     parser.add_argument(
         "--manifest",

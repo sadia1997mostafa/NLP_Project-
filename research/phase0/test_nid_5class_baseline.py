@@ -25,7 +25,9 @@ RESULTS = PHASE0 / "results"
 
 def frozen_records():
     return load_and_validate(
-        ROOT / "_private/phase0/nid_5class_source_v1.csv",
+        ROOT.parent
+        / f"{ROOT.name}_private"
+        / "phase0/nid_5class_source_v1.csv",
         PHASE0 / "nid_5class_split_manifest_v1.csv",
         PHASE0 / "nid_5class_labels_v1.json",
         PHASE0 / "nid_5class_source_manifest_v1.json",

@@ -11,7 +11,7 @@ Macro-F1 values remain unverified references.
 - Source: `G:\My Drive\NID Query Datasheet.gsheet`
 - Content-identical Drive copy: `G:\My Drive\Copy of NID Query Datasheet.gsheet`
 - Sheet: `Sheet1`
-- Private snapshot: `_private/phase0/nid_5class_source_v1.csv`
+- Private snapshot: sibling `NLP_Project-_private/phase0/nid_5class_source_v1.csv`
 - Rows: 1,454
 - Physical CSV columns: 15 (13 named plus 2 unnamed trailing columns)
 - Rows with populated unnamed trailing cells: 17
@@ -31,6 +31,13 @@ raw query text is stored in Git metadata. Manual review recommended:
 `TRUE`. A zero heuristic result is
 not proof that no sensitive free-form information exists; the raw snapshot
 remains private.
+
+The two unnamed trailing columns are populated in the same 17 rows. Aggregate
+inspection found ASCII alphabetic text, not numeric-only or identifier-like
+values. Neither column is used as query text, label, split feature, or baseline
+model input. Their status is
+`REQUIRES_OWNER_REVIEW_BEFORE_PUBLIC_RELEASE`; values remain private and are
+still covered by the frozen full-row hashes.
 
 ## 4. Label freeze
 

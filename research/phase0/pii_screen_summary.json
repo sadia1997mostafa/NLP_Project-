@@ -27,6 +27,23 @@
   "unique_rows_flagged": 0,
   "unnamed_trailing_columns": 2,
   "rows_with_nonempty_unnamed_trailing_cells": 17,
+  "unnamed_column_review_status": "REQUIRES_OWNER_REVIEW_BEFORE_PUBLIC_RELEASE",
+  "unnamed_column_aggregate": {
+    "column_14": {
+      "populated_rows": 17,
+      "length_min": 5,
+      "length_max": 5,
+      "unique_values": 1
+    },
+    "column_15": {
+      "populated_rows": 17,
+      "length_min": 25,
+      "length_max": 57,
+      "unique_values": 17
+    },
+    "characteristics": "ASCII alphabetic text; no numeric-only, identifier-like, Bangla, or frozen-label matches detected",
+    "used_by_baseline": false
+  },
   "manual_review_recommended": true,
   "manual_review_reason": "Populated unnamed trailing source columns require owner review; their values remain only in the private snapshot and row hashes.",
   "limitations": "A zero heuristic count does not prove that the source is free of all personal or sensitive information."
