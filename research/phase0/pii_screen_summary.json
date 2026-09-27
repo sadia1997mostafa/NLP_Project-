@@ -1,0 +1,33 @@
+{
+  "protocol_version": "NID-5CLASS-PHASE0-V1",
+  "scan_scope": "all 15 raw source cells per row",
+  "scan_type": "conservative heuristic; no matched values are retained",
+  "patterns": {
+    "NID_NUMBER_LIKE": {
+      "rows_flagged": 0,
+      "total_matches": 0
+    },
+    "BANGLADESH_PHONE_LIKE": {
+      "rows_flagged": 0,
+      "total_matches": 0
+    },
+    "EMAIL_LIKE": {
+      "rows_flagged": 0,
+      "total_matches": 0
+    },
+    "PASSPORT_IDENTIFIER_LIKE": {
+      "rows_flagged": 0,
+      "total_matches": 0
+    },
+    "DOB_IDENTIFIER_LIKE": {
+      "rows_flagged": 0,
+      "total_matches": 0
+    }
+  },
+  "unique_rows_flagged": 0,
+  "unnamed_trailing_columns": 2,
+  "rows_with_nonempty_unnamed_trailing_cells": 17,
+  "manual_review_recommended": true,
+  "manual_review_reason": "Populated unnamed trailing source columns require owner review; their values remain only in the private snapshot and row hashes.",
+  "limitations": "A zero heuristic count does not prove that the source is free of all personal or sensitive information."
+}

@@ -1,0 +1,28 @@
+protocol_version: "NID-5CLASS-PHASE0-V1"
+status: "phase0_canonical_protocol"
+historical_reconstruction: false
+input_field: "text"
+output_field: "normalized_text"
+steps:
+  - order: 1
+    operation: "convert_to_string"
+  - order: 2
+    operation: "unicode_normalization"
+    form: "NFC"
+  - order: 3
+    operation: "collapse_consecutive_whitespace"
+    replacement: "single ASCII space"
+  - order: 4
+    operation: "strip_leading_trailing_whitespace"
+explicitly_not_applied:
+  - "lowercasing"
+  - "transliteration"
+  - "punctuation deletion"
+  - "number removal"
+  - "stemming"
+  - "stopword removal"
+  - "aggressive Bangla normalization"
+  - "augmentation"
+note: >
+  This is the new Phase 0 canonical protocol. It is not recovered historical
+  preprocessing and must not be described as such.

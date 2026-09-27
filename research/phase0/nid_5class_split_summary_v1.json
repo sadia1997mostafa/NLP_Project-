@@ -1,0 +1,53 @@
+{
+  "protocol_version": "NID-5CLASS-PHASE0-V1",
+  "seed": 42,
+  "target_proportions": {
+    "train": 0.7,
+    "dev": 0.15,
+    "test": 0.15
+  },
+  "total_rows": 1454,
+  "split_counts": {
+    "train": 1017,
+    "dev": 219,
+    "test": 218
+  },
+  "per_label_counts": {
+    "NID Information Correction": {
+      "train": 187,
+      "dev": 40,
+      "test": 40
+    },
+    "New NID Registration": {
+      "train": 314,
+      "dev": 67,
+      "test": 67
+    },
+    "Lost/Stolen NID": {
+      "train": 165,
+      "dev": 36,
+      "test": 35
+    },
+    "NID Online Problem": {
+      "train": 213,
+      "dev": 46,
+      "test": 46
+    },
+    "Smart ID Card": {
+      "train": 138,
+      "dev": 30,
+      "test": 30
+    }
+  },
+  "duplicate_group_count": 7,
+  "duplicate_rows_involved": 14,
+  "cross_label_conflict_groups": 2,
+  "cross_split_duplicate_count": 0,
+  "source_raw_sha256": "6de6ba4f342602b99254b97ad830161405baf817eb38cadee2a56980fc5e7faa",
+  "source_canonical_content_sha256": "156d0a6a5f1f15773cc2adf286fc7e9f1c7d5f68fe8f332757a7435bc0c68811",
+  "manifest_sha256": "4d6356191e1813e9f1ec6345614d2e0a003d134a26521bc7a702ce8a72ef11f1",
+  "deterministic_rerun": true,
+  "all_samples_assigned_once": true,
+  "split_sample_sets_disjoint": true,
+  "raw_text_in_manifest": false
+}
