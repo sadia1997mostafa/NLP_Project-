@@ -1,0 +1,12 @@
+{
+  "long_prefix_pairs": 12,
+  "long_suffix_pairs": 34,
+  "few_token_substitution_pairs": 22,
+  "near_identical_frame_pairs": 15,
+  "candidate_family_groups": 15,
+  "rows_in_candidate_families": 30,
+  "largest_candidate_family": 2,
+  "cross_split_candidate_families": 3,
+  "cross_label_candidate_families": 4,
+  "interpretation": "Computational template-like lexical family candidates only; manual review is required before declaring paraphrase families."
+}

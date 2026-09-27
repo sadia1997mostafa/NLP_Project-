@@ -1,0 +1,85 @@
+{
+  "audit_id": "NID5-PHASE1-LEAKAGE-AUDIT-V1",
+  "audit_normalization": "AUDIT-NORM-V1",
+  "source_sha256": "6de6ba4f342602b99254b97ad830161405baf817eb38cadee2a56980fc5e7faa",
+  "phase0_split_manifest_sha256": "4d6356191e1813e9f1ec6345614d2e0a003d134a26521bc7a702ce8a72ef11f1",
+  "normalization_config_sha256": "ea737861b849e038e6920ba2a224056367d140a8fdc15783f692eb89b1b4d123",
+  "rows": 1454,
+  "labels": [
+    "Lost/Stolen NID",
+    "NID Information Correction",
+    "NID Online Problem",
+    "New NID Registration",
+    "Smart ID Card"
+  ],
+  "candidate_minimum_cosine": 0.8,
+  "candidate_pairs": 99,
+  "exact_duplicates": {
+    "phase0_normalized": {
+      "groups": 7,
+      "rows_in_groups": 14,
+      "same_label_groups": 5,
+      "cross_label_groups": 2,
+      "cross_label_pairs": 2,
+      "cross_split_groups": 0
+    },
+    "audit_normalized": {
+      "groups": 7,
+      "rows_in_groups": 14,
+      "same_label_groups": 5,
+      "cross_label_groups": 2,
+      "cross_label_pairs": 2,
+      "cross_split_groups": 0
+    },
+    "punctuation_light": {
+      "groups": 7,
+      "rows_in_groups": 14,
+      "same_label_groups": 5,
+      "cross_label_groups": 2,
+      "cross_label_pairs": 2,
+      "cross_split_groups": 0
+    }
+  },
+  "git_safe_outputs": {
+    "near_duplicate_pairs_v1.csv": {
+      "size_bytes": 16522,
+      "sha256": "f1502cd73773e8755c30ae07bb74fd5f04504d12eb5b9f0d3ee582c18ba94752",
+      "contains_raw_text": false
+    },
+    "leakage_threshold_summary_v1.csv": {
+      "size_bytes": 630,
+      "sha256": "ab8348a29f48b57d9c4d4423d5ebe35994eb81f5654295f2f71d0023c60b763f",
+      "contains_raw_text": false
+    },
+    "split_similarity_summary_v1.json": {
+      "size_bytes": 294002,
+      "sha256": "eb20896e86090e24457c916a3c779a7f060f3aeefd0dab19d214c561545f50ec",
+      "contains_raw_text": false
+    },
+    "label_conflict_summary_v1.json": {
+      "size_bytes": 744,
+      "sha256": "bb2f7054d1c8cb7e496b42f9fd3c4ad7bc6bba3bd59992d8b34ce21e144c20bd",
+      "contains_raw_text": false
+    },
+    "template_candidate_summary_v1.json": {
+      "size_bytes": 470,
+      "sha256": "1eb0e511e6023b838ac8d3168285b7bff2ad74d394753395847e98c46989e786",
+      "contains_raw_text": false
+    }
+  },
+  "private_review": {
+    "path": "D:\\Files\\Academic\\4-1\\NLP\\NLP Project\\NLP_Project-_private\\phase1\\near_duplicate_review_v1.csv",
+    "rows": 99,
+    "sha256": "de072833e6a0b8df51426b2155af1fd6007f9579baf1087f1ae0e5859cd04062",
+    "size_bytes": 26178,
+    "inside_git_repository": false
+  },
+  "package_versions": {
+    "python": "3.13.9",
+    "numpy": "2.5.1",
+    "scikit_learn": "1.9.0"
+  },
+  "phase0_test_evaluations_before": 1,
+  "test_model_evaluations_during_audit": 0,
+  "phase0_test_evaluations_after": 1
+}

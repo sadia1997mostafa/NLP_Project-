@@ -1,0 +1,33 @@
+{
+  "frozen_exact": {
+    "groups": 7,
+    "rows_in_groups": 14,
+    "same_label_groups": 5,
+    "cross_label_groups": 2,
+    "cross_label_pairs": 2,
+    "cross_split_groups": 0
+  },
+  "audit_normalized_exact": {
+    "groups": 7,
+    "rows_in_groups": 14,
+    "same_label_groups": 5,
+    "cross_label_groups": 2,
+    "cross_label_pairs": 2,
+    "cross_split_groups": 0
+  },
+  "punctuation_light_exact": {
+    "groups": 7,
+    "rows_in_groups": 14,
+    "same_label_groups": 5,
+    "cross_label_groups": 2,
+    "cross_label_pairs": 2,
+    "cross_split_groups": 0
+  },
+  "cross_label_candidate_pairs": {
+    "gte_0.95": 2,
+    "gte_0.90": 9,
+    "gte_0.85": 21,
+    "gte_0.80": 33
+  },
+  "labels_changed": false
+}

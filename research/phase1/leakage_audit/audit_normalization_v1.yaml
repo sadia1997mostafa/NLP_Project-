@@ -1,0 +1,31 @@
+protocol: "AUDIT-NORM-V1"
+purpose: "Leakage and near-duplicate detection only; never model preprocessing"
+operations:
+  primary:
+    - "Convert input to string"
+    - "Unicode NFC normalization"
+    - "Collapse consecutive Unicode whitespace to one ASCII space"
+    - "Strip leading and trailing whitespace"
+    - "Lowercase characters whose Unicode name identifies them as LATIN"
+  punctuation_light:
+    - "Start from the primary audit-normalized representation"
+    - "Replace every Unicode punctuation-category character with a space"
+    - "Collapse consecutive Unicode whitespace to one ASCII space"
+    - "Strip leading and trailing whitespace"
+model_preprocessing_changed: false
+vectorizer:
+  class: "sklearn.feature_extraction.text.TfidfVectorizer"
+  analyzer: "char_wb"
+  ngram_range: [3, 5]
+  lowercase: false
+  sublinear_tf: true
+  norm: "l2"
+candidate_minimum_cosine: 0.80
+audit_bands:
+  - {lower_inclusive: 0.95, upper_exclusive: null}
+  - {lower_inclusive: 0.90, upper_exclusive: 0.95}
+  - {lower_inclusive: 0.85, upper_exclusive: 0.90}
+  - {lower_inclusive: 0.80, upper_exclusive: 0.85}
+secondary_signals:
+  token_jaccard: "Whitespace-token set Jaccard on punctuation-light text"
+  sequence_similarity: "difflib.SequenceMatcher ratio on punctuation-light text"
