@@ -1,0 +1,4 @@
+boundary_review_id,pair_id,sample_id_a,sample_id_b,source_label_a,source_label_b,canonical_label_id,canonical_label_name,decision_source,decision_status
+NID5-LB-0001,NID5-ND-000048,NID5-V1-000592,NID5-V1-001355,New NID Registration,Smart ID Card,4,Smart ID Card,human_confirmed,RESOLVED
+NID5-LB-0002,NID5-ND-000050,NID5-V1-000602,NID5-V1-001371,New NID Registration,Smart ID Card,4,Smart ID Card,human_confirmed,RESOLVED
+NID5-LB-0003,NID5-ND-000071,NID5-V1-000894,NID5-V1-001449,Lost/Stolen NID,Smart ID Card,2,Lost/Stolen NID,human_confirmed,RESOLVED

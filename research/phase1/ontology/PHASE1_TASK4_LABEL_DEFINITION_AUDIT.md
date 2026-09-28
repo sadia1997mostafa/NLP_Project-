@@ -4,6 +4,8 @@
 
 Challenge-set construction needs explicit, reviewable boundaries for the five frozen coarse labels. This audit defines what each class includes and excludes, distinguishes weak lexical hints from semantic criteria, states when a query must be clarified, and records source-label inconsistencies without changing any label or source row.
 
+Status: **COMPLETE — ONTOLOGY FROZEN (`FROZEN_V1`)**.
+
 ## 2. Frozen label inventory
 
 | ID | Frozen label | Rows |
@@ -57,7 +59,7 @@ The principal ambiguity is an unspecified “online registration” or “online
 
 Smart NID eligibility, application, issuance, readiness, distribution, status, collection, delay, and other specifically Smart lifecycle needs. Smart wording is an entity cue rather than a complete rule: explicit loss/damage replacement belongs semantically with Lost/Stolen under the action-based contract, and record correction remains Correction.
 
-This label participates in every known cross-label equivalence conflict, so six affected rows require targeted human review before benchmark-grade freeze.
+This label participates in every known cross-label equivalence conflict. Targeted human review resolved routine Smart collection to Smart ID Card and damage-driven Smart replacement to Lost/Stolen NID without changing the six historical source rows.
 
 ## 5. Pairwise decision boundaries
 
@@ -111,12 +113,26 @@ The five classes compress several lifecycle stages and mix process categories wi
 
 The private evidence sample is broad but not an independent dual annotation of all 1,454 rows. Common cues are descriptive, not exhaustive or deterministic.
 
-## 10. Human-review requirement
+## 10. Human Boundary Adjudication
 
-Status: **HUMAN_BOUNDARY_REVIEW_REQUIRED**.
+Targeted human review resolved all three semantic conflict cases:
 
-The private queue contains six affected source samples from the three frozen cross-label equivalence conflicts. A human reviewer must decide how those samples should relate to the action-based boundary before this contract can be called benchmark-grade or human-audited. The queue SHA-256 is `11d88b5dc0a5450f252ea5d46f6bb9a893cd8d054e9e715d8b6e01393a6dfda0`.
+| Pair | Human-confirmed canonical label |
+|---|---|
+| NID5-ND-000048 | Smart ID Card |
+| NID5-ND-000050 | Smart ID Card |
+| NID5-ND-000071 | Lost/Stolen NID |
+
+The resulting frozen principles are:
+
+- routine Smart-specific collection belongs to Smart ID Card;
+- damage-driven replacement belongs to Lost/Stolen NID, even when the object is a Smart NID;
+- requested action and lifecycle stage take precedence over the word “Smart”;
+- historical label disagreement does not itself mean that the query is ambiguous; and
+- historical source labels remain unchanged and auditable.
+
+The original private queue SHA-256 is `11d88b5dc0a5450f252ea5d46f6bb9a893cd8d054e9e715d8b6e01393a6dfda0`. The resolved private review SHA-256 is `4c87b5e97821bb7c363a852211a6a7e5d56b744757f296520a5aac9c0f7d357c`.
 
 ## 11. Implication for challenge-set design
 
-The draft contract and annotation policy are sufficient to conduct the targeted boundary review, but challenge-set sampling must wait for that review. Once resolved, future annotations should use the requested-action rule, keep frozen paraphrase families together, record `CLARIFY_REQUIRED` rather than force unsupported labels, and preserve source provenance separately from adjudicated benchmark labels.
+The `FROZEN_V1` contract and annotation policy are ready to govern challenge-set design. Future annotations must use the requested-action rule, keep frozen paraphrase families together, record `CLARIFY_REQUIRED` only when the query itself is insufficient, and preserve source provenance separately from canonical benchmark labels. No challenge examples or splits were created in this task.

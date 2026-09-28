@@ -2,7 +2,7 @@
 
 ## Scope and status
 
-This policy governs annotation against the five frozen source labels in `NID-5CLASS-PHASE0-V1`. It does not rename labels, repair the source, create a sixth training class, or introduce fine-grained intents. Its current status is **HUMAN_BOUNDARY_REVIEW_REQUIRED** because three cross-label equivalence pairs expose unresolved Smart Card boundaries.
+This policy governs annotation against the five frozen source labels in `NID-5CLASS-PHASE0-V1`. It does not rename labels, repair the source, create a sixth training class, or introduce fine-grained intents. Its status is **FROZEN_V1** after targeted human review resolved all three cross-label equivalence boundaries.
 
 ## Decision unit
 
@@ -61,11 +61,11 @@ First-time NID/voter application is registration. Creating or accessing an onlin
 
 ### New Registration versus Smart ID Card
 
-General first-time enrolment is registration. Smart-specific eligibility, application, issuance, readiness, distribution, or collection is Smart ID Card. The frozen source assigns semantically equivalent Smart collection queries to both labels; those rows remain documented conflicts pending human review.
+General first-time enrolment is registration. Smart-specific eligibility, application, issuance, readiness, distribution, or routine collection is Smart ID Card. Targeted human review resolved the two conflicting collection pairs to Smart ID Card for future canonical annotation.
 
 ### Lost/Stolen versus Smart ID Card
 
-The requested action controls: loss/damage replacement or reissue is Lost/Stolen; ordinary Smart issuance and distribution is Smart ID Card. The source includes one semantically equivalent damaged-Smart-NID pair with different labels, so the boundary is logically stated but not yet human-frozen for those rows.
+The requested action controls: loss/damage replacement or reissue is Lost/Stolen, including damage-driven Smart NID replacement; ordinary Smart issuance, readiness, distribution, and collection is Smart ID Card. Targeted human review resolved the conflicting damaged-Smart-NID pair to Lost/Stolen NID for future canonical annotation.
 
 ### Lifecycle status and online channel
 
@@ -73,7 +73,16 @@ Tracking a clearly identified registration, replacement, or Smart Card applicati
 
 ## Source labels and conflicts
 
-Frozen source labels are preserved as provenance, not assumed infallible. Three cross-label equivalent pairs are recorded in the Git-safe conflict register. No row is relabelled by this audit. Any later repair requires a separately versioned, explicit human review and must not rewrite Phase 0.
+Frozen source labels are preserved as provenance, not assumed infallible. Three cross-label equivalent pairs remain recorded in the Git-safe conflict register, alongside their human-confirmed canonical future labels. No row is relabelled by this audit. Any later dataset repair requires a separately versioned task and must not rewrite Phase 0.
+
+## Human-Frozen Boundary Rules
+
+1. Routine collection or distribution of a specifically identified Smart NID is `Smart ID Card`.
+2. Replacement or reissue caused by loss, theft, or damage is `Lost/Stolen NID`, including when the damaged or lost object is explicitly called a Smart NID.
+3. The requested action and lifecycle stage take precedence over the entity token “Smart NID.”
+4. Historical source-label disagreement does not by itself imply semantic ambiguity and is not sufficient for `CLARIFY_REQUIRED`.
+5. Historical source labels remain frozen and are not retroactively modified.
+6. Future challenge-set annotations follow the canonical `FROZEN_V1` contract rather than inconsistent historical source labels.
 
 ## Weak evidence
 

@@ -1,5 +1,5 @@
 ontology_version: NID-5CLASS-INTENT-CONTRACT-V1
-status: HUMAN_BOUNDARY_REVIEW_REQUIRED
+status: FROZEN_V1
 scope: Five frozen coarse labels for the recovered 1,454-row NID source
 authority_note: >-
   This contract is derived from the frozen source, Phase 1 family evidence,
@@ -14,6 +14,12 @@ decision_basis:
   - Prefer explicit lifecycle context over the mere mention of an NID or Smart NID entity.
   - Do not infer an existing card, a first-time application, loss, damage, or a portal failure unless stated.
   - Preserve frozen source labels while separately documenting logical conflicts.
+human_frozen_boundary_rules:
+  - Routine collection or distribution of a specifically identified Smart NID belongs to Smart ID Card.
+  - Replacement or reissue caused by loss, theft, or damage belongs to Lost/Stolen NID even when the object is a Smart NID.
+  - Requested action and lifecycle stage take precedence over the Smart NID entity token.
+  - Historical label disagreement alone does not make a query ambiguous and does not justify CLARIFY_REQUIRED.
+  - Historical source labels remain unchanged; future annotation uses this canonical contract.
 labels:
   - label_id: 0
     label_name: NID Information Correction
@@ -63,6 +69,7 @@ labels:
       - The citizen asks for replacement or reissue after loss, theft, or damage.
       - The issue is creating, logging in to, verifying, or recovering an online-services account for an existing NID.
       - The request is specifically and only about Smart Card eligibility, application, readiness, distribution, status, or collection.
+      - Routine collection of a specifically identified Smart NID; human review assigns that shared meaning to Smart ID Card even when a historical duplicate has this source label.
     common_but_nonbinding_cues:
       - new NID, first NID, voter registration, enrolment, eligibility, biometric
       - application, submit, pending, status, appointment, documents
@@ -83,7 +90,7 @@ labels:
       - NID5-ND-000050
     annotation_notes:
       - Two semantically equivalent Smart Card collection pairs carry conflicting New Registration and Smart ID Card source labels.
-      - Do not resolve those frozen-source conflicts through keyword rules.
+      - Human review froze both collection meanings as Smart ID Card for future canonical annotation; historical labels remain unchanged.
 
   - label_id: 2
     label_name: Lost/Stolen NID
@@ -94,6 +101,7 @@ labels:
       - The query explicitly states that an issued NID was lost, stolen, damaged, or must be replaced/reissued.
       - The query asks about reporting, supporting documents, payment, status, or collection for replacement/reissue.
       - The requested action is replacement of a lost or damaged Smart NID; this action-based boundary is supported by the repository taxonomy but has a documented source conflict.
+      - Damage-driven Smart NID replacement/reissue; human review confirms that the replacement action controls over the Smart entity.
     exclude_when:
       - The citizen is applying for an NID for the first time.
       - The citizen is changing identity information on an intact established record.
@@ -118,7 +126,7 @@ labels:
       - NID5-ND-000071
     annotation_notes:
       - The frozen source contains a damaged-Smart-NID equivalence conflict with Smart ID Card.
-      - Source labels remain unchanged pending explicit future relabel review.
+      - Human review froze this shared meaning as Lost/Stolen NID for future canonical annotation; source labels remain unchanged.
 
   - label_id: 3
     label_name: NID Online Problem
@@ -164,6 +172,7 @@ labels:
       - The query explicitly asks about eligibility for or application to receive a Smart NID.
       - The query concerns Smart Card readiness, status, distribution date, collection location, or delayed issuance.
       - Smart-card-specific lifecycle information is the requested need rather than a generic NID process.
+      - Routine collection or distribution of a specifically identified Smart NID, including initial Smart-specific collection.
     exclude_when:
       - The requested action is replacement/reissue after loss, theft, or damage, even if the object is a Smart NID; this boundary has a documented source inconsistency.
       - The query concerns first-time voter/NID enrolment without a specifically Smart Card information need.
@@ -192,4 +201,5 @@ labels:
       - NID5-ND-000071
     annotation_notes:
       - Smart wording is an entity cue, not an automatic class rule.
-      - The six affected source samples require targeted human boundary review before this contract is frozen as benchmark-grade.
+      - Targeted human review resolved routine Smart collection to this label and damage-driven Smart replacement to Lost/Stolen NID.
+      - The six historical source samples remain unchanged and auditable despite their canonical future boundaries.
