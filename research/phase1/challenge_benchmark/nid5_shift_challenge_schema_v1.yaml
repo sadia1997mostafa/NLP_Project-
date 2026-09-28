@@ -1,0 +1,261 @@
+benchmark_id: NID5-SHIFT-V1
+version: 1.0.0
+status: SCHEMA_FROZEN_V1
+purpose: >-
+  Measure whether five-class NID intent classifiers remain reliable under
+  realistic linguistic and surface-form distribution shift while the
+  underlying citizen intent remains unchanged.
+benchmark_properties:
+  evaluation_only: true
+  five_class: true
+  matched_across_conditions: true
+  family_aware: true
+  ontology_governed: true
+  human_review_required_before_final_freeze: true
+labels:
+  - label_id: 0
+    label_name: NID Information Correction
+  - label_id: 1
+    label_name: New NID Registration
+  - label_id: 2
+    label_name: Lost/Stolen NID
+  - label_id: 3
+    label_name: NID Online Problem
+  - label_id: 4
+    label_name: Smart ID Card
+clarify_required:
+  role: evaluation_annotation_state_only
+  challenge_class: false
+  training_class: false
+seed_target:
+  source_split: test
+  total: 100
+  per_label: 20
+  unique_semantic_seeds: 100
+  one_seed_per_paraphrase_family: true
+conditions:
+  - condition_id: C0
+    condition_name: ORIGINAL
+    purpose: Matched reference/control using the frozen source query.
+    transformation: none
+    semantic_change_allowed: false
+    surface_change_expected: false
+    naturalness_review_required: false
+  - condition_id: C1
+    condition_name: NATURAL_PARAPHRASE
+    purpose: Test robustness to natural reformulation of the same information need.
+    transformation:
+      allowed:
+        - syntax change
+        - wording and question-form change
+        - natural synonym substitution
+        - concise or conversational reformulation
+      prohibited:
+        - new circumstances or service facts
+        - new loss damage registration Smart or portal context
+    semantic_change_allowed: false
+    surface_change_expected: true
+    naturalness_review_required: true
+  - condition_id: C2
+    condition_name: BANGLISH_SCRIPT_SHIFT
+    purpose: Test Bengali-script to natural Latin-script Banglish robustness.
+    transformation:
+      allowed:
+        - natural Bangladeshi romanization
+        - common English civic terms
+        - nonstandard but plausible transliteration
+      prohibited:
+        - treating Latin script alone as proof of Banglish
+        - adding service information
+        - meaning or lifecycle change
+    semantic_change_allowed: false
+    surface_change_expected: true
+    naturalness_review_required: true
+  - condition_id: C3
+    condition_name: CODE_MIXED
+    purpose: Test natural Bengali-English or Banglish-English code mixing.
+    transformation:
+      allowed:
+        - English civic or service nouns in Bengali syntax
+        - Bengali or Banglish framing around English technical terms
+        - ordinary mixed-language citizen phrasing
+      prohibited:
+        - artificial word-by-word language alternation
+        - added service context
+        - meaning or lifecycle change
+    semantic_change_allowed: false
+    surface_change_expected: true
+    naturalness_review_required: true
+  - condition_id: C4
+    condition_name: TYPO_NOISE
+    purpose: Test realistic low-to-moderate surface noise.
+    transformation:
+      allowed:
+        - one to three localized spelling whitespace punctuation phonetic keyboard or abbreviation perturbations
+      prohibited:
+        - unreadable or adversarial gibberish
+        - unrecognizable key entities
+        - changed action lifecycle or ambiguity
+    semantic_change_allowed: false
+    surface_change_expected: true
+    naturalness_review_required: false
+planned_size:
+  conditions: 5
+  originals: 100
+  shifted_variants: 400
+  total_instances: 500
+  instances_per_label: 100
+  instances_per_condition: 100
+eligibility_rules:
+  - Phase 0 split is test.
+  - Frozen label ID is one of 0 through 4.
+  - Sample exists exactly once in the frozen final family map.
+  - Paraphrase family has no train member.
+  - Paraphrase family has no dev member.
+  - Sample is not in the frozen source-conflict register.
+  - Query is CLASSIFIABLE under FROZEN_V1 rather than CLARIFY_REQUIRED.
+  - Requested citizen intent and decisive lifecycle context are sufficiently explicit for preservation review.
+  - Eligibility is not established by an isolated class keyword.
+exclusion_rules:
+  - any train or dev family overlap
+  - known source-label conflict sample
+  - CLARIFY_REQUIRED under FROZEN_V1
+  - insufficiently explicit intent or lifecycle
+  - missing or inconsistent frozen metadata
+  - out-of-domain or unrelated-service item
+family_rules:
+  source_families: research/phase1/paraphrase_families/paraphrase_family_map_v1.csv
+  test_only_families_required: true
+  one_seed_per_family: true
+  transformed_variants_inherit_seed_family: true
+  variants_are_evaluation_only: true
+coverage_strata:
+  label: frozen label ID
+  script_profile:
+    categories:
+      - BENGALI_SCRIPT_DOMINANT
+      - LATIN_SCRIPT_DOMINANT
+      - MIXED_SCRIPT
+    method: >-
+      Count Bengali and ASCII-Latin alphabetic Unicode code points. A script
+      is dominant at 80 percent or more; otherwise the profile is mixed.
+    caution: LATIN_SCRIPT_DOMINANT is a surface category and does not prove Banglish.
+  query_length_band:
+    categories:
+      - SHORT
+      - MEDIUM
+      - LONG
+    method: >-
+      Within each label's eligible pool, sort by frozen NFC and collapsed-
+      whitespace normalized code-point length and divide ranked rows into
+      three near-equal bands.
+    tie_handling: Stable SHA-256 ordering of NID5-SHIFT-V1|SEED-V1|sample_id breaks equal-length ties.
+future_selection_algorithm:
+  execute_in_this_task: false
+  quota_order:
+    - satisfy exactly 20 seeds for each label
+    - maximize available script-profile coverage
+    - cover SHORT MEDIUM and LONG bands
+    - enforce one seed per family
+    - apply mandatory human semantic eligibility gate
+  deterministic_tie_key: SHA256("NID5-SHIFT-V1|SEED-V1|" + sample_id)
+  python_hash_prohibited: true
+  rejection_behavior: Continue deterministic ordering within the affected stratum; never relabel.
+challenge_id_format:
+  pattern: NID5-SHIFT-V1-S####-C#
+  assigned_after_seed_freeze: true
+  raw_text_in_id: false
+semantic_preservation_rules:
+  preserve:
+    - canonical coarse label
+    - requested citizen action
+    - service lifecycle stage
+    - critical entity relationships
+    - polarity where applicable
+    - first issuance versus replacement distinction
+    - record correction versus portal operation distinction
+    - Smart-card lifecycle distinction
+  reject_if:
+    - coarse intent changes
+    - query becomes ambiguous
+    - unstated service conditions are introduced
+    - information needed for the class boundary is dropped
+    - a conflicting lifecycle is introduced
+    - output is unnatural or unintelligible
+  failed_transformation_policy:
+    - REWRITE_REQUIRED
+    - REJECT
+  relabel_on_failure: prohibited
+review_requirements:
+  review_before_evaluation: true
+  reviewer: human
+  fields:
+    - challenge_id
+    - seed_sample_id
+    - condition
+    - canonical_label_id
+    - canonical_label_name
+    - semantic_preserved
+    - naturalness_acceptable
+    - boundary_consistent
+    - review_decision
+    - human_notes
+  allowed_review_decisions:
+    - ACCEPT
+    - REWRITE_REQUIRED
+    - REJECT
+  acceptance_requirements:
+    semantic_preserved: YES
+    boundary_consistent: YES
+    naturalness_required_for:
+      - C1
+      - C2
+      - C3
+provenance_fields:
+  - challenge_id
+  - benchmark_version
+  - seed_sample_id
+  - paraphrase_family_id
+  - source_split
+  - canonical_label_id
+  - canonical_label_name
+  - condition
+  - generation_method
+  - generation_source
+  - generation_version
+  - human_review_status
+allowed_generation_provenance:
+  - human_authored
+  - llm_assisted
+  - rule_based
+evaluation_policy:
+  training_use: prohibited
+  tuning_use: prohibited
+  repeated_adaptive_inspection: prohibited
+  changed_model_after_inspection: exploratory_only_and_documented
+  final_evaluation: frozen_model_and_configuration_against_frozen_benchmark
+metrics:
+  primary:
+    - macro_f1_per_condition
+    - macro_f1_delta_from_matched_C0
+  secondary:
+    - accuracy_per_condition
+    - per_class_precision_recall_f1
+    - paired_prediction_consistency
+    - robustness_flip_rate
+    - recovery_rate
+  definitions:
+    macro_f1_delta: macro_f1(condition) - macro_f1(C0_on_same_seeds)
+    paired_prediction_consistency: Mean indicator that shifted and original predictions match for each seed.
+    robustness_flip_rate: Fraction where C0 is correct and the shifted form is incorrect.
+    recovery_rate: Fraction where C0 is incorrect and the shifted form is correct.
+excluded_scopes:
+  - out_of_domain_examples
+  - unrelated_government_services
+  - adversarial_attacks
+  - prompt_injection
+  - privacy_or_redaction_experiments
+  - calibration_specific_sets
+  - conformal_prediction_sets
+  - unknown_intent_detection_sets
+  - ambiguous_clarification_diagnostic_set

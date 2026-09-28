@@ -1,0 +1,150 @@
+{
+  "benchmark_id": "NID5-SHIFT-V1",
+  "profile_version": "CHALLENGE-SEED-POOL-PROFILE-V1",
+  "profile_status": "FEASIBLE_WITH_MANDATORY_HUMAN_SEMANTIC_GATE",
+  "source_split": "test",
+  "total_test_samples": 218,
+  "eligible_samples": 211,
+  "eligible_family_units": 209,
+  "excluded": {
+    "family_crosses_train": 5,
+    "family_crosses_dev": 0,
+    "source_label_conflict": 2,
+    "other_protocol_reason": 0
+  },
+  "eligibility_precedence": [
+    "missing_or_inconsistent_frozen_input",
+    "family_crosses_train",
+    "family_crosses_dev",
+    "source_label_conflict",
+    "missing_text_or_label_mismatch",
+    "eligible"
+  ],
+  "per_label": [
+    {
+      "label_id": 0,
+      "label_name": "NID Information Correction",
+      "test_total": 40,
+      "eligible_samples": 40,
+      "eligible_family_units": 38,
+      "required_seed_count": 20,
+      "feasible": true,
+      "exclusions": {},
+      "script_profiles": {
+        "BENGALI_SCRIPT_DOMINANT": 13,
+        "LATIN_SCRIPT_DOMINANT": 22,
+        "MIXED_SCRIPT": 5
+      },
+      "length_bands": {
+        "LONG": 13,
+        "MEDIUM": 13,
+        "SHORT": 14
+      }
+    },
+    {
+      "label_id": 1,
+      "label_name": "New NID Registration",
+      "test_total": 67,
+      "eligible_samples": 65,
+      "eligible_family_units": 65,
+      "required_seed_count": 20,
+      "feasible": true,
+      "exclusions": {
+        "family_crosses_train": 1,
+        "source_label_conflict": 1
+      },
+      "script_profiles": {
+        "BENGALI_SCRIPT_DOMINANT": 8,
+        "LATIN_SCRIPT_DOMINANT": 30,
+        "MIXED_SCRIPT": 27
+      },
+      "length_bands": {
+        "LONG": 21,
+        "MEDIUM": 22,
+        "SHORT": 22
+      }
+    },
+    {
+      "label_id": 2,
+      "label_name": "Lost/Stolen NID",
+      "test_total": 35,
+      "eligible_samples": 34,
+      "eligible_family_units": 34,
+      "required_seed_count": 20,
+      "feasible": true,
+      "exclusions": {
+        "family_crosses_train": 1
+      },
+      "script_profiles": {
+        "BENGALI_SCRIPT_DOMINANT": 3,
+        "LATIN_SCRIPT_DOMINANT": 21,
+        "MIXED_SCRIPT": 10
+      },
+      "length_bands": {
+        "LONG": 11,
+        "MEDIUM": 11,
+        "SHORT": 12
+      }
+    },
+    {
+      "label_id": 3,
+      "label_name": "NID Online Problem",
+      "test_total": 46,
+      "eligible_samples": 44,
+      "eligible_family_units": 44,
+      "required_seed_count": 20,
+      "feasible": true,
+      "exclusions": {
+        "family_crosses_train": 2
+      },
+      "script_profiles": {
+        "BENGALI_SCRIPT_DOMINANT": 1,
+        "LATIN_SCRIPT_DOMINANT": 25,
+        "MIXED_SCRIPT": 18
+      },
+      "length_bands": {
+        "LONG": 14,
+        "MEDIUM": 15,
+        "SHORT": 15
+      }
+    },
+    {
+      "label_id": 4,
+      "label_name": "Smart ID Card",
+      "test_total": 30,
+      "eligible_samples": 28,
+      "eligible_family_units": 28,
+      "required_seed_count": 20,
+      "feasible": true,
+      "exclusions": {
+        "family_crosses_train": 1,
+        "source_label_conflict": 1
+      },
+      "script_profiles": {
+        "LATIN_SCRIPT_DOMINANT": 13,
+        "MIXED_SCRIPT": 15
+      },
+      "length_bands": {
+        "LONG": 9,
+        "MEDIUM": 9,
+        "SHORT": 10
+      }
+    }
+  ],
+  "coverage_strata": {
+    "script_profile_method": "Count Bengali and ASCII-Latin alphabetic code points; >=80% is dominant, otherwise mixed.",
+    "length_band_method": "Within-label rank tertiles by NFC/whitespace-normalized code-point length; stable SHA-256 ordering breaks length ties."
+  },
+  "human_semantic_gate": {
+    "required_before_seed_freeze": true,
+    "requirements": [
+      "CLASSIFIABLE under FROZEN_V1",
+      "explicit requested action and sufficient lifecycle context",
+      "future transformations can preserve the decisive boundary information"
+    ],
+    "failure_policy": "Reject the candidate and continue deterministic ordering; never change its label."
+  },
+  "sample_ids_emitted": false,
+  "final_seed_selection_executed": false,
+  "raw_text_emitted": false
+}

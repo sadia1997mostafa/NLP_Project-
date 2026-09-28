@@ -1,0 +1,6 @@
+condition_id,condition_name,purpose,semantic_change_allowed,surface_change_expected,human_naturalness_review_required,main_rejection_reason
+C0,ORIGINAL,Matched frozen-source reference condition,NO,NO,NO,Source text or metadata differs from the frozen seed
+C1,NATURAL_PARAPHRASE,Natural reformulation of the same citizen information need,NO,YES,YES,Meaning action lifecycle or decisive boundary information changed
+C2,BANGLISH_SCRIPT_SHIFT,Natural Latin-script Banglish rendering of the same meaning,NO,YES,YES,Rendering is not plausible Banglish or changes service meaning
+C3,CODE_MIXED,Natural Bengali-English or Banglish-English mixed phrasing,NO,YES,YES,Mixing is artificial or alters the requested action or lifecycle
+C4,TYPO_NOISE,Realistic low-to-moderate localized surface noise,NO,YES,NO,Noise destroys readability key entities or semantic clarity
