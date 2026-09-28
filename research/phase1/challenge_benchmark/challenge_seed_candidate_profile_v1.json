@@ -1,0 +1,111 @@
+{
+  "benchmark_id": "NID5-SHIFT-V1",
+  "selection_version": "SEED-V1",
+  "status": "CANDIDATES_SELECTED",
+  "candidate_count": 100,
+  "per_label_counts": {
+    "0": 20,
+    "1": 20,
+    "2": 20,
+    "3": 20,
+    "4": 20
+  },
+  "coverage": {
+    "overall": {
+      "script_profiles": {
+        "BENGALI_SCRIPT_DOMINANT": 20,
+        "LATIN_SCRIPT_DOMINANT": 42,
+        "MIXED_SCRIPT": 38
+      },
+      "length_bands": {
+        "LONG": 33,
+        "MEDIUM": 32,
+        "SHORT": 35
+      }
+    },
+    "per_label": [
+      {
+        "label_id": 0,
+        "label_name": "NID Information Correction",
+        "count": 20,
+        "script_profiles": {
+          "BENGALI_SCRIPT_DOMINANT": 9,
+          "LATIN_SCRIPT_DOMINANT": 6,
+          "MIXED_SCRIPT": 5
+        },
+        "length_bands": {
+          "LONG": 7,
+          "MEDIUM": 6,
+          "SHORT": 7
+        }
+      },
+      {
+        "label_id": 1,
+        "label_name": "New NID Registration",
+        "count": 20,
+        "script_profiles": {
+          "BENGALI_SCRIPT_DOMINANT": 7,
+          "LATIN_SCRIPT_DOMINANT": 7,
+          "MIXED_SCRIPT": 6
+        },
+        "length_bands": {
+          "LONG": 5,
+          "MEDIUM": 7,
+          "SHORT": 8
+        }
+      },
+      {
+        "label_id": 2,
+        "label_name": "Lost/Stolen NID",
+        "count": 20,
+        "script_profiles": {
+          "BENGALI_SCRIPT_DOMINANT": 3,
+          "LATIN_SCRIPT_DOMINANT": 9,
+          "MIXED_SCRIPT": 8
+        },
+        "length_bands": {
+          "LONG": 8,
+          "MEDIUM": 7,
+          "SHORT": 5
+        }
+      },
+      {
+        "label_id": 3,
+        "label_name": "NID Online Problem",
+        "count": 20,
+        "script_profiles": {
+          "BENGALI_SCRIPT_DOMINANT": 1,
+          "LATIN_SCRIPT_DOMINANT": 10,
+          "MIXED_SCRIPT": 9
+        },
+        "length_bands": {
+          "LONG": 6,
+          "MEDIUM": 6,
+          "SHORT": 8
+        }
+      },
+      {
+        "label_id": 4,
+        "label_name": "Smart ID Card",
+        "count": 20,
+        "script_profiles": {
+          "LATIN_SCRIPT_DOMINANT": 10,
+          "MIXED_SCRIPT": 10
+        },
+        "length_bands": {
+          "LONG": 7,
+          "MEDIUM": 6,
+          "SHORT": 7
+        }
+      }
+    ]
+  },
+  "unique_sample_ids": 100,
+  "unique_families": 100,
+  "train_family_overlaps": 0,
+  "dev_family_overlaps": 0,
+  "source_conflict_seeds": 0,
+  "duplicate_sample_ids": 0,
+  "final_seed_panel_frozen": false,
+  "raw_text_emitted": false
+}

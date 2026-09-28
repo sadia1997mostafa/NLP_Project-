@@ -1,0 +1,31 @@
+{
+  "benchmark_id": "NID5-SHIFT-V1",
+  "selection_version": "SEED-V1",
+  "starting_git_commit": "191db1c3cf82504ba9b65c4fe44547279d62bfeb",
+  "phase0_source_sha256": "6de6ba4f342602b99254b97ad830161405baf817eb38cadee2a56980fc5e7faa",
+  "phase0_split_sha256": "4d6356191e1813e9f1ec6345614d2e0a003d134a26521bc7a702ce8a72ef11f1",
+  "family_map_sha256": "2e79a570eb6f9945c3bc69605b6762b4b27b838a8bf65f55af78f2bebfc6683c",
+  "ontology_manifest_sha256": "41dc39210d6ea603995788d4ddb0bfe8de4ca3a6c4aff62cf13d379c15ba1742",
+  "challenge_protocol_manifest_sha256": "5516d8ae9d9e83d29fb8b0d08ff1a440efd41769e35666d58d1b17c3991e0326",
+  "eligible_family_unit_counts": {
+    "0": 38,
+    "1": 65,
+    "2": 34,
+    "3": 44,
+    "4": 28
+  },
+  "eligible_family_units": 209,
+  "candidate_panel_sha256": "2b32f826327b0e3389fd2f69dcac111c8afdb7f63eef4fe67f65d4e7d75aad40",
+  "reserve_order_sha256": "95141ea34da41a5496dc3a10a55ee9584fc63ba907f068ab13bc6840c00f3775",
+  "candidate_profile_sha256": "3f2883829ce50c3c76436f83cb7ce1f2674165fc1f603f5798b5d151f64ec90d",
+  "private_review_queue_sha256": "5a3813542c042bc49df2957ea69ea6df74dcbf3578a554cda9df7dd88a2df8c8",
+  "target_candidates": 100,
+  "target_per_label": 20,
+  "unique_candidate_families": 100,
+  "reserve_rows": 109,
+  "selection_method": "DETERMINISTIC_FROZEN_PROTOCOL",
+  "human_review_status": "PENDING",
+  "final_seed_status": "NOT_FROZEN",
+  "python_version": "3.13.9",
+  "raw_text_in_git_artifacts": false
+}
