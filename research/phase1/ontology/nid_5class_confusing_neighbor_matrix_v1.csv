@@ -1,0 +1,11 @@
+label_a,label_b,confusion_risk,main_distinction,known_conflict_count,clarification_possible,notes
+NID Information Correction,New NID Registration,HIGH,Established-record change versus first-time or still-pending enrolment,0,YES,Form-error wording needs the record stage.
+NID Information Correction,Lost/Stolen NID,MODERATE,Change recorded information versus replace or reissue after loss theft or damage,0,YES,Generic reissue wording can omit the triggering event.
+NID Information Correction,NID Online Problem,HIGH,Authoritative-record correction versus account portal or verification access problem,0,YES,Online is a channel and not a deciding keyword.
+NID Information Correction,Smart ID Card,MODERATE,Recorded-information change versus Smart Card issuance and distribution lifecycle,0,YES,Smart wording identifies an object but the requested action controls.
+New NID Registration,Lost/Stolen NID,MODERATE,First issuance versus another card after loss theft or damage,0,YES,New-card wording without prior-card context is underspecified.
+New NID Registration,NID Online Problem,HIGH,First-time NID enrolment versus online-services account registration or portal failure,0,YES,Online registration is ambiguous without its object.
+New NID Registration,Smart ID Card,HIGH,General first-time enrolment versus Smart-specific issuance distribution or collection,2,YES,Two equivalent collection pairs have conflicting source labels.
+Lost/Stolen NID,NID Online Problem,MODERATE,Replacement lifecycle versus technical portal or account failure during that lifecycle,0,YES,Status or payment online wording must identify the actual problem.
+Lost/Stolen NID,Smart ID Card,HIGH,Loss or damage replacement versus routine Smart issuance distribution or collection,1,YES,One equivalent damaged-Smart-NID pair has conflicting source labels.
+NID Online Problem,Smart ID Card,MODERATE,Portal account or verification failure versus Smart Card lifecycle status and distribution,0,YES,Smart status checked online remains Smart unless portal failure is the request.

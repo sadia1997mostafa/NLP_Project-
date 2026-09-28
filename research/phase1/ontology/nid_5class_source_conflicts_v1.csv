@@ -1,0 +1,4 @@
+conflict_id,sample_id_a,sample_id_b,label_a,label_b,conflict_type,evidence_source,status,notes
+NID5-SC-0001,NID5-V1-000592,NID5-V1-001355,New NID Registration,Smart ID Card,EXACT_NORMALIZED_TEXT_CROSS_LABEL,final_pair_decisions_v1:NID5-ND-000048,REQUIRES_FUTURE_RELABEL_REVIEW,Equivalent Smart Card collection need carries two frozen source labels.
+NID5-SC-0002,NID5-V1-000602,NID5-V1-001371,New NID Registration,Smart ID Card,EXACT_NORMALIZED_TEXT_CROSS_LABEL,final_pair_decisions_v1:NID5-ND-000050,REQUIRES_FUTURE_RELABEL_REVIEW,Equivalent Smart Card collection need carries two frozen source labels.
+NID5-SC-0003,NID5-V1-000894,NID5-V1-001449,Lost/Stolen NID,Smart ID Card,SEMANTIC_EQUIVALENCE_CROSS_LABEL,final_pair_decisions_v1:NID5-ND-000071,REQUIRES_FUTURE_RELABEL_REVIEW,Equivalent damaged Smart NID replacement need carries two frozen source labels.

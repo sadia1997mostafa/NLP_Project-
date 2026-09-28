@@ -1,0 +1,195 @@
+ontology_version: NID-5CLASS-INTENT-CONTRACT-V1
+status: HUMAN_BOUNDARY_REVIEW_REQUIRED
+scope: Five frozen coarse labels for the recovered 1,454-row NID source
+authority_note: >-
+  This contract is derived from the frozen source, Phase 1 family evidence,
+  and the repository taxonomy. The fine-grained taxonomy is supporting
+  evidence; it does not silently replace the frozen five-class labels.
+classification_states:
+  CLASSIFIABLE: One coarse intent is sufficiently supported by explicit query information.
+  CLARIFY_REQUIRED: More than one label remains materially plausible without inventing context.
+clarify_is_training_label: false
+decision_basis:
+  - Prefer the citizen's requested action or information need over isolated keywords.
+  - Prefer explicit lifecycle context over the mere mention of an NID or Smart NID entity.
+  - Do not infer an existing card, a first-time application, loss, damage, or a portal failure unless stated.
+  - Preserve frozen source labels while separately documenting logical conflicts.
+labels:
+  - label_id: 0
+    label_name: NID Information Correction
+    short_definition: >-
+      Correcting or updating information, attributes, images, signatures, or voter-area/address
+      details on an existing NID or voter record.
+    include_when:
+      - The query explicitly asks to fix or update an existing holder's recorded personal information.
+      - The query asks about correction procedure, evidence, fee, status, or eligibility tied to an existing record change.
+      - The requested change concerns name, parent or spouse name, date of birth, gender, blood group, marital status, address, voter area, photograph, or signature.
+    exclude_when:
+      - The citizen is applying or enrolling for an NID for the first time.
+      - The requested action is replacement or reissue after loss, theft, or damage.
+      - The issue is access to or malfunction of the online account or portal rather than correction of the authoritative NID record.
+      - The request is specifically about Smart Card eligibility, issuance, distribution, status, or collection.
+    common_but_nonbinding_cues:
+      - correction, correct, update, edit, change, wrong, mistake
+      - references to personal fields or mismatch with supporting documents
+      - Bangla and Banglish equivalents of wrong information or changing information
+    confusing_neighbors:
+      - label_id: 1
+        distinction: A mistake in an uncompleted first-time application remains registration; a change to an established record is correction.
+      - label_id: 3
+        distinction: Portal access or verification failure is online problem; changing the authoritative record is correction even when initiated online.
+      - label_id: 4
+        distinction: Correcting recorded identity information is correction; Smart Card issuance and distribution lifecycle questions are Smart ID Card.
+    clarification_triggers:
+      - It is unclear whether the error is in a pending first-time application or an already issued/established NID record.
+      - The query says only that online information is wrong without identifying account-profile data versus the authoritative NID record.
+      - A requested change is named but no existing-record or application-stage context is given and both correction and registration remain plausible.
+    known_source_conflicts: []
+    annotation_notes:
+      - Online submission does not by itself make a correction request an NID Online Problem.
+      - Lexical cues are descriptive evidence, not deterministic rules.
+
+  - label_id: 1
+    label_name: New NID Registration
+    short_definition: >-
+      First-time NID or voter enrolment and the associated application lifecycle, including
+      eligibility, documents, submission, biometrics, payment, status, delay, and initial collection.
+    include_when:
+      - The query explicitly concerns becoming a voter or obtaining an NID for the first time.
+      - The query concerns eligibility, required evidence, application submission, appointment, biometrics, payment, tracking, or delay for a new registration.
+      - Collection is explicitly tied to completion of a new-registration application and is not solely Smart Card lifecycle wording.
+    exclude_when:
+      - The citizen asks to change an already established NID record.
+      - The citizen asks for replacement or reissue after loss, theft, or damage.
+      - The issue is creating, logging in to, verifying, or recovering an online-services account for an existing NID.
+      - The request is specifically and only about Smart Card eligibility, application, readiness, distribution, status, or collection.
+    common_but_nonbinding_cues:
+      - new NID, first NID, voter registration, enrolment, eligibility, biometric
+      - application, submit, pending, status, appointment, documents
+      - online application wording when the requested action is first-time registration rather than portal troubleshooting
+    confusing_neighbors:
+      - label_id: 0
+        distinction: Registration covers a first-time or still-pending application; correction covers changes to an established record.
+      - label_id: 3
+        distinction: A new-NID application submitted online stays registration unless the information need is specifically account or portal access/failure.
+      - label_id: 4
+        distinction: General first-time enrolment is registration; explicit Smart Card lifecycle requests are Smart ID Card, subject to documented collection conflicts.
+    clarification_triggers:
+      - The query says only NID application, registration, or status without indicating first-time enrolment, online-account registration, or Smart Card application.
+      - Collection wording does not reveal whether the citizen means initial NID completion or a Smart Card distribution event.
+      - The query mentions a form error but does not reveal whether the record is already established.
+    known_source_conflicts:
+      - NID5-ND-000048
+      - NID5-ND-000050
+    annotation_notes:
+      - Two semantically equivalent Smart Card collection pairs carry conflicting New Registration and Smart ID Card source labels.
+      - Do not resolve those frozen-source conflicts through keyword rules.
+
+  - label_id: 2
+    label_name: Lost/Stolen NID
+    short_definition: >-
+      Reporting, replacing, duplicating, or reissuing an existing NID after loss, theft,
+      damage, or another explicit replacement situation, including the related lifecycle.
+    include_when:
+      - The query explicitly states that an issued NID was lost, stolen, damaged, or must be replaced/reissued.
+      - The query asks about reporting, supporting documents, payment, status, or collection for replacement/reissue.
+      - The requested action is replacement of a lost or damaged Smart NID; this action-based boundary is supported by the repository taxonomy but has a documented source conflict.
+    exclude_when:
+      - The citizen is applying for an NID for the first time.
+      - The citizen is changing identity information on an intact established record.
+      - The request concerns Smart Card eligibility, issuance, readiness, routine distribution, or collection without loss/damage/replacement context.
+      - The request is solely an online account or portal access failure.
+    common_but_nonbinding_cues:
+      - lost, stolen, theft, damaged, broken, replace, replacement, reissue, duplicate
+      - report, GD, fee, payment, track, collect when tied to a replacement lifecycle
+      - Bangla and Banglish equivalents of loss, theft, damage, or obtaining another card
+    confusing_neighbors:
+      - label_id: 1
+        distinction: First issuance is registration; obtaining another card after loss, theft, or damage is replacement/reissue.
+      - label_id: 3
+        distinction: A replacement application performed online remains Lost/Stolen unless the information need is specifically portal failure.
+      - label_id: 4
+        distinction: Loss/damage/replacement action points here; ordinary Smart Card issuance and distribution points to Smart ID Card, but the source is inconsistent on damaged Smart NID.
+    clarification_triggers:
+      - The query asks for a new or another card without saying whether it is first issuance or replacement.
+      - A Smart NID is mentioned as unavailable without indicating loss/damage versus delayed issuance or collection.
+      - Reissue wording appears without enough context to distinguish replacement from correction-related reissuance.
+    known_source_conflicts:
+      - NID5-ND-000071
+    annotation_notes:
+      - The frozen source contains a damaged-Smart-NID equivalence conflict with Smart ID Card.
+      - Source labels remain unchanged pending explicit future relabel review.
+
+  - label_id: 3
+    label_name: NID Online Problem
+    short_definition: >-
+      NID online-services account creation and access, login/password recovery, OTP or identity
+      verification, portal availability, online copy access, and other explicit portal failures.
+    include_when:
+      - The requested action is to create, access, recover, manage, or deactivate an NID online-services account.
+      - The query concerns login, password, OTP, face/biometric verification, a nonworking portal, or failure to use an online service.
+      - The query asks to obtain or download an online/PDF copy through the portal.
+    exclude_when:
+      - Online is merely the channel for a clearly stated new-registration, correction, replacement, or Smart Card process and no portal failure is asked about.
+      - The query concerns tracking a new-registration, replacement, or Smart Card application without an account/portal malfunction.
+      - The query asks to change the authoritative NID record rather than online account-profile data.
+    common_but_nonbinding_cues:
+      - account, portal, login, sign in, password, OTP, verification, website, PDF, download
+      - not working, failed, cannot access, down, recovery, reset
+      - online registration, which is ambiguous until the object of registration is known
+    confusing_neighbors:
+      - label_id: 0
+        distinction: Online account/profile management or access failure is online problem; authoritative NID-record correction is correction.
+      - label_id: 1
+        distinction: Portal-account registration is online problem; first-time NID/voter application is new registration.
+      - label_id: 2
+        distinction: Portal failure during reissue is online problem only when failure itself is the information need; replacement lifecycle remains Lost/Stolen.
+      - label_id: 4
+        distinction: Smart Card application status and distribution remain Smart ID Card unless the actual issue is portal/account access or verification.
+    clarification_triggers:
+      - The query says registration online without specifying account registration versus new NID registration.
+      - The query says status online without identifying which application lifecycle is being tracked.
+      - A generic OTP or verification failure lacks enough NID portal/service context.
+    known_source_conflicts: []
+    annotation_notes:
+      - The presence of the word online is never sufficient by itself.
+      - Route by the failed/requested action, not the channel alone.
+
+  - label_id: 4
+    label_name: Smart ID Card
+    short_definition: >-
+      Smart NID eligibility, application/registration, issuance, readiness, distribution,
+      status, collection, delay, and Smart-specific service questions not driven by loss/damage replacement.
+    include_when:
+      - The query explicitly asks about eligibility for or application to receive a Smart NID.
+      - The query concerns Smart Card readiness, status, distribution date, collection location, or delayed issuance.
+      - Smart-card-specific lifecycle information is the requested need rather than a generic NID process.
+    exclude_when:
+      - The requested action is replacement/reissue after loss, theft, or damage, even if the object is a Smart NID; this boundary has a documented source inconsistency.
+      - The query concerns first-time voter/NID enrolment without a specifically Smart Card information need.
+      - The query concerns correcting personal information or resolving an online account/portal failure.
+    common_but_nonbinding_cues:
+      - Smart NID, Smart Card, chip card
+      - eligible, apply, status, ready, collect, distribution, delayed
+      - explicit Smart wording, which identifies the object but not necessarily the requested action
+    confusing_neighbors:
+      - label_id: 1
+        distinction: First-time voter/NID enrolment is New Registration; Smart-specific issuance/distribution is Smart ID Card, with known collection conflicts in the source.
+      - label_id: 2
+        distinction: Smart issuance and collection are Smart ID Card; explicit loss/damage replacement is Lost/Stolen, with one known source conflict.
+      - label_id: 3
+        distinction: Smart Card status remains Smart ID Card; portal/account malfunction while checking it may be NID Online Problem.
+      - label_id: 0
+        distinction: Smart Card lifecycle is Smart ID Card; changing the recorded identity information represented by the card is correction.
+    clarification_triggers:
+      - The query mentions a Smart NID but gives no requested action.
+      - Smart Card collection language lacks enough context to distinguish new-registration completion from Smart distribution.
+      - Smart NID unavailable could mean delayed issuance, collection, loss, or damage.
+      - A Smart Card online status query does not reveal whether the need is application status or portal troubleshooting.
+    known_source_conflicts:
+      - NID5-ND-000048
+      - NID5-ND-000050
+      - NID5-ND-000071
+    annotation_notes:
+      - Smart wording is an entity cue, not an automatic class rule.
+      - The six affected source samples require targeted human boundary review before this contract is frozen as benchmark-grade.
