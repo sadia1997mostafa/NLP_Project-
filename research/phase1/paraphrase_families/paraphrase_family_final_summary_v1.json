@@ -1,0 +1,78 @@
+{
+  "candidate_pairs": 99,
+  "targeted_pair_human_reviews": 29,
+  "machine_assisted_candidate_pairs": 70,
+  "human_correction_count": 1,
+  "corrected_pair": "NID5-ND-000048",
+  "human_component_reviews": 1,
+  "component_samples_reviewed": 4,
+  "component_pair_relations": 6,
+  "final_human_review_sha256": "d1456ab7db0040cf1535409669a52c1ed4981b59c8c8ac9eb3abfa5c19b4ff36",
+  "human_correction_queue_sha256": "7106d42414a6d8eaa9056ab2b04ff5caa301f7eccf88839d368c7ddad25bda79",
+  "component_review_sha256": "267c1ae45eb8b5b3e9778be6a5c8902cd11f8feb5b5ccf04c9864bba92c5cadb",
+  "component_pair_derivation_sha256": "5f0306c505b00b396a4cae54255280e0d63d2faddb57477184abe2c90f649560",
+  "human_pair_decisions_sha256": "06c942dbcc06323777c3df91dbdc4ed0d2c918efc3de5bc5e7b65d2ace84c698",
+  "final_pair_decisions_sha256": "94169f1d29304875a02ca84827a46181ee7c83a73eaf16ec965340e9d3ab6c99",
+  "family_map_sha256": "2e79a570eb6f9945c3bc69605b6762b4b27b838a8bf65f55af78f2bebfc6683c",
+  "decision_distribution": {
+    "LABEL_CONFLICT_SAME_MEANING": 3,
+    "NOT_PARAPHRASE": 2,
+    "RELATED_NOT_PARAPHRASE": 17,
+    "SAME_MEANING": 39,
+    "SAME_TEMPLATE_DIFFERENT_MEANING": 38
+  },
+  "family_equivalence_distribution": {
+    "EQUIVALENT": 40,
+    "NOT_EQUIVALENT": 59
+  },
+  "family_statistics": {
+    "total_samples": 1454,
+    "total_families": 1414,
+    "multi_row_families": 40,
+    "singleton_families": 1374,
+    "largest_family_size": 2,
+    "label_conflict_families": 3,
+    "families_with_human_confirmed_edge": 14,
+    "human_reviewed_components": 14,
+    "codex_only_components": 26,
+    "mixed_provenance_components": 0,
+    "train_dev_families": 8,
+    "train_test_families": 5,
+    "dev_test_families": 0,
+    "families_crossing_more_than_two_splits": 0,
+    "samples_affected_by_cross_split_families": 26,
+    "same_label_cross_split_families": 12,
+    "cross_label_cross_split_families": 1
+  },
+  "provisional_comparison": {
+    "provisional_total_families": 1408,
+    "final_total_families": 1414,
+    "provisional_multi_row_families": 42,
+    "final_multi_row_families": 40,
+    "provisional_singleton_families": 1366,
+    "final_singleton_families": 1374,
+    "provisional_largest_family_size": 4,
+    "final_largest_family_size": 2,
+    "provisional_cross_split_affected_samples": 33,
+    "final_cross_split_affected_samples": 26
+  },
+  "cross_split_statistics": {
+    "train_dev_families": 8,
+    "train_test_families": 5,
+    "dev_test_families": 0,
+    "families_crossing_more_than_two_splits": 0,
+    "samples_affected_by_cross_split_families": 26,
+    "same_label_cross_split_families": 12,
+    "cross_label_cross_split_families": 1
+  },
+  "label_conflict_statistics": {
+    "families": 3,
+    "source_labels_changed": false
+  },
+  "final_family_status": "FROZEN",
+  "annotation_status": "TARGETED_HUMAN_REVIEW_WITH_MACHINE_ASSISTANCE",
+  "annotation_scope": "29 high-risk/ambiguous pairs human reviewed; remaining 70 retained as machine-assisted decisions",
+  "fully_human_annotated": false,
+  "unresolved_mandatory_reviews": 0,
+  "transitive_consistency": "PASS"
+}

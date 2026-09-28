@@ -1,0 +1,22 @@
+{
+  "reviewed_pairs": 29,
+  "exact_same_label_pairs": 0,
+  "exact_cross_label_pairs": 2,
+  "cross_label_equivalence_pairs": 3,
+  "ambiguous_remaining": 0,
+  "mandatory_rereview_count": 0,
+  "warning_count": 0,
+  "mandatory_pair_ids": [],
+  "status": "PASS",
+  "original_resolved_sha256": "902b2942bf3f7f3d62d033d43b03f501015928875c58c9520247700949c232cb",
+  "human_correction_queue_sha256": "7106d42414a6d8eaa9056ab2b04ff5caa301f7eccf88839d368c7ddad25bda79",
+  "final_private_review_sha256": "d1456ab7db0040cf1535409669a52c1ed4981b59c8c8ac9eb3abfa5c19b4ff36",
+  "component_pair_review_sha256": "5f0306c505b00b396a4cae54255280e0d63d2faddb57477184abe2c90f649560",
+  "human_correction_count": 1,
+  "corrected_pair": "NID5-ND-000048",
+  "human_reviewed_pairs": 29,
+  "codex_only_pairs": 70,
+  "source_text_unchanged": true,
+  "source_labels_unchanged": true,
+  "original_resolved_modified": false
+}

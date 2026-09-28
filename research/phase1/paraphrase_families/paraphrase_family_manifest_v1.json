@@ -1,0 +1,19 @@
+{
+  "protocol": "NID-5CLASS-PHASE1-PARAPHRASE-FAMILY-V1",
+  "phase0_source_sha256": "6de6ba4f342602b99254b97ad830161405baf817eb38cadee2a56980fc5e7faa",
+  "phase0_split_manifest_sha256": "4d6356191e1813e9f1ec6345614d2e0a003d134a26521bc7a702ce8a72ef11f1",
+  "task1_leakage_audit_commit": "3ef30d868dc74325be0466c57f56a32b7929de2b",
+  "task2_provisional_family_commit": "d2eaae3c14533a3feda1f3eda23724ae9044a623",
+  "human_review_validator_commit": "b961e4c8ae2aa12bb9d065198475faf420a0a51e",
+  "final_private_human_review_sha256": "d1456ab7db0040cf1535409669a52c1ed4981b59c8c8ac9eb3abfa5c19b4ff36",
+  "human_correction_queue_sha256": "7106d42414a6d8eaa9056ab2b04ff5caa301f7eccf88839d368c7ddad25bda79",
+  "component_review_sha256": "267c1ae45eb8b5b3e9778be6a5c8902cd11f8feb5b5ccf04c9864bba92c5cadb",
+  "component_pair_derivation_sha256": "5f0306c505b00b396a4cae54255280e0d63d2faddb57477184abe2c90f649560",
+  "human_pair_decisions_sha256": "06c942dbcc06323777c3df91dbdc4ed0d2c918efc3de5bc5e7b65d2ace84c698",
+  "final_pair_decisions_sha256": "94169f1d29304875a02ca84827a46181ee7c83a73eaf16ec965340e9d3ab6c99",
+  "family_map_sha256": "2e79a570eb6f9945c3bc69605b6762b4b27b838a8bf65f55af78f2bebfc6683c",
+  "python_version": "3.13.9",
+  "builder_script": "research\\phase1\\paraphrase_families\\build_final_families.py",
+  "git_starting_commit": "b961e4c8ae2aa12bb9d065198475faf420a0a51e",
+  "raw_text_in_git_outputs": false
+}
